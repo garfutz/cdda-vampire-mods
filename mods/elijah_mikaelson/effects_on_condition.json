@@ -1058,12 +1058,13 @@
     "id": "EOC_ELIJAH_BREACH_KICK_CREATURE",
     "condition": { "or": [ "u_is_character", "u_is_monster" ] },
     "effect": [
+      { "npc_location_variable": { "context_val": "kick_caster_pos" } },
       { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
       { "u_make_sound": "BOOM-CRACK! (Body Launch)", "volume": 70 },
       {
         "if": { "or": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_trait": "VAMPIRE4" } ] },
         "then": [
-          { "u_knockback": 7, "stun": 4, "dam_mult": 25, "direction_var": { "global_val": "elijah_kick_caster_pos" } },
+          { "u_knockback": 7, "stun": 4, "dam_mult": 25, "direction_var": { "context_val": "kick_caster_pos" } },
           { "math": [ "u_hp('torso') = max(20, u_hp('torso') - rng(50, 70))" ] },
           { "math": [ "u_hp('head') = max(20, u_hp('head') - rng(20, 35))" ] },
           { "u_add_effect": "bleed", "target_part": "head", "intensity": 15, "duration": "3 minutes" },
@@ -1089,7 +1090,7 @@
               ]
             },
             "then": [
-              { "u_knockback": 8, "stun": 3, "dam_mult": 20, "direction_var": { "global_val": "elijah_kick_caster_pos" } },
+              { "u_knockback": 8, "stun": 3, "dam_mult": 20, "direction_var": { "context_val": "kick_caster_pos" } },
               { "math": [ "u_hp('torso') = max(15, u_hp('torso') - rng(60, 90))" ] },
               { "math": [ "u_hp('head') = max(15, u_hp('head') - rng(25, 40))" ] },
               { "u_add_effect": "bleed", "target_part": "torso", "intensity": 10, "duration": "5 minutes" },
@@ -1104,7 +1105,7 @@
               }
             ],
             "else": [
-              { "u_knockback": 7, "stun": 3, "dam_mult": 25, "direction_var": { "global_val": "elijah_kick_caster_pos" } },
+              { "u_knockback": 7, "stun": 3, "dam_mult": 25, "direction_var": { "context_val": "kick_caster_pos" } },
               { "u_deal_damage": "bash", "amount": { "math": [ "rng(160, 200)" ] }, "arpen": 50, "hit_roll": 10000 },
               { "u_add_effect": "downed", "duration": "5 seconds" },
               { "message": "Your kick blasts the creature through the air with devastating force!", "type": "good" }
@@ -2184,6 +2185,7 @@
     "type": "effect_on_condition",
     "id": "EOC_ELIJAH_LIMB_TEAR_ORIGINAL_COUNTER",
     "effect": [
+      { "npc_location_variable": { "context_val": "counter_caster_pos" } },
       { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
       { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
       { "u_make_sound": "BOOM-CRACK! (Supernatural Parry & Hurl)", "volume": 75 },
@@ -2191,7 +2193,7 @@
         "message": "You lunge forward to seize the Original's limb, but their thousand-year-old sinew and reflexes are insurmountable! With contemptuous ease, they snatch your arm mid-reach, fracture your wrist, and violently hurl you flying across the room!",
         "type": "bad"
       },
-      { "u_knockback": 6, "stun": 2, "dam_mult": 15, "direction_var": { "global_val": "elijah_original_hurl_pos" } },
+      { "u_knockback": 6, "stun": 2, "dam_mult": 15, "direction_var": { "context_val": "counter_caster_pos" } },
       {
         "u_deal_damage": "bash",
         "bodypart": "arm_r",

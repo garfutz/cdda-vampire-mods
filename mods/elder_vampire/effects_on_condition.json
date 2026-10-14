@@ -3546,6 +3546,7 @@
     "type": "effect_on_condition",
     "id": "EOC_ELDER_VAMPIRE_LIMB_TEAR_ORIGINAL_COUNTER",
     "effect": [
+      { "npc_location_variable": { "context_val": "counter_caster_pos" } },
       { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
       { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
       { "u_make_sound": "BOOM-CRACK! (Supernatural Parry & Hurl)", "volume": 75 },
@@ -3553,7 +3554,7 @@
         "message": "You lunge forward to seize the Original's limb, but their thousand-year-old indestructible sinew and reflexes are insurmountable! With contemptuous ease, they snatch your arm mid-reach, fracture your wrist, and violently hurl you flying across the room!",
         "type": "bad"
       },
-      { "u_knockback": 6, "stun": 2, "dam_mult": 15, "direction_var": { "global_val": "ev_original_hurl_pos" } },
+      { "u_knockback": 6, "stun": 2, "dam_mult": 15, "direction_var": { "context_val": "counter_caster_pos" } },
       {
         "u_deal_damage": "bash",
         "bodypart": "arm_r",
@@ -4209,6 +4210,7 @@
     "id": "EOC_ELDER_VAMPIRE_BREACH_KICK_CREATURE",
     "condition": { "or": [ "u_is_character", "u_is_monster" ] },
     "effect": [
+      { "npc_location_variable": { "context_val": "kick_caster_pos" } },
       { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
       { "u_make_sound": "BOOM-CRACK! (Body Launch)", "volume": 65 },
       {
@@ -4223,7 +4225,7 @@
           ]
         },
         "then": [
-          { "u_knockback": 5, "stun": 2, "dam_mult": 15, "direction_var": { "global_val": "ev_kick_caster_pos" } },
+          { "u_knockback": 5, "stun": 2, "dam_mult": 15, "direction_var": { "context_val": "kick_caster_pos" } },
           {
             "u_deal_damage": "bash",
             "bodypart": "torso",
@@ -4252,7 +4254,7 @@
           }
         ],
         "else": [
-          { "u_knockback": 4, "stun": 2, "dam_mult": 12, "direction_var": { "global_val": "ev_kick_caster_pos" } },
+          { "u_knockback": 4, "stun": 2, "dam_mult": 12, "direction_var": { "context_val": "kick_caster_pos" } },
           { "u_deal_damage": "bash", "amount": { "math": [ "rng(75, 115)" ] }, "arpen": 40, "hit_roll": 10000 },
           { "u_add_effect": "downed", "duration": "3 seconds" },
           { "message": "Your target is blasted backward by the concussive force of your kick!", "type": "good" }

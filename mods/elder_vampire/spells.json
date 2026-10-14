@@ -128,7 +128,7 @@
     "effect": "effect_on_condition",
     "effect_str": "EOC_ELDER_VAMPIRE_KINETIC_THROW",
     "shape": "blast",
-    "min_range": 1,
+    "min_range": 18,
     "max_range": 18,
     "base_energy_cost": 10,
     "base_casting_time": 30,
@@ -148,7 +148,7 @@
     "effect": "effect_on_condition",
     "effect_str": "EOC_ELDER_VAMPIRE_FLEDGLING_THROW",
     "shape": "blast",
-    "min_range": 1,
+    "min_range": 7,
     "max_range": 7,
     "base_energy_cost": 5,
     "base_casting_time": 25,
@@ -282,7 +282,10 @@
     "base_energy_cost": 15,
     "base_casting_time": 35,
     "difficulty": 1,
-    "extra_effects": [ { "id": "elder_vampire_spell_breach_kick_caster" }, { "id": "elder_vampire_spell_breach_kick_creature" } ],
+    "extra_effects": [
+      { "id": "elder_vampire_spell_breach_kick_caster", "hit_self": true },
+      { "id": "elder_vampire_spell_breach_kick_creature" }
+    ],
     "flags": [ "SILENT", "NO_FAIL", "NO_PROJECTILE", "IGNORE_WALLS", "NO_HANDS" ]
   },
   {

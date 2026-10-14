@@ -95,16 +95,12 @@
     "enchantments": [
       {
         "values": [
-          { "value": "PAIN", "multiply": -0.75 },
-          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.8 },
-          { "value": "SPEED", "add": 25 },
-          { "value": "DODGE_CHANCE", "add": 25 },
-          { "value": "STRENGTH", "add": 3 },
-          { "value": "DEXTERITY", "add": 3 },
-          { "value": "PERCEPTION", "add": 3 },
-          { "value": "ARMOR_ALL", "multiply": 0.2 }
+          { "value": "PAIN", "multiply": -0.35 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.4 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.4 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.4 },
+          { "value": "SPEED", "add": 8 },
+          { "value": "DODGE_CHANCE", "add": 5 }
         ]
       }
     ]

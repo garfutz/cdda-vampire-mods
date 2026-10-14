@@ -150,7 +150,7 @@
     "base_energy_cost": 15,
     "base_casting_time": 30,
     "difficulty": 1,
-    "extra_effects": [ { "id": "klaus_spell_breach_kick_caster" }, { "id": "klaus_spell_breach_kick_creature" } ],
+    "extra_effects": [ { "id": "klaus_spell_breach_kick_caster", "hit_self": true }, { "id": "klaus_spell_breach_kick_creature" } ],
     "flags": [ "SILENT", "NO_FAIL", "NO_PROJECTILE", "IGNORE_WALLS", "NO_HANDS" ]
   },
   {
@@ -267,7 +267,7 @@
     "effect": "effect_on_condition",
     "effect_str": "EOC_KLAUS_KINETIC_THROW",
     "shape": "blast",
-    "min_range": 1,
+    "min_range": 25,
     "max_range": 25,
     "base_energy_cost": 10,
     "base_casting_time": 25,

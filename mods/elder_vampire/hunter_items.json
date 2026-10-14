@@ -16,7 +16,7 @@
     "price_postapoc": "10 USD",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "point", "balance": "good" },
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 12 ] ],
-    "melee_damage": { "bash": 8, "stab": 38, "armor_penetration": 20 },
+    "melee_damage": { "bash": 6, "stab": 20 },
     "techniques": [ "RAPID", "PRECISE", "WBLOCK_1" ],
     "flags": [ "DURABLE_MELEE", "SHEATH_KNIFE", "WOODEN_STAKE", "ALLOWS_BODY_BLOCK", "NO_SALVAGE" ],
     "weapon_category": [ "KNIVES" ]
@@ -42,14 +42,14 @@
     "armor": [
       {
         "material": [
-          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 7.0, "ignore_sheet_thickness": true },
-          { "type": "ceramic", "covered_by_mat": 95, "thickness": 6.0 },
-          { "type": "silver", "covered_by_mat": 85, "thickness": 1.0 }
+          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 3.5, "ignore_sheet_thickness": true },
+          { "type": "ceramic", "covered_by_mat": 95, "thickness": 2.5 },
+          { "type": "silver", "covered_by_mat": 85, "thickness": 0.5 }
         ],
         "covers": [ "torso" ],
         "coverage": 98,
         "cover_vitals": 95,
-        "encumbrance": 10
+        "encumbrance": 12
       }
     ]
   },
@@ -72,8 +72,8 @@
     "armor": [
       {
         "material": [
-          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 5.0, "ignore_sheet_thickness": true },
-          { "type": "silver", "covered_by_mat": 80, "thickness": 1.0 }
+          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 2.5, "ignore_sheet_thickness": true },
+          { "type": "silver", "covered_by_mat": 80, "thickness": 0.5 }
         ],
         "covers": [ "mouth" ],
         "coverage": 95,
