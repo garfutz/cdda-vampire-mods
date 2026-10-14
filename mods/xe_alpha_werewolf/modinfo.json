@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "xe_alpha_werewolf",
+    "name": "Alpha Werewolf (Xedra Evolved)",
+    "authors": [ "Andu" ],
+    "description": "Adds the Alpha Werewolf profession, the 'Last of the Pack' lone-start scenario with a battered pickup truck, and a revenge mission to hunt down the vampire lord who slaughtered your pack.  Requires Xedra Evolved.",
+    "category": "content",
+    "dependencies": [ "dda", "xedra_evolved" ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "type": "weakpoint_set",
+    "id": "wps_vampire_hunter_weaknesses",
+    "weakpoints": [
+      {
+        "id": "vampire_decapitation",
+        "name": "the neck",
+        "is_head": true,
+        "coverage": 4,
+        "difficulty": { "melee": 3 },
+        "armor_mult": { "cut": 0.5 },
+        "damage_mult": { "cut": 2.5 },
+        "crit_mult": { "cut": 5.0 },
+        "effects": [
+          {
+            "instant_death_chance": 100,
+            "damage_required": [ 30, 250 ],
+            "message": "With a brutal severing blow to the neck, you cleanly decapitate the vampire! Its head flies off, extinguishing its unholy life!"
+          }
+        ]
+      }
+    ]
+  }
+]

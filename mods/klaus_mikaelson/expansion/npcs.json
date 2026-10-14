@@ -1,0 +1,291 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_KLAUS_ELIJAH",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.  The first vampires.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "MIKAELSON_ORIGINAL_NPC" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "klaus_spell_heart", "level": 8 },
+      { "id": "klaus_spell_breach_kick", "level": 1 },
+      { "id": "klaus_spell_body_hurl", "level": 1 },
+      { "id": "klaus_spell_neck_snap", "level": 1 },
+      { "id": "klaus_spell_corpse_whirlwind", "level": 1 },
+      { "id": "klaus_spell_kinetic_throw", "level": 1 },
+      { "id": "klaus_spell_limb_tear", "level": 1 },
+      { "id": "klaus_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "klaus_elijah_worn",
+    "weapon_override": "klaus_elijah_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "klaus_npc_elijah",
+    "name_unique": "Elijah Mikaelson",
+    "gender": "male",
+    "class": "NC_KLAUS_ELIJAH",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_KLAUS_ELIJAH",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_KLAUS_REBEKAH",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.  The first vampires.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "MIKAELSON_ORIGINAL_NPC" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "klaus_spell_heart", "level": 8 },
+      { "id": "klaus_spell_breach_kick", "level": 1 },
+      { "id": "klaus_spell_body_hurl", "level": 1 },
+      { "id": "klaus_spell_neck_snap", "level": 1 },
+      { "id": "klaus_spell_corpse_whirlwind", "level": 1 },
+      { "id": "klaus_spell_kinetic_throw", "level": 1 },
+      { "id": "klaus_spell_limb_tear", "level": 1 },
+      { "id": "klaus_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "klaus_rebekah_worn",
+    "weapon_override": "klaus_rebekah_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "klaus_npc_rebekah",
+    "name_unique": "Rebekah Mikaelson",
+    "gender": "female",
+    "class": "NC_KLAUS_REBEKAH",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_KLAUS_REBEKAH",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_KLAUS_KOL",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.  The first vampires.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "MIKAELSON_ORIGINAL_NPC" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "klaus_spell_heart", "level": 8 },
+      { "id": "klaus_spell_breach_kick", "level": 1 },
+      { "id": "klaus_spell_body_hurl", "level": 1 },
+      { "id": "klaus_spell_neck_snap", "level": 1 },
+      { "id": "klaus_spell_corpse_whirlwind", "level": 1 },
+      { "id": "klaus_spell_kinetic_throw", "level": 1 },
+      { "id": "klaus_spell_limb_tear", "level": 1 },
+      { "id": "klaus_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "klaus_kol_worn",
+    "weapon_override": "klaus_kol_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "klaus_npc_kol",
+    "name_unique": "Kol Mikaelson",
+    "gender": "male",
+    "class": "NC_KLAUS_KOL",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_KLAUS_KOL",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_KLAUS_FINN",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.  The first vampires.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "MIKAELSON_ORIGINAL_NPC" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "klaus_spell_heart", "level": 8 },
+      { "id": "klaus_spell_breach_kick", "level": 1 },
+      { "id": "klaus_spell_body_hurl", "level": 1 },
+      { "id": "klaus_spell_neck_snap", "level": 1 },
+      { "id": "klaus_spell_corpse_whirlwind", "level": 1 },
+      { "id": "klaus_spell_kinetic_throw", "level": 1 },
+      { "id": "klaus_spell_limb_tear", "level": 1 },
+      { "id": "klaus_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "klaus_finn_worn",
+    "weapon_override": "klaus_finn_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "klaus_npc_finn",
+    "name_unique": "Finn Mikaelson",
+    "gender": "male",
+    "class": "NC_KLAUS_FINN",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_KLAUS_FINN",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_ELIJAH",
+    "dynamic_line": "Family above all, Niklaus.  Always and forever.  What do you need?",
+    "responses": [
+      { "text": "Come with me.  Always and forever.", "effect": "follow", "topic": "TALK_KLAUS_SIB_JOIN" },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_REBEKAH",
+    "dynamic_line": "If you ever put me back in that box, I'll put you in one.  What do you want?",
+    "responses": [
+      { "text": "Come with me.  Always and forever.", "effect": "follow", "topic": "TALK_KLAUS_SIB_JOIN" },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_KOL",
+    "dynamic_line": "The world ended and I missed it?  Typical.  Well, go on then, what's the offer?",
+    "responses": [
+      {
+        "text": "Come with me, Kol.",
+        "trial": { "type": "PERSUADE", "difficulty": 6 },
+        "success": { "effect": "follow", "topic": "TALK_KLAUS_SIB_JOIN" },
+        "failure": { "topic": "TALK_KLAUS_KOL_LEAVES" }
+      },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_FINN",
+    "dynamic_line": "We are abominations, Niklaus.  But I suppose the world is full of those now.",
+    "responses": [
+      { "text": "Come with me.  Always and forever.", "effect": "follow", "topic": "TALK_KLAUS_SIB_JOIN" },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_SIB_JOIN",
+    "dynamic_line": "Always and forever.",
+    "responses": [ { "text": "Good.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_KLAUS_KOL_LEAVES",
+    "dynamic_line": "And spend the apocalypse taking orders from you?  I don't think so, brother.  Don't wait up.",
+    "responses": [ { "text": "Kol!", "effect": "leave", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_KLAUS_VAMPIRE_HUNTER",
+    "name": { "str": "vampire hunter" },
+    "job_description": "I kill vampires.  Tonight I'm killing the one on the hill.",
+    "common": false,
+    "bonus_str": { "rng": [ 4, 6 ] },
+    "bonus_dex": { "rng": [ 3, 4 ] },
+    "bonus_per": { "rng": [ 3, 5 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 2, 3 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 4, 6 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 5, 6 ] } }
+    ],
+    "traits": [ { "trait": "KLAUS_HUNTER_VETERAN" } ],
+    "worn_override": "VAMPIRE_HUNTER_DEFAULT_worn",
+    "weapon_override": "VAMPIRE_HUNTER_DEFAULT_CROSSBOW_wield",
+    "carry_override": "klaus_hunter_carry"
+  },
+  {
+    "type": "npc",
+    "id": "klaus_npc_vampire_hunter",
+    "name_suffix": "vampire hunter",
+    "class": "NC_KLAUS_VAMPIRE_HUNTER",
+    "attitude": 10,
+    "mission": "NULL",
+    "chat": "TALK_DONE",
+    "faction": "klaus_hunter_order"
+  },
+  {
+    "type": "faction",
+    "id": "klaus_hunter_order",
+    "name": "The Order of the Ash Stake",
+    "likes_u": -100,
+    "respects_u": -100,
+    "known_by_u": false,
+    "size": 30,
+    "power": 60,
+    "wealth": 100000,
+    "description": "A brotherhood of vampire hunters older than the Council of Mystic Falls.  They have hunted the Mikaelsons for centuries and never once caught one.  The end of the world hasn't changed their priorities.",
+    "relations": {
+      "klaus_hunter_order": {
+        "kill on sight": false,
+        "watch your back": true,
+        "share my stuff": true,
+        "guard your stuff": true,
+        "lets you in": true,
+        "defends your space": true,
+        "knows your voice": true
+      }
+    }
+  }
+]

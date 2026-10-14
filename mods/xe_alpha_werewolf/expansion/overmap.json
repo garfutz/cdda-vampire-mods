@@ -1,0 +1,24 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "xe_alpha_sire_chapel",
+    "name": "ruined chapel",
+    "sym": "+",
+    "color": "white",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "xe_alpha_sire_chapel",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "xe_alpha_sire_chapel_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 3, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  }
+]

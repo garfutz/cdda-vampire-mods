@@ -1,0 +1,124 @@
+[
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_LEGEND",
+    "name": { "str": "Vampire Hunter Supreme" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "You have spent decades studying, tracking, and putting down vampires, strigoi, and nightstalkers.  You know their physiology, their feeding rhythms, and their psychological tells.  Your reflexes against the unnatural are honed to razor precision.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "ATTACK_SPEED", "multiply": 0.15 },
+          { "value": "SPEED", "multiply": 0.1 },
+          { "value": "COMBAT_CATCHUP", "add": 2.0 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_REPUTATION",
+    "name": { "str": "Feared Reputation: Van Helsing" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Your name is whispered with dread among elder covens and fledglings alike.  In the dark, you are known as the Grand Inquisitor.  Even on neutral ground, blood drinkers step aside and lower their eyes when you pass.",
+    "enchantments": [ { "values": [ { "value": "SOCIAL_INTIMIDATE", "multiply": 0.5 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_IRON_WILL",
+    "name": { "str": "Inquisitor's Iron Will" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Decades of staring into supernatural abominations have calcified your mind against psychological horror, paralyzing fear, and mesmerizing whispers.  Physical agony fails to shake your focus.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.5 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.5 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.5 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_ANATOMY",
+    "name": { "str": "Occult Anatomist" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Decades of dissecting night creatures, revenants, and elder thralls have taught you exactly where unholy tissue knits together.  Your intellect guides your strikes past unnatural defenses.",
+    "enchantments": [ { "values": [ { "value": "INTELLIGENCE", "add": 2 }, { "value": "BONUS_BLOCK", "add": 2 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_SILVER_MASTERY",
+    "name": { "str": "Silver & Ash Specialist" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "You have honed the handling of silver-forged blades and mountain-ash stakes to lethal elegance.  Your ranged aim recovers swiftly and your melee strikes flow smoothly.",
+    "enchantments": [ { "values": [ { "value": "RECOIL_MODIFIER", "multiply": -0.25 }, { "value": "ATTACK_SPEED", "multiply": 0.1 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_AURA_OF_SANCTITY",
+    "name": { "str": "Consecrated Presence" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Consecrated oils, ancient sacraments, and a lifetime of holy vigilance have steeped your very presence in spiritual hostility toward dark entities.  Monsters struggle to track your scent and rational survivors trust your conviction.",
+    "enchantments": [ { "values": [ { "value": "SCENT_MASK", "add": 40 }, { "value": "SOCIAL_PERSUADE", "multiply": 0.25 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_VAMPIRE_SENSE",
+    "name": { "str": "Nightstalker Perception" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Your senses are tuned to the subtle disturbances caused by unliving predators: the absence of breathing, the sudden drop in ambient temperature, and the sulfurous scent of ancient dust.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PERCEPTION", "add": 2 },
+          { "value": "OVERMAP_SIGHT", "add": 2 },
+          { "value": "HEARING_MULT", "multiply": 1.25 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAN_HELSING_SURVIVOR",
+    "name": { "str": "Inquisitor's Unbroken Tenacity" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "You have survived ambushes in flooded crypts, poison-tipped claws, and weeks of starvation in mountain redoubts.  Your endurance, health, and recovery defy mortal limits.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "MAX_HP", "multiply": 0.15 },
+          { "value": "STAMINA_REGEN_MOD", "add": 2 },
+          { "value": "REGEN_HP", "multiply": 1.25 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BLOOD_OF_SAINTS",
+    "name": { "str": "Blood of Saints" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Ancient inquisitorial rites and sacred consecrations have permeated your bloodstream.  Your blood is scorching venom to unholy predators, granting unnatural vitality, heightened tissue recovery, and profound resistance to infection.",
+    "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": 1.25 }, { "value": "STAMINA_REGEN_MOD", "add": 2 } ] } ]
+  }
+]

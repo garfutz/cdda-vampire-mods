@@ -1,0 +1,248 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_PROFESSION_SETUP",
+    "effect": [
+      { "math": [ "u_werewolf_xp_threshold = 8425" ] },
+      { "math": [ "u_werewolf_xp_threshold_updater = 700" ] },
+      { "math": [ "u_werewolf_give_xp_value = 1" ] },
+      { "math": [ "u_werewolf_give_xp_updater_value = 1" ] },
+      { "math": [ "u_werewolf_exp = 8100" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_SCENARIO_START",
+    "effect": [
+      {
+        "if": { "not": { "u_has_profession": "xe_alpha_werewolf" } },
+        "then": [ { "run_eocs": "scenario_werewolf_variables" } ]
+      },
+      {
+        "if": { "not": { "u_has_trait": "NATIVE_SHAPESHIFTER" } },
+        "then": [ { "u_add_trait": "NATIVE_SHAPESHIFTER" } ]
+      },
+      { "mapgen_update": "xe_alpha_den_park_truck" },
+      { "math": [ "xe_alpha_scenario = 1" ] },
+      {
+        "u_location_variable": { "global_val": "xe_alpha_fire" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "true_eocs": [ "EOC_XE_ALPHA_ROUGH_UP_TRUCK" ]
+      },
+      {
+        "u_message": "Home.  The stove has gone cold and the yard still stinks of blood and of them.  Your truck sits on the drive where you left it, dented and filthy.  The letter the bloodsucker nailed over the fire ring is in your pocket.",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_ROUGH_UP_TRUCK",
+    "effect": [
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -12
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 9, "max_level": 11 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -12
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 8, "max_level": 10 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -10
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 9, "max_level": 11 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -10
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 10, "max_level": 12 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -11,
+        "y_adjust": -11
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 4, "max_level": 6 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -10,
+        "y_adjust": -11
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 5, "max_level": 7 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -9
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 8, "max_level": 10 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -9
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 9, "max_level": 11 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -8
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 10, "max_level": 12 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -6
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 10, "max_level": 12 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -6
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 9, "max_level": 11 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -11,
+        "y_adjust": -6
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 8, "max_level": 10 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -10,
+        "y_adjust": -6
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 7, "max_level": 9 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -12
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 6, "max_level": 8 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -9,
+        "y_adjust": -8
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 7, "max_level": 9 },
+        "loc": { "context_val": "dent" }
+      },
+      {
+        "u_location_variable": { "context_val": "dent" },
+        "furniture": "f_firering",
+        "target_max_radius": 40,
+        "x_adjust": -12,
+        "y_adjust": -6
+      },
+      {
+        "u_cast_spell": { "id": "xe_alpha_dent_vehicle", "min_level": 6, "max_level": 8 },
+        "loc": { "context_val": "dent" }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_HOWL",
+    "effect": [
+      { "u_cast_spell": { "id": "xe_alpha_howl_stun" } },
+      { "u_add_effect": "xe_alpha_howl_fury", "duration": "5 minutes" },
+      { "u_make_sound": "a bone-chilling howl!", "volume": 60, "type": "combat" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_READ_LETTER",
+    "effect": [
+      {
+        "u_message": "The paper is heavy and cream-colored, the ink the brown of dried blood.  It was nailed to the tree above your fire with one of your packmate's claws.\n\n<color_light_red>\"Dog,\n\nI trust you have found what remains of your family.  The young one screamed the longest.  I had wanted all of you, but you always did run ahead of the others; it is what made you their leader, and it is what left them alone when I came.\n\nThe world is ending, and I find I no longer need to hide.  I have taken the old hunting cabin in the pines, the one your people used to meet at under the full moon.  My servants keep it for me.  Come and die with them, or run, as you do best.\n\n- A. Voss\"</color>\n\nAurelio Voss.  The vampire your pack drove out of these woods a decade ago.  You know exactly where that cabin is.",
+        "popup": true
+      },
+      {
+        "if": { "or": [ { "u_has_mission": "MISSION_XE_ALPHA_KILL_VOSS" }, { "math": [ "xe_alpha_voss_slain == 1" ] } ] },
+        "then": [ { "u_message": "The cabin is already marked on your map.", "type": "info" } ],
+        "else": [
+          { "assign_mission": "MISSION_XE_ALPHA_KILL_VOSS" },
+          { "u_message": "You know where the old cabin is.  You mark it on your map.", "type": "info" }
+        ]
+      }
+    ]
+  }
+]

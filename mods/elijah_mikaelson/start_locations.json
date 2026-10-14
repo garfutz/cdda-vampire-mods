@@ -1,0 +1,8 @@
+[
+  {
+    "type": "start_location",
+    "id": "sloc_elijah_house",
+    "name": "Elijah's House",
+    "terrain": [ "elijah_house" ]
+  }
+]

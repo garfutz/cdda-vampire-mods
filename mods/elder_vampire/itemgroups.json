@@ -1,0 +1,91 @@
+[
+  {
+    "type": "item_group",
+    "id": "mansion_books",
+    "copy-from": "mansion_books",
+    "subtype": "distribution",
+    "extend": {
+      "entries": [
+        { "item": "book_vampire_order_chronicles", "prob": 6 },
+        { "item": "book_vampire_anathema_compendium", "prob": 5 },
+        { "item": "book_vampire_stages_of_vitae", "prob": 4 }
+      ]
+    }
+  },
+  {
+    "type": "item_group",
+    "id": "esoteric_books",
+    "copy-from": "esoteric_books",
+    "subtype": "distribution",
+    "extend": {
+      "entries": [
+        { "item": "book_vampire_stages_of_vitae", "prob": 6 },
+        { "item": "book_vampire_anathema_compendium", "prob": 6 },
+        { "item": "book_vampire_order_chronicles", "prob": 4 }
+      ]
+    }
+  },
+  {
+    "type": "item_group",
+    "id": "cathedral_archives",
+    "copy-from": "cathedral_archives",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "book_vampire_order_chronicles", "prob": 8 },
+        { "item": "book_vampire_anathema_compendium", "prob": 6 },
+        { "item": "relic_moonstone_talisman", "prob": 2 },
+        { "item": "relic_papa_tunde_blade", "prob": 1 }
+      ]
+    }
+  },
+  {
+    "type": "item_group",
+    "id": "antique_rare",
+    "copy-from": "antique_rare",
+    "subtype": "distribution",
+    "extend": {
+      "entries": [
+        { "item": "relic_mikaelson_chalice", "prob": 1 },
+        { "item": "relic_dagger_of_desiccation", "prob": 1 },
+        { "item": "relic_moonstone_talisman", "prob": 1 },
+        { "item": "relic_gilbert_resonator", "prob": 1 },
+        { "item": "book_vampire_order_chronicles", "prob": 3 }
+      ]
+    }
+  },
+  {
+    "type": "item_group",
+    "id": "elder_vampire_relics",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "relic_mikaelson_chalice", "prob": 25 },
+      { "item": "relic_dagger_of_desiccation", "prob": 25 },
+      { "item": "relic_moonstone_talisman", "prob": 20 },
+      { "item": "relic_papa_tunde_blade", "prob": 15 },
+      { "item": "relic_gilbert_resonator", "prob": 15 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elder_vampire_lore_books",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "book_vampire_anathema_compendium", "prob": 40 },
+      { "item": "book_vampire_stages_of_vitae", "prob": 35 },
+      { "item": "book_vampire_order_chronicles", "prob": 25 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "vampire_hunter_gear",
+    "subtype": "collection",
+    "entries": [
+      { "item": "hunter_vervain_crossbow", "prob": 100 },
+      { "item": "hunter_wooden_stake", "count": [ 3, 8 ], "prob": 80 },
+      { "item": "vervain_tea", "prob": 60 },
+      { "item": "vervain_extract_flask", "prob": 30 },
+      { "item": "vervain_herb", "count": [ 2, 5 ], "prob": 50 }
+    ]
+  }
+]

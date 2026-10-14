@@ -1,0 +1,206 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_regen_cd",
+    "//": "Hidden cooldown for Original regeneration.",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "1 minutes"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_rage",
+    "name": [ "Mikaelson Temper" ],
+    "desc": [ "A thousand years of rage, loose.  You're stronger and faster, and you've stopped caring who gets hurt." ],
+    "apply_message": "Your eyes flash gold and your veins darken.  Someone is about to regret this.",
+    "remove_message": "The rage settles back into its cage.",
+    "rating": "good",
+    "max_duration": "10 minutes",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 6 },
+          { "value": "SPEED", "add": 30 },
+          { "value": "ATTACK_SPEED", "multiply": -0.25 },
+          { "value": "PAIN", "multiply": -0.75 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.25 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_klaus_art",
+    "text": "Lost in your art"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_klaus_white_oak",
+    "text": "Carrying white oak"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_klaus_wolf",
+    "text": "The caged wolf pacing under the moon"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_vampiric_blur",
+    "name": [ "Original Apex Stride" ],
+    "desc": [
+      "Moving with apex Original velocity, you blur across space at ~100 km/h. Movement costs are virtually eliminated (~3 moves per step) and incoming attacks are effortlessly dodged in a haze of afterimages."
+    ],
+    "apply_message": "Reality blurs into streaks of color as you engage Original apex velocity (~100 km/h)! Your movement is untouchable!",
+    "remove_message": "You slow your thousand-year-old stride, smoothly decelerating from 100 km/h back to walking pace.",
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 80 ], "dodge_mod": [ 80 ] },
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "skills": [ { "value": "dodge", "add": 50 } ],
+        "values": [ { "value": "MOVE_COST", "multiply": -0.9 }, { "value": "SPEED", "add": 60 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_staggered",
+    "name": [ "Blunt Shockwave Trauma" ],
+    "desc": [
+      "Devastating blunt trauma has shattered bones and ruptured internal organs. Supernatural cellular regeneration is temporarily suppressed while the undead body recovers from catastrophic shock."
+    ],
+    "rating": "bad",
+    "max_duration": "60 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_blood_radar",
+    "name": [ "Apex Hybrid Senses & Blood Radar" ],
+    "desc": [
+      "Your eyes burn with hybrid amber and dark veins as you unleash the combined predatory senses of an apex werewolf and an Original vampire. You can sense all living and undead creatures within 45 tiles through solid walls and pitch darkness."
+    ],
+    "apply_message": "Your apex hybrid senses flare to life. Every heartbeat, flowing vein, and bleeding wound within 45 tiles resonates in your mind.",
+    "remove_message": "You reign in your feral heightened senses as distant heartbeats fade into silence.",
+    "rating": "good",
+    "max_duration": "15 minutes",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_neck_snap_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "3 seconds",
+    "show_in_info": false
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_arm_r",
+    "name": [ "Missing Right Arm" ],
+    "desc": [ "Your right arm has been violently ripped completely off from its shoulder socket by monstrous hybrid force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_arm_l",
+    "name": [ "Missing Left Arm" ],
+    "desc": [ "Your left arm has been violently ripped completely off from its shoulder socket by monstrous hybrid force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_both_arms",
+    "name": [ "Armless Amputee" ],
+    "desc": [
+      "Both of your arms have been violently ripped from your body. You have no arms or hands, rendering you completely incapable of wielding weapons, holding items, or using manipulation."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -10 ], "speed_mod": [ -40 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.0 },
+      { "limb_score": "grip", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.0 },
+      { "limb_score": "block", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_leg_r",
+    "name": [ "Missing Right Leg" ],
+    "desc": [ "Your right leg has been violently torn free from the hip socket by monstrous hybrid force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_leg_l",
+    "name": [ "Missing Left Leg" ],
+    "desc": [ "Your left leg has been violently torn free from the hip socket by monstrous hybrid force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_missing_both_legs",
+    "name": [ "Legless Amputee" ],
+    "desc": [
+      "Both of your legs have been violently torn from your body. You are completely crippled and unable to walk, reduced to crawling on the floor."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -6 ], "speed_mod": [ -90 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_shattered_spine",
+    "name": [ "Shattered Spine & Paralysis" ],
+    "desc": [
+      "Your lower spine and lumbar vertebrae have been pulverized under an Original Hybrid's crushing stomp, leaving you completely paralyzed and crawling."
+    ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -90 ], "dex_mod": [ -8 ], "str_mod": [ -6 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  }
+]

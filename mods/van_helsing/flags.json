@@ -1,0 +1,22 @@
+[
+  {
+    "id": "WOODEN_WEAPON",
+    "type": "json_flag",
+    "info": "Made of wood. Effective at burning unliving tissue and suppressing vampire regeneration."
+  },
+  {
+    "id": "WOODEN_POINT",
+    "type": "json_flag",
+    "info": "Sharpened wooden point capable of impaling and destroying a vampire's heart."
+  },
+  {
+    "id": "WOODEN_AMMO",
+    "type": "json_flag",
+    "info": "Carved wooden projectile that embeds splinters in vampire flesh to halt regeneration."
+  },
+  {
+    "id": "SILVER",
+    "type": "json_flag",
+    "info": "Forged with pure silver or inlaid with holy silver. Deals agonizing burns to werewolves and suppressing regeneration."
+  }
+]

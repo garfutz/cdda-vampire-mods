@@ -1,0 +1,14 @@
+[
+  {
+    "type": "scenario",
+    "id": "scen_van_helsing_last_hunt",
+    "name": "Van Helsing: The Last Hunt",
+    "points": -3,
+    "description": "The Cataclysm did not just awaken the dead — it tore down the thin veil holding back ancient horrors.  As the cities burned and civilization collapsed, you fell back to your secret fortified safehouse in the rural hills.  You have spent weeks securing your armaments, checking your silver reserves, and reviewing your hunting notes.  The old networks of hunters are gone, and rogue vampires stalk the lawless ruins.  Yet one place still stands under an ancient pact: 'The Crimson Chalice' — a neutral-ground sanctuary where vampires and hunters drink side by side under strict rules of non-aggression.  You know where it is, and you must make contact.",
+    "allowed_locs": [ "sloc_van_helsing_safehouse" ],
+    "start_name": "Fortified Hunter Safehouse",
+    "professions": [ "prof_van_helsing" ],
+    "flags": [ "LONE_START" ],
+    "missions": [ "MISSION_VAN_HELSING_FIND_BAR" ]
+  }
+]

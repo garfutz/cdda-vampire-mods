@@ -1,0 +1,21 @@
+[
+  {
+    "type": "SPELL",
+    "id": "xe_alpha_countess_bats",
+    "name": { "str": "Call the Colony" },
+    "description": "The Countess calls her bats.",
+    "message": "",
+    "flags": [ "HOSTILE_SUMMON", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "ground", "self" ],
+    "min_damage": 3,
+    "max_damage": 3,
+    "min_aoe": 3,
+    "max_aoe": 3,
+    "min_duration": 60000,
+    "max_duration": 60000,
+    "base_casting_time": 100,
+    "shape": "blast",
+    "effect": "summon",
+    "effect_str": "mon_vampire_bat"
+  }
+]

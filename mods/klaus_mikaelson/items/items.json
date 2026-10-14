@@ -1,0 +1,286 @@
+[
+  {
+    "id": "klaus_henley",
+    "type": "ITEM",
+    "copy-from": "longshirt",
+    "name": { "str": "charcoal henley" },
+    "description": "A soft, charcoal-grey henley with the sleeves pushed up.  You've worn some version of this shirt for about a century.",
+    "color": "dark_gray"
+  },
+  {
+    "id": "klaus_jacket",
+    "type": "ITEM",
+    "copy-from": "jacket_leather",
+    "name": { "str": "dark field jacket" },
+    "description": "A well-cut dark jacket in waxed canvas and leather, expensive and a little battered.",
+    "color": "dark_gray",
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_jacket_dark",
+        "name": { "str": "dark field jacket" },
+        "description": "A well-cut dark jacket in waxed canvas and leather, expensive and a little battered.",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "klaus_necklaces",
+    "type": "ITEM",
+    "copy-from": "silver_necklace",
+    "name": { "str_sp": "layered necklaces" },
+    "description": "Several necklaces worn together: leather cords, a small silver pendant, beads.  Trinkets gathered over a thousand years, and you won't say where any of them came from."
+  },
+  {
+    "id": "klaus_rings",
+    "type": "ITEM",
+    "copy-from": "ring_signet",
+    "name": { "str": "heavy silver ring" },
+    "description": "A heavy silver ring engraved with an old Norse knotwork pattern.  You wear it because you like it; the ring that keeps you alive in daylight is the other one."
+  },
+  {
+    "id": "klaus_sketchbook",
+    "type": "ITEM",
+    "subtypes": [ "BOOK" ],
+    "copy-from": "priest_diary",
+    "name": { "str": "leather sketchbook" },
+    "description": "A thick leather-bound sketchbook full of your charcoal drawings: faces, wolves, the bayou, a little girl with your eyes.  Sketching in it calms you (read it).",
+    "intelligence": 0,
+    "time": "30 m",
+    "read_fun": 6
+  },
+  {
+    "id": "elijah_white_oak_stake",
+    "type": "ITEM",
+    "copy-from": "pointy_stick",
+    "name": { "str": "white oak stake" },
+    "description": "A stake carved from the last of the white oak.  The only thing in the world that can kill an Original, including you.  You hid it so well that you sometimes worry you'll forget where.  You never do.",
+    "color": "white",
+    "weight": "300 g",
+    "volume": "400 ml",
+    "longest_side": "40 cm",
+    "melee_damage": { "bash": 2, "stab": 20 },
+    "use_action": { "type": "cast_spell", "spell_id": "white_oak_stake_heart_plunge", "no_fail": true, "level": 1 }
+  },
+  {
+    "id": "klaus_silver_dagger",
+    "type": "ITEM",
+    "copy-from": "knife_combat",
+    "name": { "str": "silver dagger" },
+    "description": "An ornate silver dagger, its blade dulled with white oak ash.  Driven into an Original's heart, it puts them into a dead sleep until someone pulls it out.  You've used these on every one of your siblings.",
+    "material": [ "silver" ],
+    "color": "light_gray"
+  },
+  {
+    "id": "klaus_bourbon",
+    "type": "ITEM",
+    "subtypes": [ "COMESTIBLE" ],
+    "copy-from": "single_malt_whiskey",
+    "name": { "str_sp": "Mikaelson bourbon" },
+    "description": "Very old, very good bourbon from the bar at the Abattoir.  It's the one thing about America you've never complained about."
+  },
+  {
+    "id": "klaus_daylight_ring",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "copy-from": "ring_signet",
+    "name": { "str": "Original's daylight ring" },
+    "description": "A heavy, dark-banded ring set with a lapis lazuli stone, spelled by a witch a thousand years ago so that you and your siblings could walk in the sun.  Take it off in daylight and you burn.",
+    "material": [ "silver" ],
+    "color": "light_blue",
+    "price": "5000 USD",
+    "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "ench_effects": [ { "effect": "vampire_blind_the_sun", "intensity": 1 } ] } ]
+  },
+  {
+    "id": "klaus_moonstone",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "the moonstone" },
+    "description": "A smooth, pale grey stone that seems faintly luminous in the dark.  The curse of the sun and the moon is bound into it, and it's one of the five things you need to break it.  You've waited centuries to hold it.",
+    "symbol": "*",
+    "color": "light_gray",
+    "weight": "150 g",
+    "volume": "60 ml",
+    "material": [ "stone" ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Begin the ritual",
+      "menu_text": "Study the moonstone",
+      "effect_on_conditions": [ "EOC_KLAUS_MOONSTONE" ]
+    }
+  },
+  {
+    "id": "klaus_petrova_sketch",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "charcoal sketch of Katerina Petrova" },
+    "description": "Your own drawing, done in 1492 in England: a dark-haired young woman with a sly smile.  Katerina Petrova, the doppelganger whose blood was meant to break your curse, before she turned herself into a vampire to escape you.  Her line lives on somewhere."
+  },
+  {
+    "id": "klaus_family_portrait",
+    "type": "ITEM",
+    "copy-from": "painting",
+    "name": { "str": "Mikaelson family portrait" },
+    "description": "An oil painting in your own hand: Elijah in his suit, Rebekah laughing, Kol scowling, Finn pretending not to be there, and you at the edge of it all.  Always and forever.",
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_portrait",
+        "name": { "str": "Mikaelson family portrait" },
+        "description": "An oil painting in your own hand: Elijah in his suit, Rebekah laughing, Kol scowling, Finn pretending not to be there, and you at the edge of it all.  Always and forever.",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "klaus_coffin_plate",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "brass nameplate" },
+    "description": "A brass nameplate pried from one of the Mikaelson coffins.",
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_plate_elijah",
+        "name": { "str": "brass nameplate (Elijah)" },
+        "description": "\"ELIJAH\".  The noble one.  He always forgives you, eventually.",
+        "weight": 1
+      },
+      {
+        "id": "klaus_plate_rebekah",
+        "name": { "str": "brass nameplate (Rebekah)" },
+        "description": "\"REBEKAH\".  She'll be furious when she wakes up.  She always is.",
+        "weight": 1
+      },
+      {
+        "id": "klaus_plate_kol",
+        "name": { "str": "brass nameplate (Kol)" },
+        "description": "\"KOL\".  The reckless one.  Daggered for a century, give or take.",
+        "weight": 1
+      },
+      {
+        "id": "klaus_plate_finn",
+        "name": { "str": "brass nameplate (Finn)" },
+        "description": "\"FINN\".  The eldest, and the dullest.  Nine hundred years in a box.",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "original_severed_head",
+    "type": "ITEM",
+    "name": { "str": "severed head", "str_pl": "severed heads" },
+    "looks_like": "skull_human",
+    "description": "A bloody severed head violently torn from the shoulders of its victim with thousand-year-old Original force.  Warm residual blood still drips from the ragged neck stump.  Activate ('a') to drain its remaining blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "4200 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed head",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_head_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_head",
+    "name": { "str": "exsanguinated severed head", "str_pl": "exsanguinated severed heads" },
+    "looks_like": "skull_human",
+    "description": "A pale, bloodless severed head drained completely dry of its residual vitae.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "4000 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated head as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_arm",
+    "type": "ITEM",
+    "name": { "str": "severed arm", "str_pl": "severed arms" },
+    "looks_like": "bone_human",
+    "description": "A blood-soaked arm violently ripped from its shoulder socket with monstrous Original strength.  Warm blood still oozes from its torn brachial artery.  Activate ('a') to drain its residual blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "3200 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed arm",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_ARM" ]
+    }
+  },
+  {
+    "id": "original_severed_arm_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_arm",
+    "name": { "str": "exsanguinated severed arm", "str_pl": "exsanguinated severed arms" },
+    "looks_like": "bone_human",
+    "description": "A pale, bloodless severed arm sucked dry of its residual blood.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "3000 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated arm as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_leg",
+    "type": "ITEM",
+    "name": { "str": "severed leg", "str_pl": "severed legs" },
+    "looks_like": "large_bone",
+    "description": "A heavy, blood-drenched leg savagely wrenched free from its hip socket by an Original vampire.  Warm blood still pools in its torn femoral artery.  Activate ('a') to drain its residual blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "6500 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed leg",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_LEG" ]
+    }
+  },
+  {
+    "id": "original_severed_leg_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_leg",
+    "name": { "str": "exsanguinated severed leg", "str_pl": "exsanguinated severed legs" },
+    "looks_like": "large_bone",
+    "description": "A pale, bloodless severed leg drained dry of its femoral blood.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "6200 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated leg as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  }
+]

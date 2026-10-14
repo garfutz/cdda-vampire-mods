@@ -1,0 +1,34 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_klaus_coffin_elijah",
+    "copy-from": "f_coffin_c",
+    "name": "Elijah's coffin",
+    "description": "An ornate coffin.  The noble one, in a perfect suit even after decades in a box.  A silver dagger in the heart keeps them in a dead sleep.  Examine to pull it out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_KLAUS_COFFIN_ELIJAH" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_klaus_coffin_rebekah",
+    "copy-from": "f_coffin_c",
+    "name": "Rebekah's coffin",
+    "description": "An ornate coffin.  Your little sister, and absolutely furious.  A silver dagger in the heart keeps them in a dead sleep.  Examine to pull it out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_KLAUS_COFFIN_REBEKAH" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_klaus_coffin_kol",
+    "copy-from": "f_coffin_c",
+    "name": "Kol's coffin",
+    "description": "An ornate coffin.  The reckless youngest brother, grinning like a wolf.  A silver dagger in the heart keeps them in a dead sleep.  Examine to pull it out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_KLAUS_COFFIN_KOL" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_klaus_coffin_finn",
+    "copy-from": "f_coffin_c",
+    "name": "Finn's coffin",
+    "description": "An ornate coffin.  The eldest.  Nine hundred years in a coffin, and he hates what he is.  A silver dagger in the heart keeps them in a dead sleep.  Examine to pull it out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_KLAUS_COFFIN_FINN" ] }
+  }
+]

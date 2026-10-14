@@ -1,0 +1,340 @@
+[
+  {
+    "id": "elijah_daylight_ring",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "copy-from": "ring_signet",
+    "name": { "str": "Elijah's daylight ring" },
+    "description": "A heavy silver ring set with lapis lazuli, spelled by the witch Ayana a thousand years ago so that the Originals could walk in the sun.  The M engraved inside is worn almost smooth.  Take it off in daylight and you burn.",
+    "material": [ "silver" ],
+    "color": "light_blue",
+    "price": "5000 USD",
+    "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "ench_effects": [ { "effect": "vampire_blind_the_sun", "intensity": 1 } ] } ]
+  },
+  {
+    "id": "elijah_suit",
+    "type": "ITEM",
+    "copy-from": "suit",
+    "name": { "str": "bespoke three-piece suit" },
+    "description": "Charcoal wool, hand-tailored in London, with a waistcoat and a silk lining.  You've fought in it, fed in it and torn hearts out in it, and the tailor has never once asked about the stains.  It is, somehow, still immaculate."
+  },
+  {
+    "id": "elijah_pocket_square",
+    "type": "ITEM",
+    "copy-from": "bandana",
+    "name": { "str": "silk pocket square" },
+    "description": "A folded square of white silk.  You keep it for wiping blood from your hands after the unpleasant parts of the evening.  You have gone through a great many of them."
+  },
+  {
+    "id": "elijah_journal_blank",
+    "type": "ITEM",
+    "copy-from": "leather_journal",
+    "name": { "str": "Elijah's current journal" },
+    "description": "A fine leather journal, half full of your careful handwriting.  You've kept one every year for a millennium."
+  },
+  {
+    "id": "elijah_lore_journal_1002",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "Elijah's journal, the year 1002" },
+    "description": "Brittle vellum bound in wood and hide, written in Old Norse.  The oldest of your journals.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "?",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_JOURNAL_1002" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "elijah_lore_journal_1002",
+        "name": { "str_sp": "Elijah's journal, the year 1002" },
+        "description": "Brittle vellum bound in wood and hide, written in Old Norse.  The oldest of your journals.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "elijah_lore_katerina_letter",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "unsent letter to Katerina, 1492" },
+    "description": "A folded sheet of English paper, never sealed, dated 1492.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": ",",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_KATERINA_LETTER" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "elijah_lore_katerina_letter",
+        "name": { "str_sp": "unsent letter to Katerina, 1492" },
+        "description": "A folded sheet of English paper, never sealed, dated 1492.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "elijah_lore_journal_1919",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "Elijah's journal, New Orleans, 1919" },
+    "description": "A slim journal in a hand-tooled leather cover, the last pages written in a hurry.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "?",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_JOURNAL_1919" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "elijah_lore_journal_1919",
+        "name": { "str_sp": "Elijah's journal, New Orleans, 1919" },
+        "description": "A slim journal in a hand-tooled leather cover, the last pages written in a hurry.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "elijah_lore_red_door_note",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "a page about the red door" },
+    "description": "A single page torn from a journal, written in a hand that is yours but not quite steady.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": ",",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_RED_DOOR_NOTE" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "elijah_lore_red_door_note",
+        "name": { "str_sp": "a page about the red door" },
+        "description": "A single page torn from a journal, written in a hand that is yours but not quite steady.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "elijah_lore_niklaus_sketch",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str_sp": "Niklaus's sketch of you" },
+    "description": "A charcoal sketch of a man reading by candlelight, signed with a scrawled N in the corner.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "*",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_NIKLAUS_SKETCH" ]
+    }
+  },
+  {
+    "id": "elijah_lore_vow",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "the vow, in Rebekah's hand" },
+    "description": "A scrap of old linen embroidered in faded thread with three words.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": ",",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_ELIJAH_LORE_VOW" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "elijah_lore_vow",
+        "name": { "str_sp": "the vow, in Rebekah's hand" },
+        "description": "A scrap of old linen embroidered in faded thread with three words.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elijah_lore",
+    "text": "Remembered something that matters"
+  },
+  {
+    "id": "elijah_silver_dagger",
+    "type": "ITEM",
+    "copy-from": "knife_combat",
+    "name": { "str": "silver dagger" },
+    "description": "An ornate silver dagger, its blade dulled with white oak ash.  Driven into an Original's heart, it puts them into a dead sleep until someone pulls it out.  Your family has used these on each other for a thousand years.",
+    "material": [ "silver" ]
+  },
+  {
+    "id": "elijah_white_oak_stake",
+    "type": "ITEM",
+    "copy-from": "pointy_stick",
+    "name": { "str": "white oak stake" },
+    "description": "A stake carved from the last of the white oak.  The only thing in the world that can kill an Original, including you.  You hid it so well that you sometimes worry you'll forget where.  You never do.",
+    "use_action": { "type": "cast_spell", "spell_id": "white_oak_stake_heart_plunge", "no_fail": true, "level": 1 }
+  },
+  {
+    "id": "elijah_hunter_stake",
+    "type": "ITEM",
+    "copy-from": "pointy_stick",
+    "name": { "str": "ash-wood stake" },
+    "description": "A fire-hardened stake of ordinary ash wood.  It kills ordinary vampires.  It can't kill an Original."
+  },
+  {
+    "id": "elijah_doppelganger_blood",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "vial of doppelganger's blood" },
+    "description": "A sealed glass vial of dark blood labelled \"PETROVA\".  The one thing your brother needs to break his curse.",
+    "symbol": "!",
+    "color": "red",
+    "material": [ "glass" ],
+    "weight": "40 g",
+    "volume": "30 ml"
+  },
+  {
+    "id": "elijah_coffin_plate",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "brass coffin nameplate" },
+    "description": "A brass nameplate engraved with one of your siblings' names."
+  },
+  {
+    "id": "original_severed_head",
+    "type": "ITEM",
+    "name": { "str": "severed head", "str_pl": "severed heads" },
+    "looks_like": "skull_human",
+    "description": "A bloody severed head violently torn from the shoulders of its victim with thousand-year-old Original force.  Warm residual blood still drips from the ragged neck stump.  Activate ('a') to drain its remaining blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "4200 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed head",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_head_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_head",
+    "name": { "str": "exsanguinated severed head", "str_pl": "exsanguinated severed heads" },
+    "looks_like": "skull_human",
+    "description": "A pale, bloodless severed head drained completely dry of its residual vitae.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "4000 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated head as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_arm",
+    "type": "ITEM",
+    "name": { "str": "severed arm", "str_pl": "severed arms" },
+    "looks_like": "bone_human",
+    "description": "A blood-soaked arm violently ripped from its shoulder socket with monstrous Original strength.  Warm blood still oozes from its torn brachial artery.  Activate ('a') to drain its residual blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "3200 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed arm",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_ARM" ]
+    }
+  },
+  {
+    "id": "original_severed_arm_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_arm",
+    "name": { "str": "exsanguinated severed arm", "str_pl": "exsanguinated severed arms" },
+    "looks_like": "bone_human",
+    "description": "A pale, bloodless severed arm sucked dry of its residual blood.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "3000 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated arm as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "original_severed_leg",
+    "type": "ITEM",
+    "name": { "str": "severed leg", "str_pl": "severed legs" },
+    "looks_like": "large_bone",
+    "description": "A heavy, blood-drenched leg savagely wrenched free from its hip socket by an Original vampire.  Warm blood still pools in its torn femoral artery.  Activate ('a') to drain its residual blood (+60 to +100 mL) or brandish it as a grisly trophy.",
+    "weight": "6500 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed leg",
+      "effect_on_conditions": [ "EOC_ORIGINAL_USE_LEG" ]
+    }
+  },
+  {
+    "id": "original_severed_leg_drained",
+    "type": "ITEM",
+    "copy-from": "original_severed_leg",
+    "name": { "str": "exsanguinated severed leg", "str_pl": "exsanguinated severed legs" },
+    "looks_like": "large_bone",
+    "description": "A pale, bloodless severed leg drained dry of its femoral blood.  Can still be brandished ('a') or launched at supersonic speed.",
+    "weight": "6200 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated leg as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ORIGINAL_BRANDISH_HEAD" ]
+    }
+  }
+]

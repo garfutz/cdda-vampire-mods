@@ -1,0 +1,30 @@
+[
+  {
+    "type": "item_group",
+    "id": "xe_alpha_wren_worn",
+    "subtype": "collection",
+    "entries": [ { "item": "tank_top" }, { "item": "jeans" }, { "item": "socks" }, { "item": "hoodie" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "xe_alpha_countess_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "xe_alpha_countess_ring" }, { "item": "gold_small", "count": 25 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "xe_alpha_chapel_altar",
+    "subtype": "collection",
+    "entries": [
+      { "item": "candle", "count": [ 4, 8 ] },
+      { "item": "candlestick", "count": 2 },
+      { "item": "bone", "count": [ 3, 6 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "xe_alpha_chapel_bottles",
+    "subtype": "collection",
+    "entries": [ { "item": "bottle_glass", "count": [ 3, 6 ] } ]
+  }
+]

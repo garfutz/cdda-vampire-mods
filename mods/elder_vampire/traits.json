@@ -1,0 +1,112 @@
+[
+  {
+    "type": "mutation",
+    "id": "ELDER_VAMPIRE_REGENERATION",
+    "name": { "str": "Ancient Sanguine Regeneration" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Centuries of existence have refined your physiology into an engine of supernatural restoration.  Stored blood directly mends your tissue and bones:\n• <color_light_green>High Blood (over 1800 mL):</color> Broken bones mend in ~1 min (+5 HP / 5s); lacerations seal in ~30s (-1 bleed / 5s). Burns 4 mL blood/tick.\n• <color_yellow>Moderate Blood (850 to 1800 mL):</color> Steady restoration every 15s (+3 HP, -1 bleed). Burns 3 mL blood/tick.\n• <color_light_red>Low Blood (under 850 mL):</color> Slow mending every 45s (+1 HP, -1 bleed). Burns 1 mL blood/tick.\n• <color_red>Starving (0 mL or less):</color> Regeneration ceases completely until blood is drunk.  As an immortal Elder Progenitor, you are completely immune to dying from blood starvation or withering; your body only grows weak until you feed.\n• <color_red>Sunlight Vulnerability:</color> Standing outdoors in daylight without a daylight ring scorches your flesh with agonizing heat and completely negates all regeneration.\n\n• <color_cyan>Sanguine Surge:</color> Consuming blood from any source diminishes active bleeding wounds (-15 bleed burst) and grants a single 10s healing surge (+1 HP/s, 10s strict cooldown).\n\nYour deadened nerves and ancient vampiric constitution suppress incoming pain by 75%, almost eliminate physical stat penalties from wounds, and prevent falls from any height from killing you (though the impact still damages and fractures your limbs as normal).",
+    "flags": [ "NO_THIRST" ],
+    "armor": [ { "parts": [ "torso" ], "stab": 12, "bash": 10, "cut": 8 } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN", "multiply": -0.75 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_INT", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_PER", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.8 },
+          { "value": "MAX_MANA", "add": 1000 },
+          { "value": "REGEN_MANA", "multiply": 1.0 }
+        ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_elder_vampire_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 4 }, { "value": "NIGHT_VIS", "add": 10 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 35,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_red",
+                "text": "You sense a creature's movement and smell blood through the darkness and walls here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELDER_VAMPIRE_THRALL_VITALITY",
+    "name": { "str": "Progenitor's Vitae Resilience" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Your veins pulse with concentrated Elder Progenitor blood.  Your deadened undead constitution grants you supreme resilience, immunity to pain penalties, high blunt and cutting absorption, and rapid movement speed.",
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 15,
+        "bash": 15,
+        "stab": 15,
+        "bullet": 10
+      }
+    ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.9 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.9 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.9 },
+          { "value": "SPEED", "multiply": 0.25 },
+          { "value": "STRENGTH", "add": 4 },
+          { "value": "DEXTERITY", "add": 3 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRAIT_VAMPIRE_HUNTER_RESOLVE",
+    "name": { "str": "Hunter's Iron Resolve" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Hardened by countless lethal hunts against the creatures of the night, this master hunter possesses unbreakable willpower, peak physical conditioning, master Krav Maga combat training, and a bloodstream saturated with mountain vervain.  Completely immune to supernatural terror, panic, and vampiric fear.",
+    "initial_ma_styles": [ "style_krav_maga" ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN", "multiply": -0.75 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.8 },
+          { "value": "SPEED", "add": 25 },
+          { "value": "DODGE_CHANCE", "add": 25 },
+          { "value": "STRENGTH", "add": 3 },
+          { "value": "DEXTERITY", "add": 3 },
+          { "value": "PERCEPTION", "add": 3 },
+          { "value": "ARMOR_ALL", "multiply": 0.2 }
+        ]
+      }
+    ]
+  }
+]

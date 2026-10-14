@@ -1,0 +1,80 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_HATCH",
+    "effect": [
+      {
+        "if": { "math": [ "xe_alpha_wren_freed == 1" ] },
+        "then": [ { "u_message": "The cellar is empty now, apart from the chains and the smell.", "type": "info" } ],
+        "else": [
+          {
+            "run_eoc_selector": [ "EOC_XE_ALPHA_FREE_WREN", "EOC_XE_ALPHA_LEAVE_HATCH" ],
+            "names": [ "Tear the chain off and open the hatch", "Leave it shut" ],
+            "keys": [ "y", "n" ],
+            "title": "A weak voice from under the floor: \"Is he gone?  Please...\"",
+            "allow_cancel": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_FREE_WREN",
+    "effect": [
+      { "math": [ "xe_alpha_wren_freed = 1" ] },
+      { "u_spawn_npc": "xe_alpha_npc_wren", "real_count": 1, "min_radius": 1, "max_radius": 1 },
+      {
+        "u_message": "You rip the chain apart and haul the hatch open.  A young woman is shackled to the cellar wall, pale and covered in bite marks, but she's alive, and her eyes flash gold when she sees you.  A werewolf.  You snap the shackles and she climbs out on shaking legs.",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_LEAVE_HATCH",
+    "effect": [ { "u_message": "You leave the hatch shut.  The breathing below goes quiet.", "type": "info" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_XE_ALPHA_FULL_MOON_RISES",
+    "recurrence": "10 minutes",
+    "condition": {
+      "and": [
+        { "u_has_trait": "XE_ALPHA_OF_THE_PEOPLE" },
+        { "and": [ { "not": "is_day" }, { "math": [ "moon_phase() == 4" ] } ] },
+        { "not": { "u_has_effect": "effect_xe_alpha_moon_cd" } }
+      ]
+    },
+    "deactivate_condition": { "not": { "u_has_trait": "XE_ALPHA_OF_THE_PEOPLE" } },
+    "effect": [
+      { "u_add_effect": "effect_xe_alpha_moon_cd", "duration": "16 hours" },
+      {
+        "u_add_morale": "morale_feeling_good",
+        "bonus": 20,
+        "max_bonus": 20,
+        "duration": "8 hours",
+        "decay_start": "6 hours"
+      },
+      {
+        "u_message": "The full moon clears the treeline and floods through you like fire.  Stronger, faster, hungrier.  Tonight the woods belong to you.",
+        "popup": true
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 2 } },
+        "then": [
+          {
+            "u_spawn_monster": "mon_xe_alpha_rogue_wolf",
+            "real_count": { "math": [ "rng(1, 2)" ] },
+            "min_radius": 18,
+            "max_radius": 30
+          },
+          {
+            "u_message": "Howls answer yours from the ridge.  Rogue wolves, drawn by the moon and the scent of an Alpha, have come to take your territory.",
+            "type": "warning"
+          }
+        ]
+      }
+    ]
+  }
+]

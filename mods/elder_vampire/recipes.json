@@ -1,0 +1,103 @@
+[
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "elder_vampire_blood_flask",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_CONTAINERS",
+    "skill_used": "fabrication",
+    "difficulty": 1,
+    "time": "1 m",
+    "autolearn": true,
+    "components": [ [ [ "thermos", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "MODERATE_EXERCISE",
+    "result": "elder_vampire_unbound_daylight_ring",
+    "category": "CC_ARMOR",
+    "subcategory": "CSC_ARMOR_OTHER",
+    "skill_used": "fabrication",
+    "difficulty": 5,
+    "skills_required": [ [ "survival", 3 ] ],
+    "time": "30 m",
+    "autolearn": true,
+    "qualities": [ { "id": "BOIL", "level": 1 } ],
+    "tools": [ [ [ "water_boiling_heat", 10, "LIST" ] ] ],
+    "components": [
+      [
+        [ "ring_signet", 1 ],
+        [ "elder_vampire_signet_ring", 1 ],
+        [ "silver_ring", 1 ],
+        [ "gold_ring", 1 ],
+        [ "copper_ring", 1 ],
+        [ "platinum_ring", 1 ],
+        [ "diamond_ring", 1 ],
+        [ "ring_engagement", 1 ],
+        [ "ring_wedding", 1 ],
+        [ "ring_purity", 1 ]
+      ],
+      [ [ "blood", 2 ], [ "demihuman_blood", 2 ], [ "elder_vampire_fresh_heart", 1 ] ],
+      [ [ "charcoal", 2 ], [ "coal_lump", 2 ] ]
+    ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "vervain_tea",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_DRINKS",
+    "skill_used": "survival",
+    "difficulty": 1,
+    "time": "5 m",
+    "charges": 1,
+    "autolearn": true,
+    "qualities": [ { "id": "BOIL", "level": 1 } ],
+    "tools": [ [ [ "water_boiling_heat", 3, "LIST" ] ] ],
+    "components": [ [ [ "vervain_herb", 1 ] ], [ [ "water", 1 ], [ "water_clean", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "hunter_wooden_stake",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "survival",
+    "difficulty": 1,
+    "time": "4 m",
+    "charges": 1,
+    "autolearn": true,
+    "qualities": [ { "id": "CUT", "level": 1 } ],
+    "components": [ [ [ "stick", 1 ], [ "2x4", 1 ], [ "splinter", 2 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "vervain_extract_flask",
+    "category": "CC_CHEM",
+    "subcategory": "CSC_CHEM_DRUGS",
+    "skill_used": "cooking",
+    "difficulty": 2,
+    "skills_required": [ [ "survival", 2 ] ],
+    "time": "20 m",
+    "autolearn": true,
+    "qualities": [ { "id": "BOIL", "level": 1 } ],
+    "tools": [ [ [ "water_boiling_heat", 5, "LIST" ] ] ],
+    "components": [ [ [ "vervain_herb", 3 ] ], [ [ "chem_ethanol", 1 ], [ "whiskey", 1 ], [ "vodka", 1 ] ], [ [ "bottle_glass", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "splinter",
+    "description": "Carefully pick and pluck embedded wooden splinters from your undead tissue to restore your supernatural blood regeneration.",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MEDICAL",
+    "skill_used": "firstaid",
+    "difficulty": 0,
+    "time": "10 s",
+    "charges": 1,
+    "autolearn": true,
+    "qualities": [ { "id": "CUT", "level": 1 } ],
+    "result_eocs": [ "EOC_PLUCK_WOOD_SPLINTERS" ]
+  }
+]

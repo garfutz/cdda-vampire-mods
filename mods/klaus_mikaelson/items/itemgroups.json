@@ -1,0 +1,135 @@
+[
+  {
+    "type": "item_group",
+    "id": "klaus_studio",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_family_portrait" },
+      { "item": "painting", "count": [ 2, 3 ] },
+      { "item": "sheet_canvas", "count": 3 },
+      { "item": "paint_brush", "count": 2 },
+      { "item": "charcoal", "count": 6 },
+      { "item": "pencil", "count": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_bar",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_bourbon", "count": [ 3, 5 ] }, { "item": "wine_noir", "count": 2 }, { "item": "glass", "count": 3 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_blood_fridge",
+    "subtype": "collection",
+    "entries": [ { "item": "blood", "charges": 2, "count": 12, "container-item": "bag_iv" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_wardrobe",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_henley", "count": 3 },
+      { "item": "jeans", "count": 2 },
+      { "item": "klaus_jacket" },
+      { "item": "boots" },
+      { "item": "socks", "count": 3 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_library",
+    "subtype": "collection",
+    "entries": [ { "item": "poetry_book", "count": 2 }, { "item": "klaus_lore_mikael_journal" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coffin_elijah",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_coffin_plate", "variant": "klaus_plate_elijah" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coffin_rebekah",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_coffin_plate", "variant": "klaus_plate_rebekah" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coffin_kol",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_coffin_plate", "variant": "klaus_plate_kol" }, { "item": "klaus_lore_kol_note" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coffin_finn",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_coffin_plate", "variant": "klaus_plate_finn" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_strongbox",
+    "subtype": "collection",
+    "entries": [
+      { "item": "elijah_white_oak_stake" },
+      { "item": "gold_small", "count": 20 },
+      { "item": "cash_card", "charges": 1000000 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_display",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_silver_dagger", "count": 2 },
+      { "item": "painting", "count": 2 },
+      { "item": "klaus_family_portrait", "prob": 50 },
+      { "item": "cavalry_sabre" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_viking_chest",
+    "subtype": "collection",
+    "entries": [
+      { "item": "battleaxe" },
+      { "item": "throwing_axe", "count": 2 },
+      { "item": "fur_blanket" },
+      { "item": "chalice" },
+      { "item": "candlestick", "count": 2 },
+      { "item": "book_nonf_hard_history_ancient" },
+      { "item": "gold_small", "count": [ 5, 10 ] },
+      { "item": "skull_human", "prob": 40 },
+      { "item": "klaus_lore_esther_page" },
+      { "item": "klaus_lore_rebekah_photo" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coffee_table",
+    "subtype": "collection",
+    "entries": [ { "item": "chess" }, { "item": "case_cigar" }, { "item": "klaus_bourbon" }, { "item": "wine_glass", "count": 2 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_candles",
+    "subtype": "collection",
+    "entries": [
+      { "item": "candlestick", "count": [ 1, 2 ] },
+      { "item": "candle", "count": [ 2, 4 ] },
+      { "item": "wine_glass", "prob": 60 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_desk",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_moonstone" },
+      { "item": "klaus_petrova_sketch" },
+      { "item": "pen" },
+      { "item": "charcoal", "count": 3 },
+      { "item": "klaus_lore_elijah_letter" }
+    ]
+  }
+]

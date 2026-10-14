@@ -1,0 +1,22 @@
+[
+  {
+    "type": "effect_type",
+    "id": "xe_alpha_howl_fury",
+    "name": [ "Alpha's Fury" ],
+    "desc": [ "You howled, and every living thing nearby heard the leader of the pack.  Your blood is up." ],
+    "apply_message": "Your howl shakes the trees.  Your blood is up.",
+    "remove_message": "The hunting fury fades.",
+    "rating": "good",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 4 },
+          { "value": "SPEED", "add": 25 },
+          { "value": "ATTACK_SPEED", "multiply": -0.2 },
+          { "value": "PAIN", "multiply": -0.5 },
+          { "value": "ARMOR_ALL", "add": -5 }
+        ]
+      }
+    ]
+  }
+]

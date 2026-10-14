@@ -1,0 +1,28 @@
+[
+  {
+    "id": "klaus_doppelganger_blood",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "vial of doppelganger's blood" },
+    "description": "A sealed glass vial of dark blood, labelled in a careful hand: \"PETROVA\".  The last thing you need to break the curse, and later, the only thing that lets you make more of your kind.",
+    "symbol": "!",
+    "color": "red",
+    "material": [ "glass" ],
+    "weight": "40 g",
+    "volume": "30 ml"
+  },
+  {
+    "id": "klaus_hunter_stake",
+    "type": "ITEM",
+    "copy-from": "pointy_stick",
+    "name": { "str": "ash-wood stake" },
+    "description": "A heavy, fire-hardened stake of ordinary ash wood, carried by vampire hunters.  Through the heart, it kills any ordinary vampire.  It will hurt an Original badly, but it can't kill one.  Only white oak can."
+  },
+  {
+    "id": "klaus_vervain_dart",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "vervain dart" },
+    "description": "A small glass dart full of vervain extract, the kind hunters fire at vampires.  Empty now."
+  }
+]

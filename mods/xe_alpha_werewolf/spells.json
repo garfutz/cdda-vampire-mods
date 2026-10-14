@@ -1,0 +1,52 @@
+[
+  {
+    "id": "xe_alpha_dent_vehicle",
+    "type": "SPELL",
+    "name": { "str": "Rough Up (internal)" },
+    "description": "Internal: batters the starting truck so it looks lived-in.",
+    "valid_targets": [ "ground", "self", "ally", "hostile" ],
+    "effect": "bash",
+    "shape": "blast",
+    "min_damage": 10,
+    "max_damage": 120,
+    "damage_increment": 8,
+    "max_level": 10,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "flags": [ "SILENT", "NO_PROJECTILE", "IGNORE_WALLS" ]
+  },
+  {
+    "id": "xe_alpha_howl",
+    "type": "SPELL",
+    "name": { "str": "Alpha's Howl" },
+    "description": "Throw back your head and howl.  Everything within earshot is stunned by the sheer terror of it, and the hunting fury takes you for a few minutes.",
+    "valid_targets": [ "self" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_XE_ALPHA_HOWL",
+    "shape": "blast",
+    "magic_type": "xe_werewolf_powers",
+    "spell_class": "WEREWOLF_SPELLS",
+    "base_energy_cost": 150,
+    "base_casting_time": 100,
+    "max_level": 10,
+    "difficulty": 1,
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ]
+  },
+  {
+    "id": "xe_alpha_howl_stun",
+    "type": "SPELL",
+    "name": { "str": "Alpha's Howl (terror)" },
+    "description": "Internal: the stunning wave of the alpha's howl.",
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_aoe": 8,
+    "max_aoe": 8,
+    "min_damage": 0,
+    "max_damage": 0,
+    "effect_str": "stunned",
+    "min_duration": 300,
+    "max_duration": 300,
+    "flags": [ "SILENT", "NO_PROJECTILE", "IGNORE_WALLS" ]
+  }
+]

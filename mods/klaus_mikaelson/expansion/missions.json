@@ -1,0 +1,109 @@
+[
+  {
+    "id": "MISSION_KLAUS_SAC_WOLF",
+    "type": "mission_definition",
+    "name": { "str": "The curse: sacrifice a werewolf" },
+    "description": "The ritual to break the curse of the sun and the moon needs a werewolf to die under the moon.  Your servants have driven one to an old den in the woods.  It's marked on your map.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 6,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "klaus_ritual_den",
+        "om_special": "klaus_ritual_den",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_klaus_sac_werewolf", "x": 12, "y": 12, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "klaus_sac_wolf = 1" ] },
+        { "u_message": "The werewolf's heart stops.  The first sacrifice is made.", "type": "good" }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_KLAUS_SAC_VAMPIRE",
+    "type": "mission_definition",
+    "name": { "str": "The curse: sacrifice a vampire" },
+    "description": "The ritual needs a vampire's death.  One of your own bloodline waits for you, compelled, in a crypt marked on your map.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "klaus_ritual_crypt",
+        "om_special": "klaus_ritual_crypt",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_klaus_sac_vampire", "x": 12, "y": 9, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "klaus_sac_vampire = 1" ] },
+        { "u_message": "The vampire's body greys and withers.  Another sacrifice made.", "type": "good" }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_KLAUS_SAC_WITCH",
+    "type": "mission_definition",
+    "name": { "str": "The curse: sacrifice a witch" },
+    "description": "The ritual needs a witch, and the covens know it; they've hidden from you for centuries.  One of them is holed up in a shack in the woods marked on your map.  She will fight.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 6,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "klaus_ritual_coven",
+        "om_special": "klaus_ritual_coven",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_klaus_sac_witch", "x": 12, "y": 10, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "klaus_sac_witch = 1" ] },
+        { "u_message": "The witchfire gutters out.  Another sacrifice made.", "type": "good" }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_KLAUS_DOPPELGANGER",
+    "type": "mission_definition",
+    "name": { "str": "The curse: the Petrova blood" },
+    "description": "The last and most important piece: the blood of the Petrova doppelganger.  Your people traced the line to a house marked on your map.  Whoever lived there is gone, but a doppelganger's blood was drawn and stored there.  Go and get it.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 3,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "klaus_petrova_house",
+        "om_special": "klaus_petrova_house",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "klaus_found_dopp = 1" ] },
+        { "u_message": "The Petrova house.  Somewhere in here is her blood.", "type": "good" }
+      ]
+    }
+  }
+]

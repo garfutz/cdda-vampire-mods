@@ -1,0 +1,262 @@
+[
+  {
+    "id": "klaus_lore_elijah_letter",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "letter from Elijah, 1919" },
+    "description": "Heavy cream paper in Elijah's elegant hand, dated New Orleans, 1919.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": ",",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_KLAUS_LORE_ELIJAH_LETTER" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_lore_elijah_letter",
+        "name": { "str_sp": "letter from Elijah, 1919" },
+        "description": "Heavy cream paper in Elijah's elegant hand, dated New Orleans, 1919.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "klaus_lore_rebekah_photo",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str_sp": "photograph of Rebekah, 1920s" },
+    "description": "A sepia photograph of a laughing blonde woman in a beaded flapper dress, taken in a Chicago speakeasy.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "*",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_KLAUS_LORE_REBEKAH_PHOTO" ]
+    }
+  },
+  {
+    "id": "klaus_lore_kol_note",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "Kol's scribbled note" },
+    "description": "A scrap of paper covered in Kol's untidy handwriting and a few drawn sigils.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": ",",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_KLAUS_LORE_KOL_NOTE" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_lore_kol_note",
+        "name": { "str_sp": "Kol's scribbled note" },
+        "description": "A scrap of paper covered in Kol's untidy handwriting and a few drawn sigils.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "klaus_lore_esther_page",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "page from Esther's grimoire" },
+    "description": "A brittle page of old vellum covered in runes and tiny, precise Old Norse script.  Your mother's hand.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "?",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_KLAUS_LORE_ESTHER_PAGE" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_lore_esther_page",
+        "name": { "str_sp": "page from Esther's grimoire" },
+        "description": "A brittle page of old vellum covered in runes and tiny, precise Old Norse script.  Your mother's hand.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "klaus_lore_mikael_journal",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "name": { "str_sp": "Mikael's hunting journal" },
+    "description": "A battered leather journal smelling of pine and old blood.  Every page is a city and a date.  <color_light_green>(Use it to read it.)</color>",
+    "symbol": "?",
+    "color": "white",
+    "category": "other",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read",
+      "description": "Read it.",
+      "effect_on_conditions": [ "EOC_KLAUS_LORE_MIKAEL_JOURNAL" ]
+    },
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "klaus_lore_mikael_journal",
+        "name": { "str_sp": "Mikael's hunting journal" },
+        "description": "A battered leather journal smelling of pine and old blood.  Every page is a city and a date.  <color_light_green>(Use it to read it.)</color>",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LORE_ELIJAH_LETTER",
+    "effect": [
+      {
+        "u_message": "<color_light_gray>\"Niklaus,\n\nMikael is in the city.  We leave tonight, all of us, and yes, that includes you, whatever you have done to Marcel and whatever you are about to do to me.\n\nI have never once stopped believing there is good in you, brother.  Please do not make me the only one.\n\nAlways and forever,\nElijah\"</color>",
+        "popup": true
+      },
+      {
+        "if": { "math": [ "u_klaus_lore_elijah_letter != 1" ] },
+        "then": [
+          { "math": [ "u_klaus_lore_elijah_letter = 1" ] },
+          {
+            "u_add_morale": "morale_klaus_lore",
+            "bonus": 15,
+            "max_bonus": 30,
+            "duration": "6 hours",
+            "decay_start": "3 hours"
+          },
+          { "math": [ "u_skill_exp('speech', 'format': 'percentage') += 30" ] },
+          {
+            "u_message": "Something about it stays with you.  <color_light_green>(First read: +morale, +speech.)</color>",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LORE_REBEKAH_PHOTO",
+    "effect": [
+      {
+        "u_message": "Rebekah, Chicago, 1922, the night before you put a dagger in her heart for trying to run away with a boy.  She looks happier than you've ever seen her.  You kept the photograph for ninety years.  You've never quite worked out why.",
+        "popup": true
+      },
+      {
+        "if": { "math": [ "u_klaus_lore_rebekah_photo != 1" ] },
+        "then": [
+          { "math": [ "u_klaus_lore_rebekah_photo = 1" ] },
+          {
+            "u_add_morale": "morale_klaus_lore",
+            "bonus": 10,
+            "max_bonus": 20,
+            "duration": "6 hours",
+            "decay_start": "3 hours"
+          },
+          {
+            "u_message": "Something about it stays with you.  <color_light_green>(First read: +morale.)</color>",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LORE_KOL_NOTE",
+    "effect": [
+      {
+        "u_message": "<color_light_gray>\"Nik.  The witches in the Quarter are hiding something.  An old spell for binding one of us to a single bloodline, so if the sire dies, the whole line goes with him.  Thought you'd want to know before someone uses it on you.  You're welcome.  (You owe me.  Don't you dare dagger me again.)\n- K\"</color>",
+        "popup": true
+      },
+      {
+        "if": { "math": [ "u_klaus_lore_kol_note != 1" ] },
+        "then": [
+          { "math": [ "u_klaus_lore_kol_note = 1" ] },
+          {
+            "u_add_morale": "morale_klaus_lore",
+            "bonus": 5,
+            "max_bonus": 10,
+            "duration": "6 hours",
+            "decay_start": "3 hours"
+          },
+          { "math": [ "u_skill_exp('firstaid', 'format': 'percentage') += 20" ] },
+          {
+            "u_message": "Something about it stays with you.  <color_light_green>(First read: +morale, +firstaid.)</color>",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LORE_ESTHER_PAGE",
+    "effect": [
+      {
+        "u_message": "Your mother's spell, the one that made you all what you are: the blood of a doppelganger, the sun for life, the white oak for immortality.  And at the bottom, added later, in a shakier hand: a curse to bind the wolf in a child who was never meant to be.  You read it three times, and each time it hurts in the same place.",
+        "popup": true
+      },
+      {
+        "if": { "math": [ "u_klaus_lore_esther_page != 1" ] },
+        "then": [
+          { "math": [ "u_klaus_lore_esther_page = 1" ] },
+          {
+            "u_add_morale": "morale_klaus_lore",
+            "bonus": -5,
+            "max_bonus": -10,
+            "duration": "6 hours",
+            "decay_start": "3 hours"
+          },
+          { "math": [ "u_skill_exp('survival', 'format': 'percentage') += 30" ] },
+          {
+            "u_message": "Something about it stays with you.  <color_light_green>(First read: +morale, +survival.)</color>",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LORE_MIKAEL_JOURNAL",
+    "effect": [
+      {
+        "u_message": "Mikael has been hunting you for a thousand years, and he wrote it all down: Bulgaria, 1492.  Florence.  Paris.  New Orleans, 1919.  Every page is how close he came.  The last entry just says: <color_light_red>\"Soon.\"</color>  You read it to learn how he thinks.",
+        "popup": true
+      },
+      {
+        "if": { "math": [ "u_klaus_lore_mikael_journal != 1" ] },
+        "then": [
+          { "math": [ "u_klaus_lore_mikael_journal = 1" ] },
+          {
+            "u_add_morale": "morale_klaus_lore",
+            "bonus": -10,
+            "max_bonus": -20,
+            "duration": "6 hours",
+            "decay_start": "3 hours"
+          },
+          { "math": [ "u_skill_exp('melee', 'format': 'percentage') += 40" ] },
+          {
+            "u_message": "Something about it stays with you.  <color_light_green>(First read: +morale, +melee.)</color>",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_klaus_lore",
+    "text": "Remembered something that matters"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "van_helsing",
+    "name": "Van Helsing — The Legendary Vampire Hunter",
+    "authors": [ "Andu", "Antigravity" ],
+    "maintainers": [ "Andu" ],
+    "description": "Adds the legendary monster hunter Van Helsing as a fully established starting profession and custom scenario, complete with his fortified rural safehouse, holy/silver monster-slaying armaments, feared reputation among vampires, and 'The Crimson Chalice' — a neutral-ground vampire and hunter tavern bound by the ancient Accord of Sanctuary where nobody kills anyone inside.",
+    "category": "content",
+    "dependencies": [
+      "dda",
+      "xedra_evolved",
+      "klaus_mikaelson",
+      "elijah_mikaelson",
+      "stefan_salvatore",
+      "family_business_hunters",
+      "the_sleeper_immortal"
+    ],
+    "version": "1.0"
+  }
+]

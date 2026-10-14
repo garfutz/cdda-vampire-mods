@@ -1,0 +1,30 @@
+[
+  {
+    "id": "MISSION_ELIJAH_PETROVA",
+    "type": "mission_definition",
+    "name": { "str": "The Petrova line" },
+    "description": "Five hundred years ago you failed Katerina.  You've kept track of her bloodline ever since, quietly, so that Niklaus would never get to them first.  The last of the Petrovas had a house outside the city.  Whoever lived there is gone, but a vial of doppelganger blood was drawn and stored there: the one thing Niklaus needs to break his curse.  Get there before he does.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 3,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "elijah_petrova_house",
+        "om_special": "elijah_petrova_house",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      }
+    },
+    "end": {
+      "effect": [
+        {
+          "u_message": "The Petrova house.  The doppelganger's blood should be in the desk.  What you do with it is up to you: keep it from Niklaus, or keep it for him.  You've never been sure which kind of brother you are.",
+          "popup": true
+        }
+      ]
+    }
+  }
+]

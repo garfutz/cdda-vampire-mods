@@ -1,0 +1,17 @@
+[
+  {
+    "id": "xe_alpha_countess_letter",
+    "type": "ITEM",
+    "copy-from": "letter",
+    "category": "other",
+    "name": { "str": "letter sealed in black wax" },
+    "description": "Found on Voss's body.  Elegant, old-fashioned handwriting:\n\n<color_light_gray>\"Aurelio, my darling boy.  The wolf-blood you sent was exquisite.  Send more.  And do finish off the last of that pack in the pines: I won't have dogs howling in my woods.\n\nI am at the old chapel as always.  Visit your mother soon.\n\n- M. S.\"</color>\n\nHis maker.  The one who sent him after your pack."
+  },
+  {
+    "id": "xe_alpha_countess_ring",
+    "type": "ITEM",
+    "copy-from": "xe_alpha_voss_signet",
+    "name": { "str": "the Bone Countess's ring" },
+    "description": "A ring carved out of yellowed bone and set with a black pearl, taken from the Countess's hand.  The last of the monsters that murdered your pack."
+  }
+]

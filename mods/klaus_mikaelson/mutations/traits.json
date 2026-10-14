@@ -1,0 +1,111 @@
+[
+  {
+    "type": "mutation",
+    "id": "KLAUS_ORIGINAL_VAMPIRE",
+    "name": { "str": "The Original" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Around the year 1000 your mother Esther's spell made you and your siblings the first vampires, the Originals.  Every vampire walking the earth descends from your bloodline.  You are stronger and faster than any of them, you heal almost instantly, and you can compel vampires as easily as humans.  You no longer need food or water: the only thing your body asks for is blood.  Like every vampire you burn in the sun: without your daylight ring, daylight will kill you slowly.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 7 },
+          { "value": "DEXTERITY", "add": 4 },
+          { "value": "PERCEPTION", "add": 4 },
+          { "value": "SPEED", "add": 30 },
+          { "value": "MAX_HP", "add": 50 },
+          { "value": "REGEN_HP", "multiply": 3.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.4 },
+          { "value": "ARMOR_ALL", "add": -7 },
+          { "value": "MAX_STAMINA", "add": 5000 },
+          { "value": "REGEN_STAMINA", "multiply": 1.0 },
+          { "value": "KNOCKDOWN_RESIST", "add": 2 },
+          { "value": "KNOCKBACK_RESIST", "add": 2 },
+          { "value": "SOCIAL_INTIMIDATE", "add": 30 },
+          { "value": "SOCIAL_LIE", "add": 20 },
+          { "value": "SOCIAL_PERSUADE", "add": 10 },
+          { "value": "METABOLISM", "multiply": -1.0 },
+          { "value": "THIRST", "multiply": -1.0 }
+        ]
+      },
+      {
+        "condition": { "not": "is_day" },
+        "values": [ { "value": "STRENGTH", "add": 1 }, { "value": "SPEED", "add": 10 } ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_klaus_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 6 }, { "value": "NIGHT_VIS", "add": 15 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 45,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_pink",
+                "text": "You hear the faint, steady pulse of a creature here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_CURSE_SUN_MOON",
+    "name": { "str": "The Curse of the Sun and the Moon" },
+    "points": -1,
+    "valid": false,
+    "purifiable": false,
+    "description": "You are the bastard son of a werewolf, Ansel, and when your first kill proved it your mother bound your wolf side with the curse of the sun and the moon.  For a thousand years it has slept inside you, and you have hunted for the way to break it: the moonstone, a witch, a vampire, a werewolf, and the blood of the Petrova doppelganger.  You can't turn.  Under the moon you can feel the wolf pacing in its cage."
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_ORIGINAL_IMMORTALITY",
+    "name": { "str": "Original Immortality" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Fire, stakes, decapitation: none of it keeps an Original down for long.  When a wound should have killed you, your body simply stops, knits itself back together, and gets up again a little later.  Only a stake of the white oak tree can end an Original for good, which is why you've spent centuries burning every one you could find.\n\n<color_light_red>Whenever any part of your body drops below a third of its health, it heals completely within seconds (once a minute).  If any part of you is destroyed, even your head or your heart, you die, and rise again a moment later completely restored and furious.  Ordinary wooden stakes, bullets, fire and blades can never kill you.  Only the white oak stake can, and it is locked away where no hunter will ever find it.</color>"
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_WHITE_OAK_BANE",
+    "name": { "str": "Bane of the White Oak" },
+    "points": -1,
+    "valid": false,
+    "purifiable": false,
+    "description": "White oak is death to an Original, and silver daggers dipped in white oak ash put you into a dead sleep until someone pulls them out.  You can hardly stand to touch the stuff.  (Carrying white oak makes you uneasy.)"
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_ALWAYS_AND_FOREVER",
+    "name": { "str": "Always and Forever" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "The Mikaelsons' vow to one another, a thousand years old.  You love your family more than anything in the world, and you've daggered every one of them at least once for disloyalty.  Keeping the coffins of your siblings close steadies you.  Betrayal is the one thing you never forgive."
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_ARTIST",
+    "name": { "str": "Artist's Soul" },
+    "points": 1,
+    "valid": false,
+    "purifiable": false,
+    "description": "You've painted for centuries and you're very, very good at it.  You studied under the masters of the Renaissance and you still sketch obsessively.  Drawing in your sketchbook or finishing a painting calms the rage inside you."
+  }
+]

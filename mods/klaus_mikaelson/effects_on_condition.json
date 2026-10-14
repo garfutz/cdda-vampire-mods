@@ -1,0 +1,2053 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_PROFESSION_START",
+    "effect": [
+      { "u_add_effect": "vampire_virus", "intensity": 3, "duration": "PERMANENT" },
+      { "math": [ "u_vitamin('human_blood_vitamin') = 3000" ] },
+      {
+        "u_message": "A thousand years, and the world finally ended before your curse did.  How dull.  Still: a world with no rules is a world that needs a king, and a king who can become a wolf.",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_PREVENT_DEATH",
+    "eoc_type": "PREVENT_DEATH",
+    "condition": { "and": [ { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" }, { "math": [ "u_klaus_white_oak_heart != 1" ] } ] },
+    "effect": [
+      "u_prevent_death",
+      {
+        "u_message": "Your heart stops.  For a moment you are simply dead\u2026 and then it beats again.  Wood, steel, fire: none of it was white oak.  Bone and flesh knit back together, and you rise, very, very angry.",
+        "type": "mixed"
+      },
+      { "u_lose_effect": [ "bleed", "onfire", "stunned", "dazed" ] },
+      { "u_add_effect": "downed", "duration": "3 seconds" },
+      { "u_add_effect": "effect_klaus_rage", "duration": "3 minutes" },
+      { "u_add_effect": "effect_klaus_regen_cd", "duration": "1 minutes" },
+      { "math": [ "u_hp('torso') = u_hp_max('torso')" ] },
+      { "math": [ "u_hp('head') = u_hp_max('head')" ] },
+      { "math": [ "u_hp('arm_l') = u_hp_max('arm_l')" ] },
+      { "math": [ "u_hp('arm_r') = u_hp_max('arm_r')" ] },
+      { "math": [ "u_hp('leg_l') = u_hp_max('leg_l')" ] },
+      { "math": [ "u_hp('leg_r') = u_hp_max('leg_r')" ] },
+      { "math": [ "u_hp('eyes') = u_hp_max('eyes')" ] },
+      { "math": [ "u_hp('mouth') = u_hp_max('mouth')" ] },
+      { "math": [ "u_hp('hand_l') = u_hp_max('hand_l')" ] },
+      { "math": [ "u_hp('hand_r') = u_hp_max('hand_r')" ] },
+      { "math": [ "u_hp('foot_l') = u_hp_max('foot_l')" ] },
+      { "math": [ "u_hp('foot_r') = u_hp_max('foot_r')" ] },
+      {
+        "u_lose_effect": [ "bleed", "onfire", "stunned", "dazed", "infected", "bite", "recover", "blind", "pkill_withdrawal", "nausea" ]
+      },
+      {
+        "if": { "math": [ "u_vitamin('human_blood_vitamin') < -700" ] },
+        "then": [ { "math": [ "u_vitamin('human_blood_vitamin') = -700" ] }, { "u_lose_effect": "withering" } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_UNDYING",
+    "recurrence": "1 seconds",
+    "condition": { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" } },
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "math": [ "u_hp('torso') <= 0" ] },
+            { "math": [ "u_hp('head') <= 0" ] },
+            { "math": [ "u_hp('arm_l') <= 0" ] },
+            { "math": [ "u_hp('arm_r') <= 0" ] },
+            { "math": [ "u_hp('leg_l') <= 0" ] },
+            { "math": [ "u_hp('leg_r') <= 0" ] },
+            { "math": [ "u_hp('eyes') <= 0" ] },
+            { "math": [ "u_hp('mouth') <= 0" ] },
+            { "math": [ "u_hp('hand_l') <= 0" ] },
+            { "math": [ "u_hp('hand_r') <= 0" ] },
+            { "math": [ "u_hp('foot_l') <= 0" ] },
+            { "math": [ "u_hp('foot_r') <= 0" ] }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "The world goes dark.  For a moment you are simply dead\u2026 and then your heart starts again, bone and flesh knit back together, and you rise, very, very angry.",
+            "type": "mixed"
+          },
+          { "u_add_effect": "downed", "duration": "3 seconds" },
+          { "u_add_effect": "effect_klaus_rage", "duration": "3 minutes" },
+          { "u_add_effect": "effect_klaus_regen_cd", "duration": "1 minutes" },
+          { "math": [ "u_hp('torso') = u_hp_max('torso')" ] },
+          { "math": [ "u_hp('head') = u_hp_max('head')" ] },
+          { "math": [ "u_hp('arm_l') = u_hp_max('arm_l')" ] },
+          { "math": [ "u_hp('arm_r') = u_hp_max('arm_r')" ] },
+          { "math": [ "u_hp('leg_l') = u_hp_max('leg_l')" ] },
+          { "math": [ "u_hp('leg_r') = u_hp_max('leg_r')" ] },
+          { "math": [ "u_hp('eyes') = u_hp_max('eyes')" ] },
+          { "math": [ "u_hp('mouth') = u_hp_max('mouth')" ] },
+          { "math": [ "u_hp('hand_l') = u_hp_max('hand_l')" ] },
+          { "math": [ "u_hp('hand_r') = u_hp_max('hand_r')" ] },
+          { "math": [ "u_hp('foot_l') = u_hp_max('foot_l')" ] },
+          { "math": [ "u_hp('foot_r') = u_hp_max('foot_r')" ] }
+        ],
+        "else": [
+          {
+            "if": {
+              "and": [
+                {
+                  "or": [
+                    { "math": [ "u_hp('torso') < u_hp_max('torso') / 3" ] },
+                    { "math": [ "u_hp('head') < u_hp_max('head') / 3" ] },
+                    { "math": [ "u_hp('arm_l') < u_hp_max('arm_l') / 3" ] },
+                    { "math": [ "u_hp('arm_r') < u_hp_max('arm_r') / 3" ] },
+                    { "math": [ "u_hp('leg_l') < u_hp_max('leg_l') / 3" ] },
+                    { "math": [ "u_hp('leg_r') < u_hp_max('leg_r') / 3" ] }
+                  ]
+                },
+                { "not": { "u_has_effect": "effect_klaus_regen_cd" } }
+              ]
+            },
+            "then": [
+              { "u_message": "Your wounds close in seconds, the way an Original's always do.", "type": "good" },
+              { "u_heal_all": 200 },
+              { "u_add_effect": "effect_klaus_regen_cd", "duration": "1 minutes" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BITE",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_species": "VAMPIRE" },
+            { "u_has_species": "VAMPIRE_ANATHEMA" },
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "VAMPIRE4" },
+            { "u_has_trait": "VAMPIRE5" },
+            { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" },
+            { "u_has_trait": "ELDER_VAMPIRE_THRALL_VITALITY" },
+            { "u_has_trait": "VAMPIRIC_RESILIENCE" },
+            { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+            { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+            { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+            { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+            { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" },
+            { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+            { "u_has_trait": "STEFAN_VAMPIRE" },
+            { "u_has_trait": "SLEEPER_IMMORTAL_TRAIT" },
+            { "u_has_effect": "effect_elder_vampire_blood_in_system" },
+            { "u_has_effect": "effect_vampire_blood_in_system" },
+            { "u_has_flag": "VAMPIRE" }
+          ]
+        },
+        "then": [
+          {
+            "npc_message": "You cannot feed on another vampire.  Their cold, dead vitae rejects your fangs, offering no sustenance to your undead body.",
+            "type": "bad"
+          }
+        ],
+        "else": [
+          {
+            "if": { "u_has_species": "ZOMBIE" },
+            "then": [ { "npc_message": "There's nothing in that blood worth drinking.", "type": "bad" } ],
+            "else": [
+              {
+                "if": { "or": [ { "u_has_species": "MAMMAL" }, { "u_has_species": "HUMAN" } ] },
+                "then": [
+                  { "u_deal_damage": "stab", "amount": { "math": [ "rng(15, 25)" ] } },
+                  { "run_eocs": "EOC_KLAUS_FEED", "alpha_talker": "npc" }
+                ],
+                "else": [ { "npc_message": "There's nothing in that blood worth drinking.", "type": "bad" } ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_FEED",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 200 + rand(100)" ] },
+      { "u_message": "You drink deep.  Warm, and exactly what you wanted.", "type": "good" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_SKETCH",
+    "eoc_type": "EVENT",
+    "required_event": "reads_book",
+    "condition": {
+      "and": [ { "compare_string": [ "klaus_sketchbook", { "context_val": "itype" } ] }, { "u_has_trait": "KLAUS_ARTIST" } ]
+    },
+    "effect": [
+      { "u_add_morale": "morale_klaus_art", "bonus": 15, "max_bonus": 30, "duration": "8 hours", "decay_start": "4 hours" },
+      { "u_lose_effect": "effect_klaus_rage" },
+      { "u_message": "You lose an hour to charcoal and paper.  The rage goes quiet for a while.", "type": "good" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_WHITE_OAK_UNEASE",
+    "recurrence": [ "30 minutes", "1 hours" ],
+    "condition": {
+      "and": [ { "u_has_trait": "KLAUS_WHITE_OAK_BANE" }, { "u_has_items": { "item": "elijah_white_oak_stake", "count": 1 } } ]
+    },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_WHITE_OAK_BANE" } },
+    "effect": [
+      {
+        "u_add_morale": "morale_klaus_white_oak",
+        "bonus": -10,
+        "max_bonus": -20,
+        "duration": "1 hours",
+        "decay_start": "30 minutes"
+      },
+      { "u_message": "The white oak in your pack feels like a live coal.", "type": "bad" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_CAGED_WOLF",
+    "recurrence": [ "3 hours", "5 hours" ],
+    "condition": { "and": [ { "u_has_trait": "KLAUS_CURSE_SUN_MOON" }, { "not": "is_day" }, "u_is_outside" ] },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_CURSE_SUN_MOON" } },
+    "effect": [
+      {
+        "u_message": "The moon is up, and something inside you throws itself against the bars of its cage.  One day you'll let it out.",
+        "type": "mixed"
+      },
+      {
+        "u_add_morale": "morale_klaus_wolf",
+        "bonus": -5,
+        "max_bonus": -10,
+        "duration": "2 hours",
+        "decay_start": "1 hours"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_RING_OFF",
+    "eoc_type": "EVENT",
+    "required_event": "character_takeoff_item",
+    "condition": { "and": [ { "compare_string": [ "klaus_daylight_ring", { "context_val": "itype" } ] }, { "u_has_trait": "VAMPIRE" } ] },
+    "effect": [
+      {
+        "if": { "and": [ "is_day", "u_is_outside" ] },
+        "then": [ { "u_message": "The sun bites into your skin the instant the ring leaves your finger!", "type": "bad" } ],
+        "else": [ { "u_message": "You slip off the daylight ring.  Stay out of the sun.", "type": "warning" } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_SCENARIO_START",
+    "effect": [
+      {
+        "u_message": "The French Quarter is burning and the dead are walking down Bourbon Street.  In the old Mikaelson house your siblings sleep in their coffins with silver daggers in their hearts, where they can't betray you, and where Mikael can't find them.  The moonstone is on your desk.  All you still need is a witch, a werewolf, a vampire, and the doppelganger.  If there is anyone left alive to be her.",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_SUSTAIN",
+    "recurrence": "5 seconds",
+    "condition": { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" } },
+    "effect": [
+      {
+        "if": { "math": [ "u_vitamin('human_blood_vitamin') < -1400" ] },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') = -1400" ] },
+          {
+            "if": { "math": [ "u_effect_intensity('withering') >= 4" ] },
+            "then": [ { "u_lose_effect": "withering" } ]
+          },
+          {
+            "u_message": "Your veins are dust and your skin is grey parchment, but an Original does not die of thirst.  Niklaus only\u2026 dries.  Feed.",
+            "type": "bad",
+            "popup": false
+          }
+        ]
+      },
+      { "math": [ "u_hunger() = 0" ] },
+      {
+        "if": {
+          "and": [ { "math": [ "u_calories('format': 'percent') < 95" ] }, { "math": [ "u_calories('format': 'percent') > 0" ] } ]
+        },
+        "then": [ { "math": [ "u_calories('dont_affect_weariness': 1) = u_calories() * 100 / u_calories('format': 'percent')" ] } ]
+      },
+      {
+        "if": {
+          "or": [
+            { "math": [ "u_hp('eyes') <= 0" ] },
+            { "math": [ "u_hp('mouth') <= 0" ] },
+            { "math": [ "u_hp('hand_l') <= 0" ] },
+            { "math": [ "u_hp('hand_r') <= 0" ] },
+            { "math": [ "u_hp('foot_l') <= 0" ] },
+            { "math": [ "u_hp('foot_r') <= 0" ] }
+          ]
+        },
+        "then": [
+          { "math": [ "u_hp('eyes') = max(u_hp('eyes'), u_hp_max('eyes') / 2)" ] },
+          { "math": [ "u_hp('mouth') = max(u_hp('mouth'), u_hp_max('mouth') / 2)" ] },
+          { "math": [ "u_hp('hand_l') = max(u_hp('hand_l'), u_hp_max('hand_l') / 2)" ] },
+          { "math": [ "u_hp('hand_r') = max(u_hp('hand_r'), u_hp_max('hand_r') / 2)" ] },
+          { "math": [ "u_hp('foot_l') = max(u_hp('foot_l'), u_hp_max('foot_l') / 2)" ] },
+          { "math": [ "u_hp('foot_r') = max(u_hp('foot_r'), u_hp_max('foot_r') / 2)" ] },
+          { "u_message": "Your eyes clear and your hands and feet knit back together.", "type": "good" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_TOGGLE_VAMPIRIC_BLUR",
+    "effect": [
+      {
+        "if": { "u_has_effect": "effect_original_vampiric_blur" },
+        "then": [
+          { "u_lose_effect": "effect_original_vampiric_blur" },
+          { "math": [ "u_vitamin('human_blood_vitamin') += 5" ] },
+          {
+            "u_message": "You slow your thousand-year-old stride, smoothly decelerating from 100 km/h back to walking pace.",
+            "type": "warning"
+          }
+        ],
+        "else": [
+          { "u_add_effect": "effect_original_vampiric_blur", "duration": "PERMANENT" },
+          { "sound_effect": "dash", "id": "environment_art", "volume": 60 },
+          {
+            "u_message": "Reality blurs into streaks of color as you engage Original apex velocity (~100 km/h)! Your movement is untouchable!",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_VAMPIRIC_BLUR_LOOP",
+    "recurrence": "10 seconds",
+    "condition": { "u_has_effect": "effect_original_vampiric_blur" },
+    "effect": [
+      {
+        "if": { "math": [ "u_vitamin('human_blood_vitamin') < 5" ] },
+        "then": [
+          { "u_lose_effect": "effect_original_vampiric_blur" },
+          {
+            "u_message": "Your blood reserves run dry! Original apex velocity drops as your stride returns to normal speed.",
+            "type": "bad"
+          }
+        ],
+        "else": [ { "math": [ "u_vitamin('human_blood_vitamin') = max(0, u_vitamin('human_blood_vitamin') - 5)" ] } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WHITE_OAK_STAKE_HEART_EXECUTION",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+              { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+              { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+              { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+              { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+              { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+            ]
+          }
+        },
+        "then": [
+          {
+            "npc_message": "The White Oak Stake is the ancient bane of the Originals\u2014you sense no Mikaelson vitae in this creature's heart.",
+            "type": "warning"
+          }
+        ],
+        "else": [
+          {
+            "if": {
+              "not": {
+                "or": [
+                  { "u_has_effect": "downed" },
+                  { "u_has_effect": "stunned" },
+                  { "u_has_effect": "sleep" },
+                  { "u_has_effect": "lying_down" },
+                  { "u_has_effect": "narcosis" },
+                  { "u_has_effect": "effect_vampire_torpor" }
+                ]
+              }
+            },
+            "then": [
+              {
+                "npc_message": "<u_name> is on their feet and moving too fast!  (Knock them down or catch them sleeping!)",
+                "type": "warning"
+              }
+            ],
+            "else": [
+              {
+                "if": { "x_in_y_chance": { "x": 18, "y": 100 } },
+                "then": [
+                  { "sound_effect": "stab_flesh", "id": "melee_cut", "volume": 80 },
+                  { "sound_effect": "fire_ignite", "id": "environment_art", "volume": 70 },
+                  {
+                    "npc_message": "With a sickening crunch of cartilage and ancient bone, you drive the White Oak Stake straight through <u_name>'s sternum and into their heart!",
+                    "type": "good"
+                  },
+                  {
+                    "npc_message": "Veins of grey desiccation spread like spiderwebs across <u_name>'s skin as the ancient magic ignites from within.  Flames devour the ancient flesh until nothing remains but cold ash.",
+                    "type": "warning"
+                  },
+                  { "npc_message": "<u_name> gasps their final words: 'Always... and forever...'", "type": "bad" },
+                  { "run_eocs": "EOC_WHITE_OAK_CONSUME_STAKE", "alpha_talker": "npc" },
+                  { "u_lose_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                  { "u_lose_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                  { "u_lose_trait": "ELIJAH_SIBLING_ORIGINAL" },
+                  { "u_lose_trait": "MIKAELSON_ORIGINAL_NPC" },
+                  { "u_lose_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                  { "u_lose_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                  { "u_lose_trait": "ELIJAH_WHITE_OAK_BANE" },
+                  { "u_lose_trait": "KLAUS_WHITE_OAK_BANE" },
+                  { "u_lose_trait": "ELIJAH_RED_DOOR" },
+                  { "u_lose_effect": "effect_elijah_red_door" },
+                  { "math": [ "u_hp('torso') = 0" ] },
+                  { "math": [ "u_hp('head') = 0" ] },
+                  { "u_deal_damage": "stab", "amount": 9999 },
+                  "u_die"
+                ],
+                "else": [
+                  { "u_location_variable": { "global_val": "white_oak_parry_pos" } },
+                  { "sound_effect": "big_bash", "id": "melee_bash", "volume": 80 },
+                  { "u_lose_effect": "sleep" },
+                  { "u_lose_effect": "lying_down" },
+                  { "u_lose_effect": "narcosis" },
+                  { "u_lose_effect": "effect_vampire_torpor" },
+                  { "math": [ "u_npc_anger() = 100" ] },
+                  { "math": [ "u_npc_fear() = 0" ] },
+                  {
+                    "npc_message": "You plunge the White Oak Stake down, but <u_name>'s millenium-old reflexes violently counter, deflecting the tip away from their heart!  The stake only gouges across their ribs!",
+                    "type": "bad"
+                  },
+                  {
+                    "npc_message": "<u_name> snarls with primal fury: 'NOT TODAY!' and counters with a bone-shattering strike!",
+                    "type": "warning"
+                  },
+                  { "u_deal_damage": "stab", "bodypart": "torso", "amount": 20 },
+                  { "run_eocs": "EOC_WHITE_OAK_PARRY_RECOIL", "alpha_talker": "npc" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WHITE_OAK_CONSUME_STAKE",
+    "effect": [ { "u_consume_item": "elijah_white_oak_stake" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WHITE_OAK_PARRY_RECOIL",
+    "effect": [
+      { "u_knockback": 3, "stun": 2, "dam_mult": 6, "direction_var": { "global_val": "white_oak_parry_pos" } },
+      { "u_deal_damage": "bash", "bodypart": "torso", "amount": { "math": [ "rng(25, 35)" ] } },
+      { "u_message": "The violent counter-blow sends you flying backward!", "type": "bad" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BREACH_KICK_CASTER",
+    "effect": [
+      { "u_location_variable": { "global_val": "klaus_kick_caster_pos" } },
+      { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
+      { "sound_effect": "small", "id": "explosion", "volume": 90 },
+      { "u_make_sound": "BOOM-CRACK! (Hybrid Breach)", "volume": 75 },
+      {
+        "u_message": "You lash out with a savage, feral kick! 200 points of catastrophic hybrid force pulverizes the barrier into flying splinters and dust!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BREACH_KICK_CREATURE",
+    "condition": { "or": [ "u_is_character", "u_is_monster" ] },
+    "effect": [
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_make_sound": "BOOM-CRACK! (Hybrid Launch)", "volume": 75 },
+      {
+        "if": { "or": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_trait": "VAMPIRE4" } ] },
+        "then": [
+          { "u_knockback": 7, "stun": 4, "dam_mult": 25, "direction_var": { "global_val": "klaus_kick_caster_pos" } },
+          { "math": [ "u_hp('torso') = max(20, u_hp('torso') - rng(50, 70))" ] },
+          { "math": [ "u_hp('head') = max(20, u_hp('head') - rng(20, 35))" ] },
+          { "u_add_effect": "bleed", "target_part": "head", "intensity": 15, "duration": "3 minutes" },
+          { "u_add_effect": "downed", "duration": "10 seconds" },
+          { "u_add_effect": "stunned", "duration": "4 seconds" },
+          { "math": [ "u_npc_fear() = 0" ] },
+          { "math": [ "u_npc_anger() = 100" ] },
+          {
+            "message": "Your hybrid kick crashes into the Elder Vampire's ribs with 200 points of savage werewolf fury! They are blasted backward across the floor like a ragdoll, coughing up dark blood and left reeling on the ground for 10 seconds!",
+            "type": "good"
+          }
+        ],
+        "else": [
+          {
+            "if": {
+              "or": [
+                { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+                { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+              ]
+            },
+            "then": [
+              { "u_knockback": 8, "stun": 3, "dam_mult": 20, "direction_var": { "global_val": "klaus_kick_caster_pos" } },
+              { "math": [ "u_hp('torso') = max(15, u_hp('torso') - rng(60, 90))" ] },
+              { "math": [ "u_hp('head') = max(15, u_hp('head') - rng(25, 40))" ] },
+              { "u_add_effect": "bleed", "target_part": "torso", "intensity": 10, "duration": "5 minutes" },
+              { "u_add_effect": "downed", "duration": "4 seconds" },
+              { "u_add_effect": "stunned", "duration": "3 seconds" },
+              { "u_add_effect": "effect_original_staggered", "duration": "30 seconds" },
+              { "math": [ "u_npc_fear() = 0" ] },
+              { "math": [ "u_npc_anger() = 100" ] },
+              {
+                "message": "Your feral hybrid kick crashes into your sibling's chest with 200 points of thunderous werewolf force! They are blasted backward across the room, their immortal body staggering from the impact!",
+                "type": "good"
+              }
+            ],
+            "else": [
+              { "u_knockback": 7, "stun": 3, "dam_mult": 25, "direction_var": { "global_val": "klaus_kick_caster_pos" } },
+              { "u_deal_damage": "bash", "amount": { "math": [ "rng(160, 200)" ] }, "arpen": 50, "hit_roll": 10000 },
+              { "u_add_effect": "downed", "duration": "5 seconds" },
+              {
+                "message": "Your hybrid kick blasts the creature through the air with devastating feral force!",
+                "type": "good"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BODY_HURL",
+    "condition": { "and": [ "npc_is_avatar", { "not": "u_is_avatar" } ] },
+    "effect": [
+      { "u_location_variable": { "global_val": "klaus_hurl_start_pos" } },
+      {
+        "npc_choose_adjacent_highlight": { "context_val": "hurl_dir_picked" },
+        "target_var": { "global_val": "klaus_hurl_start_pos" },
+        "message": "Select direction to hurl the body."
+      },
+      {
+        "mirror_coordinates": { "context_val": "hurl_dir_correct" },
+        "center_var": { "global_val": "klaus_hurl_start_pos" },
+        "relative_var": { "context_val": "hurl_dir_picked" }
+      },
+      { "sound_effect": "big_bash", "id": "melee_swing", "volume": 100 },
+      {
+        "u_knockback": 10,
+        "target_var": { "global_val": "klaus_hurl_start_pos" },
+        "stun": 4,
+        "dam_mult": 30,
+        "direction_var": { "context_val": "hurl_dir_correct" }
+      },
+      { "npc_lose_effect": "stunned" },
+      { "npc_lose_effect": "downed" },
+      { "math": [ "_hurl_dist = clamp(distance('u', klaus_hurl_start_pos), 0, 10)" ] },
+      {
+        "if": { "math": [ "_hurl_dist < 10" ] },
+        "then": [
+          {
+            "if": { "or": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_trait": "VAMPIRE4" } ] },
+            "then": [
+              {
+                "message": "CRACK-BOOM! The Elder Vampire's body smashes violently into the obstacle with shattering force! Plaster and masonry splinter under the supernatural impact\u2014they hit the ground hard, their ancient bones already knitting back together!",
+                "type": "good"
+              },
+              { "u_add_effect": "downed", "duration": "6 seconds" },
+              { "u_add_effect": "stunned", "duration": "3 seconds" }
+            ],
+            "else": [
+              {
+                "if": {
+                  "or": [
+                    { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                    { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                    { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                    { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                    { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+                    { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+                  ]
+                },
+                "then": [
+                  {
+                    "message": "CRACK-BOOM! The Original's body smashes violently into the obstacle with shattering force! Plaster and wood splinter under the supernatural impact\u2014they hit the ground hard, their immortal bones already knitting back together!",
+                    "type": "good"
+                  },
+                  { "u_add_effect": "downed", "duration": "4 seconds" }
+                ],
+                "else": [
+                  { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
+                  { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+                  { "u_make_sound": "BOOM-CRACK! ...SPLAT!", "volume": 70 },
+                  { "u_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+                  {
+                    "u_deal_damage": "bash",
+                    "amount": { "math": [ "rng(160, 240)" ] },
+                    "arpen": 50,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "message": "CRACK-BOOM! The hurled body slams violently into the obstacle with catastrophic hybrid force, shattering the barrier in an explosion of debris and crushed bone!",
+                    "type": "good"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "else": [
+          {
+            "message": "The hurled body arcs through the air and skips violently across the ground, tumbling with bone-cracking force!",
+            "type": "good"
+          },
+          { "u_add_effect": "downed", "duration": "3 seconds" },
+          { "u_add_effect": "stunned", "duration": "2 seconds" },
+          { "u_deal_damage": "bash", "bodypart": "leg_l", "amount": { "math": [ "rng(40, 60)" ] } },
+          { "u_deal_damage": "bash", "bodypart": "leg_r", "amount": { "math": [ "rng(40, 60)" ] } }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_NECK_SNAP",
+    "effect": [
+      { "u_location_variable": { "global_val": "klaus_snap_target_pos" } },
+      {
+        "if": { "npc_has_effect": "effect_klaus_neck_snap_cd" },
+        "then": [ { "run_eocs": "EOC_KLAUS_NECK_SNAP_CD_REFUND", "alpha_talker": "npc" } ],
+        "else": [
+          { "run_eocs": "EOC_KLAUS_NECK_SNAP_TELEPORT", "alpha_talker": "npc" },
+          { "run_eocs": "EOC_KLAUS_NECK_SNAP_EXECUTE", "alpha_talker": "u", "beta_talker": "npc" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_NECK_SNAP_CD_REFUND",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 10" ] },
+      {
+        "u_message": "Your supernatural velocity is still recovering! Wait 3 seconds between blitz executions.",
+        "type": "bad"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_NECK_SNAP_TELEPORT",
+    "effect": [
+      { "sound_effect": "big_cutting", "id": "melee_swing", "volume": 100 },
+      { "u_teleport": { "global_val": "klaus_snap_target_pos" }, "force_safe": true },
+      { "u_add_effect": "effect_klaus_neck_snap_cd", "duration": "3 seconds" },
+      { "u_make_sound": "WHOOSH! (Hybrid Blur)", "volume": 25 }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_NECK_SNAP_EXECUTE",
+    "effect": [
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "hit_flesh", "id": "bullet_hit", "volume": 100 },
+      {
+        "if": { "u_has_flag": "NO_HEAD" },
+        "then": [
+          { "u_make_sound": "THUD-CRACK!", "volume": 35 },
+          { "u_deal_damage": "bash", "amount": { "math": [ "rng(150, 220)" ] }, "arpen": 100, "hit_roll": 10000 },
+          { "u_add_effect": "stunned", "duration": "2 seconds" },
+          {
+            "u_message": "You blur directly adjacent to the creature and attempt to wrench its neck, but the creature has no cervical spine! You hammer both fists into it with crushing blunt force instead!",
+            "type": "info"
+          }
+        ],
+        "else": [
+          {
+            "if": {
+              "or": [
+                { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+                { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+              ]
+            },
+            "then": [
+              { "u_make_sound": "CRACK! (Cervical Fracture)", "volume": 40 },
+              {
+                "u_message": "Moving with apex hybrid velocity, you blur across the ground directly to your sibling. You seize their head and jaw with both hands and snap their neck with a sickening CRACK! They drop limp to the floor, temporarily neutralized\u2014though their immortal body will awaken in moments!",
+                "type": "good"
+              },
+              { "u_add_effect": "downed", "duration": "10 seconds" },
+              { "u_add_effect": "stunned", "duration": "8 seconds" }
+            ],
+            "else": [
+              {
+                "if": { "or": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_trait": "VAMPIRE4" } ] },
+                "then": [
+                  { "u_make_sound": "CRACK! (Cervical Fracture)", "volume": 40 },
+                  {
+                    "u_message": "Moving with apex hybrid velocity, you blur across the ground directly to the Elder Vampire. With feral, predatory strength, you seize their jaw and twist until their cervical spine snaps with a sharp CRACK! They drop limp to the floor coughing dark blood, temporarily neutralized for 10 seconds as their ancient regeneration knits the severed cord back together!",
+                    "type": "good"
+                  },
+                  { "u_add_effect": "downed", "duration": "10 seconds" },
+                  { "u_add_effect": "stunned", "duration": "6 seconds" },
+                  { "math": [ "u_hp('head') = max(15, u_hp('head') - rng(30, 50))" ] }
+                ],
+                "else": [
+                  {
+                    "if": { "and": [ { "math": [ "u_hp_max('torso') <= 400" ] }, { "not": { "u_has_flag": "DEST_IMMUNE" } } ] },
+                    "then": [
+                      { "u_make_sound": "CRACK! (Cervical Fracture)", "volume": 40 },
+                      {
+                        "u_message": "Moving with blinding hybrid velocity, you blur across the ground directly to your victim. In a single ferocious motion, you seize their head and jaw with both hands and wrench\u2014a sickening CRACK echoes as you snap their neck completely off, dropping the lifeless body to the ground while their severed head tumbles into your grasp!",
+                        "type": "good"
+                      },
+                      { "u_deal_damage": "bash", "amount": 9999, "arpen": 100, "hit_roll": 10000 },
+                      {
+                        "if": { "u_has_species": "ZOMBIE" },
+                        "then": [ { "u_die": { "remove_corpse": true } } ],
+                        "else": [ "u_die" ]
+                      },
+                      { "map_spawn_item": "original_severed_head", "loc": { "global_val": "klaus_snap_target_pos" } },
+                      { "u_set_field": "fd_blood", "radius": 1, "intensity": 3 }
+                    ],
+                    "else": [
+                      { "u_make_sound": "CRUNCH-CRACK! (Cervical Fracture)", "volume": 40 },
+                      {
+                        "u_deal_damage": "bash",
+                        "amount": { "math": [ "rng(350, 500)" ] },
+                        "arpen": 100,
+                        "hit_roll": 10000
+                      },
+                      { "u_add_effect": "stunned", "duration": "4 seconds" },
+                      { "u_add_effect": "downed", "duration": "3 seconds" },
+                      {
+                        "u_message": "You blur directly adjacent to the beast, seizing its massive neck with an iron grip and violently wrenching its vertebrae! A sickening CRUNCH reverberates as its cervical spine fractures under the monstrous torque, violently stunning and staggering the beast!",
+                        "type": "good"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_CORPSE_WHIRLWIND",
+    "effect": [
+      { "sound_effect": "big_bash", "id": "melee_swing", "volume": 100 },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "npc_cast_spell": { "id": "klaus_spell_whirlwind_sweep", "hit_self": false } },
+      {
+        "if": { "and": [ { "math": [ "u_hp_max('torso') <= 200" ] }, { "not": { "u_has_flag": "DEST_IMMUNE" } } ] },
+        "then": [
+          { "u_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+          { "u_make_sound": "WHIRR... CRACK-SPLAT!", "volume": 55 },
+          {
+            "u_message": "You seize the body with savage hybrid power, whipping it around you in a terrifying 360-degree whirlwind! Surrounding enemies are crushed and shattered by the centrifugal battering ram, as the mangled creature is completely obliterated in a shower of gore!",
+            "type": "good"
+          },
+          {
+            "if": { "u_has_species": "ZOMBIE" },
+            "then": [ { "u_die": { "remove_corpse": true } } ],
+            "else": [ "u_die" ]
+          }
+        ],
+        "else": [
+          { "npc_location_variable": { "context_val": "caster_pos" } },
+          { "u_make_sound": "WHIRR... CRACK-THUD!", "volume": 55 },
+          { "u_knockback": 5, "stun": 3, "dam_mult": 15, "direction_var": { "context_val": "caster_pos" } },
+          { "u_deal_damage": "bash", "amount": { "math": [ "rng(180, 250)" ] }, "arpen": 100, "hit_roll": 10000 },
+          {
+            "u_message": "You seize the creature with an iron hybrid grip, whipping its heavy bulk around you in a terrifying 360-degree whirlwind! Surrounding enemies are battered back by the monstrous battering ram, before you forcefully fling the shattered beast away!",
+            "type": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_KINETIC_THROW",
+    "effect": [
+      { "u_location_variable": { "global_val": "klaus_kinetic_target_pos" } },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_MENU", "alpha_talker": "npc", "beta_talker": "u" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_KINETIC_THROW_MENU",
+    "effect": [
+      { "math": [ "u_kinetic_thrown = 0" ] },
+      {
+        "run_eoc_selector": [
+          "EOC_KLAUS_THROW_OPT_HEAD",
+          "EOC_KLAUS_THROW_OPT_COIN",
+          "EOC_KLAUS_THROW_OPT_AMMO",
+          "EOC_KLAUS_THROW_OPT_SMALL",
+          "EOC_KLAUS_THROW_OPT_BLADE",
+          "EOC_KLAUS_THROW_OPT_BALL",
+          "EOC_KLAUS_THROW_OPT_GLASS",
+          "EOC_KLAUS_THROW_OPT_HEAVY",
+          "EOC_selector_cancel"
+        ],
+        "names": [
+          "Severed Head or Limb (Gory Sonic Bomb)",
+          "Coins (Mach 3 Penetrator)",
+          "Loose Ammunition (Mach 3 Snipe)",
+          "Pebbles, Nails & Bearings (Piercing Shrapnel)",
+          "Knives, Cutlery & Pens (Supersonic Impale)",
+          "Sports Balls (Kinetic Wrecking Ball)",
+          "Glass Bottles & Bricks (Sonic Exploder)",
+          "Heavy Hardware, Bones & Stakes (Crushing Stake)",
+          "Cancel Kinetic Throw"
+        ],
+        "keys": [ "h", "c", "a", "s", "k", "b", "g", "w", "q" ],
+        "descriptions": [
+          "Hurl a severed head, arm, or leg with terrifying hybrid power. Detonates in a gory sonic shower on impact.",
+          "Flick a loose coin from your hand with anti-materiel supersonic velocity.",
+          "Flick a loose unspent cartridge with rifle-caliber supersonic penetration.",
+          "Whip pebbles, nails, spikes, scrap or steel ball bearings at supersonic speed.",
+          "Flick combat knives, steak knives, scissors, scalpels, pens, forks or spoons with Mach 3 impaling speed.",
+          "Launch a bowling ball, pool ball, baseball or golf ball like a supersonic wrecking ball.",
+          "Hurl glass bottles, glass shards or bricks with sonic shockwave and razor fragmentation.",
+          "Drive wooden stakes, pool cues, bones, pipes, rebar or crowbars with overwhelming kinetic force.",
+          "Cancel kinetic throw and refund blood."
+        ],
+        "title": "Select Projectile to Throw Supersonic",
+        "hilight_disabled": true,
+        "allow_cancel": true
+      },
+      {
+        "if": { "math": [ "u_kinetic_thrown == 0" ] },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 10" ] },
+          { "u_message": "Cancelled kinetic throw (10 mL blood refunded).", "type": "bad" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_HEAD",
+    "condition": {
+      "or": [
+        { "u_has_item": "original_severed_head" },
+        { "u_has_item": "original_severed_head_drained" },
+        { "u_has_item": "original_severed_arm" },
+        { "u_has_item": "original_severed_arm_drained" },
+        { "u_has_item": "original_severed_leg" },
+        { "u_has_item": "original_severed_leg_drained" },
+        { "u_has_item": "elder_vampire_severed_head" },
+        { "u_has_item": "elder_vampire_severed_head_drained" },
+        { "u_has_item": "elder_vampire_severed_arm" },
+        { "u_has_item": "elder_vampire_severed_arm_drained" },
+        { "u_has_item": "elder_vampire_severed_leg" },
+        { "u_has_item": "elder_vampire_severed_leg_drained" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 5" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_head" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_head" },
+          { "map_spawn_item": "original_severed_head", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_head_drained" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_head_drained" },
+          { "map_spawn_item": "original_severed_head_drained", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_arm" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_arm" },
+          { "map_spawn_item": "original_severed_arm", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_arm_drained" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_arm_drained" },
+          { "map_spawn_item": "original_severed_arm_drained", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_leg" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_leg" },
+          { "map_spawn_item": "original_severed_leg", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "original_severed_leg_drained" } ] },
+        "then": [
+          { "u_consume_item": "original_severed_leg_drained" },
+          { "map_spawn_item": "original_severed_leg_drained", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_head" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_head" },
+          { "map_spawn_item": "elder_vampire_severed_head", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_head_drained" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_head_drained" },
+          {
+            "map_spawn_item": "elder_vampire_severed_head_drained",
+            "loc": { "global_val": "klaus_kinetic_target_pos" }
+          },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_arm" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_arm" },
+          { "map_spawn_item": "elder_vampire_severed_arm", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_arm_drained" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_arm_drained" },
+          {
+            "map_spawn_item": "elder_vampire_severed_arm_drained",
+            "loc": { "global_val": "klaus_kinetic_target_pos" }
+          },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_leg" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_leg" },
+          { "map_spawn_item": "elder_vampire_severed_leg", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "elder_vampire_severed_leg_drained" } ] },
+        "then": [
+          { "u_consume_item": "elder_vampire_severed_leg_drained" },
+          {
+            "map_spawn_item": "elder_vampire_severed_leg_drained",
+            "loc": { "global_val": "klaus_kinetic_target_pos" }
+          },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_COIN",
+    "condition": {
+      "or": [
+        { "u_has_item": "coin_quarter" },
+        { "u_has_item": "coin_dollar" },
+        { "u_has_item": "coin_half_dollar" },
+        { "u_has_item": "coin_dime" },
+        { "u_has_item": "coin_nickel" },
+        { "u_has_item": "coin_penny" },
+        { "u_has_item": "coin_silver" },
+        { "u_has_item": "coin_gold" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 6" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_quarter" } ] },
+        "then": [
+          { "u_consume_item": "coin_quarter" },
+          { "map_spawn_item": "coin_quarter", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_dollar" } ] },
+        "then": [
+          { "u_consume_item": "coin_dollar" },
+          { "map_spawn_item": "coin_dollar", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_dime" } ] },
+        "then": [
+          { "u_consume_item": "coin_dime" },
+          { "map_spawn_item": "coin_dime", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_nickel" } ] },
+        "then": [
+          { "u_consume_item": "coin_nickel" },
+          { "map_spawn_item": "coin_nickel", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_penny" } ] },
+        "then": [
+          { "u_consume_item": "coin_penny" },
+          { "map_spawn_item": "coin_penny", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_half_dollar" } ] },
+        "then": [
+          { "u_consume_item": "coin_half_dollar" },
+          { "map_spawn_item": "coin_half_dollar", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_silver" } ] },
+        "then": [
+          { "u_consume_item": "coin_silver" },
+          { "map_spawn_item": "coin_silver", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "coin_gold" } ] },
+        "then": [
+          { "u_consume_item": "coin_gold" },
+          { "map_spawn_item": "coin_gold", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_AMMO",
+    "condition": {
+      "or": [
+        { "u_has_item": "9mm" },
+        { "u_has_item": "45" },
+        { "u_has_item": "556" },
+        { "u_has_item": "308" },
+        { "u_has_item": "shot_00" },
+        { "u_has_item": "shot_slug" },
+        { "u_has_item": "762_51" },
+        { "u_has_item": "22_lr" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 1" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "9mm" } ] },
+        "then": [
+          { "u_consume_item": "9mm" },
+          { "map_spawn_item": "9mm", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "45" } ] },
+        "then": [
+          { "u_consume_item": "45" },
+          { "map_spawn_item": "45", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "556" } ] },
+        "then": [
+          { "u_consume_item": "556" },
+          { "map_spawn_item": "556", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "308" } ] },
+        "then": [
+          { "u_consume_item": "308" },
+          { "map_spawn_item": "308", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "762_51" } ] },
+        "then": [
+          { "u_consume_item": "762_51" },
+          { "map_spawn_item": "762_51", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "22_lr" } ] },
+        "then": [
+          { "u_consume_item": "22_lr" },
+          { "map_spawn_item": "22_lr", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "shot_00" } ] },
+        "then": [
+          { "u_consume_item": "shot_00" },
+          { "map_spawn_item": "shot_00", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "shot_slug" } ] },
+        "then": [
+          { "u_consume_item": "shot_slug" },
+          { "map_spawn_item": "shot_slug", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_SMALL",
+    "condition": {
+      "or": [
+        { "u_has_item": "pebble" },
+        { "u_has_item": "bearing" },
+        { "u_has_item": "nail" },
+        { "u_has_item": "spike" },
+        { "u_has_item": "scrap" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 8" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pebble" } ] },
+        "then": [
+          { "u_consume_item": "pebble" },
+          { "map_spawn_item": "pebble", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "bearing" } ] },
+        "then": [
+          { "u_consume_item": "bearing" },
+          { "map_spawn_item": "bearing", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "nail" } ] },
+        "then": [
+          { "u_consume_item": "nail" },
+          { "map_spawn_item": "nail", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "spike" } ] },
+        "then": [
+          { "u_consume_item": "spike" },
+          { "map_spawn_item": "spike", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "scrap" } ] },
+        "then": [
+          { "u_consume_item": "scrap" },
+          { "map_spawn_item": "scrap", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_BLADE",
+    "condition": {
+      "or": [
+        { "u_has_item": "knife_combat" },
+        { "u_has_item": "knife_steak" },
+        { "u_has_item": "knife_hunting" },
+        { "u_has_item": "knife_butcher" },
+        { "u_has_item": "scissors" },
+        { "u_has_item": "scalpel" },
+        { "u_has_item": "pen" },
+        { "u_has_item": "fork" },
+        { "u_has_item": "spoon" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 2" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "knife_combat" } ] },
+        "then": [
+          { "u_consume_item": "knife_combat" },
+          { "map_spawn_item": "knife_combat", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "knife_steak" } ] },
+        "then": [
+          { "u_consume_item": "knife_steak" },
+          { "map_spawn_item": "knife_steak", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "knife_hunting" } ] },
+        "then": [
+          { "u_consume_item": "knife_hunting" },
+          { "map_spawn_item": "knife_hunting", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "knife_butcher" } ] },
+        "then": [
+          { "u_consume_item": "knife_butcher" },
+          { "map_spawn_item": "knife_butcher", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "scissors" } ] },
+        "then": [
+          { "u_consume_item": "scissors" },
+          { "map_spawn_item": "scissors", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "scalpel" } ] },
+        "then": [
+          { "u_consume_item": "scalpel" },
+          { "map_spawn_item": "scalpel", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pen" } ] },
+        "then": [
+          { "u_consume_item": "pen" },
+          { "map_spawn_item": "pen", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "fork" } ] },
+        "then": [
+          { "u_consume_item": "fork" },
+          { "map_spawn_item": "fork", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "spoon" } ] },
+        "then": [
+          { "u_consume_item": "spoon" },
+          { "map_spawn_item": "spoon", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_BALL",
+    "condition": {
+      "or": [
+        { "u_has_item": "bowling_ball" },
+        { "u_has_item": "bball" },
+        { "u_has_item": "golf_ball" },
+        { "u_has_item": "pool_ball" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 7" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "bowling_ball" } ] },
+        "then": [
+          { "u_consume_item": "bowling_ball" },
+          { "map_spawn_item": "bowling_ball", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "bball" } ] },
+        "then": [
+          { "u_consume_item": "bball" },
+          { "map_spawn_item": "bball", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "golf_ball" } ] },
+        "then": [
+          { "u_consume_item": "golf_ball" },
+          { "map_spawn_item": "golf_ball", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pool_ball" } ] },
+        "then": [
+          { "u_consume_item": "pool_ball" },
+          { "map_spawn_item": "pool_ball", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_GLASS",
+    "condition": { "or": [ { "u_has_item": "bottle_glass" }, { "u_has_item": "glass_shard" }, { "u_has_item": "brick" } ] },
+    "effect": [
+      { "math": [ "u_kinetic_type = 4" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "bottle_glass" } ] },
+        "then": [
+          { "u_consume_item": "bottle_glass" },
+          { "map_spawn_item": "glass_shard", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "glass_shard" } ] },
+        "then": [
+          { "u_consume_item": "glass_shard" },
+          { "map_spawn_item": "glass_shard", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "brick" } ] },
+        "then": [
+          { "u_consume_item": "brick" },
+          { "map_spawn_item": "brick", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_THROW_OPT_HEAVY",
+    "condition": {
+      "or": [
+        { "u_has_item": "pointy_stick" },
+        { "u_has_item": "pool_cue" },
+        { "u_has_item": "pipe" },
+        { "u_has_item": "rebar" },
+        { "u_has_item": "crowbar" },
+        { "u_has_item": "bone" },
+        { "u_has_item": "large_bone" }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_kinetic_type = 3" ] },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pointy_stick" } ] },
+        "then": [
+          { "u_consume_item": "pointy_stick" },
+          { "map_spawn_item": "pointy_stick", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pool_cue" } ] },
+        "then": [
+          { "u_consume_item": "pool_cue" },
+          { "map_spawn_item": "pool_cue", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "pipe" } ] },
+        "then": [
+          { "u_consume_item": "pipe" },
+          { "map_spawn_item": "pipe", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "rebar" } ] },
+        "then": [
+          { "u_consume_item": "rebar" },
+          { "map_spawn_item": "rebar", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "crowbar" } ] },
+        "then": [
+          { "u_consume_item": "crowbar" },
+          { "map_spawn_item": "crowbar", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "bone" } ] },
+        "then": [
+          { "u_consume_item": "bone" },
+          { "map_spawn_item": "bone", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      {
+        "if": { "and": [ { "math": [ "u_kinetic_thrown == 0" ] }, { "u_has_item": "large_bone" } ] },
+        "then": [
+          { "u_consume_item": "large_bone" },
+          { "map_spawn_item": "large_bone", "loc": { "global_val": "klaus_kinetic_target_pos" } },
+          { "math": [ "u_kinetic_thrown = 1" ] }
+        ]
+      },
+      { "run_eocs": "EOC_KLAUS_KINETIC_THROW_RESOLVE", "alpha_talker": "u", "beta_talker": "npc" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_KINETIC_THROW_RESOLVE",
+    "effect": [
+      {
+        "if": { "and": [ "has_beta", { "not": "npc_is_avatar" }, { "or": [ "npc_is_character", "npc_is_monster" ] } ] },
+        "then": [
+          { "math": [ "_kinetic_dist = clamp(distance('u', 'npc'), 1, 25)" ] },
+          { "math": [ "_kinetic_decay = clamp(1.0 - max(0, _kinetic_dist - 4) * 0.02, 0.60, 1.0)" ] },
+          { "sound_effect": "small", "id": "explosion", "volume": 90 },
+          { "sound_effect": "hit_flesh", "id": "bullet_hit", "volume": 100 },
+          { "npc_add_effect": "stunned", "duration": "2 seconds" },
+          { "npc_add_effect": "downed", "duration": "2 seconds" },
+          {
+            "if": {
+              "or": [
+                { "npc_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                { "npc_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                { "npc_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                { "npc_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                { "npc_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+                { "npc_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+              ]
+            },
+            "then": [ { "math": [ "n_npc_fear() = 0" ] }, { "math": [ "n_npc_anger() = 100" ] } ]
+          },
+          {
+            "switch": { "math": [ "u_kinetic_type" ] },
+            "cases": [
+              {
+                "case": 1,
+                "effect": [
+                  { "npc_make_sound": "CRACK! (Sonic Boom)", "volume": 60 },
+                  {
+                    "npc_deal_damage": "stab",
+                    "amount": { "math": [ "rng(200, 280) * _kinetic_decay" ] },
+                    "arpen": 100,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "With ferocious hybrid velocity, you flick the cartridge forward at Mach 3! A deafening sonic crack echoes as it punches straight through your target like a high-caliber sniper round!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 2,
+                "effect": [
+                  { "npc_make_sound": "SHICK-CRACK! (Sonic Impale)", "volume": 60 },
+                  {
+                    "npc_deal_damage": "stab",
+                    "amount": { "math": [ "rng(220, 300) * _kinetic_decay" ] },
+                    "arpen": 100,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "You whip the blade forward with supersonic precision! A sonic boom splits the air as it impales deep through flesh and bone!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 3,
+                "effect": [
+                  { "npc_make_sound": "BOOM-CRACK! (Sonic Impact)", "volume": 65 },
+                  {
+                    "npc_deal_damage": "bash",
+                    "amount": { "math": [ "rng(250, 340) * _kinetic_decay" ] },
+                    "arpen": 80,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "Driven with terrifying hybrid force, the heavy projectile breaks the sound barrier and smashes straight through target defenses!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 4,
+                "effect": [
+                  { "npc_make_sound": "CRASH-BOOM! (Sonic Shrapnel)", "volume": 65 },
+                  {
+                    "npc_deal_damage": "cut",
+                    "amount": { "math": [ "rng(180, 250) * _kinetic_decay" ] },
+                    "arpen": 90,
+                    "hit_roll": 10000
+                  },
+                  { "npc_set_field": "fd_blood", "radius": 1, "intensity": 2 },
+                  {
+                    "u_message": "The glass shatters against the air at supersonic speed, detonating into a razor sonic shockwave on impact!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 5,
+                "effect": [
+                  { "npc_make_sound": "SPLAT-BOOM! (Gory Shockwave)", "volume": 65 },
+                  {
+                    "npc_deal_damage": "bash",
+                    "amount": { "math": [ "rng(220, 300) * _kinetic_decay" ] },
+                    "arpen": 80,
+                    "hit_roll": 10000
+                  },
+                  { "npc_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+                  {
+                    "u_message": "The severed limb strikes the target like an anti-materiel artillery shell, detonating in a horrifying sonic shower of blood and bone!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 6,
+                "effect": [
+                  { "npc_make_sound": "SNAP-CRACK! (Hypervelocity Coin)", "volume": 65 },
+                  {
+                    "npc_deal_damage": "stab",
+                    "amount": { "math": [ "rng(220, 300) * _kinetic_decay" ] },
+                    "arpen": 100,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "You flick the coin with effortless hybrid ferocity! Screaming through the air at Mach 3, it punches clean through the target with devastating penetrative power!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 7,
+                "effect": [
+                  { "npc_make_sound": "BOOM-CRACK! (Kinetic Cannonball)", "volume": 65 },
+                  {
+                    "npc_deal_damage": "bash",
+                    "amount": { "math": [ "rng(240, 330) * _kinetic_decay" ] },
+                    "arpen": 80,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "Propelled with monstrous hybrid werewolf strength, the sphere crashes into the target like a supersonic cannonball!",
+                    "type": "good"
+                  }
+                ]
+              },
+              {
+                "case": 8,
+                "effect": [
+                  { "npc_make_sound": "CRACK! (Supersonic Shrapnel)", "volume": 60 },
+                  {
+                    "npc_deal_damage": "stab",
+                    "amount": { "math": [ "rng(190, 260) * _kinetic_decay" ] },
+                    "arpen": 90,
+                    "hit_roll": 10000
+                  },
+                  {
+                    "u_message": "The small projectile shatters the sound barrier and pierces deep into the target!",
+                    "type": "good"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LIMB_TEAR",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+            { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+            { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+            { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+            { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+            { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+          ]
+        },
+        "then": [
+          { "u_location_variable": { "global_val": "klaus_original_hurl_pos" } },
+          { "run_eocs": "EOC_KLAUS_LIMB_TEAR_ORIGINAL_COUNTER", "alpha_talker": "npc", "beta_talker": "u" }
+        ],
+        "else": [
+          {
+            "if": "npc_has_weapon",
+            "then": [ { "run_eocs": "EOC_KLAUS_LIMB_TEAR_WEAPON_REFUND", "alpha_talker": "npc" } ],
+            "else": [
+              {
+                "if": {
+                  "or": [
+                    { "u_has_effect": "downed" },
+                    { "u_has_effect": "stunned" },
+                    { "u_has_effect": "bleed" },
+                    { "math": [ "u_hp('torso') <= 200" ] },
+                    { "math": [ "u_hp('torso') <= u_hp_max('torso') * 0.85" ] }
+                  ]
+                },
+                "then": [ { "run_eocs": "EOC_KLAUS_LIMB_TEAR_MENU", "alpha_talker": "npc", "beta_talker": "u" } ],
+                "else": [ { "run_eocs": "EOC_KLAUS_LIMB_TEAR_UNINJURED_REFUND", "alpha_talker": "npc" } ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LIMB_TEAR_ORIGINAL_COUNTER",
+    "effect": [
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
+      { "u_make_sound": "BOOM-CRACK! (Supernatural Parry & Hurl)", "volume": 75 },
+      {
+        "message": "You lunge forward to seize the Original's limb, but their thousand-year-old sinew and reflexes are insurmountable! With contemptuous ease, they snatch your arm mid-reach, fracture your wrist, and violently hurl you flying across the room!",
+        "type": "bad"
+      },
+      { "u_knockback": 6, "stun": 2, "dam_mult": 15, "direction_var": { "global_val": "klaus_original_hurl_pos" } },
+      {
+        "u_deal_damage": "bash",
+        "bodypart": "arm_r",
+        "amount": { "math": [ "rng(35, 55)" ] },
+        "arpen": 20,
+        "hit_roll": 10000
+      },
+      { "u_add_effect": "downed", "duration": "3 seconds" },
+      { "u_add_effect": "stunned", "duration": "2 seconds" },
+      { "math": [ "u_pain() += 20" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LIMB_TEAR_WEAPON_REFUND",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 25" ] },
+      {
+        "u_message": "Your hands must be empty to seize their limbs and rip them apart! Drop or sheath your weapon first (25 mL blood refunded).",
+        "type": "bad"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LIMB_TEAR_UNINJURED_REFUND",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 25" ] },
+      {
+        "u_message": "Your target is still fighting back at full strength! Batter, injure, stun, or knock them down first before ripping their limbs apart (25 mL blood refunded).",
+        "type": "bad"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LIMB_TEAR_MENU",
+    "effect": [
+      { "math": [ "u_limb_torn = 0" ] },
+      {
+        "run_eoc_selector": [
+          "EOC_KLAUS_TEAR_ARM_R",
+          "EOC_KLAUS_TEAR_ARM_L",
+          "EOC_KLAUS_TEAR_LEG_R",
+          "EOC_KLAUS_TEAR_LEG_L",
+          "EOC_KLAUS_TEAR_SPINE",
+          "EOC_selector_cancel"
+        ],
+        "names": [
+          "Rip Off Right Arm (Disarm & Arterial Bleed)",
+          "Rip Off Left Arm (Cripple & Arterial Bleed)",
+          "Rip Apart Right Leg (Cripple Movement & Femoral Bleed)",
+          "Rip Apart Left Leg (Cripple Movement & Femoral Bleed)",
+          "Shatter Spine & Both Legs (Permanent Paralysis)",
+          "Cancel Limb Tear"
+        ],
+        "keys": [ "r", "l", "g", "f", "s", "q" ],
+        "descriptions": [
+          "Seize their right arm with hybrid claws and wrench it violently out of its shoulder socket, crippling their weapon arm and spawning a severed arm.",
+          "Seize their left arm with hybrid claws and tear it completely free from the shoulder joint in a spray of arterial blood.",
+          "Seize their right leg and rip it from the hip socket, collapsing them onto the floor in a pool of femoral blood.",
+          "Seize their left leg and rip it from the hip socket, collapsing them onto the floor in a pool of femoral blood.",
+          "Drive a monstrous werewolf-strength stomp into their lower spine, shattering both legs and leaving them paralyzed on the ground unable to walk or flee.",
+          "Cancel limb tear and refund blood."
+        ],
+        "title": "Select Limb to Rip Apart",
+        "hilight_disabled": true,
+        "allow_cancel": true
+      },
+      {
+        "if": { "math": [ "u_limb_torn == 0" ] },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 25" ] },
+          { "u_message": "Cancelled limb tear (25 mL blood refunded).", "type": "bad" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_FORCE_DROP_WIELDED_ITEM",
+    "effect": [
+      { "npc_teleport": { "global_val": "klaus_victim_drop_tile" }, "force_safe": true },
+      {
+        "u_message": "Their weapon is ripped violently from their grasp, clattering uselessly onto the blood-soaked floor!",
+        "type": "mixed"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_TEAR_ARM_R",
+    "effect": [
+      { "math": [ "u_limb_torn = 1" ] },
+      { "sound_effect": "big_cutting", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_spawn_item": "original_severed_arm" },
+      { "npc_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      { "npc_make_sound": "RIP-CRACK! ...AARGH!", "volume": 55 },
+      { "npc_add_effect": "effect_klaus_missing_arm_r", "duration": "PERMANENT" },
+      { "npc_add_effect": "disarmed", "duration": "PERMANENT" },
+      {
+        "if": { "npc_has_effect": "effect_klaus_missing_arm_l" },
+        "then": [ { "npc_add_effect": "effect_klaus_missing_both_arms", "duration": "PERMANENT" } ]
+      },
+      { "npc_location_variable": { "global_val": "klaus_victim_drop_tile" } },
+      {
+        "npc_run_inv_eocs": "all",
+        "search_data": [ { "wielded_only": true } ],
+        "true_eocs": [ "EOC_KLAUS_FORCE_DROP_WIELDED_ITEM" ]
+      },
+      { "math": [ "n_hp('arm_r') = 0" ] },
+      { "npc_add_effect": "bleed", "target_part": "arm_r", "intensity": 30, "duration": "5 minutes" },
+      { "npc_deal_damage": "cut", "bodypart": "arm_r", "amount": 60 },
+      { "math": [ "n_pain() += 40" ] },
+      {
+        "u_message": "You seize their right arm with savage hybrid claws and wrench violently! Tendons tear and cartilage gives way with a sickening POP as you rip their arm completely out of its shoulder socket!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_TEAR_ARM_L",
+    "effect": [
+      { "math": [ "u_limb_torn = 1" ] },
+      { "sound_effect": "big_cutting", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_spawn_item": "original_severed_arm" },
+      { "npc_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      { "npc_make_sound": "RIP-CRACK! ...AARGH!", "volume": 55 },
+      { "npc_add_effect": "effect_klaus_missing_arm_l", "duration": "PERMANENT" },
+      {
+        "if": { "npc_has_effect": "effect_klaus_missing_arm_r" },
+        "then": [ { "npc_add_effect": "effect_klaus_missing_both_arms", "duration": "PERMANENT" } ]
+      },
+      { "math": [ "n_hp('arm_l') = 0" ] },
+      { "npc_add_effect": "bleed", "target_part": "arm_l", "intensity": 30, "duration": "5 minutes" },
+      { "npc_deal_damage": "cut", "bodypart": "arm_l", "amount": 60 },
+      { "math": [ "n_pain() += 40" ] },
+      {
+        "u_message": "You seize their left arm with savage hybrid claws and wrench violently! Tendons tear and cartilage gives way with a sickening POP as you rip their arm completely out of its shoulder socket!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_TEAR_LEG_R",
+    "effect": [
+      { "math": [ "u_limb_torn = 1" ] },
+      { "sound_effect": "big_cutting", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_spawn_item": "original_severed_leg" },
+      { "npc_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      { "npc_make_sound": "RIP-CRACK! ...AARGH!", "volume": 55 },
+      { "npc_add_effect": "effect_klaus_missing_leg_r", "duration": "PERMANENT" },
+      { "npc_add_effect": "downed", "duration": "10 seconds" },
+      {
+        "if": { "npc_has_effect": "effect_klaus_missing_leg_l" },
+        "then": [ { "npc_add_effect": "effect_klaus_missing_both_legs", "duration": "PERMANENT" } ]
+      },
+      { "math": [ "n_hp('leg_r') = 0" ] },
+      { "npc_add_effect": "bleed", "target_part": "leg_r", "intensity": 35, "duration": "5 minutes" },
+      { "npc_deal_damage": "cut", "bodypart": "leg_r", "amount": 75 },
+      { "math": [ "n_pain() += 45" ] },
+      {
+        "u_message": "You seize their right leg with monstrous hybrid force and tear it completely from its hip socket! A massive spray of femoral blood erupts across the floor!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_TEAR_LEG_L",
+    "effect": [
+      { "math": [ "u_limb_torn = 1" ] },
+      { "sound_effect": "big_cutting", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_spawn_item": "original_severed_leg" },
+      { "npc_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      { "npc_make_sound": "RIP-CRACK! ...AARGH!", "volume": 55 },
+      { "npc_add_effect": "effect_klaus_missing_leg_l", "duration": "PERMANENT" },
+      { "npc_add_effect": "downed", "duration": "10 seconds" },
+      {
+        "if": { "npc_has_effect": "effect_klaus_missing_leg_r" },
+        "then": [ { "npc_add_effect": "effect_klaus_missing_both_legs", "duration": "PERMANENT" } ]
+      },
+      { "math": [ "n_hp('leg_l') = 0" ] },
+      { "npc_add_effect": "bleed", "target_part": "leg_l", "intensity": 35, "duration": "5 minutes" },
+      { "npc_deal_damage": "cut", "bodypart": "leg_l", "amount": 75 },
+      { "math": [ "n_pain() += 45" ] },
+      {
+        "u_message": "You seize their left leg with monstrous hybrid force and tear it completely from its hip socket! A massive spray of femoral blood erupts across the floor!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_TEAR_SPINE",
+    "effect": [
+      { "math": [ "u_limb_torn = 1" ] },
+      { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
+      { "sound_effect": "hit_vehicle", "id": "smash_success", "volume": 100 },
+      { "npc_make_sound": "CRUNCH-PULVERIZE!", "volume": 60 },
+      { "npc_add_effect": "effect_klaus_shattered_spine", "duration": "PERMANENT" },
+      { "npc_add_effect": "downed", "duration": "60 seconds" },
+      { "npc_add_effect": "stunned", "duration": "5 seconds" },
+      { "math": [ "n_hp('leg_l') = 0" ] },
+      { "math": [ "n_hp('leg_r') = 0" ] },
+      { "npc_deal_damage": "bash", "bodypart": "torso", "amount": 100 },
+      { "math": [ "n_pain() += 60" ] },
+      {
+        "u_message": "You drive a crushing stomp straight down into their lower spine! Vertebrae shatter under thousand-year-old hybrid force, leaving them completely paralyzed and crawling on the floor!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BLOOD_RADAR",
+    "effect": [
+      {
+        "if": { "u_has_effect": "effect_klaus_blood_radar" },
+        "then": [ { "u_lose_effect": "effect_klaus_blood_radar" }, { "math": [ "u_vitamin('human_blood_vitamin') += 10" ] } ],
+        "else": [
+          { "u_add_effect": "effect_klaus_blood_radar", "duration": "15 minutes" },
+          { "math": [ "klaus_radar_npcs = 0" ] },
+          { "math": [ "klaus_radar_monsters = u_monsters_nearby('radius': 45, 'attitude': 'both')" ] },
+          { "u_run_npc_eocs": [ "EOC_KLAUS_RADAR_PING_NPC" ], "local": true, "npc_range": 45 },
+          {
+            "u_message": "You close your eyes for a heartbeat and inhale deeply, your apex werewolf senses flaring to life. Through solid walls and darkness within 45 tiles, you detect <global_val:klaus_radar_npcs> human heartbeat(s) and <global_val:klaus_radar_monsters> other creature(s).",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_RADAR_PING_NPC",
+    "effect": [
+      { "math": [ "klaus_radar_npcs += 1" ] },
+      {
+        "if": {
+          "or": [
+            { "u_has_effect": "bleed" },
+            { "math": [ "u_hp('torso') < u_hp_max('torso')" ] },
+            { "math": [ "u_hp('head') < u_hp_max('head')" ] }
+          ]
+        },
+        "then": [
+          {
+            "message": "<color_light_red>[Heartbeat & Blood Scent]</color> <u_name>'s pulse is racing nearby and you smell fresh blood from their wounds!",
+            "type": "good"
+          }
+        ],
+        "else": [
+          {
+            "message": "<color_pink>[Heartbeat Detected]</color> You hear the steady, rhythmic thumping of <u_name>'s heart beating nearby.",
+            "type": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_USE_HEAD",
+    "effect": [
+      {
+        "run_eoc_selector": [ "EOC_ORIGINAL_DRAIN_HEAD", "EOC_ORIGINAL_BRANDISH_HEAD", "EOC_selector_cancel" ],
+        "names": [ "Drain Residual Blood (+80 mL)", "Brandish Severed Trophy", "Put Away" ],
+        "keys": [ "d", "b", "q" ],
+        "descriptions": [
+          "Bite into the severed head and drain its residual blood (+80 mL blood).",
+          "Brandish the gory severed head to terrify onlookers.",
+          "Cancel."
+        ],
+        "title": "Severed Head Interaction"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_DRAIN_HEAD",
+    "condition": { "u_has_item": "original_severed_head" },
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 80" ] },
+      { "u_consume_item": "original_severed_head" },
+      { "u_spawn_item": "original_severed_head_drained", "suppress_message": true },
+      { "u_message": "You drain the warm residual blood from the severed head (+80 mL).", "type": "good" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_USE_ARM",
+    "effect": [
+      {
+        "run_eoc_selector": [ "EOC_ORIGINAL_DRAIN_ARM", "EOC_ORIGINAL_BRANDISH_HEAD", "EOC_selector_cancel" ],
+        "names": [ "Drain Residual Blood (+80 mL)", "Brandish Severed Trophy", "Put Away" ],
+        "keys": [ "d", "b", "q" ],
+        "descriptions": [
+          "Bite into the severed arm and drain its residual blood (+80 mL blood).",
+          "Brandish the severed arm to terrify onlookers.",
+          "Cancel."
+        ],
+        "title": "Severed Arm Interaction"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_DRAIN_ARM",
+    "condition": { "u_has_item": "original_severed_arm" },
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 80" ] },
+      { "u_consume_item": "original_severed_arm" },
+      { "u_spawn_item": "original_severed_arm_drained", "suppress_message": true },
+      { "u_message": "You drain the warm residual blood from the severed arm (+80 mL).", "type": "good" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_USE_LEG",
+    "effect": [
+      {
+        "run_eoc_selector": [ "EOC_ORIGINAL_DRAIN_LEG", "EOC_ORIGINAL_BRANDISH_HEAD", "EOC_selector_cancel" ],
+        "names": [ "Drain Residual Blood (+80 mL)", "Brandish Severed Trophy", "Put Away" ],
+        "keys": [ "d", "b", "q" ],
+        "descriptions": [
+          "Bite into the severed leg and drain its residual blood (+80 mL blood).",
+          "Brandish the severed leg to terrify onlookers.",
+          "Cancel."
+        ],
+        "title": "Severed Leg Interaction"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_DRAIN_LEG",
+    "condition": { "u_has_item": "original_severed_leg" },
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') += 80" ] },
+      { "u_consume_item": "original_severed_leg" },
+      { "u_spawn_item": "original_severed_leg_drained", "suppress_message": true },
+      { "u_message": "You drain the warm residual blood from the severed leg (+80 mL).", "type": "good" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_BRANDISH_HEAD",
+    "effect": [
+      { "sound_effect": "melee_cut", "id": "melee_swing", "volume": 60 },
+      {
+        "u_message": "You brandish the gory severed limb with dark authority. The grim trophy sends chills through the room.",
+        "type": "good"
+      }
+    ]
+  }
+]

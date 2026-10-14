@@ -1,0 +1,26 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_hybrid_venom",
+    "name": [ "Hybrid Venom" ],
+    "desc": [ "Werewolf venom from the Original Hybrid's bite is eating this vampire alive." ],
+    "rating": "bad",
+    "max_duration": "1 hours"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_hunters_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "3 days"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_klaus_vervain",
+    "name": [ "Vervain" ],
+    "desc": [ "Vervain is burning through your veins.  You're weaker and slower until it wears off." ],
+    "rating": "bad",
+    "max_duration": "10 minutes",
+    "enchantments": [ { "values": [ { "value": "STRENGTH", "add": -4 }, { "value": "SPEED", "add": -25 } ] } ]
+  }
+]

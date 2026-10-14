@@ -1,0 +1,9 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_xe_alpha_moon_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "1 days"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "type": "scenario",
+    "id": "elijah_family_above_all",
+    "name": "Elijah: Family Above All",
+    "points": 0,
+    "description": "Play as Elijah Mikaelson.  Night in New Orleans, and the city is burning.  You're in your own house in the Garden District: a parlor with the piano you play when the red door in your mind won't stay shut, a library of first editions, a wine cabinet, a fridge of blood bags, and a crypt where Rebekah, Kol and Finn sleep with silver daggers in their hearts.  Behind a painting in your bedroom, in a safe no one else knows exists, is the white oak stake: the only thing in the world that can kill you.  Niklaus is out there somewhere, and so is the last of the Petrova blood.",
+    "start_name": "Elijah's House",
+    "allowed_locs": [ "sloc_elijah_house" ],
+    "start_of_cataclysm": { "hour": 0, "day": 56, "season": "spring", "year": 1 },
+    "start_of_game": { "hour": 22, "day": 61, "season": "spring", "year": 1 },
+    "eoc": [ "EOC_ELIJAH_SCENARIO_START" ],
+    "missions": [ "MISSION_ELIJAH_PETROVA" ],
+    "flags": [ "LONE_START" ]
+  }
+]

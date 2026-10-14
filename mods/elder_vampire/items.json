@@ -1,0 +1,473 @@
+[
+  {
+    "id": "elder_vampire_signet_ring",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "copy-from": "ring_signet",
+    "name": { "str": "ancient dynasty signet ring" },
+    "description": "A heavy, dark-silver signet ring bearing an ancient engraved crest from a medieval vampire dynasty long erased from history.  Steeped in centuries of occult blood magic, wearing it expands your occult mana reservoir (+1,500 Max Mana, +150% Mana Regen), accelerates stamina recovery (+25%), increases carrying capacity (+35%), and projects an aura of ancient aristocratic dominance in conversation (+30 Intimidate & Persuade, +20 Lie).",
+    "category": "armor",
+    "passive_effects": [
+      {
+        "has": "WORN",
+        "condition": "ALWAYS",
+        "values": [
+          { "value": "MAX_MANA", "add": 1500 },
+          { "value": "REGEN_MANA", "multiply": 1.5 },
+          { "value": "STAMINA_REGEN_MOD", "add": 0.25 },
+          { "value": "CARRY_WEIGHT", "multiply": 0.35 },
+          { "value": "SOCIAL_INTIMIDATE", "add": 30 },
+          { "value": "SOCIAL_PERSUADE", "add": 30 },
+          { "value": "SOCIAL_LIE", "add": 20 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elder_vampire_unbound_daylight_ring",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR" ],
+    "copy-from": "ring_signet",
+    "name": { "str": "blood-tempered ring", "str_pl": "blood-tempered rings" },
+    "description": "A metal ring quenched in boiling vampire blood and charcoal ash.  The metal is primed to hold a solar ward, but requires a massive infusion of 1,200 Mana (activate this ring or cast Forge Lapis Daylight Ring) to bind the daylight protection spell permanently.",
+    "category": "armor",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Channel 1,200 Mana to bind the Daylight Protection spell",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_BIND_UNBOUND_RING" ]
+    }
+  },
+  {
+    "id": "elder_vampire_thrall_daylight_ring",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "copy-from": "ring_signet",
+    "name": { "str": "lapis daylight ring", "str_pl": "lapis daylight rings" },
+    "description": "A heavy band set with deep blue lapis lazuli, forged through an exhausting occult ritual of blood and mana.  While worn, it shields a vampire completely from the scorching rays of the sun.  Can be worn yourself or bestowed upon a sired Vampire Thrall via Vampire Blood Sharing.",
+    "category": "armor",
+    "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "ench_effects": [ { "effect": "vampire_blind_the_sun", "intensity": 1 } ] } ]
+  },
+  {
+    "id": "elder_vampire_chronicle",
+    "type": "ITEM",
+    "subtypes": [ "BOOK" ],
+    "copy-from": "priest_diary",
+    "name": { "str": "vellum chronicle" },
+    "description": "A pocket-sized journal bound in blackened leather with brittle vellum pages.  It contains cryptic records written across centuries in Latin and archaic English: dynasties fallen, debts settled, and cold survival strategies for outliving civilizations.",
+    "category": "books"
+  },
+  {
+    "id": "elder_vampire_fresh_heart",
+    "type": "ITEM",
+    "subtypes": [ "COMESTIBLE" ],
+    "copy-from": "human_heart",
+    "name": { "str": "still-beating heart", "str_pl": "still-beating hearts" },
+    "description": "A warm, still-quivering heart violently ripped from the chest cavity of a living victim.  Dark supernatural vitae steadily drips from its torn ventricles.  Consuming it feeds an ancient vampire with pure, concentrated lifeforce (+400 mL blood).",
+    "weight": "320 g",
+    "volume": "250 ml",
+    "category": "food",
+    "material": [ "hblood", "blood" ],
+    "parasites": 0,
+    "spoils_in": "2 days",
+    "flags": [ "NUTRIENT_OVERRIDE", "EATEN_COLD", "HEMOVORE_FUN" ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain and consume the still-beating heart",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_CONSUME_HEART_MANUAL" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_head",
+    "type": "ITEM",
+    "name": { "str": "severed head", "str_pl": "severed heads" },
+    "looks_like": "skull_human",
+    "description": "A bloody severed head violently torn from the shoulders of its victim with supernatural force.  Warm residual blood still drips from the ragged neck stump.  Activate ('a') to drain its remaining blood (+50 to +80 mL) or brandish it as a grisly trophy.",
+    "weight": "4200 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed head",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_USE_HEAD" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_head_drained",
+    "type": "ITEM",
+    "copy-from": "elder_vampire_severed_head",
+    "name": { "str": "exsanguinated severed head", "str_pl": "exsanguinated severed heads" },
+    "looks_like": "skull_human",
+    "description": "A pale, bloodless severed head drained completely dry of its residual vitae.  Can still be brandished ('a') to terrify witnesses or launched at Mach 2.",
+    "weight": "4000 g",
+    "volume": "3500 ml",
+    "category": "other",
+    "symbol": "o",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 6 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated head as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_arm",
+    "type": "ITEM",
+    "name": { "str": "severed arm", "str_pl": "severed arms" },
+    "looks_like": "bone_human",
+    "description": "A blood-soaked arm violently ripped from its shoulder socket with monstrous vampiric strength.  Warm blood still oozes from its torn brachial artery.  Activate ('a') to drain its residual blood (+50 to +80 mL) or brandish it as a grisly trophy.",
+    "weight": "3200 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed arm",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_USE_ARM" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_arm_drained",
+    "type": "ITEM",
+    "copy-from": "elder_vampire_severed_arm",
+    "name": { "str": "exsanguinated severed arm", "str_pl": "exsanguinated severed arms" },
+    "looks_like": "bone_human",
+    "description": "A pale, bloodless severed arm sucked dry of its residual blood.  Can still be brandished ('a') to terrify witnesses or launched at Mach 2.",
+    "weight": "3000 g",
+    "volume": "2500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 8 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated arm as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_leg",
+    "type": "ITEM",
+    "name": { "str": "severed leg", "str_pl": "severed legs" },
+    "looks_like": "large_bone",
+    "description": "A heavy, blood-drenched leg savagely wrenched free from its hip socket by an ancient vampire.  Warm blood still pools in its torn femoral artery.  Activate ('a') to drain its residual blood (+50 to +80 mL) or brandish it as a grisly trophy.",
+    "weight": "6500 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "red",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Drain residual blood or brandish the severed leg",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_USE_LEG" ]
+    }
+  },
+  {
+    "id": "elder_vampire_severed_leg_drained",
+    "type": "ITEM",
+    "copy-from": "elder_vampire_severed_leg",
+    "name": { "str": "exsanguinated severed leg", "str_pl": "exsanguinated severed legs" },
+    "looks_like": "large_bone",
+    "description": "A pale, bloodless severed leg drained dry of its femoral blood.  Can still be brandished ('a') to terrify witnesses or launched at Mach 2.",
+    "weight": "6200 g",
+    "volume": "4500 ml",
+    "category": "other",
+    "symbol": "/",
+    "color": "light_gray",
+    "material": [ "hflesh", "bone" ],
+    "melee_damage": { "bash": 12 },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Brandish the exsanguinated leg as a grisly trophy",
+      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_BRANDISH_HEAD" ]
+    }
+  },
+  {
+    "id": "elder_vampire_blood_flask",
+    "type": "ITEM",
+    "category": "container",
+    "copy-from": "thermos",
+    "name": { "str": "heated blood thermos", "str_pl": "heated blood thermoses" },
+    "looks_like": "thermos",
+    "description": "A ruggedized, double-walled vacuum thermos forged from dark surgical steel, equipped with an integrated ceramic heating element.  Engineered for clinical transport and long-term storage of human blood, its vacuum seal prevents spoilage while its internal heating element can warm or thaw frozen liquid on demand.  Holds 1 L of liquid.",
+    "qualities": [ [ "BOIL", 2 ], [ "HOTPLATE", 2 ], [ "CONTAIN", 1 ] ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Thermos Heating & Drinking Controls",
+      "effect_on_conditions": [ "EOC_HEAT_BLOOD_THERMOS" ]
+    },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "watertight": true,
+        "insulation": 100,
+        "spoil_multiplier": 0.0,
+        "max_contains_volume": "1 L",
+        "max_contains_weight": "4 kg",
+        "sealed_data": { "spoil_multiplier": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "book_vampire_anathema_compendium",
+    "type": "ITEM",
+    "subtypes": [ "BOOK" ],
+    "copy-from": "priest_diary",
+    "name": { "str": "The Anathema Compendium: Weaknesses of the Undead" },
+    "description": "A meticulously researched leather-bound grimoire written by early 19th-century vampire scholars.  It contains clinical examinations of vampiric biology and systemic vulnerabilities: the paralyzing burning of vervain in the bloodstream, the cellular destruction of unprotected ultraviolet radiation, and the definitive necrosis caused by a wooden stake through the heart.",
+    "category": "books",
+    "weight": "850 g",
+    "volume": "1 L",
+    "read_skill": "deduction",
+    "max_level": 6,
+    "required_level": 1,
+    "time": "45 m",
+    "read_fun": 2,
+    "intelligence": 10,
+    "price": "1500 USD",
+    "price_postapoc": "40 USD"
+  },
+  {
+    "id": "book_vampire_stages_of_vitae",
+    "type": "ITEM",
+    "subtypes": [ "BOOK" ],
+    "copy-from": "priest_diary",
+    "name": { "str": "Treatise on Vampiric Metamorphosis" },
+    "description": "An occult anatomical manuscript bound in dark parchment, emblazoned with the Latin seal of the Pale Cloak Coven.  Within its illuminated vellum pages lies the definitive anatomical and mystical breakdown of vampiric metamorphosis across all recorded stages of vitae:\n\n* PREFACE & THE SIRING: The mechanics of the blood exchange, the agonizing transition fever, the vital 24-hour feeding deadline, and the permanent arrest of mortal decay.\n* STAGE I - THE FLEDGLING: The newborn thirst and magnified emotions; modest physical enhancements (throwing and sprinting marginally swifter than human); gradual wound clotting and tissue repair; and critical vulnerabilities to vervain, sunlight, neck snaps, and wooden stakes.\n* STAGE II - THE BLOODED: Decades of feeding refining wild frenzy into predatory control; bulletproof bone density; sensory expansion detecting heartbeats through walls; and hypnotic compulsion over mortals lacking vervain protection.\n* STAGE III - THE CENTURY-OLD PREDATOR: Supersonic lunges; kinetic limb-tearing brutality; oppressive aura of psychic terror; and enhanced thrall siring.\n* STAGE IV - THE ELDER SOVEREIGN: The apex immortal lineage of the Mikaelson bloodline; complete invulnerability to mortal weapons and standard stakes; near-instantaneous bodily reconstitution; sound-barrier breaking sprints; and the global metaphysical bond of the sireline.\n\n[Activate (a) to read the individual chapters or the complete treatise in detail.  Can also be read (r) to train Deduction.]",
+    "category": "books",
+    "weight": "950 g",
+    "volume": "1 L",
+    "read_skill": "deduction",
+    "max_level": 8,
+    "required_level": 0,
+    "time": "20 m",
+    "chapters": 5,
+    "read_fun": 4,
+    "intelligence": 8,
+    "price": "1800 USD",
+    "price_postapoc": "50 USD",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Read Treatise on Vampiric Metamorphosis",
+      "effect_on_conditions": [ "EOC_READ_VAMPIRE_STAGES_OF_VITAE" ]
+    }
+  },
+  {
+    "id": "book_vampire_order_chronicles",
+    "type": "ITEM",
+    "subtypes": [ "BOOK" ],
+    "copy-from": "priest_diary",
+    "name": { "str": "Chronicles of the Ancient Order" },
+    "description": "A heavy illuminated chronicle detailing the origins of the first immortal bloodlines, the pact of shadows in medieval Europe, sireline dynamics, and the hidden covenants maintained across dynasties.",
+    "category": "books",
+    "weight": "1200 g",
+    "volume": "1250 ml",
+    "read_skill": "speech",
+    "max_level": 6,
+    "required_level": 1,
+    "time": "40 m",
+    "read_fun": 3,
+    "intelligence": 9,
+    "price": "2200 USD",
+    "price_postapoc": "60 USD"
+  },
+  {
+    "id": "relic_mikaelson_chalice",
+    "type": "ITEM",
+    "subtypes": [ "ARTIFACT" ],
+    "category": "container",
+    "name": { "str": "Elder Blood Chalice" },
+    "description": "A heavy drinking chalice hammered from ancient Nordic silver, engraved with archaic elder futhark runes from the 10th century.  Used during an ancient bloodline's earliest feasts, blood poured into this sacred vessel never curdles, spoils, or freezes.  Drinking blood from this chalice invigorates the soul and provides enhanced sustenance.",
+    "symbol": "u",
+    "color": "light_gray",
+    "material": [ "silver" ],
+    "weight": "650 g",
+    "volume": "1250 ml",
+    "flags": [ "TARDIS", "NO_SALVAGE" ],
+    "price": "45000 USD",
+    "price_postapoc": "650 USD",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "watertight": true,
+        "open_container": true,
+        "max_contains_volume": "1000 ml",
+        "max_contains_weight": "4 kg",
+        "sealed_data": { "spoil_multiplier": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "relic_dagger_of_desiccation",
+    "type": "ITEM",
+    "subtypes": [ "ARTIFACT" ],
+    "category": "weapons",
+    "name": { "str": "silver dagger of desiccation", "str_pl": "silver daggers of desiccation" },
+    "description": "A wicked dark-silver dagger steeped in white oak ash and dark blood magic.  Its blade glimmers with faint ashen runes.  Striking supernatural entities or vampires with this blade inflicts profound desiccation, slowing their movements, stunning them, and draining their vitae.",
+    "symbol": ";",
+    "color": "white",
+    "material": [ "silver", "steel" ],
+    "weight": "550 g",
+    "volume": "500 ml",
+    "longest_side": "32 cm",
+    "melee_damage": { "bash": 4, "stab": 24, "cut": 14 },
+    "weapon_category": [ "KNIVES" ],
+    "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 15 ] ],
+    "flags": [ "DURABLE_MELEE", "SHEATH_KNIFE", "NO_SALVAGE" ],
+    "price": "35000 USD",
+    "price_postapoc": "500 USD",
+    "use_action": { "type": "cast_spell", "spell_id": "relic_spell_dagger_desiccate", "no_fail": true, "level": 1 }
+  },
+  {
+    "id": "relic_moonstone_talisman",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "name": { "str": "lapislazuli moonstone talisman" },
+    "description": "An ancient pendant featuring a smooth, ethereal moonstone framed by intricate lapis lazuli and silver filigree.  A relic of an ancient vampiric era, wearing it shields the mind against psychic strain, enhances night perception (+2 Night Vision, +1 Perception), accelerates occult mana regeneration (+25%), and dampens incoming occult damage.",
+    "category": "armor",
+    "symbol": "[",
+    "color": "cyan",
+    "material": [ "silver", "stone" ],
+    "weight": "120 g",
+    "volume": "150 ml",
+    "price": "40000 USD",
+    "price_postapoc": "550 USD",
+    "flags": [ "PERSONAL", "NO_WEAR_EFFECT", "BELTED", "NO_SALVAGE" ],
+    "passive_effects": [
+      {
+        "has": "WORN",
+        "condition": "ALWAYS",
+        "values": [
+          { "value": "NIGHT_VIS", "add": 2 },
+          { "value": "PERCEPTION", "add": 1 },
+          { "value": "REGEN_MANA", "multiply": 0.25 },
+          { "value": "INTELLIGENCE", "add": 1 },
+          { "value": "ARMOR_ALL", "multiply": 0.15 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "relic_papa_tunde_blade",
+    "type": "ITEM",
+    "subtypes": [ "ARTIFACT" ],
+    "category": "weapons",
+    "name": { "str": "Papa Tunde's sacrificial blade", "str_pl": "Papa Tunde's sacrificial blades" },
+    "description": "A macabre sacrificial blade carved from calcified bone, bound in faded snakeskin and etched with New Orleans sacrificial hexes.  It draws upon the torment of those it strikes, channeling their agony directly into the wielder's occult mana and physical might.",
+    "symbol": ";",
+    "color": "yellow",
+    "material": [ "bone", "leather" ],
+    "weight": "480 g",
+    "volume": "450 ml",
+    "longest_side": "28 cm",
+    "melee_damage": { "bash": 2, "cut": 18, "stab": 20 },
+    "weapon_category": [ "KNIVES" ],
+    "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 15 ] ],
+    "flags": [ "DURABLE_MELEE", "SHEATH_KNIFE", "NO_SALVAGE" ],
+    "price": "30000 USD",
+    "price_postapoc": "450 USD",
+    "use_action": { "type": "cast_spell", "spell_id": "relic_spell_papa_tunde_siphon", "no_fail": true, "level": 1 }
+  },
+  {
+    "id": "relic_gilbert_resonator",
+    "type": "ITEM",
+    "subtypes": [ "TOOL", "ARTIFACT" ],
+    "category": "tools",
+    "name": { "str": "Gilbert agony device", "str_pl": "Gilbert agony devices" },
+    "description": "A compact, brass pocket mechanism invented by Jonathan Gilbert in the 1860s.  When wound and activated, its high-frequency occult resonance coil emits a shrill vibration across an 8-tile radius that incapacitates vampires and monstrous predators in blinding pain and disorientation.  Contains a wound clockwork escapement that can be wound and activated periodically.",
+    "symbol": ",",
+    "color": "yellow",
+    "material": [ "brass", "iron" ],
+    "weight": "650 g",
+    "volume": "500 ml",
+    "flags": [ "NO_SALVAGE" ],
+    "price": "25000 USD",
+    "price_postapoc": "400 USD",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Trigger the Gilbert agony resonance pulse",
+      "effect_on_conditions": [ "EOC_GILBERT_DEVICE_ACTIVATE" ]
+    }
+  },
+  {
+    "id": "vervain_herb",
+    "type": "ITEM",
+    "category": "drugs",
+    "name": { "str": "wild vervain", "str_pl": "wild vervain" },
+    "description": "A cluster of delicate purple flowers and dried stems.  In occult lore, vervain is the ancient bane of vampires—burning their undead tissue like boiling acid upon ingestion or contact.  To living mortals, it acts as a calming herbal remedy that shields the mortal mind from hypnotic vampiric compulsion.",
+    "symbol": "*",
+    "color": "magenta",
+    "weight": "25 g",
+    "volume": "50 ml",
+    "material": [ "dry_plant", "veggy" ],
+    "flags": [ "TRADER_AVOID" ]
+  },
+  {
+    "id": "vervain_tea",
+    "type": "ITEM",
+    "subtypes": [ "COMESTIBLE" ],
+    "comestible_type": "DRINK",
+    "category": "food",
+    "name": { "str": "steeped vervain tea", "str_pl": "steeped vervain tea" },
+    "description": "A warm, intensely bitter herbal tea brewed from wild vervain flowers.  Drinking it infuses a mortal's bloodstream with protective vervain for 24 hours, conferring complete immunity to vampiric hypnotic compulsion and causing severe caustic burns to any vampire that bites or drinks their blood.\n\n<color_light_red>Warning:</color> Highly caustic and toxic to vampires if consumed.",
+    "symbol": "~",
+    "color": "magenta",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "quench": 25,
+    "healthy": 1,
+    "material": [ "water" ],
+    "use_action": { "type": "cast_spell", "spell_id": "spell_drink_vervain_tea", "no_fail": true, "level": 1 }
+  },
+  {
+    "id": "vervain_extract_flask",
+    "type": "ITEM",
+    "category": "drugs",
+    "name": { "str": "concentrated vervain extract", "str_pl": "concentrated vervain extracts" },
+    "description": "A dark amber vial of concentrated vervain extract.  Highly caustic to vampires; splashing or injecting it burns vampire tissue violently.",
+    "symbol": "!",
+    "color": "yellow",
+    "weight": "100 g",
+    "volume": "100 ml",
+    "material": [ "glass" ]
+  },
+  {
+    "id": "hunter_wooden_stake",
+    "type": "ITEM",
+    "subtypes": [ "AMMO" ],
+    "copy-from": "bolt_wood_bodkin",
+    "name": { "str": "whittled oak stake", "str_pl": "whittled oak stakes" },
+    "description": "A 10-inch stake whittled from dense white oak and fire-hardened at the tip.  The classic weapon of vampire hunters throughout history.  Can be driven into the heart of a target in close combat, or loaded as a lethal heavy bolt in crossbows.",
+    "color": "brown",
+    "weight": "120 g",
+    "longest_side": "28 cm",
+    "damage": { "damage_type": "stab", "amount": 32, "armor_penetration": 16 },
+    "flags": [ "WOODEN_STAKE" ]
+  },
+  {
+    "id": "hunter_vervain_crossbow",
+    "type": "ITEM",
+    "subtypes": [ "GUN" ],
+    "copy-from": "crossbow",
+    "name": { "str": "vampire hunter's stake crossbow", "str_pl": "vampire hunter's stake crossbows" },
+    "description": "A reinforced composite crossbow fitted with an enlarged guide rail, protective silver runes, and heavy-tension limbs specifically tuned to drive pointed wooden stakes and heavy bolts straight through supernatural flesh.  Reinforced with a heavy steel stirrup and fitted with a leather shoulder strap, allowing it to double as a crushing close-combat blunt weapon.",
+    "color": "dark_gray",
+    "melee_damage": { "bash": 32, "stab": 16 },
+    "built_in_mods": [ "shoulder_strap" ],
+    "relative": { "ranged_damage": { "damage_type": "stab", "amount": 10, "armor_penetration": 10 }, "durability": 3 },
+    "extend": { "flags": [ "WOODEN_STAKE_LAUNCHER" ] }
+  }
+]

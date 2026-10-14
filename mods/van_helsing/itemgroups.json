@@ -1,0 +1,1138 @@
+[
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_quiver_bolts",
+    "entries": [ { "item": "van_helsing_stake_bolts", "count": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_bandolier_contents",
+    "entries": [ { "item": "van_helsing_explosive_stake_bolts", "count": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "crimson_chalice_human_drinks",
+    "entries": [
+      { "item": "drink_hunters_courage", "prob": 20 },
+      { "item": "whiskey", "container-item": "bottle_glass", "prob": 25 },
+      { "item": "rum", "container-item": "bottle_glass", "prob": 20 },
+      { "item": "wine_cabernet", "container-item": "bottle_glass", "prob": 25 },
+      { "item": "beer", "container-item": "bottle_glass_330ml", "prob": 30 },
+      { "item": "vodka", "container-item": "bottle_glass", "prob": 20 },
+      { "item": "brandy", "container-item": "bottle_glass", "prob": 15 },
+      { "item": "water_clean", "container-item": "bottle_plastic", "prob": 20 },
+      { "item": "coffee", "prob": 15 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "crimson_chalice_vampire_drinks",
+    "entries": [
+      { "item": "drink_crimson_vintage", "prob": 40 },
+      { "item": "drink_sanguine_tonic", "prob": 35 },
+      { "item": "drink_strigoi_cordial", "prob": 25 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "crimson_chalice_bar_stock",
+    "entries": [
+      { "item": "drink_crimson_vintage", "count": [ 8, 16 ] },
+      { "item": "drink_sanguine_tonic", "count": [ 10, 20 ] },
+      { "item": "drink_strigoi_cordial", "count": [ 6, 12 ] },
+      { "item": "drink_nosferatu_vintage", "count": [ 4, 8 ] },
+      { "item": "drink_vervain_bourbon", "count": [ 6, 12 ] },
+      { "item": "drink_ripper_absinthe", "count": [ 4, 8 ] },
+      { "item": "drink_moonlight_mead", "count": [ 8, 16 ] },
+      { "item": "drink_hunters_courage", "count": [ 8, 16 ] },
+      { "item": "klaus_bourbon", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "single_malt_whiskey", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "canadian_whiskey", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "whiskey", "container-item": "bottle_glass", "count": [ 8, 16 ] },
+      { "item": "brandy", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "rum", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "vodka", "container-item": "bottle_glass", "count": [ 8, 16 ] },
+      { "item": "gin", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "tequila", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "sherry", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "wine_cabernet", "container-item": "bottle_glass", "count": [ 8, 16 ] },
+      { "item": "wine_chardonnay", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "wine_noir", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "wine_riesling", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "wine_marsala", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "mead", "container-item": "bottle_glass", "count": [ 8, 16 ] },
+      { "item": "spiced_mead", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "stout", "container-item": "bottle_glass_330ml", "count": [ 12, 24 ] },
+      { "item": "imperial_stout", "container-item": "bottle_glass_330ml", "count": [ 8, 16 ] },
+      { "item": "belgian_ale", "container-item": "bottle_glass_330ml", "count": [ 12, 24 ] },
+      { "item": "india_pale_ale", "container-item": "bottle_glass_330ml", "count": [ 12, 24 ] },
+      { "item": "pale_ale", "container-item": "bottle_glass_330ml", "count": [ 12, 24 ] },
+      { "item": "european_pilsner", "container-item": "bottle_glass_330ml", "count": [ 12, 24 ] },
+      { "item": "beer", "container-item": "bottle_glass_330ml", "count": [ 24, 48 ] },
+      { "item": "drink_bloody_mary", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "drink_bloody_mary_blood", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "drink_martini", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "drink_wsour", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "long_island", "container-item": "bottle_glass", "count": [ 4, 8 ] },
+      { "item": "irish_coffee", "count": [ 6, 12 ] },
+      { "item": "coffee", "count": [ 12, 24 ] },
+      { "item": "tea", "count": [ 12, 24 ] },
+      { "item": "cola", "count": [ 16, 32 ] },
+      { "item": "energy_drink", "count": [ 12, 24 ] },
+      { "item": "item_preserved_plasma_pouch", "count": [ 12, 24 ] },
+      { "item": "antibiotics", "count": [ 4, 8 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_armory",
+    "entries": [
+      { "item": "crossbow", "prob": 100 },
+      { "item": "bolt_steel", "count": [ 40, 80 ] },
+      { "item": "van_helsing_stake_bolts", "count": [ 30, 60 ] },
+      { "item": "van_helsing_explosive_stake_bolts", "count": [ 20, 40 ] },
+      { "item": "remington_870", "prob": 90 },
+      { "item": "shot_00", "count": [ 48, 96 ] },
+      { "item": "shot_slug", "count": [ 24, 48 ] },
+      { "item": "ammo_shot_silver_00", "count": [ 20, 40 ] },
+      { "item": "ammo_shot_incendiary_uv", "count": [ 10, 20 ] },
+      { "item": "ammo_shot_wood", "count": [ 20, 40 ] },
+      { "item": "m9", "prob": 100 },
+      { "item": "m9mag", "count": 4, "ammo-item": "ammo_9mm_silver", "charges": 15 },
+      { "item": "m9mag", "count": 4, "ammo-item": "ammo_9mm_wood", "charges": 15 },
+      { "item": "m9mag", "count": 4, "ammo-item": "9mmfmj", "charges": 15 },
+      { "item": "m1911", "prob": 100 },
+      { "item": "m1911mag", "count": 4, "ammo-item": "ammo_45_silver", "charges": 7 },
+      { "item": "m1911mag", "count": 4, "ammo-item": "ammo_45_wood", "charges": 7 },
+      { "item": "m1911mag", "count": 4, "ammo-item": "45_acp", "charges": 7 },
+      { "item": "ammo_arrow_silver", "count": [ 20, 40 ] },
+      { "item": "item_wooden_stake", "count": [ 6, 12 ] },
+      { "item": "van_helsing_silver_blade", "prob": 100 },
+      { "item": "van_helsing_silver_rapier", "prob": 80 },
+      { "item": "van_helsing_silver_daggers", "count": [ 2, 4 ] },
+      { "item": "item_magnesium_sun_flare", "count": [ 4, 8 ], "charges": 300 },
+      { "item": "quiver", "count": 2 },
+      { "item": "van_helsing_bandolier", "count": 2 },
+      { "item": "holy_symbol", "count": 2 },
+      { "item": "flashlight", "count": 2, "charges": 300 },
+      { "item": "battery", "count": [ 100, 200 ] },
+      { "item": "van_helsing_inquisitor_vest", "prob": 80 },
+      { "item": "van_helsing_hunting_trousers", "prob": 80 },
+      { "item": "van_helsing_gloves", "prob": 90 },
+      { "item": "van_helsing_boots", "prob": 80 },
+      { "item": "multitool", "prob": 90 },
+      { "item": "rope_6", "count": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_medical",
+    "entries": [
+      { "group": "full_1st_aid", "count": 2 },
+      { "item": "bandages", "count": [ 5, 10 ] },
+      { "item": "disinfectant", "count": [ 2, 4 ] },
+      { "item": "antibiotics", "count": [ 6, 12 ] },
+      { "item": "saline_bag_250", "count": 2 },
+      { "item": "item_garlic_balm", "count": [ 2, 4 ] },
+      { "item": "item_holy_water_phial", "count": [ 2, 4 ] },
+      { "item": "item_consecrated_chalk", "count": [ 1, 2 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_library",
+    "entries": [
+      { "item": "paper", "count": [ 20, 50 ] },
+      { "item": "pen", "prob": 100 },
+      { "item": "survivormap", "prob": 100 },
+      { "item": "roadmap", "prob": 100 },
+      { "item": "militarymap", "prob": 100 },
+      { "item": "textbook_firstaid", "prob": 80 },
+      { "item": "textbook_survival", "prob": 80 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_kitchen",
+    "entries": [
+      { "item": "can_beans", "count": [ 4, 8 ] },
+      { "item": "can_spam", "count": [ 3, 6 ] },
+      { "item": "can_tuna", "count": [ 4, 8 ] },
+      { "item": "tea", "count": [ 4, 8 ] },
+      { "item": "tea_green", "count": [ 4, 8 ] },
+      { "item": "coffee", "count": [ 4, 8 ] },
+      { "item": "water_clean", "container-item": "bottle_plastic", "count": [ 6, 12 ] },
+      { "item": "pot", "prob": 100 },
+      { "item": "pot_copper", "prob": 100 },
+      { "item": "pan", "prob": 100 },
+      { "item": "knife_large", "prob": 100 },
+      { "item": "knife_huge", "prob": 100 },
+      { "item": "spatula", "prob": 100 },
+      { "item": "ladle", "prob": 100 },
+      { "item": "whisk", "prob": 100 },
+      { "item": "fork", "count": [ 2, 4 ] },
+      { "item": "spoon", "count": [ 2, 4 ] },
+      { "item": "mess_kit", "prob": 100 },
+      { "item": "can_opener", "prob": 100 },
+      { "item": "matches", "count": [ 20, 50 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_workshop",
+    "entries": [
+      { "item": "soldering_iron", "prob": 100 },
+      { "item": "solder_wire", "count": [ 150, 300 ] },
+      { "item": "welder", "prob": 100 },
+      { "item": "welding_mask", "prob": 100 },
+      { "item": "cordless_drill", "prob": 100 },
+      { "item": "angle_grinder", "prob": 100 },
+      { "item": "hacksaw", "prob": 100 },
+      { "item": "hammer", "prob": 100 },
+      { "item": "wrench", "prob": 100 },
+      { "item": "screwdriver", "prob": 100 },
+      { "item": "pliers", "prob": 100 },
+      { "item": "pliers_locking", "prob": 100 },
+      { "item": "nail", "count": [ 50, 100 ] },
+      { "item": "nuts_bolts", "count": [ 50, 100 ] },
+      { "item": "pipe", "count": [ 4, 8 ] },
+      { "item": "scrap", "count": [ 40, 80 ] },
+      { "item": "steel_chunk", "count": [ 10, 20 ] },
+      { "item": "sheet_metal", "count": [ 4, 8 ] },
+      { "item": "duct_tape", "count": [ 2, 4 ] },
+      { "item": "glue_strong", "count": [ 2, 4 ] },
+      { "item": "extension_cable", "count": [ 3, 6 ] },
+      { "item": "long_extension_cable", "count": [ 2, 4 ] },
+      { "item": "jumper_cable", "prob": 100 },
+      { "item": "jumper_cable_heavy", "prob": 100 },
+      { "item": "wire", "count": [ 4, 8 ] },
+      { "item": "cable", "count": [ 50, 100 ] },
+      { "item": "battery", "count": [ 200, 400 ] },
+      { "item": "large_storage_battery", "count": [ 1, 2 ] },
+      { "item": "portable_generator", "prob": 100 },
+      { "item": "diesel_generator", "prob": 100 },
+      { "group": "supplies_fuel", "count": [ 2, 4 ] },
+      { "item": "ground_solar_panel_v2", "count": [ 1, 2 ] },
+      { "item": "power_station_portable", "count": 1 },
+      { "item": "solar_cell_v2", "count": [ 6, 12 ] },
+      { "item": "reciprocating_saw", "prob": 100 },
+      { "item": "socket_wrench_set", "prob": 100 },
+      { "item": "wrench_large", "prob": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "van_helsing_safehouse_generator_kit",
+    "entries": [
+      { "item": "power_station_portable", "count": 1 },
+      { "item": "large_storage_battery", "count": 1 },
+      { "item": "extension_cable", "count": 2 },
+      { "item": "long_extension_cable", "count": 2 },
+      { "item": "power_cord", "count": 4 },
+      { "item": "jumper_cable", "count": 1 },
+      { "item": "diesel", "charges": [ 5000, 10000 ], "container-item": "jerrycan" },
+      { "item": "funnel", "count": 1 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_CASSIAN_worn",
+    "entries": [
+      { "item": "waistcoat" },
+      { "item": "pants" },
+      { "item": "dress_shoes" },
+      { "item": "waist_apron_long" },
+      { "item": "silver_ring" },
+      { "item": "item_chalice_daylight_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_CASSIAN_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_crimson_vintage", "count": 2 },
+      { "item": "coin_silver", "count": 45 },
+      { "item": "towel" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_CASSIAN_weapon",
+    "entries": [ { "item": "broadsword" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_VAMP_worn",
+    "entries": [
+      { "item": "duster_leather" },
+      { "item": "kevlar" },
+      { "item": "pants_leather" },
+      { "item": "boots_steel" },
+      { "item": "gloves_leather" },
+      { "item": "silver_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_VAMP_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_crimson_vintage" },
+      { "item": "item_preserved_plasma_pouch" },
+      { "item": "coin_silver", "count": 25 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_VAMP_weapon",
+    "entries": [ { "item": "broadsword" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_HUNTER_worn",
+    "entries": [
+      { "item": "cassock" },
+      { "item": "tacvest" },
+      { "item": "pants" },
+      { "item": "boots_combat" },
+      { "item": "holy_symbol" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_HUNTER_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "item_holy_water_phial", "count": 2 },
+      { "item": "item_consecrated_silver_stake" },
+      { "item": "drink_hunters_courage" },
+      { "item": "shot_00", "count": 18 },
+      { "item": "coin_silver", "count": 20 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ENFORCER_HUNTER_weapon",
+    "entries": [ { "item": "remington_870" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_SERAPHINA_worn",
+    "entries": [
+      { "item": "dress" },
+      { "item": "cloak" },
+      { "item": "dress_shoes" },
+      { "item": "silver_necklace" },
+      { "item": "silver_ring" },
+      { "item": "item_chalice_daylight_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_SERAPHINA_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_strigoi_cordial" },
+      { "item": "item_strigoi_feeding_goblet" },
+      { "item": "item_preserved_plasma_pouch", "count": 2 },
+      { "item": "coin_silver", "count": 80 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_SERAPHINA_weapon",
+    "entries": [ { "item": "van_helsing_silver_blade" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JULIAN_worn",
+    "entries": [
+      { "item": "jacket_leather" },
+      { "item": "tshirt" },
+      { "item": "jeans" },
+      { "item": "sunglasses" },
+      { "item": "dress_shoes" },
+      { "item": "silver_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JULIAN_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_crimson_vintage" },
+      { "item": "item_preserved_plasma_pouch", "count": 2 },
+      { "item": "lighter" },
+      { "item": "coin_silver", "count": 15 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_GIDEON_worn",
+    "entries": [
+      { "item": "van_helsing_hunting_hat" },
+      { "item": "duster_leather" },
+      { "item": "pants_leather" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" },
+      { "item": "holy_symbol" },
+      { "item": "quiver" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_GIDEON_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "whiskey", "container-item": "bottle_glass" },
+      { "item": "van_helsing_stake_bolts", "count": 20 },
+      { "item": "van_helsing_explosive_stake_bolts", "count": 5 },
+      { "item": "item_consecrated_silver_stake" },
+      { "item": "coin_silver", "count": 35 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_GIDEON_weapon",
+    "entries": [ { "item": "crossbow" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MIRA_worn",
+    "entries": [ { "item": "trenchcoat" }, { "item": "pants" }, { "item": "boots_combat" }, { "item": "gloves_leather" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MIRA_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_hunters_courage" },
+      { "item": "coin_silver", "count": 45 },
+      { "item": "lighter" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MIRA_weapon",
+    "entries": [ { "item": "van_helsing_silver_blade" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_PATRON_VAMP_worn",
+    "entries": [ { "item": "dress" }, { "item": "cloak" }, { "item": "dress_shoes" }, { "item": "silver_ring" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_PATRON_VAMP_carried",
+    "entries": [ { "item": "drink_crimson_vintage" }, { "item": "wine_glass" }, { "item": "coin_silver", "count": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_PATRON_HUNTER_worn",
+    "entries": [ { "item": "jacket_leather" }, { "item": "jeans" }, { "item": "boots_combat" }, { "item": "holy_symbol" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_PATRON_HUNTER_carried",
+    "entries": [ { "item": "beer", "container-item": "bottle_glass_330ml" }, { "item": "lighter" }, { "item": "deck_of_cards" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "crimson_chalice_table_vampire",
+    "entries": [
+      { "item": "drink_crimson_vintage", "prob": 40 },
+      { "item": "drink_strigoi_cordial", "prob": 30 },
+      { "item": "wine_glass", "prob": 70 },
+      { "item": "item_preserved_plasma_pouch", "prob": 40 },
+      { "item": "coin_silver", "count": [ 2, 8 ], "prob": 50 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "crimson_chalice_table_hunter",
+    "entries": [
+      { "item": "beer", "container-item": "bottle_glass_330ml", "prob": 40 },
+      { "item": "whiskey", "container-item": "bottle_glass", "prob": 30 },
+      { "item": "drink_hunters_courage", "prob": 25 },
+      { "item": "shot_glass", "prob": 60 },
+      { "item": "glass", "prob": 50 },
+      { "item": "deck_of_cards", "prob": 30 },
+      { "item": "lighter", "prob": 40 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "crimson_chalice_counter_props",
+    "entries": [
+      { "item": "shot_glass", "prob": 40 },
+      { "item": "glass", "prob": 40 },
+      { "item": "wine_glass", "prob": 30 },
+      { "item": "coin_silver", "count": [ 3, 10 ], "prob": 30 },
+      { "item": "drink_crimson_vintage", "prob": 35 },
+      { "item": "drink_vervain_bourbon", "prob": 30 },
+      { "item": "drink_moonlight_mead", "prob": 30 },
+      { "item": "klaus_bourbon", "container-item": "bottle_glass", "prob": 20 },
+      { "item": "whiskey", "container-item": "bottle_glass", "prob": 35 },
+      { "item": "beer", "container-item": "bottle_glass_330ml", "prob": 45 },
+      { "item": "stout", "container-item": "bottle_glass_330ml", "prob": 30 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "crimson_chalice_fridge_stock",
+    "entries": [
+      { "item": "item_preserved_plasma_pouch", "count": [ 16, 32 ] },
+      { "item": "drink_crimson_vintage", "count": [ 10, 20 ] },
+      { "item": "drink_sanguine_tonic", "count": [ 12, 24 ] },
+      { "item": "drink_strigoi_cordial", "count": [ 6, 12 ] },
+      { "item": "drink_ripper_absinthe", "count": [ 4, 8 ] },
+      { "item": "beer", "container-item": "bottle_glass_330ml", "count": [ 36, 72 ] },
+      { "item": "stout", "container-item": "bottle_glass_330ml", "count": [ 16, 32 ] },
+      { "item": "pale_ale", "container-item": "bottle_glass_330ml", "count": [ 16, 32 ] },
+      { "item": "european_pilsner", "container-item": "bottle_glass_330ml", "count": [ 16, 32 ] },
+      { "item": "cola", "count": [ 24, 48 ] },
+      { "item": "energy_drink", "count": [ 16, 32 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "crimson_chalice_storage",
+    "entries": [
+      { "item": "item_preserved_plasma_pouch", "count": [ 24, 48 ] },
+      { "item": "drink_crimson_vintage", "count": [ 12, 24 ] },
+      { "item": "drink_vervain_bourbon", "count": [ 8, 16 ] },
+      { "item": "drink_moonlight_mead", "count": [ 12, 24 ] },
+      { "item": "drink_nosferatu_vintage", "count": [ 6, 12 ] },
+      { "item": "klaus_bourbon", "container-item": "bottle_glass", "count": [ 6, 12 ] },
+      { "item": "beer", "container-item": "bottle_glass_330ml", "count": [ 48, 96 ] },
+      { "item": "stout", "container-item": "bottle_glass_330ml", "count": [ 24, 48 ] },
+      { "item": "whiskey", "container-item": "bottle_glass", "count": [ 16, 32 ] },
+      { "item": "single_malt_whiskey", "container-item": "bottle_glass", "count": [ 8, 16 ] },
+      { "item": "rum", "container-item": "bottle_glass", "count": [ 10, 20 ] },
+      { "item": "vodka", "container-item": "bottle_glass", "count": [ 12, 24 ] },
+      { "item": "wine_cabernet", "container-item": "bottle_glass", "count": [ 16, 32 ] },
+      { "item": "wine_chardonnay", "container-item": "bottle_glass", "count": [ 12, 24 ] },
+      { "item": "mead", "container-item": "bottle_glass", "count": [ 16, 32 ] },
+      { "item": "coin_silver", "count": [ 50, 150 ] },
+      { "group": "full_1st_aid", "count": 4 },
+      { "item": "antibiotics", "count": [ 12, 24 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_HUNTER_worn",
+    "entries": [
+      { "item": "duster_leather" },
+      { "item": "tacvest" },
+      { "item": "pants_cargo" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" },
+      { "item": "holy_symbol" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_HUNTER_carried",
+    "entries": [ { "item": "shot_00", "count": 16 }, { "item": "item_holy_water_phial" }, { "item": "canteen" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_HUNTER_weapon",
+    "entries": [ { "item": "remington_870" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_VAMP_worn",
+    "entries": [
+      { "item": "trenchcoat" },
+      { "item": "kevlar" },
+      { "item": "pants_leather" },
+      { "item": "boots_combat" },
+      { "item": "sunglasses" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_VAMP_carried",
+    "entries": [ { "item": "drink_crimson_vintage" }, { "item": "coin_silver", "count": 15 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_GUARD_VAMP_weapon",
+    "entries": [ { "item": "broadsword" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_RIDER_worn",
+    "entries": [
+      { "item": "jacket_leather" },
+      { "item": "helmet_motor" },
+      { "item": "jeans" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_RIDER_carried",
+    "entries": [
+      { "item": "lighter" },
+      { "item": "cig", "count": 10 },
+      { "item": "pockknife" },
+      { "item": "coin_silver", "count": 12 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_RIDER_weapon",
+    "entries": [ { "item": "m9" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_SMOKER_worn",
+    "entries": [ { "item": "jacket_jean" }, { "item": "jeans" }, { "item": "boots_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_SMOKER_carried",
+    "entries": [ { "item": "cig", "count": 20 }, { "item": "lighter" }, { "item": "beer", "container-item": "bottle_glass_330ml" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_OUTSIDE_SMOKER_weapon",
+    "entries": [ { "item": "knife_hunting" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "crimson_chalice_quartermaster_stock",
+    "entries": [
+      { "item": "crossbow", "count": [ 1, 3 ] },
+      { "item": "bolt_steel", "count": [ 30, 80 ] },
+      { "item": "van_helsing_stake_bolts", "count": [ 20, 50 ] },
+      { "item": "van_helsing_explosive_stake_bolts", "count": [ 10, 25 ] },
+      { "item": "ammo_9mm_silver", "count": [ 20, 50 ] },
+      { "item": "ammo_45_silver", "count": [ 20, 50 ] },
+      { "item": "ammo_shot_silver_00", "count": [ 10, 25 ] },
+      { "item": "ammo_shot_incendiary_uv", "count": [ 5, 15 ] },
+      { "item": "ammo_arrow_silver", "count": [ 10, 25 ] },
+      { "item": "m9mag", "count": [ 2, 4 ], "ammo-item": "ammo_9mm_silver", "charges": 15 },
+      { "item": "m9mag", "count": [ 2, 4 ], "ammo-item": "ammo_9mm_wood", "charges": 15 },
+      { "item": "m1911mag", "count": [ 2, 4 ], "ammo-item": "ammo_45_silver", "charges": 7 },
+      { "item": "m1911mag", "count": [ 2, 4 ], "ammo-item": "ammo_45_wood", "charges": 7 },
+      { "item": "item_wooden_stake", "count": [ 4, 10 ] },
+      { "item": "ammo_9mm_wood", "count": [ 40, 100 ] },
+      { "item": "ammo_45_wood", "count": [ 30, 80 ] },
+      { "item": "ammo_shot_wood", "count": [ 15, 30 ] },
+      { "item": "van_helsing_silver_blade", "count": [ 1, 2 ] },
+      { "item": "van_helsing_silver_rapier", "count": [ 1, 2 ] },
+      { "item": "van_helsing_silver_daggers", "count": [ 2, 4 ] },
+      { "item": "item_consecrated_silver_stake", "count": [ 4, 10 ] },
+      { "item": "item_magnesium_sun_flare", "count": [ 3, 6 ], "charges": 300 },
+      { "item": "item_holy_water_phial", "count": [ 3, 6 ] },
+      { "item": "item_garlic_balm", "count": [ 2, 5 ] },
+      { "item": "item_consecrated_chalk", "count": [ 1, 3 ] },
+      { "item": "holy_symbol", "count": [ 2, 4 ] },
+      { "item": "van_helsing_bandolier", "count": [ 1, 2 ] },
+      { "item": "item_preserved_plasma_pouch", "count": [ 4, 10 ] },
+      { "item": "klaus_bourbon", "prob": 20, "count": [ 1, 2 ] },
+      { "item": "drink_crimson_vintage", "count": [ 4, 8 ] },
+      { "item": "drink_sanguine_tonic", "count": [ 4, 8 ] },
+      { "item": "drink_strigoi_cordial", "count": [ 2, 5 ] },
+      { "item": "drink_vervain_bourbon", "count": [ 2, 4 ] },
+      { "item": "drink_moonlight_mead", "count": [ 2, 4 ] },
+      { "item": "drink_ripper_absinthe", "count": [ 1, 3 ] },
+      { "item": "drink_nosferatu_vintage", "count": [ 1, 2 ] },
+      { "item": "item_strigoi_feeding_goblet", "count": [ 1, 3 ] },
+      { "item": "token_crimson_chalice", "count": [ 2, 4 ] },
+      { "item": "item_chalice_daylight_ring", "prob": 5, "count": 1 },
+      { "item": "duster_leather", "count": [ 1, 2 ] },
+      { "item": "jacket_leather", "count": [ 1, 2 ] },
+      { "item": "tacvest", "count": [ 1, 2 ] },
+      { "item": "boots_combat", "count": [ 1, 3 ] },
+      { "item": "boots_steel", "count": [ 1, 2 ] },
+      { "item": "gloves_leather", "count": [ 2, 4 ] },
+      { "item": "helmet_motor", "count": [ 1, 2 ] },
+      { "item": "sunglasses", "count": [ 2, 4 ] },
+      { "item": "alternator_motorbike", "count": [ 1, 2 ] },
+      { "item": "alternator_car", "count": [ 1, 2 ] },
+      { "item": "battery_motorbike", "count": [ 1, 2 ] },
+      { "item": "battery_car", "count": [ 1, 2 ] },
+      { "item": "wheel_rim_motorbike", "count": [ 1, 2 ] },
+      { "item": "wheel", "count": [ 1, 2 ] },
+      { "item": "seat_leather", "count": [ 1, 2 ] },
+      { "item": "headlight_reinforced", "count": [ 1, 3 ] },
+      { "item": "duct_tape", "count": [ 2, 4 ] },
+      { "item": "battery", "count": [ 150, 300 ] },
+      { "item": "lighter", "count": [ 2, 5 ], "charges": 100 },
+      { "item": "flashlight", "count": [ 1, 3 ], "charges": 300 },
+      { "item": "tea", "count": [ 6, 12 ] },
+      { "item": "tea_green", "count": [ 6, 12 ] },
+      { "item": "tea_fruit", "count": [ 4, 8 ] },
+      { "item": "coffee", "count": [ 6, 12 ] },
+      { "item": "can_beans", "count": [ 4, 10 ] },
+      { "item": "can_spam", "count": [ 4, 8 ] },
+      { "item": "can_tuna", "count": [ 4, 8 ] },
+      { "item": "can_salmon", "count": [ 2, 5 ] },
+      { "item": "can_chicken", "count": [ 2, 5 ] },
+      { "item": "chocolate", "count": [ 4, 8 ] },
+      { "item": "water_clean", "container-item": "bottle_plastic", "count": [ 8, 16 ] },
+      { "item": "glock_19", "count": [ 1, 2 ] },
+      { "item": "m9", "count": [ 1, 2 ] },
+      { "item": "m1911", "count": [ 1, 2 ] },
+      { "item": "remington_870", "count": [ 1, 2 ] },
+      { "item": "modular_ar15", "count": [ 1, 2 ] },
+      { "item": "ruger_1022", "count": [ 1, 2 ] },
+      { "item": "9mm", "count": [ 100, 250 ] },
+      { "item": "9mmfmj", "count": [ 100, 200 ] },
+      { "item": "45_acp", "count": [ 80, 160 ] },
+      { "item": "223", "count": [ 90, 210 ] },
+      { "item": "shot_00", "count": [ 40, 100 ] },
+      { "item": "shot_slug", "count": [ 20, 50 ] },
+      { "item": "large_storage_battery", "count": [ 1, 2 ] },
+      { "item": "storage_battery", "count": [ 1, 3 ] },
+      { "item": "small_storage_battery", "count": [ 2, 4 ] },
+      { "item": "survivormap", "count": [ 1, 3 ] },
+      { "item": "roadmap", "count": [ 1, 3 ] },
+      { "item": "militarymap", "count": [ 1, 2 ] },
+      { "item": "multitool", "count": [ 1, 3 ] },
+      { "item": "rope_6", "count": [ 2, 5 ] },
+      { "item": "knife_sharpener_handheld", "count": [ 1, 3 ] },
+      { "item": "radio", "count": [ 1, 3 ] },
+      { "item": "matches", "count": [ 40, 100 ] }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_QUARTERMASTER_worn",
+    "entries": [
+      { "item": "trenchcoat" },
+      { "item": "waistcoat" },
+      { "item": "pants" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" },
+      { "item": "silver_ring" },
+      { "item": "silver_necklace" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_QUARTERMASTER_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "item_preserved_plasma_pouch" },
+      { "item": "drink_crimson_vintage" },
+      { "item": "coin_silver", "count": 120 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_QUARTERMASTER_weapon",
+    "entries": [ { "item": "van_helsing_silver_rapier" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_KLAUS_worn",
+    "entries": [
+      { "item": "klaus_henley" },
+      { "item": "klaus_jacket" },
+      { "item": "jeans" },
+      { "item": "boots_combat" },
+      { "item": "klaus_rings" },
+      { "item": "klaus_necklaces" },
+      { "item": "klaus_daylight_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_KLAUS_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_crimson_vintage", "count": 2 },
+      { "item": "klaus_bourbon" },
+      { "item": "klaus_sketchbook" },
+      { "item": "coin_silver", "count": 150 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_KLAUS_weapon",
+    "entries": [ { "item": "klaus_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ELIJAH_worn",
+    "entries": [
+      { "item": "elijah_suit" },
+      { "item": "elijah_pocket_square" },
+      { "item": "dress_shoes" },
+      { "item": "silver_ring" },
+      { "item": "elijah_daylight_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ELIJAH_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "drink_crimson_vintage", "count": 3 },
+      { "item": "wine_glass" },
+      { "item": "elijah_journal_blank" },
+      { "item": "coin_silver", "count": 200 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_ELIJAH_weapon",
+    "entries": [ { "item": "elijah_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_STEFAN_worn",
+    "entries": [
+      { "item": "jacket_leather" },
+      { "item": "tshirt" },
+      { "item": "pants" },
+      { "item": "boots" },
+      { "item": "wristwatch" },
+      { "item": "stefan_daylight_ring" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_STEFAN_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "stefan_journal_current" },
+      { "item": "item_preserved_plasma_pouch", "count": 2 },
+      { "item": "coffee" },
+      { "item": "coin_silver", "count": 50 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_STEFAN_weapon",
+    "entries": [ { "item": "knife_baselard" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JESSE_worn",
+    "entries": [ { "item": "jacket_flannel" }, { "item": "jeans" }, { "item": "boots_combat" }, { "item": "bandolier_shotgun" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JESSE_carried",
+    "entries": [
+      { "item": "token_crimson_chalice" },
+      { "item": "hunter_lore_dad_journal" },
+      { "item": "hunter_rocksalt_shell", "count": 16 },
+      { "item": "shot_00", "count": 12 },
+      { "item": "lighter", "charges": 100 },
+      { "item": "flask_hip" },
+      { "item": "coin_silver", "count": 45 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JESSE_weapon",
+    "entries": [ { "item": "remington_870" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_LUCIAN_worn",
+    "entries": [
+      { "item": "duster_leather" },
+      { "item": "tshirt" },
+      { "item": "pants_cargo" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_LUCIAN_carried",
+    "entries": [
+      { "item": "token_crimson_chalice", "count": 5 },
+      { "item": "silver_small", "count": 3 },
+      { "item": "coin_silver", "count": 50 },
+      { "item": "lighter", "charges": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_LUCIAN_weapon",
+    "entries": [ { "item": "knife_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_FEN_worn",
+    "entries": [ { "item": "hoodie" }, { "item": "pants_cargo" }, { "item": "boots_hiking" }, { "item": "gloves_fingerless" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_FEN_carried",
+    "entries": [
+      { "item": "token_crimson_chalice", "count": 3 },
+      { "item": "water_clean", "container-item": "bottle_plastic" },
+      { "item": "bandages", "count": 4 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_FEN_weapon",
+    "entries": [ { "item": "knife_hunting" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_TRENT_worn",
+    "entries": [ { "item": "jacket_leather" }, { "item": "tshirt" }, { "item": "jeans" }, { "item": "boots_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_TRENT_weapon",
+    "entries": [ { "item": "switchblade" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JAX_worn",
+    "entries": [ { "item": "jacket_flannel" }, { "item": "tshirt" }, { "item": "pants_cargo" }, { "item": "boots_steel" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_JAX_weapon",
+    "entries": [ { "item": "knuckle_brass" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_CORVIN_worn",
+    "entries": [ { "item": "waistcoat" }, { "item": "pants" }, { "item": "dress_shoes" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_CORVIN_weapon",
+    "entries": [ { "item": "item_rapier_corvin" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MORRIGAN_worn",
+    "entries": [ { "item": "trenchcoat" }, { "item": "dress" }, { "item": "boots_hiking" }, { "item": "silver_necklace" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MORRIGAN_carried",
+    "entries": [ { "item": "item_grimoire_morrigan" }, { "item": "drink_strigoi_cordial" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MORRIGAN_weapon",
+    "entries": [ { "item": "knife_butcher" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_MALONE_worn",
+    "entries": [
+      { "item": "duster_leather" },
+      { "item": "tacvest" },
+      { "item": "pants_cargo" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_MALONE_carried",
+    "entries": [ { "item": "shot_00", "count": 18 }, { "item": "whiskey" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_MALONE_weapon",
+    "entries": [ { "item": "remington_870" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_THUG_worn",
+    "entries": [ { "item": "jacket_leather" }, { "item": "jeans" }, { "item": "boots_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_GUNNER_weapon",
+    "entries": [ { "item": "glock_19" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_GUNNER_carried",
+    "entries": [ { "item": "9mm", "count": 30 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_CRIMSON_MERC_BRAWLER_weapon",
+    "entries": [ { "item": "machete" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_COMMANDER_VANCE_worn",
+    "entries": [
+      { "item": "duster_leather" },
+      { "item": "tacvest" },
+      { "item": "pants_cargo" },
+      { "item": "boots_combat" },
+      { "item": "gloves_fingerless" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_COMMANDER_VANCE_carried",
+    "entries": [
+      { "item": "item_silver_hand_badge" },
+      { "item": "item_contraband_stash_map" },
+      { "item": "shot_00", "count": 16 },
+      { "item": "silver_small", "count": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_COMMANDER_VANCE_weapon",
+    "entries": [ { "item": "remington_870" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_INQUISITOR_worn",
+    "entries": [ { "item": "tacvest" }, { "item": "hoodie" }, { "item": "pants_cargo" }, { "item": "boots_hiking" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_INQUISITOR_weapon",
+    "entries": [ { "item": "crossbow" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_HUNTER_INQUISITOR_carried",
+    "entries": [ { "item": "bolt_steel", "count": 20 }, { "item": "item_wooden_stake", "count": 4 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_REAPER_WRENCH_worn",
+    "entries": [ { "item": "jacket_leather" }, { "item": "bandana" }, { "item": "jeans" }, { "item": "boots_steel" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_REAPER_WRENCH_carried",
+    "entries": [ { "item": "gasoline", "container-item": "bottle_plastic", "charges": 500 }, { "item": "duct_tape" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_REAPER_WRENCH_weapon",
+    "entries": [ { "item": "wrench_large" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_REAPER_BANDIT_worn",
+    "entries": [ { "item": "hoodie" }, { "item": "jeans" }, { "item": "boots_hiking" } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "NC_REAPER_BANDIT_weapon",
+    "entries": [ { "item": "pipe" } ]
+  }
+]

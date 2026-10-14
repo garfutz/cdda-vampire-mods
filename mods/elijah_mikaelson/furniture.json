@@ -1,0 +1,33 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_elijah_coffin_rebekah",
+    "copy-from": "f_coffin_c",
+    "name": "Rebekah's coffin",
+    "description": "An ornate coffin.  Your little sister.  A silver dagger in the heart keeps them in a dead sleep.  Examine it to pull the dagger out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_ELIJAH_COFFIN_REBEKAH" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_elijah_coffin_kol",
+    "copy-from": "f_coffin_c",
+    "name": "Kol's coffin",
+    "description": "An ornate coffin.  The reckless youngest brother.  A silver dagger in the heart keeps them in a dead sleep.  Examine it to pull the dagger out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_ELIJAH_COFFIN_KOL" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_elijah_coffin_finn",
+    "copy-from": "f_coffin_c",
+    "name": "Finn's coffin",
+    "description": "An ornate coffin.  The eldest, who hates what he is.  A silver dagger in the heart keeps them in a dead sleep.  Examine it to pull the dagger out.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_ELIJAH_COFFIN_FINN" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_elijah_hidden_safe",
+    "copy-from": "f_safe_l",
+    "name": "painting of a Norse village",
+    "description": "An old oil painting of a Viking village in the snow, painted in Niklaus's hand.  It hangs very slightly crooked.  Behind it, set into the wall, is a heavy locked safe."
+  }
+]

@@ -1,0 +1,129 @@
+[
+  {
+    "type": "item_group",
+    "id": "klaus_petrova_desk",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_doppelganger_blood" },
+      { "item": "klaus_petrova_sketch" },
+      { "item": "leather_journal" },
+      { "item": "wallet_photo" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_den_scraps",
+    "subtype": "collection",
+    "entries": [ { "item": "bone", "count": [ 3, 6 ] }, { "item": "tanned_pelt", "prob": 50 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_crypt_scraps",
+    "subtype": "collection",
+    "entries": [ { "item": "candle", "count": [ 2, 4 ] }, { "item": "candlestick" }, { "item": "bone", "count": [ 2, 4 ] } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_coven_shelf",
+    "subtype": "collection",
+    "entries": [
+      { "item": "candle", "count": [ 3, 6 ] },
+      { "item": "mugwort", "count": [ 3, 6 ] },
+      { "item": "book_nonf_hard_history_ancient" },
+      { "item": "deck_of_tarot_cards" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_elijah_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "suit" },
+      { "item": "dress_shirt" },
+      { "item": "tie_skinny" },
+      { "item": "dress_shoes" },
+      { "item": "socks" },
+      { "item": "boxer_shorts" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_elijah_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_rebekah_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "dress" },
+      { "item": "jacket_leather" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "bra" },
+      { "item": "panties" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_rebekah_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "knife_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_kol_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "tshirt" },
+      { "item": "jacket_leather" },
+      { "item": "jeans" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "boxer_shorts" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_kol_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_finn_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "longshirt" },
+      { "item": "pants" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "coat_winter" },
+      { "item": "boxer_shorts" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_finn_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "klaus_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_hunter_worn_extra",
+    "subtype": "collection",
+    "entries": [ { "item": "kevlar" }, { "item": "holy_symbol_wood" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "klaus_hunter_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "klaus_hunter_stake", "count": 2 },
+      { "item": "machete" },
+      { "item": "bandages", "count": 4 },
+      { "item": "klaus_vervain_dart", "count": [ 1, 3 ] }
+    ]
+  }
+]

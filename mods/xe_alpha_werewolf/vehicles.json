@@ -1,0 +1,13 @@
+[
+  {
+    "id": "xe_alpha_pickup",
+    "type": "vehicle",
+    "copy-from": "pickup",
+    "name": "Battered Pickup Truck",
+    "items": [
+      { "x": 0, "y": 0, "chance": 100, "item_groups": [ "xe_alpha_glovebox" ] },
+      { "x": 0, "y": 1, "chance": 100, "item_groups": [ "xe_alpha_truck_cab_junk" ] },
+      { "x": -2, "y": 1, "chance": 100, "item_groups": [ "xe_alpha_truck_bed" ] }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "xe_alpha_pack_photo",
+    "type": "ITEM",
+    "copy-from": "family_photo",
+    "name": { "str": "photograph of the pack" },
+    "description": "A creased, water-stained photo of seven people grinning around a bonfire deep in the woods, beers raised, the full moon a smear of light over the pines.  Your pack.  You are the only one left alive in it."
+  },
+  {
+    "id": "xe_alpha_wolf_tooth_necklace",
+    "type": "ITEM",
+    "copy-from": "necklace_teeth",
+    "name": { "str": "alpha's fang necklace" },
+    "description": "A leather thong strung with seven wolf fangs, one shed by every member of your pack during their first change.  The People give it to whoever leads the hunt.  Nobody is left to follow you, but you still wear it.",
+    "variants": [
+      {
+        "id": "xe_alpha_fangs",
+        "name": { "str": "alpha's fang necklace" },
+        "description": "A leather thong strung with seven wolf fangs, one shed by every member of your pack during their first change.  The People give it to whoever leads the hunt.  Nobody is left to follow you, but you still wear it.",
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "id": "xe_alpha_ash_stake",
+    "type": "ITEM",
+    "copy-from": "pointy_stick",
+    "name": { "str": "sharpened ash stake" },
+    "weight": "250 g",
+    "volume": "300 ml",
+    "longest_side": "35 cm",
+    "description": "A length of white ash whittled to a wicked point and fire-hardened.  Old lore says it's the only thing that truly stops a bloodsucker.  Old lore is often wrong, but it's still a stake."
+  },
+  {
+    "id": "xe_alpha_voss_letter",
+    "type": "ITEM",
+    "subtypes": [ "GENERIC" ],
+    "name": { "str": "blood-inked letter" },
+    "description": "A sheet of heavy, cream-colored paper written in dried blood.  It was nailed above your campfire with a claw.  Read it to learn who did this (and where to find them).",
+    "weight": "5 g",
+    "volume": "10 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "material": [ "paper" ],
+    "symbol": "?",
+    "color": "red",
+    "category": "other",
+    "flags": [ "NO_REPAIR" ],
+    "use_action": [
+      {
+        "type": "effect_on_conditions",
+        "menu_text": "Read the letter",
+        "description": "Read the letter and mark the vampire's cabin on your map.",
+        "effect_on_conditions": [ "EOC_XE_ALPHA_READ_LETTER" ]
+      }
+    ]
+  },
+  {
+    "id": "xe_alpha_voss_signet",
+    "type": "ITEM",
+    "copy-from": "gold_ring",
+    "name": { "str": "Voss's signet ring" },
+    "description": "A heavy gold signet ring engraved with a bat clutching a rose.  It came off Aurelio Voss's finger along with most of the finger.  Proof that the pack has been avenged."
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "type": "item_group",
+    "id": "elder_vampire_hunter_wield",
+    "subtype": "collection",
+    "entries": [ { "item": "hunter_vervain_crossbow", "ammo-item": "hunter_wooden_stake", "charges": 1 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elder_vampire_hunter_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "hunter_combat_stake", "count": 2 },
+      { "item": "hunter_wooden_stake", "count": 18 },
+      { "item": "hunter_vervain_grenade", "count": 2 },
+      { "item": "vervain_tea", "count": 2 },
+      { "item": "vervain_extract_flask", "count": 1 },
+      { "item": "vervain_herb", "count": 4 },
+      { "item": "bandages", "count": 3 },
+      { "group": "used_1st_aid" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elder_vampire_hunter_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "pants_cargo" },
+      { "item": "jacket_leather" },
+      { "item": "hunter_vervain_vest" },
+      { "item": "hunter_vervain_collar" },
+      { "item": "boots" },
+      { "item": "gloves_tactical" },
+      { "item": "sheath", "contents-item": "hunter_combat_stake" },
+      { "item": "quiver_large" },
+      { "item": "backpack_leather" }
+    ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_ELDER_VAMPIRE_HUNTER",
+    "name": { "str": "Vampire Hunter" },
+    "job_description": "I hunt nightstalkers and vampires.",
+    "common": false,
+    "bonus_str": { "rng": [ 18, 20 ] },
+    "bonus_dex": { "rng": [ 18, 20 ] },
+    "bonus_int": { "rng": [ 14, 16 ] },
+    "bonus_per": { "rng": [ 18, 20 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "traits": [
+      { "trait": "TRAIT_VAMPIRE_HUNTER_RESOLVE" },
+      { "trait": "TOUGH3" },
+      { "trait": "THICKSKIN" },
+      { "trait": "QUICK" },
+      { "trait": "DEFT" },
+      { "trait": "FLEET" },
+      { "trait": "PAINRESIST" },
+      { "trait": "GOODCARDIO" },
+      { "trait": "LIGHTSTEP" },
+      { "trait": "NIGHTVISION" }
+    ],
+    "proficiencies": [
+      "prof_parkour",
+      "prof_spotting",
+      "prof_wound_care",
+      "prof_wound_care_expert",
+      "prof_physiology",
+      "prof_dissect_humans",
+      "prof_wp_demihuman",
+      "prof_wp_zombie",
+      "prof_wp_nat_armored",
+      "prof_wp_syn_armored",
+      "prof_knives_pro",
+      "prof_knives_master",
+      "prof_traps",
+      "prof_trapsetting",
+      "prof_disarming",
+      "prof_gun_cleaning",
+      "prof_handloading"
+    ],
+    "worn_override": "elder_vampire_hunter_worn",
+    "weapon_override": "elder_vampire_hunter_wield",
+    "carry_override": "elder_vampire_hunter_carry",
+    "skills": [
+      { "skill": "archery", "bonus": 10 },
+      { "skill": "stabbing", "bonus": 10 },
+      { "skill": "melee", "bonus": 10 },
+      { "skill": "dodge", "bonus": 10 },
+      { "skill": "bashing", "bonus": 10 },
+      { "skill": "cutting", "bonus": 10 },
+      { "skill": "gun", "bonus": 10 },
+      { "skill": "unarmed", "bonus": 10 },
+      { "skill": "survival", "bonus": 10 },
+      { "skill": "firstaid", "bonus": 10 }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "elder_vampire_hunter_tester",
+    "name_unique": "Jonathan Cross",
+    "name_suffix": "Vampire Hunter",
+    "class": "NC_ELDER_VAMPIRE_HUNTER",
+    "gender": "male",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
+    "personality": { "aggression": 50, "bravery": 100, "collector": 0, "altruism": 0 }
+  },
+  {
+    "type": "npc",
+    "id": "elder_vampire_hunter_stalker",
+    "name_unique": "Jonathan Cross",
+    "name_suffix": "Vampire Hunter",
+    "class": "NC_ELDER_VAMPIRE_HUNTER",
+    "gender": "male",
+    "attitude": 10,
+    "mission": "NULL",
+    "chat": "TALK_DONE",
+    "faction": "no_faction",
+    "personality": { "aggression": 100, "bravery": 100, "collector": 0, "altruism": 0 }
+  }
+]

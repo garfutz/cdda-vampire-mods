@@ -1,0 +1,13 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "elder_vampire",
+    "name": "Elder Vampire Profession",
+    "authors": [ "Andu", "Antigravity" ],
+    "maintainers": [ "Andu" ],
+    "description": "Adds the Elder Vampire starting profession: an ancient, centuries-old supernatural predator who has survived empires, adapted to the modern world, and entered the Cataclysm fully established at Tier 5 of Xedra Evolved vampirism with Elijah's daylight ring, a MOLLE assault pack, blood reserves, and lethal combat capabilities.",
+    "category": "content",
+    "dependencies": [ "dda", "xedra_evolved", "magiclysm", "elijah_mikaelson", "stefan_salvatore" ],
+    "version": "1.0"
+  }
+]

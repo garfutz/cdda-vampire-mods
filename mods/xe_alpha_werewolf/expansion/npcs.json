@@ -1,0 +1,74 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_XE_ALPHA_WREN",
+    "name": { "str": "Harlan pack werewolf" },
+    "job_description": "I was a Harlan.  Now I'm whatever's left.",
+    "common": false,
+    "bonus_str": { "rng": [ 5, 6 ] },
+    "bonus_dex": { "rng": [ 3, 4 ] },
+    "bonus_per": { "rng": [ 3, 4 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 5, 6 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 3, 4 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "XE_ALPHA_WREN_WOLF" } ],
+    "worn_override": "xe_alpha_wren_worn",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "xe_alpha_npc_wren",
+    "name_unique": "Wren Calloway",
+    "gender": "female",
+    "class": "NC_XE_ALPHA_WREN",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_XE_ALPHA_WREN",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_XE_ALPHA_WREN",
+    "dynamic_line": {
+      "compare_string": [ "yes", { "npc_val": "xe_alpha_wren_met" } ],
+      "yes": "Alpha.  What do you need?",
+      "no": "You smell like the pines.  Like pack.  You're the one from the homestead, aren't you?  He talked about you.  He was waiting for you."
+    },
+    "speaker_effect": { "effect": [ { "set_string_var": "yes", "target_var": { "npc_val": "xe_alpha_wren_met" } } ] },
+    "responses": [
+      {
+        "text": "Run with me.  The pack isn't finished yet.",
+        "condition": { "not": "npc_following" },
+        "effect": "follow",
+        "topic": "TALK_XE_ALPHA_WREN_JOIN"
+      },
+      { "text": "Who are you?", "topic": "TALK_XE_ALPHA_WREN_WHO" },
+      { "text": "Voss answered to someone.  Who?", "topic": "TALK_XE_ALPHA_WREN_SIRE" },
+      { "text": "Let's talk about something else.", "condition": "npc_following", "topic": "TALK_FRIEND" },
+      { "text": "Rest.  I'll be back.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_XE_ALPHA_WREN_WHO",
+    "dynamic_line": "Wren Calloway.  Harlan pack, from over the ridge.  We ran with your people on the big moons, remember?  Voss hit us first.  He killed everyone and kept me.  Said werewolf blood was the finest vintage there was.  He drank from me every night for a month.",
+    "responses": [ { "text": "I'm sorry.", "topic": "TALK_XE_ALPHA_WREN" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_XE_ALPHA_WREN_SIRE",
+    "dynamic_line": "His maker.  He called her the Countess, like she was royalty.  He wrote to her, sent her blood from the cellar in bottles.  She's old, a lot older than him, and he was scared of her.  If he's dead, she'll know.  And she'll come looking for whoever did it.",
+    "responses": [ { "text": "Let her come.", "topic": "TALK_XE_ALPHA_WREN" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_XE_ALPHA_WREN_JOIN",
+    "dynamic_line": "Two wolves is a pack.  Lead the way, Alpha.",
+    "responses": [ { "text": "Let's go.", "topic": "TALK_DONE" } ]
+  }
+]

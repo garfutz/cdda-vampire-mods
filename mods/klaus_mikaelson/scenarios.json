@@ -1,0 +1,15 @@
+[
+  {
+    "type": "scenario",
+    "id": "klaus_the_abattoir",
+    "name": "The Originals: Before the Curse Broke",
+    "points": 0,
+    "description": "New Orleans.  The walled French Quarter house the Mikaelsons built when the city was young and fled in 1919 when Mikael came for them: a courtyard with a statue, Klaus's studio, a bar stocked with bourbon, fridges full of blood bags, a safe you'd rather nobody opened, and a room where four coffins hold your daggered siblings.  The moonstone is on the desk.  The curse is still unbroken.  The city is falling to the dead.  Built for Klaus Mikaelson, but any profession can start here.",
+    "start_name": "The Mikaelson House",
+    "allowed_locs": [ "sloc_klaus_abattoir" ],
+    "start_of_cataclysm": { "hour": 0, "day": 56, "season": "spring", "year": 1 },
+    "start_of_game": { "hour": 22, "day": 61, "season": "spring", "year": 1 },
+    "eoc": [ "EOC_KLAUS_SCENARIO_START" ],
+    "flags": [ "LONE_START" ]
+  }
+]

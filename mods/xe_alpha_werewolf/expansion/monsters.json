@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mon_xe_alpha_countess",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_tough",
+    "looks_like": "mon_vampire_moroi",
+    "name": { "str_sp": "Magdalena Szell, the Bone Countess" },
+    "description": "Voss's maker.  She looks like a painting of a noblewoman left out in the rain for three hundred years: lace gone yellow, jewels on every finger, skin stretched over bone like old paper.  She hasn't needed to hurry in centuries, and she moves as if she has all the time in the world, right up until she's on you.  Bats wheel around her like a crown.",
+    "color": "white_magenta",
+    "hp": 1700,
+    "speed": 130,
+    "morale": 300,
+    "melee_skill": 8,
+    "melee_dice": 4,
+    "melee_dice_sides": 6,
+    "melee_damage": [ { "damage_type": "cut", "amount": 16, "armor_penetration": 6 } ],
+    "dodge": 7,
+    "vision_night": 60,
+    "regenerates": 8,
+    "armor": { "bash": 28, "cut": 18, "stab": 14, "bullet": 24, "electric": 10, "heat": -25 },
+    "death_drops": "xe_alpha_countess_drops",
+    "delete": { "flags": [ "REVIVES" ] },
+    "extend": {
+      "special_attacks": [
+        {
+          "id": "xe_alpha_countess_bats",
+          "type": "spell",
+          "spell_data": { "id": "xe_alpha_countess_bats" },
+          "cooldown": 30,
+          "monster_message": "%1$s spreads her arms and the air fills with bats!"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mon_xe_alpha_rogue_wolf",
+    "type": "MONSTER",
+    "copy-from": "mon_werewolf_elder",
+    "name": { "str": "rogue werewolf" },
+    "description": "A moon-mad werewolf with no pack, drawn by the full moon and the scent of an Alpha.  It wants your territory, and it will fight you for it."
+  }
+]

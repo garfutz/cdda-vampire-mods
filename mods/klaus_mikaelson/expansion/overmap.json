@@ -1,0 +1,90 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "klaus_ritual_den",
+    "name": "old stone circle",
+    "sym": "o",
+    "color": "light_gray",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "klaus_ritual_den",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "klaus_ritual_den_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 2, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "klaus_ritual_crypt",
+    "name": "overgrown crypt",
+    "sym": "+",
+    "color": "dark_gray",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "klaus_ritual_crypt",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "klaus_ritual_crypt_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 2, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "klaus_ritual_coven",
+    "name": "witch's shack",
+    "sym": "w",
+    "color": "light_green",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "klaus_ritual_coven",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "klaus_ritual_coven_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 2, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "klaus_petrova_house",
+    "name": "abandoned house",
+    "sym": "h",
+    "color": "brown",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "klaus_petrova_house",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "klaus_petrova_house_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 2, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  }
+]

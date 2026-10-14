@@ -1,0 +1,247 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_red_door",
+    "name": [ "Behind the Red Door" ],
+    "desc": [
+      "The door is open.  The noble brother is gone, and what's left is the thing Niklaus used to send when he needed hearts torn out."
+    ],
+    "apply_message": "Something behind your eyes goes very quiet.  The red door swings open.",
+    "remove_message": "The door closes.  Your hands are covered in blood, and you remember all of it.",
+    "rating": "good",
+    "max_duration": "3 minutes",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 8 },
+          { "value": "SPEED", "add": 40 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.5 },
+          { "value": "ATTACK_SPEED", "multiply": -0.3 },
+          { "value": "PAIN", "multiply": -1.0 },
+          { "value": "ARMOR_ALL", "add": -5 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_red_door_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "1 hours"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_resolve",
+    "name": [ "Noble Resolve" ],
+    "desc": [ "You straighten your cuffs and decide how this is going to go.  Calm, precise and very hard to rattle." ],
+    "apply_message": "You straighten your tie.  Breathe.  Decide.",
+    "rating": "good",
+    "max_duration": "10 minutes",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "DODGE_CHANCE", "add": 15 },
+          { "value": "PAIN", "multiply": -0.5 },
+          { "value": "PERCEPTION", "add": 2 },
+          { "value": "SOCIAL_PERSUADE", "add": 20 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.15 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_regen_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "1 minutes"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_hunters_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "3 days"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elijah_guilt",
+    "text": "What you did behind the red door"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elijah_family",
+    "text": "Family above all"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elijah_fed",
+    "text": "The thirst, quieted"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elijah_white_oak",
+    "text": "Carrying white oak"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_vampiric_blur",
+    "name": [ "Original Apex Stride" ],
+    "desc": [
+      "Moving with apex Original velocity, you blur across space at ~100 km/h. Movement costs are virtually eliminated (~3 moves per step) and incoming attacks are effortlessly dodged in a haze of afterimages."
+    ],
+    "apply_message": "Reality blurs into streaks of color as you engage Original apex velocity (~100 km/h)! Your movement is untouchable!",
+    "remove_message": "You slow your thousand-year-old stride, smoothly decelerating from 100 km/h back to walking pace.",
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 80 ], "dodge_mod": [ 80 ] },
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "skills": [ { "value": "dodge", "add": 50 } ],
+        "values": [ { "value": "MOVE_COST", "multiply": -0.9 }, { "value": "SPEED", "add": 60 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_staggered",
+    "name": [ "Blunt Shockwave Trauma" ],
+    "desc": [
+      "Devastating blunt trauma has shattered bones and ruptured internal organs. Supernatural cellular regeneration is temporarily suppressed while the undead body recovers from catastrophic shock."
+    ],
+    "rating": "bad",
+    "max_duration": "60 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_blood_radar",
+    "name": [ "Predatory Heartbeat & Blood Radar" ],
+    "desc": [
+      "Your eyes dilate into dark pools of crimson as you tune out the dead world and focus on the rhythmic thumping of beating hearts and the warm copper scent of blood pulsing through veins. You can sense all living and undead creatures within 45 tiles through solid walls and pitch darkness."
+    ],
+    "apply_message": "Your thousand-year-old senses sharpen to a razor edge. Every heartbeat and pulsing vein within 45 tiles echoes through the walls.",
+    "remove_message": "You relax your heightened predatory senses as the chorus of distant heartbeats fades.",
+    "rating": "good",
+    "max_duration": "15 minutes",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_neck_snap_cd",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "max_duration": "3 seconds",
+    "show_in_info": false
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_arm_r",
+    "name": [ "Missing Right Arm" ],
+    "desc": [ "Your right arm has been violently ripped completely off from its shoulder socket by monstrous Original force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_arm_l",
+    "name": [ "Missing Left Arm" ],
+    "desc": [ "Your left arm has been violently ripped completely off from its shoulder socket by monstrous Original force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_both_arms",
+    "name": [ "Armless Amputee" ],
+    "desc": [
+      "Both of your arms have been violently ripped from your body. You have no arms or hands, rendering you completely incapable of wielding weapons, holding items, or using manipulation."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -10 ], "speed_mod": [ -40 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.0 },
+      { "limb_score": "grip", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.0 },
+      { "limb_score": "block", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_leg_r",
+    "name": [ "Missing Right Leg" ],
+    "desc": [ "Your right leg has been violently torn free from the hip socket by monstrous Original force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_leg_l",
+    "name": [ "Missing Left Leg" ],
+    "desc": [ "Your left leg has been violently torn free from the hip socket by monstrous Original force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_missing_both_legs",
+    "name": [ "Legless Amputee" ],
+    "desc": [
+      "Both of your legs have been violently torn from your body. You are completely crippled and unable to walk, reduced to crawling on the floor."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -6 ], "speed_mod": [ -90 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_shattered_spine",
+    "name": [ "Shattered Spine & Paralysis" ],
+    "desc": [
+      "Your lower spine and lumbar vertebrae have been pulverized under an Original Vampire's crushing stomp, leaving you completely paralyzed and crawling."
+    ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -90 ], "dex_mod": [ -8 ], "str_mod": [ -6 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  }
+]

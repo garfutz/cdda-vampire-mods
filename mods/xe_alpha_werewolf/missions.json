@@ -1,0 +1,62 @@
+[
+  {
+    "id": "MISSION_XE_ALPHA_KILL_VOSS",
+    "type": "mission_definition",
+    "name": { "str": "Avenge the pack: kill Aurelio Voss" },
+    "description": "Aurelio Voss, the vampire your pack drove out of these hills ten years ago, came back while you were out hunting and slaughtered all six of your packmates.  He's holed up in the old hunting cabin in the pines where your people used to gather under the full moon, guarded by his blood-drunk renfields.  The cabin is marked on your map.  Go there and kill him.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 8,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "xe_alpha_voss_cabin",
+        "om_special": "xe_alpha_voss_cabin",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 6,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_xe_alpha_voss", "x": 11, "y": 8, "target": true },
+          { "monster": "mon_renfield_shotgun", "x": 7, "y": 14 },
+          { "monster": "mon_renfield_9mm", "x": 15, "y": 14 },
+          { "monster": "mon_renfield", "x": 11, "y": 17 },
+          { "monster": "mon_vampire_moroi_fast", "x": 14, "y": 9 },
+          { "monster": "mon_vampire_bat", "x": 9, "y": 10 },
+          { "monster": "mon_vampire_bat", "x": 13, "y": 11 },
+          { "monster": "mon_vampire_bat", "x": 10, "y": 12 },
+          { "monster": "mon_civilian_bloodbag", "x": 6, "y": 8 },
+          { "monster": "mon_civilian_bloodbag", "x": 16, "y": 8 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "u_werewolf_exp += 1000" ] },
+        { "math": [ "xe_alpha_voss_slain = 1" ] },
+        {
+          "u_add_morale": "morale_feeling_good",
+          "bonus": 50,
+          "max_bonus": 60,
+          "duration": "2 days",
+          "decay_start": "1 day"
+        },
+        {
+          "if": { "math": [ "u_werewolf_exp > u_werewolf_xp_threshold" ] },
+          "then": [ { "u_add_effect": "effect_werewolf_gain_more_powers", "duration": "PERMANENT" } ]
+        },
+        {
+          "u_message": "Aurelio Voss is dust and ash.  You throw back your head and howl, and for a moment you'd swear six voices howl with you.  The pack is avenged.  (Werewolf experience +1000.)",
+          "popup": true
+        },
+        { "assign_mission": "MISSION_XE_ALPHA_KILL_SIRE" },
+        {
+          "u_message": "In Voss's coat you find a letter sealed in black wax.  He had a maker, and she's the one who sent him.  (New mission: The Bone Countess.  If the cellar hatch is still chained, someone down there is alive.)",
+          "popup": true
+        }
+      ]
+    }
+  }
+]

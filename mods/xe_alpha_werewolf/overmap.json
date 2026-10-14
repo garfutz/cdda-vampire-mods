@@ -1,0 +1,51 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "xe_alpha_den",
+    "name": "off-grid homestead",
+    "sym": "^",
+    "color": "brown",
+    "see_cost": "medium",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_LOW", "SOURCE_FOOD", "SOURCE_FUEL" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "xe_alpha_voss_cabin",
+    "name": "old hunting cabin",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "vision_levels": "isolated_building",
+    "travel_cost_type": "structure",
+    "mondensity": 0,
+    "flags": [ "RISK_HIGH" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "xe_alpha_den",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "xe_alpha_den_north" },
+      { "point": [ 0, -1, 0 ], "locations": [ "land", "road" ] }
+    ],
+    "connections": [ { "point": [ 0, -1, 0 ], "terrain": "road", "connection": "local_road", "from": [ 0, 0, 0 ] } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 5, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 1, 1 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS", "SAFE_AT_WORLDGEN" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "xe_alpha_voss_cabin",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "xe_alpha_voss_cabin_north" } ],
+    "locations": [ "forest" ],
+    "city_distance": [ 4, -1 ],
+    "city_sizes": [ 1, -1 ],
+    "occurrences": [ 0, 0 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS" ]
+  }
+]

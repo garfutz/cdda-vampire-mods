@@ -1,0 +1,18 @@
+[
+  {
+    "type": "scenario",
+    "id": "xe_alpha_last_of_the_pack",
+    "name": "Last of the Pack",
+    "points": 0,
+    "description": "You built this homestead deep in the pines with your own hands: a log cabin with a wood stove, cord wood stacked under the eaves, a hand-pumped well, a garden, a diesel generator with a full fuel tank and cans to spare.  It's where your pack gathered.  Three nights ago, while you were out running the ridge, a vampire slaughtered them around your own fire ring.  You wake alone with his letter and your battered old pickup on the dirt drive.  It's dented and it smells like wet dog, but it still runs.  The Alpha Werewolf profession fits this story best, but any profession is granted the werewolf's Lupine and War forms.",
+    "start_name": "The Alpha's Homestead",
+    "allowed_locs": [ "sloc_xe_alpha_den" ],
+    "start_of_cataclysm": { "hour": 0, "day": 56, "season": "spring", "year": 1 },
+    "start_of_game": { "hour": 20, "day": 61, "season": "spring", "year": 1 },
+    "//": "NATIVE_SHAPESHIFTER is a HERITAGE-type trait; forcing it here would conflict with the Alpha profession (which already has it), so the start EOC grants it to other professions instead.",
+    "forced_traits": [ "WEREWOLF_ANIMAL_FORM", "WEREWOLF_HYBRID_FORM", "WEREWOLF_SPELLS", "WEREWOLF_MANA_TRAIT" ],
+    "eoc": [ "EOC_XE_ALPHA_SCENARIO_START" ],
+    "missions": [ "MISSION_XE_ALPHA_KILL_VOSS" ],
+    "flags": [ "LONE_START" ]
+  }
+]

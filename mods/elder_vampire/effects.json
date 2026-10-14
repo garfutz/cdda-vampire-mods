@@ -1,0 +1,383 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_surge_cd",
+    "name": [ "Sanguine Surge Cooldown" ],
+    "desc": [ "Your circulatory system is recovering from a massive surge of vampiric vitae." ],
+    "rating": "neutral",
+    "max_duration": "30 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elder_purified_blood",
+    "text": "Tasted like cold copper and ash"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_vampire_blood_sip",
+    "text": "Savoring fine vintage vitae or aristocratic kindred conversation"
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_healing_surge",
+    "name": [ "Sanguine Healing Surge" ],
+    "desc": [
+      "Freshly consumed vitae is surging through your dead veins at fever pitch.  Wounds knit together, broken bones mend, and hemorrhaging is sealed."
+    ],
+    "apply_message": "Fresh vitae floods your core! A focused 10-second healing surge diminishes bleeding wounds, knits lacerations, and dulls pain (+1 HP/sec).",
+    "remove_message": "The violent rush of consumed vitae subsides as your flesh stabilizes.",
+    "rating": "good",
+    "max_duration": "10 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_npc_healing_surge",
+    "name": [ "Vampiric Regeneration" ],
+    "desc": [
+      "Potent Elder Vampire blood courses through the veins, rapidly sealing wounds, knitting broken bones, and regenerating tissue."
+    ],
+    "apply_message": "Vampiric vitae burns through their veins! Wounds begin knitting together rapidly.",
+    "remove_message": "The rush of vampiric vitae subsides as their flesh stabilizes.",
+    "rating": "good",
+    "max_duration": "20 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elder_vampire_terror",
+    "text": "Witnessed monstrous vampiric slaughter"
+  },
+  {
+    "type": "morale_type",
+    "id": "morale_elder_vampire_companion_awe",
+    "text": "Felt awe and dread at an elder vampire's power"
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_elder_vampire_terror",
+    "name": [ "Paralyzed with Terror", "Paralyzed with Terror", "Paralyzed with Terror" ],
+    "desc": [
+      "You have witnessed a display of monstrous, inhuman brutality.  Your knees shake uncontrollably, your breath catches in your throat, and sheer terror paralyzes your body."
+    ],
+    "apply_message": "Overwhelming, suffocating terror grips your heart! You are frozen in shock!",
+    "remove_message": "The paralyzing shock breaks, but blind panic remains!",
+    "rating": "bad",
+    "max_duration": "10 seconds",
+    "base_mods": { "speed_mod": [ -50 ], "dex_mod": [ -6 ], "str_mod": [ -4 ], "per_mod": [ -4 ] },
+    "miss_messages": [ [ "Shaking with sheer terror, you fumble your strike!", 1 ] ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_elder_vampire_dread_awe",
+    "name": [ "Dread and Awe" ],
+    "desc": [
+      "You have witnessed the horrifying supernatural might of your companion.  A cold chill runs down your spine, but your loyalty endures."
+    ],
+    "apply_message": "A shiver of awe and terror runs down your spine as you witness your ally's monstrous power.",
+    "remove_message": "The cold shiver of dread passes.",
+    "rating": "neutral",
+    "max_duration": "30 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_neck_snap_cd",
+    "name": [ "Blitz Cooldown" ],
+    "desc": [ "Your supernatural velocity is recovering from a lightning-fast blitz." ],
+    "rating": "neutral",
+    "max_duration": "3 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_falling",
+    "name": [ "" ],
+    "desc": [ "" ],
+    "rating": "neutral",
+    "max_duration": "3 seconds",
+    "show_in_info": false
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_blood_radar",
+    "name": [ "Predatory Heartbeat & Blood Radar" ],
+    "desc": [
+      "Your eyes dilate into dark pools of crimson as you tune out the dead world and focus on the rhythmic thumping of beating hearts and the warm copper scent of blood pulsing through veins.  You can sense all living and undead creatures within 35 tiles through solid walls and pitch darkness."
+    ],
+    "apply_message": "Your senses sharpen to a razor edge. Every heartbeat and pulsing vein within 35 tiles echoes through the walls.",
+    "remove_message": "You relax your heightened predatory senses as the chorus of distant heartbeats fades.",
+    "rating": "good",
+    "max_duration": "15 minutes",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_blood_in_system",
+    "name": [ "Vampire Blood in System" ],
+    "desc": [
+      "Concentrated Elder Vampire blood courses through your veins.  All broken bones and wounds have mended rapidly—and if you die within the next 24 hours, you will awaken in transition as a vampire."
+    ],
+    "apply_message": "Warm, potent vampire blood surges through your veins, knitting bone and flesh together.",
+    "remove_message": "The vampire blood in your system is metabolized and fades away.",
+    "rating": "good",
+    "max_duration": "24 hours",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_in_transition",
+    "name": [ "In Transition (Needs Human Blood)" ],
+    "desc": [
+      "You died with vampire blood in your system and have awakened between life and undeath.  Your gums ache with emerging fangs and your throat burns with an all-consuming thirst.  You must drink human blood within 24 hours to complete your transition into a Vampire, or you will wither and die permanently."
+    ],
+    "apply_message": "You gasp awake from death! You are IN TRANSITION—drink human blood within 24 hours or die!",
+    "remove_message": "Your transition is complete.",
+    "rating": "bad",
+    "max_duration": "24 hours",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_arm_r",
+    "name": [ "Missing Right Arm" ],
+    "desc": [ "Your right arm has been violently ripped completely off from its shoulder socket by monstrous vampiric force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_arm_l",
+    "name": [ "Missing Left Arm" ],
+    "desc": [ "Your left arm has been violently ripped completely off from its shoulder socket by monstrous vampiric force." ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -4 ], "speed_mod": [ -20 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.5 },
+      { "limb_score": "grip", "modifier": 0.5 },
+      { "limb_score": "lift", "modifier": 0.5 },
+      { "limb_score": "block", "modifier": 0.5 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_both_arms",
+    "name": [ "Armless Amputee" ],
+    "desc": [
+      "Both of your arms have been violently ripped from your body. You have no arms or hands, rendering you completely incapable of wielding weapons, holding items, or using manipulation."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -10 ], "speed_mod": [ -40 ] },
+    "limb_score_mods": [
+      { "limb_score": "manip", "modifier": 0.0 },
+      { "limb_score": "grip", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.0 },
+      { "limb_score": "block", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_leg_r",
+    "name": [ "Missing Right Leg" ],
+    "desc": [ "Your right leg has been violently torn free from the hip socket by monstrous vampiric force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_leg_l",
+    "name": [ "Missing Left Leg" ],
+    "desc": [ "Your left leg has been violently torn free from the hip socket by monstrous vampiric force." ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -4 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.15 },
+      { "limb_score": "balance", "modifier": 0.1 },
+      { "limb_score": "footing", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_missing_both_legs",
+    "name": [ "Legless Amputee" ],
+    "desc": [
+      "Both of your legs have been violently torn from your body. You are completely crippled and unable to walk, reduced to crawling on the floor."
+    ],
+    "rating": "bad",
+    "base_mods": { "dex_mod": [ -6 ], "speed_mod": [ -90 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_shattered_spine",
+    "name": [ "Shattered Spine & Paralysis" ],
+    "desc": [
+      "Your lower spine and lumbar vertebrae have been pulverized under an Elder Vampire's crushing stomp, leaving you completely paralyzed and crawling."
+    ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -90 ], "dex_mod": [ -8 ], "str_mod": [ -6 ] },
+    "limb_score_mods": [
+      { "limb_score": "move_speed", "modifier": 0.05 },
+      { "limb_score": "balance", "modifier": 0.0 },
+      { "limb_score": "footing", "modifier": 0.0 },
+      { "limb_score": "lift", "modifier": 0.1 }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_desiccation",
+    "name": [ "Desiccation Paralysis" ],
+    "desc": [
+      "Concentrated white oak ash and dark silver venom coursing through your body have desiccated your blood and nerves, leaving you rigidly paralyzed and unable to move."
+    ],
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -50 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_papa_tunde_might",
+    "name": [ "Siphoned Agony Surge" ],
+    "desc": [
+      "Stolen vital energy and pain channeled through Papa Tunde's sacrificial blade course through your muscles, granting supernatural strength."
+    ],
+    "rating": "good",
+    "base_mods": { "str_mod": [ 3 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_gilbert_cooldown",
+    "name": [ "Gilbert Mechanism Rewinding" ],
+    "desc": [ "The clockwork resonance spring of the Gilbert agony device is unwinding and resetting." ],
+    "rating": "neutral",
+    "max_duration": "2 minutes",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_blood_starved",
+    "name": [ "Blood Starved" ],
+    "desc": [
+      "Your veins run completely dry of stored vitae.  Your supernatural regeneration and rapid tissue restoration have completely ceased until you feed.  As an immortal Elder Progenitor you cannot die from starvation or withering, but your body is hollow and weak until blood is drunk."
+    ],
+    "rating": "bad",
+    "removes_effects": [ "withering" ],
+    "base_mods": { "stamina_min": [ -50 ], "speed_mod": [ -10 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_vervain_blood",
+    "name": [ "Vervain in Bloodstream" ],
+    "desc": [
+      "Your bloodstream is saturated with steeped vervain. Vampiric hypnotic compulsion slides off your mind, and any undead leech that bites your throat will suffer excruciating caustic burns."
+    ],
+    "rating": "good",
+    "max_duration": "24 hours",
+    "removes_effects": [ "effect_vampire_hypnotism", "charm_monster" ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_vervain_burn",
+    "name": [ "Vervain Acid Burn" ],
+    "desc": [
+      "Caustic vervain coursing through your undead system burns your veins like boiling acid! Your strength and coordination are crippled, your occult reserves curdle, and your vision swims in searing pain."
+    ],
+    "rating": "bad",
+    "max_duration": "45 seconds",
+    "base_mods": { "speed_mod": [ -35 ], "dex_mod": [ -4 ], "str_mod": [ -4 ], "pain_amount": [ 2 ], "pain_min": [ 30 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_wood_splinters",
+    "name": [ "Embedded Wood Splinters" ],
+    "desc": [
+      "Sharp wooden fragments are lodged deep within this wound. The foreign wood causes throbbing pain and completely halts supernatural blood regeneration on this limb until actively expelled."
+    ],
+    "rating": "bad",
+    "part_descs": true,
+    "base_mods": { "pain_amount": [ 2 ], "speed_mod": [ -10 ], "healing_rate": [ -100 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_vampiric_blur",
+    "name": [ "Supernatural Blur" ],
+    "desc": [
+      "Moving with apex vampire speed, your body blurs into a spectral afterimage. Movement costs are drastically slashed to ~70 km/h (sprinting takes mere moments) and incoming attacks are effortlessly dodged in a blur of preternatural reaction."
+    ],
+    "apply_message": "The world slows to a crawl as your muscles contract with monstrous velocity! You blur into supernatural speed (~70 km/h), effortlessly evading incoming attacks!",
+    "remove_message": "You slow your supernatural stride, dropping out of blur velocity back to normal speed.",
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 50 ], "dodge_mod": [ 50 ] },
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "skills": [ { "value": "dodge", "add": 30 } ],
+        "values": [ { "value": "MOVE_COST", "multiply": -0.85 }, { "value": "SPEED", "add": 40 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_staggered",
+    "name": [ "Blunt Shockwave Trauma" ],
+    "desc": [
+      "Devastating blunt trauma has shattered bones and ruptured internal organs. Supernatural cellular regeneration is temporarily suppressed while the undead body recovers from catastrophic shock."
+    ],
+    "rating": "bad",
+    "max_duration": "60 seconds",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_hunter_hunted_cd",
+    "name": [ "Hunted Cooldown" ],
+    "desc": [ "The hunters are regrouping before tracking you again." ],
+    "rating": "neutral",
+    "max_duration": "48 hours",
+    "show_in_info": false
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_ev_blood_rage",
+    "name": [ "Vampiric Blood Rage" ],
+    "desc": [
+      "The agonizing burn of cauterization has ignited a primal blood rage. Your physical power and pain tolerance are temporarily surged."
+    ],
+    "apply_message": "Agonizing flame purges the splinter, unleashing a feral surge of vampiric fury!",
+    "remove_message": "Your blood rage subsides as your charred flesh cools.",
+    "rating": "good",
+    "max_duration": "30 seconds",
+    "base_mods": { "str_mod": [ 2 ], "dex_mod": [ 2 ], "speed_mod": [ 10 ] },
+    "show_in_info": true
+  }
+]

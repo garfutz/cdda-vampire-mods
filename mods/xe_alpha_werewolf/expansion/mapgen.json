@@ -1,0 +1,63 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [ "xe_alpha_sire_chapel" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_region_groundcover_forest",
+      "rows": [
+        "T,,,,,,,,T,,,,,,,,T,,,,,",
+        ",,,,T,,,,,,,,T,,,,,,,,T,",
+        ",,,,,,############,,,,,,",
+        ",,,T,,#_s______s_#,,GT,,",
+        ",,,,,,#____AA____#,,g,,,",
+        ",,G,,,#_________r#,,T,,,",
+        ",,g,,,w__________w,,,,,,",
+        ",T,,,,#_K______K_#,T,,,,",
+        ",,,,,T#__________#,,,,,T",
+        "T,,,,,#_bbb__bbb_#T,,,,,",
+        ",,,,T,w__________w,,,,T,",
+        ",,,,,,#_bbb__bbb_#,,,,,,",
+        ",,,T,,#__________#,,,T,,",
+        ",,,,,,#_bbb__bbb_#,,,,,,",
+        ",,T,,,w__________w,,T,,,",
+        ",,,,,,#_bbb__bbb_#,,,,,,",
+        ",T,,,,#r_________#,T,G,,",
+        ",,,,,T#_S______S_#,,,g,T",
+        "T,,,,,#__________#T,,,,,",
+        ",,,,T,#####++#####,,,,T,",
+        ",,,G,,,,T,,,,,,,,T,,,,,,",
+        ",,,g,,,,,,,,T,,,,,,G,T,,",
+        ",,,,,G,T,,,,,,,,T,,g,,,,",
+        ",,T,,g,,,,,T,,,,,,,,T,,,"
+      ],
+      "terrain": {
+        ",": "t_region_groundcover_forest",
+        "T": "t_region_tree_forest",
+        "#": "t_brick_wall",
+        "_": "t_rock_floor",
+        "w": "t_window_empty",
+        "+": "t_door_c",
+        "A": "t_rock_floor",
+        "s": "t_rock_floor",
+        "b": "t_rock_floor",
+        "K": "t_rock_floor",
+        "S": "t_rock_floor",
+        "r": "t_rock_floor",
+        "G": "t_region_groundcover_forest",
+        "g": "t_grave"
+      },
+      "furniture": {
+        "A": "f_table_fancy",
+        "s": "f_statue",
+        "b": "f_bench",
+        "K": "f_coffin_c",
+        "S": "f_rack",
+        "r": "f_rubble_rock",
+        "G": "f_grave_head"
+      },
+      "items": { "A": { "item": "xe_alpha_chapel_altar", "chance": 100 }, "S": { "item": "xe_alpha_chapel_bottles", "chance": 100 } },
+      "fields": { "A": { "field": "fd_blood", "intensity": 2, "age": 10 } }
+    }
+  }
+]

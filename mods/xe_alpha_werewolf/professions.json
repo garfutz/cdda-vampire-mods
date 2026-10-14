@@ -1,0 +1,104 @@
+[
+  {
+    "type": "profession",
+    "id": "xe_alpha_werewolf",
+    "name": "Alpha Werewolf",
+    "description": "You were born one of the People of the Moon, and for eleven years you led your pack through the pines: seven werewolves who ran the hills under the full moon and kept the things from Outside out of your woods.  Three nights ago you ran ahead on the hunt, like you always did.  When you came back the camp was a slaughterhouse and your pack was bled white.  The bloodsucker who did it left you a letter.  You're the strongest wolf in these hills, and you've never been more alone.  You live off the grid in a log cabin you built yourself: wood stove, cord wood, a diesel generator, a well and a garden.  Your beat-up pickup still runs.  That's enough to get you where you need to go.",
+    "points": 8,
+    "effect_on_conditions": [ "EOC_XE_ALPHA_PROFESSION_SETUP" ],
+    "skills": [
+      { "level": 7, "name": "unarmed" },
+      { "level": 6, "name": "dodge" },
+      { "level": 4, "name": "melee" },
+      { "level": 3, "name": "stabbing" },
+      { "level": 3, "name": "bashing" },
+      { "level": 7, "name": "survival" },
+      { "level": 4, "name": "traps" },
+      { "level": 4, "name": "swimming" },
+      { "level": 3, "name": "cooking" },
+      { "level": 3, "name": "firstaid" },
+      { "level": 3, "name": "driving" },
+      { "level": 3, "name": "mechanics" },
+      { "level": 4, "name": "speech" },
+      { "level": 3, "name": "throw" }
+    ],
+    "proficiencies": [
+      "prof_unarmed_familiar",
+      "prof_unarmed_pro",
+      "prof_gross_anatomy",
+      "prof_butchering_basic",
+      "prof_skinning_basic",
+      "prof_traps",
+      "prof_driver",
+      "prof_knives_familiar"
+    ],
+    "traits": [
+      "NATIVE_SHAPESHIFTER",
+      "WEREWOLF_ANIMAL_FORM",
+      "WEREWOLF_HYBRID_FORM",
+      "WEREWOLF_SPELLS",
+      "WEREWOLF_MANA_TRAIT",
+      "WEREWOLF_SMELL_NEARBY_ENEMIES",
+      "WEREWOLF_SMASH_TERRAIN",
+      "WEREWOLF_FRIEND_TO_ANIMALS",
+      "WEREWOLF_EXTRA_WEAKPOINT_HITS",
+      "WEREWOLF_FAR_JUMP",
+      "WEREWOLF_SENSE_SPIRITS_AND_ALIENS",
+      "WEREWOLF_STRENGTH_BONUS",
+      "WEREWOLF_BATTLE_FURY",
+      "WEREWOLF_MANA_BONUS_AFTER_KILL",
+      "WEREWOLF_NO_SCENT",
+      "WEREWOLF_CLIMB_IN_WOLF_FORM",
+      "WEREWOLF_CAMOUFLAGE_COAT",
+      "WEREWOLF_PARTIAL_SHIFT",
+      "WEREWOLF_SILVER_CLAWS",
+      "WEREWOLF_SUPER_FAST_REGENERATION",
+      "WEREWOLF_MOON_ARMOR",
+      "WEREWOLF_TRANSFORM_INTO_PRIMAL_FORM",
+      "WEREWOLF_SUMMON_SHADOW_PACK",
+      "XE_ALPHA_OF_THE_PEOPLE",
+      "NIGHTVISION",
+      "TOUGH",
+      "PAINRESIST",
+      "STRONGSTOMACH"
+    ],
+    "items": {
+      "both": {
+        "items": [
+          "jacket_flannel",
+          "tank_top",
+          "jeans",
+          "socks",
+          "boots",
+          "gloves_fingerless",
+          "xe_alpha_wolf_tooth_necklace",
+          "xe_alpha_pack_photo",
+          "xe_alpha_voss_letter",
+          "binoculars"
+        ],
+        "entries": [
+          { "item": "sheath", "contents-item": [ "knife_hunting" ] },
+          {
+            "item": "backpack",
+            "contents-item": [
+              "xe_alpha_ash_stake",
+              "xe_alpha_ash_stake",
+              "xe_alpha_ash_stake",
+              "hatchet",
+              "molotov",
+              "molotov",
+              "jerky",
+              "jerky",
+              "jerky",
+              "jerky"
+            ]
+          },
+          { "item": "water_clean", "container-item": "canteen", "charges": 6 },
+          { "item": "lighter", "charges": 100 }
+        ]
+      },
+      "male": [ "boxer_shorts" ],
+      "female": [ "sports_bra", "boy_shorts" ]
+    }
+  }
+]

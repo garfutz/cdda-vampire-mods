@@ -1,0 +1,49 @@
+[
+  {
+    "id": "mon_vampire_feral",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_feral",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_vampire_moroi_fast",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_fast",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_vampire_moroi_tough",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_tough",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_vampire_moroi_animalistic",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_animalistic",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_vampire_moroi_stealthy",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_stealthy",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_vampire_strigoi",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_strigoi",
+    "extend": { "weakpoint_sets": [ "wps_vampire_hunter_weaknesses" ] }
+  },
+  {
+    "id": "mon_werewolf_frenzied_rogue",
+    "type": "MONSTER",
+    "copy-from": "mon_werewolf_elder",
+    "name": { "str": "Frenzied Elder Werewolf" },
+    "description": "A massive, scarred elder werewolf that has succumbed to complete predatory madness and bloodlust frenzy.  Foaming at the jaws, its blood-red eyes lock onto you with manic fury.  It answers to no pack, lunging to slaughter any living creature in its territory.",
+    "default_faction": "nether_hate_humans",
+    "morale": 100,
+    "aggression": 100,
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "HURT", "STALK" ]
+  }
+]

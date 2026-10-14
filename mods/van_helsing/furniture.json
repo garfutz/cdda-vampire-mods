@@ -1,0 +1,16 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_battery_large_unit",
+    "name": "mounted very large storage battery",
+    "description": "A very large bank of industrial storage batteries mounted on a heavy steel frame and ready to connect to a power grid.",
+    "symbol": "B",
+    "color": "red",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "large_storage_battery" },
+    "flags": [ "TRANSPARENT" ],
+    "item": "large_storage_battery",
+    "bash": { "str_min": 20, "str_max": 60, "sound": "clang!", "sound_fail": "thump" }
+  }
+]

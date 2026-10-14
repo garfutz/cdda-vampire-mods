@@ -1,0 +1,128 @@
+[
+  {
+    "id": "hunter_combat_stake",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "category": "weapons",
+    "name": { "str": "fire-hardened oak combat stake", "str_pl": "fire-hardened oak combat stakes" },
+    "description": "A 12-inch heavy combat stake whittled from dense white oak, fire-hardened at the tip, and wrapped with a textured leather grip and steel handguard.  Engineered specifically for close-quarters vampire slaying, weighted to punch through ribcages and pierce supernatural hearts.",
+    "material": [ "wood", "leather", "steel" ],
+    "symbol": "/",
+    "color": "brown",
+    "weight": "280 g",
+    "volume": "350 ml",
+    "longest_side": "30 cm",
+    "price": "45 USD",
+    "price_postapoc": "10 USD",
+    "to_hit": { "grip": "weapon", "length": "hand", "surface": "point", "balance": "good" },
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 12 ] ],
+    "melee_damage": { "bash": 8, "stab": 38, "armor_penetration": 20 },
+    "techniques": [ "RAPID", "PRECISE", "WBLOCK_1" ],
+    "flags": [ "DURABLE_MELEE", "SHEATH_KNIFE", "WOODEN_STAKE", "ALLOWS_BODY_BLOCK", "NO_SALVAGE" ],
+    "weapon_category": [ "KNIVES" ]
+  },
+  {
+    "id": "hunter_vervain_vest",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR" ],
+    "category": "armor",
+    "name": { "str": "vervain-treated ballistic vest", "str_pl": "vervain-treated ballistic vests" },
+    "description": "A reinforced tactical ballistic vest lined with high-density ceramic trauma plates and woven with silver threading and dried mountain vervain.  Provides exceptional protection against claws, teeth, and blunt trauma.  Any vampire attempting to bite or grapple the wearer suffers agonizing caustic vervain burns.",
+    "material": [ "kevlar_layered", "ceramic", "silver" ],
+    "symbol": "[",
+    "looks_like": "vest_leather",
+    "color": "dark_gray",
+    "weight": "3200 g",
+    "volume": "4500 ml",
+    "price": "800 USD",
+    "price_postapoc": "60 USD",
+    "warmth": 15,
+    "material_thickness": 4,
+    "flags": [ "STURDY" ],
+    "armor": [
+      {
+        "material": [
+          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 7.0, "ignore_sheet_thickness": true },
+          { "type": "ceramic", "covered_by_mat": 95, "thickness": 6.0 },
+          { "type": "silver", "covered_by_mat": 85, "thickness": 1.0 }
+        ],
+        "covers": [ "torso" ],
+        "coverage": 98,
+        "cover_vitals": 95,
+        "encumbrance": 10
+      }
+    ]
+  },
+  {
+    "id": "hunter_vervain_collar",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR" ],
+    "category": "armor",
+    "name": { "str": "vervain-lined tactical gorget", "str_pl": "vervain-lined tactical gorgets" },
+    "description": "A heavy tactical neck guard constructed from rigid layered Kevlar, silver mesh, and steeped mountain vervain.  Fastened tightly around the throat to protect against vampire decapitations, neck snaps, and throat-tearing bites.  Caustic vervain woven into the outer lining severely burns fangs upon contact.",
+    "material": [ "kevlar_layered", "silver", "plastic" ],
+    "symbol": "[",
+    "looks_like": "gorget",
+    "color": "dark_gray",
+    "weight": "380 g",
+    "volume": "400 ml",
+    "price": "180 USD",
+    "price_postapoc": "25 USD",
+    "flags": [ "STURDY", "WATER_FRIENDLY" ],
+    "armor": [
+      {
+        "material": [
+          { "type": "kevlar_layered", "covered_by_mat": 100, "thickness": 5.0, "ignore_sheet_thickness": true },
+          { "type": "silver", "covered_by_mat": 80, "thickness": 1.0 }
+        ],
+        "covers": [ "mouth" ],
+        "coverage": 95,
+        "encumbrance": 4
+      }
+    ]
+  },
+  {
+    "id": "hunter_vervain_grenade",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "category": "weapons",
+    "name": { "str": "vervain aerosol flash grenade", "str_pl": "vervain aerosol flash grenades" },
+    "description": "A customized tactical canister packed with pulverized magnesium and micro-particulate mountain vervain.  Use ('a') to pull the pin and start the 2-second fuse.  Upon detonation, it releases a blinding, deafening flash along with a caustic cloud of concentrated vervain gas that incapacitates vampires and blinds anyone caught nearby.",
+    "weight": "400 g",
+    "volume": "250 ml",
+    "longest_side": "140 mm",
+    "price": "50 USD",
+    "price_postapoc": "15 USD",
+    "to_hit": { "grip": "none", "length": "hand", "surface": "any", "balance": "uneven" },
+    "material": [ "steel", "plastic" ],
+    "symbol": "*",
+    "color": "magenta",
+    "use_action": {
+      "need_wielding": true,
+      "target": "hunter_vervain_grenade_act",
+      "msg": "You pull the pin on the %s.  Throw it!",
+      "menu_text": "Pull pin",
+      "type": "transform"
+    },
+    "flags": [ "BOMB", "GRENADE", "CYLINDER_GRENADE" ],
+    "melee_damage": { "bash": 2 }
+  },
+  {
+    "id": "hunter_vervain_grenade_act",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "copy-from": "hunter_vervain_grenade",
+    "description": "This vervain aerosol grenade is active!  It will detonate in two seconds with a blinding flash and a cloud of caustic vervain mist.  Throw it!",
+    "use_action": { "type": "message", "message": "The pin is already pulled—throw it!", "name": "Pull pin" },
+    "countdown_interval": "2 seconds",
+    "countdown_action": {
+      "type": "explosion",
+      "do_flashbang": true,
+      "fields_type": "fd_tear_gas",
+      "fields_radius": 3,
+      "fields_min_intensity": 2,
+      "fields_max_intensity": 3
+    },
+    "flags": [ "DANGEROUS", "SPAWN_ACTIVE" ]
+  }
+]

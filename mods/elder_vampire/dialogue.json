@@ -1,0 +1,456 @@
+[
+  {
+    "id": "TALK_CRIMSON_KLAUS",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Niklaus.  You and your family built empires, but the Old World dynasties stood long before your mother whispered her immortality spell.\"",
+        "topic": "TALK_ELDER_KLAUS_EQUAL",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"Pour the bourbon, Niklaus.  Let two ancient predators drink to the fall of mortal civilization.\"",
+        "topic": "TALK_ELDER_KLAUS_BOURBON",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"I have begun siring an immortal bloodline in these ruins.  A single drop of my blood, a snap of their neck, and they rise anew.\"",
+        "topic": "TALK_ELDER_KLAUS_SIRELINE",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"I wear Elijah's enchanted lapis daylight ring on my hand.  Esther's craft is formidable.\"",
+        "topic": "TALK_ELDER_KLAUS_DAYLIGHT",
+        "condition": { "and": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_item": "elijah_daylight_ring" } ] }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_KLAUS_EQUAL",
+    "type": "talk_topic",
+    "dynamic_line": "Niklaus pauses, tilting his glass with a slow, wolfish grin that spreads across his face.  'An Elder who does not quiver at the name of Klaus Mikaelson... Delicious.  Most vampires wet themselves before I even bare a fang.  You carry the primordial silence of the ancient dynasties.  I respect raw strength and ancient blood.  In this broken world of rotting corpses and weeping mortals, you and I are the only ones worthy of inheriting what remains.'",
+    "responses": [
+      {
+        "text": "\"A kingdom of ruins, perhaps, but a kingdom nonetheless.\"",
+        "topic": "TALK_CRIMSON_KLAUS",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 10, "max_bonus": 25, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_KLAUS_BOURBON",
+    "type": "talk_topic",
+    "dynamic_line": "Niklaus laughs from the chest and uncorks a dusty, heavy crystal decanter filled with aged cellar bourbon infused with concentrated plasma.  He pours a generous tumbler and slides it across the polished oak counter.  'A toast, Progenitor!  To outliving kings, empires, and gods.  Drink deep; Cassian keeps the private reserve exclusively for apex predators.'",
+    "responses": [
+      {
+        "text": "(Drink the aged blood-bourbon with Klaus)",
+        "topic": "TALK_CRIMSON_KLAUS",
+        "effect": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 300" ] },
+          { "u_add_morale": "morale_vampire_blood_sip", "bonus": 20, "max_bonus": 40, "duration": "3 hours" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_KLAUS_SIRELINE",
+    "type": "talk_topic",
+    "dynamic_line": "Klaus leans back, his gaze sharpening with intense fascination: 'Blood sharing followed by cervical fracture... Exactly as my siblings and I were born through Esther's ritual.  To watch a mortal die, gasp back into transition, and complete the metamorphosis through human blood... It is the purest alchemy of power.  Keep your thralls loyal, Elder.  A sireline is an army, but an undisciplined child is a liability.'",
+    "responses": [ { "text": "\"My thralls bear my signet and answer only to my command.\"", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_ELDER_KLAUS_DAYLIGHT",
+    "type": "talk_topic",
+    "dynamic_line": "Niklaus's eyes flick to the brilliant blue lapis lazuli stone resting on your finger.  He smirks, shaking his head with wry amusement: 'Elijah's daylight ring.  My noble brother would part with his own heart before he surrendered that ring to anyone he considered unworthy.  For you to wear it means he recognized you as an immortal peer.  Esther believed she was cursing us with sunlight vulnerability, yet our witches turned lapis into our greatest crown.'",
+    "responses": [ { "text": "\"Beneath the sun or beneath the moon, we walk where we please.\"", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Elijah.  I wear your daylight ring on my hand.  A thousand years of Nordic sorcery binds this lapis lazuli.\"",
+        "topic": "TALK_ELDER_ELIJAH_DAYLIGHT_RING",
+        "condition": { "and": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "u_has_item": "elijah_daylight_ring" } ] }
+      },
+      {
+        "text": "[Elder Progenitor] \"You preach restraint and composure, yet I know the hunger that paces behind your Red Door.\"",
+        "topic": "TALK_ELDER_ELIJAH_RED_DOOR",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"Cassian's Accord is commendable.  A sanctuary where ancient kindred and mortal hunters refrain from tearing each other to shreds.\"",
+        "topic": "TALK_ELDER_ELIJAH_HONOR",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"Between your family and my dynasty, let us seal a covenant of mutual respect in this ruined world.\"",
+        "topic": "TALK_ELDER_ELIJAH_PACT",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_ELIJAH_DAYLIGHT_RING",
+    "type": "talk_topic",
+    "dynamic_line": "Elijah looks down at the ring upon your finger, his expression softening with profound reverence: 'The silver crest of my family... Esther consecrated that lapis under a Scandinavian blood moon a thousand years ago.  I placed that ring in the world hoping it would find someone who understands that immortality is not an excuse for butchery, but a solemn obligation to carry civilization forward.  Seeing it on the hand of an Elder Progenitor reassures me that the mantle rests with someone of honor.'",
+    "responses": [
+      {
+        "text": "\"Your faith is well placed, Elijah.  I have also mastered the sorcery to forge daylight rings for my sired thralls.\"",
+        "topic": "TALK_ELDER_ELIJAH_FORGE_THRALLS"
+      },
+      {
+        "text": "\"It shall remain on my hand as a symbol of our shared eternity.\"",
+        "topic": "TALK_CRIMSON_ELIJAH",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 15, "max_bonus": 30, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_ELIJAH_FORGE_THRALLS",
+    "type": "talk_topic",
+    "dynamic_line": "Elijah smiles faintly with genuine admiration: 'To channel raw occult mana and blood-tempered lapis into daylight wards for your progeny... My mother believed only the greatest witches of the Old World could weave such bindings.  To bestow that gift upon your thralls spares them the agony of darkness.  You are truly a patriarch worthy of the name.'",
+    "responses": [
+      { "text": "\"A sire who abandons their fledglings to burn in the sun is no leader.\"", "topic": "TALK_CRIMSON_ELIJAH" }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_ELIJAH_RED_DOOR",
+    "type": "talk_topic",
+    "dynamic_line": "Elijah's gaze darkens slightly, a flicker of deep melancholy passing through his eyes: 'Then you understand what so few can comprehend.  The immaculate suit, the polished cufflinks, the composed voice... they are not mere vanity.  They are the fortress that keeps the monster sealed behind the Red Door.  When you have walked the earth for a millennium, you know that once you surrender to the slaughter, you can never truly wash the blood from your hands.  It is a relief to speak with someone who shares that burden.'",
+    "responses": [
+      {
+        "text": "\"Restraint is the true measure of supreme power, Elijah.\"",
+        "topic": "TALK_CRIMSON_ELIJAH",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 15, "max_bonus": 35, "duration": "3 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_ELIJAH_HONOR",
+    "type": "talk_topic",
+    "dynamic_line": "Elijah nods in total accord: 'Precisely.  Lord Cassian has achieved something extraordinary here.  In the midst of an apocalyptic catastrophe where civilization has unraveled into savagery, this tavern remains an oasis of order.  I have personally promised Cassian that whoever violates this truce answers directly to my blade.'",
+    "responses": [ { "text": "\"And they shall answer to my fangs as well.\"", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_ELDER_ELIJAH_PACT",
+    "type": "talk_topic",
+    "dynamic_line": "Elijah extends his hand, his posture impeccable: 'By the ancient vow of my family—Always and Forever—I extend the hand of brotherhood to the Elder Dynasty.  May our strength preserve civility in this dark age.'",
+    "responses": [
+      {
+        "text": "(Grasp Elijah's hand and seal the immortal pact)",
+        "topic": "TALK_CRIMSON_ELIJAH",
+        "effect": [
+          { "u_add_morale": "morale_vampire_blood_sip", "bonus": 25, "max_bonus": 50, "duration": "4 hours" },
+          { "math": [ "u_skill_exp('speech') += 25" ] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Stefan.  I see both the discipline in your eyes and the devastating predator beneath the surface.\"",
+        "topic": "TALK_ELDER_STEFAN_RESTRAINT",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"You write in your diary to preserve your humanity.  I record my centuries in the ancient chronicle.\"",
+        "topic": "TALK_ELDER_STEFAN_DIARY",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"How do you manage sitting under the same roof with both Klaus and Elijah?\"",
+        "topic": "TALK_ELDER_STEFAN_BROTHERS",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_STEFAN_RESTRAINT",
+    "type": "talk_topic",
+    "dynamic_line": "Stefan looks up, his green eyes widening slightly with astonishment: 'You... you can sense it, can't you?  Most vampires look at me and think I'm weak because I don't rip innocent human throats out.  They don't understand that fighting the Ripper takes every ounce of strength I have.  To hear an Elder Progenitor recognize that discipline... honestly, that means more to me than you know.'",
+    "responses": [
+      {
+        "text": "\"True strength is commanding the beast, not being ruled by it.\"",
+        "topic": "TALK_CRIMSON_STEFAN",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 15, "max_bonus": 30, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_STEFAN_DIARY",
+    "type": "talk_topic",
+    "dynamic_line": "Stefan touches the weathered leather cover of his journal: 'Every century changes a person.  Without words on paper, you wake up after three hundred years and you can't remember the sound of your mother's voice, or what it felt like to watch the sun rise before you were turned.  If you ever lose that thread, you become an empty shell of hunger.  Keep writing your chronicle, Elder.  It's the anchor that keeps you whole.'",
+    "responses": [ { "text": "\"The ink preserves what time attempts to erase.\"", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_ELDER_STEFAN_BROTHERS",
+    "type": "talk_topic",
+    "dynamic_line": "Stefan sighs softly and takes a sip of black coffee: 'With Elijah, you can always count on his honor.  He will tell you the truth to your face, even if that truth means he has to kill you.  With Klaus... Klaus is brilliant, paranoid, and utterly ruthless.  In 1922, Klaus convinced me to embrace the Ripper in Chicago, and it took me decades to crawl out of that darkness.  Having them both in the same room is like sitting between a polished rapier and a ticking bomb.  Keep your eyes open, Elder.'",
+    "responses": [ { "text": "\"Good advice, Stefan.  I shall keep both in sight.\"", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Lord Cassian.  You have built an admirable domain here in the wasteland.\"",
+        "topic": "TALK_ELDER_CASSIAN_PRAISE",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      },
+      {
+        "text": "[Elder Progenitor] \"Bring forth an Elder's tribute pour from your private cellar vault.\"",
+        "topic": "TALK_ELDER_CASSIAN_TRIBUTE",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_CASSIAN_PRAISE",
+    "type": "talk_topic",
+    "dynamic_line": "Lord Cassian bows deeply with aristocratic grace: 'Your Grace.  Coming from an Elder Progenitor of your antiquity, that praise carries the weight of centuries.  When the bombs fell and the heavens ruptured, the fools expected us to become scavenging beasts.  I refused.  Civilization does not perish while the Chalice stands.'",
+    "responses": [ { "text": "\"Long may the Chalice endure.\"", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_ELDER_CASSIAN_TRIBUTE",
+    "type": "talk_topic",
+    "dynamic_line": "Cassian produces a velvet-lined case containing a crystal flask of centuries-aged Austrian blood-wine, distilled with rare botanical essences: 'It is my absolute honor, Your Grace.  A vintage preserved from the imperial cellars of Vienna before the fall of Europe.  Only an Elder of your stature can truly appreciate such depth.'",
+    "responses": [
+      {
+        "text": "(Accept and savor the Elder's tribute vintage)",
+        "topic": "TALK_CRIMSON_CASSIAN",
+        "effect": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 250" ] },
+          { "u_add_morale": "morale_vampire_blood_sip", "bonus": 20, "max_bonus": 45, "duration": "3 hours" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_QUARTERMASTER",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Balthazar.  Tell me of the ancient relics and daylight ring components in your possession.\"",
+        "topic": "TALK_ELDER_BALTHAZAR_FORGE",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_BALTHAZAR_FORGE",
+    "type": "talk_topic",
+    "dynamic_line": "Balthazar Thorne leans across the counter, his eyes gleaming with professional reverence: 'Your Grace... For an Elder Progenitor who possesses the occult mastery to forge Lapis Daylight Rings, I keep unbound silver rings and raw lapis lazuli in secure velvet pouches.  A single ring forged by your hands allows a fledgling thrall to walk fearlessly beneath the noonday sun.  Whatever materials you require, my trading ledger is open to your command.'",
+    "responses": [
+      { "text": "\"Let us trade, Balthazar.\"", "topic": "TALK_CRIMSON_QUARTERMASTER", "effect": "start_trade" },
+      {
+        "text": "\"I shall remember where to find components when my fledglings require rings.\"",
+        "topic": "TALK_CRIMSON_QUARTERMASTER"
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Lady Seraphina.  You move with the poise of high European courts.\"",
+        "topic": "TALK_ELDER_SERAPHINA_COURT",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_SERAPHINA_COURT",
+    "type": "talk_topic",
+    "dynamic_line": "Lady Seraphina curtsies with breathless elegance, a radiant flush rising to her porcelain throat: 'Your Grace... To be noticed by an immortal from the primordial dynasties is the highest honor I have received since the Old World collapsed.  If my humble presence can bring any refinement to your evening, command me.'",
+    "responses": [
+      {
+        "text": "\"Your poise is an ornament to this sanctuary, Seraphina.\"",
+        "topic": "TALK_CRIMSON_SERAPHINA",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 10, "max_bonus": 25, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_JULIAN",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Breathe, Julian.  I am not here to rip your fangs from your jaw.\"",
+        "topic": "TALK_ELDER_JULIAN_CALM",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_JULIAN_CALM",
+    "type": "talk_topic",
+    "dynamic_line": "Julian exhales a trembling gasp, clutching his tumbler with both shaking hands: 'Y-Your Grace... Thank you... The aura rolling off you and Lord Niklaus feels like a hurricane.  I was turned right before the skies went black... I've never seen true Old World royalty before.  I'll keep to my corner and stay out of your way!'",
+    "responses": [ { "text": "\"Learn discipline, fledgling, and eternity will treat you kindly.\"", "topic": "TALK_CRIMSON_JULIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Gideon.  What chronicles have you penned regarding this cataclysm?\"",
+        "topic": "TALK_ELDER_GIDEON_HISTORY",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_GIDEON_HISTORY",
+    "type": "talk_topic",
+    "dynamic_line": "Gideon Graves pushes his spectacles up his nose, his quill dancing across parchment: 'Your Grace!  I am recording the fall of modern humanity and the miraculous rise of the Crimson Accord!  Having an Elder Progenitor walk into my chapter is the pinnacle of my scholarly life.  Your name shall be inscribed upon the central vellum roll as a living witness to this era.'",
+    "responses": [ { "text": "\"Record the truth accurately, scholar.\"", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Mira.  What whisperings in the wasteland concern someone of my stature?\"",
+        "topic": "TALK_ELDER_MIRA_SECRETS",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_MIRA_SECRETS",
+    "type": "talk_topic",
+    "dynamic_line": "Mira leans in close, tapping a leather ledger with a sly, conspiratorial smile: 'For an Elder Progenitor, I keep the deepest files.  Rogue hunter syndicates fortifying old missile silos, nests of starving feral strigoi in the northern tunnels, and abandoned medical vaults with intact plasma reserves.  Whatever moves in these ruins, I know of it first.'",
+    "responses": [
+      { "text": "\"Show me your bounty contracts.\"", "topic": "TALK_MISSION_LIST" },
+      { "text": "\"Keep your ears sharp, broker.\"", "topic": "TALK_CRIMSON_MIRA" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Lucian.  The Crescent pack respects power, and my dynasty respects loyalty.  The peace between our clans holds.\"",
+        "topic": "TALK_ELDER_LUCIAN_TRUCE",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_LUCIAN_TRUCE",
+    "type": "talk_topic",
+    "dynamic_line": "Lucian places his heavy hand over his chest and inclines his head: 'Spoken like a true sovereign, Elder.  The young leeches in town think claws are nothing to fear, but you understand the balance.  The Crescent wolves have no quarrel with you.  Hunt in peace, Progenitor.'",
+    "responses": [ { "text": "\"May the silver moon favor your pack, Alpha.\"", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_STEFAN_DAMON",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Damon Salvatore.  Still drinking vintage bourbon and causing reckless havoc, I see.\"",
+        "topic": "TALK_ELDER_DAMON_RESPECT",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_DAMON_RESPECT",
+    "type": "talk_topic",
+    "dynamic_line": "Damon raises an eyebrow, smirking as he twirls an empty glass between two fingers: 'Well, well.  Look who decided to grace us with their ancient majesty.  An Elder Progenitor from the history books.  Relax, your highness—I'm not looking to get my spine snapped in half tonight.  Pour yourself a drink and let's watch Stefan write in his little diary.'",
+    "responses": [ { "text": "\"Mind your manners, Damon, and you might survive another century.\"", "topic": "TALK_STEFAN_DAMON" } ]
+  },
+  {
+    "id": "TALK_KLAUS_REBEKAH",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Rebekah Mikaelson.  A millennium of eternity, and yet you still search for genuine love and peace.\"",
+        "topic": "TALK_ELDER_REBEKAH_ETERNITY",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_REBEKAH_ETERNITY",
+    "type": "talk_topic",
+    "dynamic_line": "Rebekah looks up with a melancholic, wistful smile: 'Is it so foolish to want something pure after a thousand years of Klaus daggering us in boxes and Niklaus setting fire to our homes?  It is rare to meet an Elder who speaks with kindness rather than fear.  Thank you, Progenitor.'",
+    "responses": [
+      {
+        "text": "\"You deserve far better than daggers and ash, Rebekah.\"",
+        "topic": "TALK_KLAUS_REBEKAH",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 15, "max_bonus": 30, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_KLAUS_KOL",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Elder Progenitor] \"Kol Mikaelson.  Still addicted to dark magic and midnight slaughter?\"",
+        "topic": "TALK_ELDER_KOL_MAYHEM",
+        "condition": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_KOL_MAYHEM",
+    "type": "talk_topic",
+    "dynamic_line": "Kol bursts into wild, wicked laughter, clapping his hands together: 'Ha!  Finally, someone who understands good sport!  Niklaus whines about his hybrids, Elijah preaches about his precious cufflinks, and all the while the world is our personal playground!  Tell me, Progenitor, when was the last time you tore a city down just to watch the pretty flames?'",
+    "responses": [
+      {
+        "text": "\"A proper monarch builds civilizations, Kol, but burning them is undeniable fun.\"",
+        "topic": "TALK_KLAUS_KOL",
+        "effect": { "u_add_morale": "morale_vampire_blood_sip", "bonus": 15, "max_bonus": 30, "duration": "2 hours" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
+    "type": "talk_topic",
+    "dynamic_line": "Jonathan Cross eyes you warily, his hand resting near his whittled wooden stake and heavy crossbow: 'State your business, creature. I hunt the undead, but you carry yourself with unnatural discipline. What do you want?'",
+    "responses": [
+      {
+        "text": "\"Give me a demonstration of your hunter arsenal (Take weapons and vervain).\"",
+        "topic": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
+        "effect": [
+          { "u_spawn_item": "hunter_combat_stake" },
+          { "u_spawn_item": "hunter_wooden_stake", "count": 2 },
+          { "u_spawn_item": "hunter_vervain_crossbow" },
+          { "u_spawn_item": "vervain_tea" },
+          { "u_spawn_item": "vervain_extract_flask" },
+          {
+            "u_message": "The hunter hands you a fire-hardened combat stake, a stake crossbow, vervain tea, and vervain extract for testing.",
+            "type": "good"
+          }
+        ]
+      },
+      {
+        "text": "\"Drink your steeped vervain tea now (Infuse your bloodstream with vervain).\"",
+        "topic": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
+        "effect": [
+          { "npc_add_effect": "effect_vervain_blood", "duration": "24 hours" },
+          {
+            "u_message": "The hunter downs a flask of steeped vervain tea. His bloodstream is now saturated with vervain for 24 hours!",
+            "type": "good"
+          }
+        ]
+      },
+      {
+        "text": "\"[Test Bite Reaction] Let me sink my fangs into your neck.\"",
+        "topic": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
+        "effect": [ { "run_eocs": "EOC_TEST_BITE_HUNTER" } ]
+      },
+      {
+        "text": "\"En garde! Defend yourself! (Turn Hostile - Combat Test)\"",
+        "topic": "TALK_DONE",
+        "effect": [ "insult_combat", { "math": [ "n_npc_fear() = 0" ] }, { "math": [ "n_npc_anger() = 100" ] } ]
+      },
+      { "text": "\"I will be on my way.\"", "topic": "TALK_DONE" }
+    ]
+  }
+]

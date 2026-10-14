@@ -1,0 +1,238 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_ELIJAH_REBEKAH",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "ELIJAH_SIBLING_ORIGINAL" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "elijah_spell_heart", "level": 8 },
+      { "id": "elijah_spell_breach_kick", "level": 1 },
+      { "id": "elijah_spell_body_hurl", "level": 1 },
+      { "id": "elijah_spell_neck_snap", "level": 1 },
+      { "id": "elijah_spell_corpse_whirlwind", "level": 1 },
+      { "id": "elijah_spell_kinetic_throw", "level": 1 },
+      { "id": "elijah_spell_limb_tear", "level": 1 },
+      { "id": "elijah_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "elijah_rebekah_worn",
+    "weapon_override": "elijah_rebekah_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "elijah_npc_rebekah",
+    "name_unique": "Rebekah Mikaelson",
+    "gender": "female",
+    "class": "NC_ELIJAH_REBEKAH",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_ELIJAH_REBEKAH",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ELIJAH_REBEKAH",
+    "dynamic_line": "Thank you for coming for me, Elijah.  You always do, eventually.  Where do we start?",
+    "responses": [
+      { "text": "Come with me.  Always and forever.", "effect": "follow", "topic": "TALK_ELIJAH_SIB_JOIN" },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_ELIJAH_KOL",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "ELIJAH_SIBLING_ORIGINAL" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "elijah_spell_heart", "level": 8 },
+      { "id": "elijah_spell_breach_kick", "level": 1 },
+      { "id": "elijah_spell_body_hurl", "level": 1 },
+      { "id": "elijah_spell_neck_snap", "level": 1 },
+      { "id": "elijah_spell_corpse_whirlwind", "level": 1 },
+      { "id": "elijah_spell_kinetic_throw", "level": 1 },
+      { "id": "elijah_spell_limb_tear", "level": 1 },
+      { "id": "elijah_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "elijah_kol_worn",
+    "weapon_override": "elijah_kol_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "elijah_npc_kol",
+    "name_unique": "Kol Mikaelson",
+    "gender": "male",
+    "class": "NC_ELIJAH_KOL",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_ELIJAH_KOL",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ELIJAH_KOL",
+    "dynamic_line": "The noble Elijah, waking his little brother.  How touching.  What's the offer?",
+    "responses": [
+      {
+        "text": "Come with me, Kol.",
+        "trial": { "type": "PERSUADE", "difficulty": 6 },
+        "success": { "effect": "follow", "topic": "TALK_ELIJAH_SIB_JOIN" },
+        "failure": { "topic": "TALK_ELIJAH_KOL_LEAVES" }
+      },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_ELIJAH_FINN",
+    "name": { "str": "Original" },
+    "job_description": "I'm one of the Originals.",
+    "common": false,
+    "bonus_str": { "rng": [ 12, 14 ] },
+    "bonus_dex": { "rng": [ 7, 9 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "bonus_bravery": 100,
+    "bonus_aggression": 100,
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 4, 5 ] } }
+    ],
+    "traits": [ { "trait": "ELIJAH_SIBLING_ORIGINAL" } ],
+    "spells": [
+      { "id": "original_spell_vampiric_blur", "level": 8 },
+      { "id": "elijah_spell_heart", "level": 8 },
+      { "id": "elijah_spell_breach_kick", "level": 1 },
+      { "id": "elijah_spell_body_hurl", "level": 1 },
+      { "id": "elijah_spell_neck_snap", "level": 1 },
+      { "id": "elijah_spell_corpse_whirlwind", "level": 1 },
+      { "id": "elijah_spell_kinetic_throw", "level": 1 },
+      { "id": "elijah_spell_limb_tear", "level": 1 },
+      { "id": "elijah_spell_blood_radar", "level": 1 }
+    ],
+    "worn_override": "elijah_finn_worn",
+    "weapon_override": "elijah_finn_weapon",
+    "carry_override": "EMPTY_GROUP"
+  },
+  {
+    "type": "npc",
+    "id": "elijah_npc_finn",
+    "name_unique": "Finn Mikaelson",
+    "gender": "male",
+    "class": "NC_ELIJAH_FINN",
+    "attitude": 0,
+    "mission": "NULL",
+    "chat": "TALK_ELIJAH_FINN",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ELIJAH_FINN",
+    "dynamic_line": "You always believed we could be redeemed, Elijah.  I never understood why.",
+    "responses": [
+      { "text": "Come with me.  Always and forever.", "effect": "follow", "topic": "TALK_ELIJAH_SIB_JOIN" },
+      { "text": "Let's talk about something else.", "topic": "TALK_FRIEND", "condition": "npc_following" },
+      { "text": "Rest.  I'll come back for you.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ELIJAH_SIB_JOIN",
+    "dynamic_line": "Always and forever.",
+    "responses": [ { "text": "Always and forever.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ELIJAH_KOL_LEAVES",
+    "dynamic_line": "And trade one older brother's orders for another's?  I don't think so, Elijah.  Give Nik my love.  Or a stake.  Whichever's handier.",
+    "responses": [ { "text": "Kol!", "effect": "leave", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_ELIJAH_VAMPIRE_HUNTER",
+    "name": { "str": "vampire hunter" },
+    "job_description": "I kill vampires.  Tonight, the one in the suit.",
+    "common": false,
+    "bonus_str": { "rng": [ 4, 6 ] },
+    "bonus_dex": { "rng": [ 3, 4 ] },
+    "bonus_per": { "rng": [ 3, 5 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "rng": [ 2, 3 ] } },
+      { "skill": "archery", "bonus": { "rng": [ 7, 9 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 4, 6 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 5, 6 ] } }
+    ],
+    "traits": [ { "trait": "ELIJAH_HUNTER_VETERAN" } ],
+    "worn_override": "elijah_hunter_worn",
+    "weapon_override": "elijah_hunter_wield",
+    "carry_override": "elijah_hunter_carry"
+  },
+  {
+    "type": "npc",
+    "id": "elijah_npc_vampire_hunter",
+    "name_suffix": "vampire hunter",
+    "class": "NC_ELIJAH_VAMPIRE_HUNTER",
+    "attitude": 10,
+    "mission": "NULL",
+    "chat": "TALK_DONE",
+    "faction": "elijah_hunter_order"
+  },
+  {
+    "type": "faction",
+    "id": "elijah_hunter_order",
+    "name": "The Order of the Ash Stake",
+    "likes_u": -100,
+    "respects_u": -100,
+    "known_by_u": false,
+    "size": 30,
+    "power": 60,
+    "wealth": 100000,
+    "description": "A brotherhood of vampire hunters older than the Council of Mystic Falls.  They have hunted the Mikaelsons for centuries and never once caught one.",
+    "relations": {
+      "elijah_hunter_order": {
+        "kill on sight": false,
+        "watch your back": true,
+        "share my stuff": true,
+        "guard your stuff": true,
+        "lets you in": true,
+        "defends your space": true,
+        "knows your voice": true
+      }
+    }
+  }
+]

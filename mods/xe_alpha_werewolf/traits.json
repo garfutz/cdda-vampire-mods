@@ -1,0 +1,51 @@
+[
+  {
+    "type": "mutation",
+    "id": "XE_ALPHA_OF_THE_PEOPLE",
+    "name": { "str": "Alpha of the People" },
+    "points": 0,
+    "description": "You are the strongest wolf in these hills, and the Moon knows it.  Your body is harder, faster and hungrier than any of the People you led, you heal like a wolf half your age, and your gifts run deeper.  Under the night sky it only gets worse for whatever you're hunting.\n\nActivate to <color_light_red>howl</color>: a roar that stuns and terrifies everything nearby and drives you into a hunting fury (costs werewolf mana).  Under a full moon at night you're stronger still.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "spells_learned": [ [ "xe_alpha_howl", 5 ] ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 4 },
+          { "value": "DEXTERITY", "add": 2 },
+          { "value": "PERCEPTION", "add": 3 },
+          { "value": "SPEED", "add": 15 },
+          { "value": "MAX_HP", "add": 25 },
+          { "value": "REGEN_HP", "multiply": 1.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.25 },
+          { "value": "ARMOR_ALL", "add": -4 },
+          { "value": "MAX_MANA", "add": 400 },
+          { "value": "REGEN_MANA", "multiply": 0.5 },
+          { "value": "MAX_STAMINA", "add": 2500 },
+          { "value": "SOCIAL_INTIMIDATE", "add": 15 },
+          { "value": "KNOCKDOWN_RESIST", "add": 1 }
+        ]
+      },
+      {
+        "condition": { "not": "is_day" },
+        "values": [
+          { "value": "STRENGTH", "add": 2 },
+          { "value": "SPEED", "add": 10 },
+          { "value": "REGEN_HP", "multiply": 1.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.15 }
+        ]
+      },
+      {
+        "condition": { "and": [ { "not": "is_day" }, { "math": [ "moon_phase() == 4" ] } ] },
+        "values": [
+          { "value": "STRENGTH", "add": 4 },
+          { "value": "SPEED", "add": 20 },
+          { "value": "REGEN_HP", "multiply": 2.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.25 },
+          { "value": "MAX_MANA", "add": 200 }
+        ]
+      }
+    ]
+  }
+]

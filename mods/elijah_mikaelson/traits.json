@@ -1,0 +1,195 @@
+[
+  {
+    "type": "mutation",
+    "id": "ELIJAH_ORIGINAL_VAMPIRE",
+    "name": { "str": "The Noble Original" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Around the year 1000 your mother Esther turned you and your siblings into the first vampires.  Every vampire on earth descends from your family's bloodline.  You are stronger, faster and harder to kill than any of them, and your senses are sharp enough to hear a lie in a heartbeat.  You no longer need food or water at all: the only thing your body asks for is blood, and you can take it from humans, from animals, and from other vampires.  Without your daylight ring, the sun will burn you.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 6 },
+          { "value": "DEXTERITY", "add": 5 },
+          { "value": "PERCEPTION", "add": 5 },
+          { "value": "INTELLIGENCE", "add": 4 },
+          { "value": "SPEED", "add": 30 },
+          { "value": "MAX_HP", "add": 50 },
+          { "value": "REGEN_HP", "multiply": 3.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.35 },
+          { "value": "ARMOR_ALL", "add": -7 },
+          { "value": "MAX_STAMINA", "add": 5000 },
+          { "value": "REGEN_STAMINA", "multiply": 1.0 },
+          { "value": "KNOCKDOWN_RESIST", "add": 2 },
+          { "value": "KNOCKBACK_RESIST", "add": 2 },
+          { "value": "METABOLISM", "multiply": -1.0 },
+          { "value": "THIRST", "multiply": -1.0 }
+        ]
+      },
+      {
+        "condition": { "not": "is_day" },
+        "values": [ { "value": "SPEED", "add": 10 }, { "value": "PERCEPTION", "add": 1 } ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_elijah_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 6 }, { "value": "NIGHT_VIS", "add": 15 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 45,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_pink",
+                "text": "You hear the faint, steady pulse of a creature here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_NOBLE_HONOR",
+    "name": { "str": "A Man of His Word" },
+    "points": 1,
+    "valid": false,
+    "purifiable": false,
+    "description": "For a thousand years your word has been your bond, even when keeping it cost you everything.  People believe you because you have never given them a reason not to: you are extraordinarily persuasive and you rarely need to raise your voice.  Lies come hard to you.  Breaking a promise, or harming someone who trusted you, weighs on you for days.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "SOCIAL_PERSUADE", "add": 35 },
+          { "value": "SOCIAL_INTIMIDATE", "add": 20 },
+          { "value": "SOCIAL_LIE", "add": -10 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_RED_DOOR",
+    "name": { "str": "The Red Door" },
+    "points": -1,
+    "valid": false,
+    "purifiable": false,
+    "description": "Inside your mind there is a quiet house with a piano, and in that house there is a red door.  Behind it you lock away the worst of what you are: every massacre, every heart you tore out for Niklaus, every time you stopped being the noble brother.  When you are badly hurt the door sometimes swings open, and the thing behind it takes over: much stronger, much faster, and completely without mercy.  When it lets go, you have to live with what it did."
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_FAMILY_ABOVE_ALL",
+    "name": { "str": "Family Above All" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Always and forever.  You swore it with Niklaus and Rebekah a thousand years ago, and you have kept that vow longer and harder than any of them.  You have spent centuries trying to redeem your brother, and you still believe it can be done.  Your siblings' coffins steady you, and waking them lifts your spirits."
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_REFINED",
+    "name": { "str": "Refined Tastes" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "You have read every book worth reading, twice, in its original language, and you've had a thousand years to learn which wine goes with which disaster.  You keep a journal, as you always have.  Reading calms you, and there is nothing you can't learn.",
+    "enchantments": [ { "values": [ { "value": "LEARNING_FOCUS", "add": 30 }, { "value": "READING_EXP", "add": 2 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_ORIGINAL_IMMORTALITY",
+    "name": { "str": "Original Immortality" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Fire, bullets, stakes, beheading: nothing keeps an Original down for long.  When a wound should have killed you, your body stops, knits itself back together, and gets up again a moment later.  Only a stake carved from the white oak tree can end an Original for good.\n\n<color_light_red>Whenever any part of your body drops below a third of its health, it heals completely within seconds (once a minute).  If any part of you is destroyed, even your head or heart, you die, and rise again a moment later completely restored.  Only the white oak stake can kill you, and you have hidden it where no hunter will ever find it.</color>"
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_WHITE_OAK_BANE",
+    "name": { "str": "White Oak Bane" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "White oak is death to an Original, and silver daggers dipped in white oak ash put you into a dead sleep.  Carrying white oak makes your skin crawl."
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_SIBLING_ORIGINAL",
+    "name": { "str": "Original Vampire" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "One of the first vampires: far stronger, faster and tougher than any human.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "SPEED", "add": 30 },
+          { "value": "MAX_HP", "add": 60 },
+          { "value": "REGEN_HP", "multiply": 4.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.5 },
+          { "value": "ARMOR_ALL", "add": -8 }
+        ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_elijah_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 6 }, { "value": "NIGHT_VIS", "add": 15 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 45,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_pink",
+                "text": "You hear the faint, steady pulse of a creature here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELIJAH_HUNTER_VETERAN",
+    "name": { "str": "Veteran Vampire Hunter" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Years of hunting things faster and stronger than any human have made this hunter tougher, quicker and much harder to kill.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "MAX_HP", "add": 30 },
+          { "value": "SPEED", "add": 15 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.25 },
+          { "value": "ARMOR_ALL", "add": -3 }
+        ]
+      }
+    ]
+  }
+]

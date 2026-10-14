@@ -1,0 +1,12 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_xe_alpha_cellar_hatch",
+    "copy-from": "f_crate_c",
+    "name": "chained cellar hatch",
+    "symbol": "=",
+    "color": "brown",
+    "description": "A heavy plank hatch set into the cabin floor, bolted and wrapped in chain.  Something down there is breathing.  Examine it to open it.",
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_XE_ALPHA_HATCH" ] }
+  }
+]

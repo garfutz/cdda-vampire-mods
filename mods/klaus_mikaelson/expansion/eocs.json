@@ -1,0 +1,334 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_MOONSTONE",
+    "effect": [
+      {
+        "if": { "math": [ "klaus_sac_wolf == 1" ] },
+        "then": [ { "set_string_var": "done", "target_var": { "global_val": "klaus_sac_wolf_txt" } } ],
+        "else": [ { "set_string_var": "not yet", "target_var": { "global_val": "klaus_sac_wolf_txt" } } ]
+      },
+      {
+        "if": { "math": [ "klaus_sac_vampire == 1" ] },
+        "then": [ { "set_string_var": "done", "target_var": { "global_val": "klaus_sac_vampire_txt" } } ],
+        "else": [ { "set_string_var": "not yet", "target_var": { "global_val": "klaus_sac_vampire_txt" } } ]
+      },
+      {
+        "if": { "math": [ "klaus_sac_witch == 1" ] },
+        "then": [ { "set_string_var": "done", "target_var": { "global_val": "klaus_sac_witch_txt" } } ],
+        "else": [ { "set_string_var": "not yet", "target_var": { "global_val": "klaus_sac_witch_txt" } } ]
+      },
+      {
+        "if": { "u_has_items": { "item": "klaus_doppelganger_blood", "count": 1 } },
+        "then": [ { "set_string_var": "done", "target_var": { "global_val": "klaus_dopp_txt" } } ],
+        "else": [ { "set_string_var": "not yet", "target_var": { "global_val": "klaus_dopp_txt" } } ]
+      },
+      {
+        "if": { "math": [ "klaus_curse_broken == 1" ] },
+        "then": [ { "u_message": "The moonstone is dull and cold now.  The curse it held is broken.", "type": "info" } ],
+        "else": [
+          {
+            "if": { "math": [ "klaus_ritual_started != 1" ] },
+            "then": [
+              { "math": [ "klaus_ritual_started = 1" ] },
+              { "assign_mission": "MISSION_KLAUS_SAC_WOLF" },
+              { "assign_mission": "MISSION_KLAUS_SAC_VAMPIRE" },
+              { "assign_mission": "MISSION_KLAUS_SAC_WITCH" },
+              { "assign_mission": "MISSION_KLAUS_DOPPELGANGER" },
+              {
+                "u_message": "You turn the moonstone in your hands.  A thousand years of waiting, and everything you need is finally within reach: a werewolf, a vampire and a witch to sacrifice, and the blood of the Petrova doppelganger.  Your people have found them all.  (Four missions added; their locations are marked on your map.  When they're done, use the moonstone outdoors at night with the doppelganger's blood to perform the ritual.)",
+                "popup": true
+              }
+            ],
+            "else": [
+              {
+                "if": {
+                  "and": [
+                    {
+                      "and": [
+                        { "math": [ "klaus_sac_wolf == 1" ] },
+                        { "math": [ "klaus_sac_vampire == 1" ] },
+                        { "math": [ "klaus_sac_witch == 1" ] }
+                      ]
+                    },
+                    { "u_has_items": { "item": "klaus_doppelganger_blood", "count": 1 } }
+                  ]
+                },
+                "then": [
+                  {
+                    "if": { "and": [ { "not": "is_day" }, "u_is_outside" ] },
+                    "then": [ { "run_eocs": "EOC_KLAUS_BREAK_CURSE" } ],
+                    "else": [ { "u_message": "Everything is ready.  The ritual must be done outdoors, under the moon.", "type": "info" } ]
+                  }
+                ],
+                "else": [
+                  {
+                    "u_message": "The ritual isn't ready.  Werewolf: <global_val:klaus_sac_wolf_txt>.  Vampire: <global_val:klaus_sac_vampire_txt>.  Witch: <global_val:klaus_sac_witch_txt>.  Doppelganger's blood: <global_val:klaus_dopp_txt>.",
+                    "type": "info"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_BREAK_CURSE",
+    "effect": [
+      { "u_consume_item": "klaus_doppelganger_blood", "count": 1 },
+      { "math": [ "klaus_curse_broken = 1" ] },
+      { "u_lose_trait": "KLAUS_CURSE_SUN_MOON" },
+      { "u_add_trait": "WEREWOLF_MANA_TRAIT" },
+      { "u_add_trait": "WEREWOLF_ANIMAL_FORM" },
+      { "u_add_trait": "KLAUS_ORIGINAL_HYBRID" },
+      { "u_add_effect": "effect_klaus_rage", "duration": "5 minutes" },
+      {
+        "u_message": "You pour the Petrova blood over the moonstone under the open sky and speak the words your mother buried a thousand years ago.  The stone cracks.  Fire runs through your veins, your bones snap and reform, and for the first time in a millennium you feel your wolf, free.  You are the Original Hybrid.  (Lupine Form, Hybrid Bite and Call the Hybrids unlocked; the sun can no longer burn you.)",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_HYBRID_BITE",
+    "effect": [
+      { "u_deal_damage": "stab", "amount": { "math": [ "rng(18, 30)" ] } },
+      {
+        "if": { "or": [ { "u_has_species": "VAMPIRE" }, { "u_has_species": "VAMPIRE_ANATHEMA" } ] },
+        "then": [
+          { "u_deal_damage": "biological", "amount": { "math": [ "rng(60, 90)" ] } },
+          { "u_add_effect": "effect_klaus_hybrid_venom", "duration": "30 minutes" },
+          {
+            "npc_message": "Werewolf venom floods the vampire's veins.  Without your blood, it's already dead.",
+            "type": "good"
+          }
+        ],
+        "else": [
+          {
+            "if": {
+              "and": [ { "or": [ { "u_has_species": "MAMMAL" }, { "u_has_species": "HUMAN" } ] }, { "not": { "u_has_species": "ZOMBIE" } } ]
+            },
+            "then": [ { "run_eocs": "EOC_KLAUS_FEED", "alpha_talker": "npc" } ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_HUNTERS_COME",
+    "recurrence": [ "18 hours", "36 hours" ],
+    "condition": {
+      "and": [
+        { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+        { "math": [ "time_since('cataclysm', 'unit':'days') >= 5" ] },
+        { "not": { "u_has_effect": "effect_klaus_hunters_cd" } },
+        { "x_in_y_chance": { "x": 1, "y": 2 } }
+      ]
+    },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" } },
+    "effect": [
+      { "u_add_effect": "effect_klaus_hunters_cd", "duration": "2 days" },
+      {
+        "u_spawn_npc": "klaus_npc_vampire_hunter",
+        "real_count": { "math": [ "rng(2, 3)" ] },
+        "min_radius": 15,
+        "max_radius": 25
+      },
+      {
+        "u_message": "You hear them before you see them: boots in step, the creak of crossbows being drawn, a low voice saying your name.  Vampire hunters.  Real ones, this time.  They brought ash stakes and vervain.  They didn't bring white oak.  Nobody has white oak.",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_COFFIN_ELIJAH",
+    "effect": [
+      {
+        "if": { "math": [ "klaus_woke_elijah == 1" ] },
+        "then": [ { "u_message": "The coffin is empty now.", "type": "info" } ],
+        "else": [
+          {
+            "run_eoc_selector": [ "EOC_KLAUS_WAKE_ELIJAH", "EOC_KLAUS_LEAVE_DAGGERED" ],
+            "names": [ "Pull the dagger out of Elijah's heart", "Leave them sleeping" ],
+            "keys": [ "y", "n" ],
+            "title": "Elijah Mikaelson",
+            "allow_cancel": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_WAKE_ELIJAH",
+    "effect": [
+      { "math": [ "klaus_woke_elijah = 1" ] },
+      { "u_spawn_npc": "klaus_npc_elijah", "real_count": 1, "min_radius": 1, "max_radius": 2 },
+      { "u_spawn_item": "klaus_silver_dagger", "count": 1 },
+      {
+        "u_message": "You pull the silver dagger from Elijah's chest.  Grey skin flushes with colour; he gasps, then sits up and straightens his tie.  \"Niklaus.  I assume the world has ended, or you wouldn't need me.\"",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_COFFIN_REBEKAH",
+    "effect": [
+      {
+        "if": { "math": [ "klaus_woke_rebekah == 1" ] },
+        "then": [ { "u_message": "The coffin is empty now.", "type": "info" } ],
+        "else": [
+          {
+            "run_eoc_selector": [ "EOC_KLAUS_WAKE_REBEKAH", "EOC_KLAUS_LEAVE_DAGGERED" ],
+            "names": [ "Pull the dagger out of Rebekah's heart", "Leave them sleeping" ],
+            "keys": [ "y", "n" ],
+            "title": "Rebekah Mikaelson",
+            "allow_cancel": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_WAKE_REBEKAH",
+    "effect": [
+      { "math": [ "klaus_woke_rebekah = 1" ] },
+      { "u_spawn_npc": "klaus_npc_rebekah", "real_count": 1, "min_radius": 1, "max_radius": 2 },
+      { "u_spawn_item": "klaus_silver_dagger", "count": 1 },
+      {
+        "u_message": "The dagger slides out and Rebekah wakes with a scream, then punches you across the room.  \"Ninety years, Nik!  NINETY YEARS!\"  She glares at the ruins of the world through the window.  \"…Fine.  Someone has to keep you alive.\"",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_COFFIN_KOL",
+    "effect": [
+      {
+        "if": { "math": [ "klaus_woke_kol == 1" ] },
+        "then": [ { "u_message": "The coffin is empty now.", "type": "info" } ],
+        "else": [
+          {
+            "run_eoc_selector": [ "EOC_KLAUS_WAKE_KOL", "EOC_KLAUS_LEAVE_DAGGERED" ],
+            "names": [ "Pull the dagger out of Kol's heart", "Leave them sleeping" ],
+            "keys": [ "y", "n" ],
+            "title": "Kol Mikaelson",
+            "allow_cancel": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_WAKE_KOL",
+    "effect": [
+      { "math": [ "klaus_woke_kol = 1" ] },
+      { "u_spawn_npc": "klaus_npc_kol", "real_count": 1, "min_radius": 1, "max_radius": 2 },
+      { "u_spawn_item": "klaus_silver_dagger", "count": 1 },
+      {
+        "u_message": "Kol wakes laughing.  \"A century, Nik?  You're getting sentimental.\"  He stretches, looks at you for a long moment, and smiles.  You can never tell what he's thinking.",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_COFFIN_FINN",
+    "effect": [
+      {
+        "if": { "math": [ "klaus_woke_finn == 1" ] },
+        "then": [ { "u_message": "The coffin is empty now.", "type": "info" } ],
+        "else": [
+          {
+            "run_eoc_selector": [ "EOC_KLAUS_WAKE_FINN", "EOC_KLAUS_LEAVE_DAGGERED" ],
+            "names": [ "Pull the dagger out of Finn's heart", "Leave them sleeping" ],
+            "keys": [ "y", "n" ],
+            "title": "Finn Mikaelson",
+            "allow_cancel": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_WAKE_FINN",
+    "effect": [
+      { "math": [ "klaus_woke_finn = 1" ] },
+      { "u_spawn_npc": "klaus_npc_finn", "real_count": 1, "min_radius": 1, "max_radius": 2 },
+      { "u_spawn_item": "klaus_silver_dagger", "count": 1 },
+      {
+        "u_message": "Finn wakes slowly, stiffly, and looks at you with centuries of cold contempt.  \"You kept me in a box for nine hundred years, brother.  And now you want my help.\"",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_LEAVE_DAGGERED",
+    "effect": [ { "u_message": "Not yet.  They're safer in there.  So are you.", "type": "info" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_VAMPIRE_NPC_DEATH_PREVENT",
+    "eoc_type": "NPC_DEATH",
+    "condition": {
+      "or": [
+        { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+        { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+        { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+        { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+        { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" },
+        { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" }
+      ]
+    },
+    "effect": [
+      "u_prevent_death",
+      { "math": [ "u_hp('head') = u_hp_max('head')" ] },
+      { "math": [ "u_hp('torso') = u_hp_max('torso')" ] },
+      { "math": [ "u_hp('arm_l') = u_hp_max('arm_l')" ] },
+      { "math": [ "u_hp('arm_r') = u_hp_max('arm_r')" ] },
+      { "math": [ "u_hp('leg_l') = u_hp_max('leg_l')" ] },
+      { "math": [ "u_hp('leg_r') = u_hp_max('leg_r')" ] },
+      { "math": [ "u_hp('eyes') = u_hp_max('eyes')" ] },
+      { "math": [ "u_hp('mouth') = u_hp_max('mouth')" ] },
+      { "math": [ "u_hp('hand_l') = u_hp_max('hand_l')" ] },
+      { "math": [ "u_hp('hand_r') = u_hp_max('hand_r')" ] },
+      { "math": [ "u_hp('foot_l') = u_hp_max('foot_l')" ] },
+      { "math": [ "u_hp('foot_r') = u_hp_max('foot_r')" ] },
+      {
+        "u_lose_effect": [
+          "bleed",
+          "onfire",
+          "stunned",
+          "dazed",
+          "effect_ev_missing_arm_r",
+          "effect_ev_missing_arm_l",
+          "effect_ev_missing_leg_r",
+          "effect_ev_missing_leg_l",
+          "effect_ev_missing_both_arms",
+          "effect_ev_missing_both_legs",
+          "effect_ev_shattered_spine",
+          "disarmed",
+          "eff_elder_vampire_terror"
+        ]
+      },
+      { "math": [ "u_npc_fear() = 0" ] },
+      { "math": [ "u_npc_anger() = 100" ] },
+      { "u_add_effect": "downed", "duration": "3 seconds" },
+      {
+        "message": "It wasn't white oak. Bone and flesh knit back together, and the Original rises, immortal and unharmed.",
+        "type": "warning"
+      }
+    ]
+  }
+]

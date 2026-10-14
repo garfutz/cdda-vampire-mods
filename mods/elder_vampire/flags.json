@@ -1,0 +1,12 @@
+[
+  {
+    "id": "WOODEN_STAKE",
+    "type": "json_flag",
+    "info": "A pointed wooden stake capable of piercing and desiccating a vampire's heart."
+  },
+  {
+    "id": "WOODEN_STAKE_LAUNCHER",
+    "type": "json_flag",
+    "info": "A high-tension weapon engineered to fire wooden stakes through supernatural bone and flesh."
+  }
+]

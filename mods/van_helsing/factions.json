@@ -1,0 +1,131 @@
+[
+  {
+    "type": "faction",
+    "id": "faction_crimson_chalice",
+    "name": "The Crimson Chalice Accord",
+    "likes_u": 15,
+    "respects_u": 35,
+    "known_by_u": true,
+    "size": 35,
+    "power": 300,
+    "wealth": 6000000,
+    "description": "An ancient supernatural sanctuary operating under the Accord of Sanctuary: no hunting, no feeding on mortals, and absolutely no violence within its walls.  Both ancient vampires and grizzled monster hunters sit side-by-side at its mahogany counter under an ironclad truce.",
+    "mon_faction": "human",
+    "relations": {
+      "faction_crimson_chalice": {
+        "kill on sight": false,
+        "watch your back": true,
+        "share my stuff": false,
+        "guard your stuff": true,
+        "lets you in": true,
+        "defends your space": true,
+        "knows your voice": true
+      },
+      "vampire_hunters": {
+        "kill on sight": false,
+        "watch your back": true,
+        "share my stuff": false,
+        "guard your stuff": false,
+        "lets you in": true,
+        "defends your space": true,
+        "knows your voice": true
+      }
+    }
+  },
+  {
+    "type": "faction",
+    "id": "faction_crimson_agitator",
+    "name": "Crimson Chalice Troublemakers",
+    "likes_u": 0,
+    "respects_u": 0,
+    "known_by_u": true,
+    "size": 5,
+    "power": 50,
+    "wealth": 100000,
+    "description": "Reckless, arrogant patrons testing the patience of the sanctuary.",
+    "mon_faction": "human",
+    "relations": {
+      "faction_crimson_chalice": {
+        "kill on sight": false,
+        "watch your back": false,
+        "share my stuff": false,
+        "guard your stuff": false,
+        "lets you in": true,
+        "defends your space": false,
+        "knows your voice": true
+      }
+    }
+  },
+  {
+    "type": "faction",
+    "id": "faction_wasteland_mercenaries",
+    "name": "Malone's Mercenaries",
+    "likes_u": -20,
+    "respects_u": 0,
+    "known_by_u": true,
+    "size": 10,
+    "power": 120,
+    "wealth": 250000,
+    "description": "Armed wasteland mercenaries looking to shake down wealthy travelers and steal vehicles.",
+    "mon_faction": "human",
+    "relations": {
+      "faction_crimson_chalice": {
+        "kill on sight": false,
+        "watch your back": false,
+        "share my stuff": false,
+        "guard your stuff": false,
+        "lets you in": false,
+        "defends your space": false,
+        "knows your voice": false
+      }
+    }
+  },
+  {
+    "type": "faction",
+    "id": "faction_silver_hand",
+    "name": "The Silver Hand Inquisitors",
+    "likes_u": -50,
+    "respects_u": 0,
+    "known_by_u": true,
+    "size": 25,
+    "power": 250,
+    "wealth": 500000,
+    "description": "A militant splinter sect of zealous vampire hunters who establish unauthorized highway checkpoints to purge all suspected night-walkers.",
+    "mon_faction": "human",
+    "relations": {
+      "faction_crimson_chalice": {
+        "kill on sight": false,
+        "watch your back": false,
+        "share my stuff": false,
+        "guard your stuff": false,
+        "lets you in": false,
+        "defends your space": false,
+        "knows your voice": false
+      }
+    }
+  },
+  {
+    "type": "faction",
+    "id": "faction_road_reapers",
+    "name": "The Road Reapers",
+    "likes_u": -50,
+    "respects_u": 0,
+    "known_by_u": true,
+    "size": 20,
+    "power": 180,
+    "wealth": 300000,
+    "description": "Ruthless highway bandits who blockade rural roads with felled timber and ambush passing vehicles.",
+    "mon_faction": "human",
+    "relations": {
+      "faction_crimson_chalice": {
+        "kill on sight": false,
+        "watch your back": false,
+        "share my stuff": false,
+        "guard your stuff": false,
+        "lets you in": false,
+        "defends your space": false,
+        "knows your voice": false
+      }
+    }
+  }
+]

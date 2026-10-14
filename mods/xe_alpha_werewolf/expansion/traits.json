@@ -1,0 +1,22 @@
+[
+  {
+    "type": "mutation",
+    "id": "XE_ALPHA_WREN_WOLF",
+    "name": { "str": "Harlan Pack Werewolf" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "A born werewolf of the Harlan pack: faster, tougher and harder-hitting than any human, and quick to heal.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "SPEED", "add": 20 },
+          { "value": "MAX_HP", "add": 40 },
+          { "value": "REGEN_HP", "multiply": 3.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.4 },
+          { "value": "ARMOR_ALL", "add": -4 }
+        ]
+      }
+    ]
+  }
+]

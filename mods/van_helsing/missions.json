@@ -1,0 +1,834 @@
+[
+  {
+    "id": "MISSION_VAN_HELSING_FIND_BAR",
+    "type": "mission_definition",
+    "name": { "str": "Reach The Crimson Chalice" },
+    "description": "Your journal indicates that The Crimson Chalice — an ancient neutral sanctuary bar governed by the Accord of Sanctuary — still stands in a nearby settlement.  Travel there to establish contact with Lord Cassian and assess the supernatural situation.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "crimson_chalice",
+    "difficulty": 1,
+    "value": 0,
+    "start": { "assign_mission_target": { "om_terrain": "crimson_chalice", "reveal_radius": 4 } },
+    "origins": [ "ORIGIN_GAME_START" ],
+    "end": {
+      "effect": [
+        {
+          "u_message": "You arrive at The Crimson Chalice.  The neon sign flickers faintly above heavy oak doors, and the ancient wards remain intact.",
+          "popup": true
+        },
+        {
+          "u_add_morale": "morale_feeling_good",
+          "bonus": 25,
+          "max_bonus": 50,
+          "duration": "12 hours",
+          "decay_start": "6 hours"
+        }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_BLOOD_SUPPLY",
+    "type": "mission_definition",
+    "name": { "str": "Restock the Sanctuary Cellar" },
+    "description": "Lord Cassian needs 4 units of preserved blood from clinics or hospitals to keep his thirsty vampire patrons sated and preserve the peace inside the bar.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "blood",
+    "count": 4,
+    "difficulty": 2,
+    "value": 30000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "end": {
+      "effect": [
+        { "u_spawn_item": "drink_crimson_vintage", "count": 1 },
+        { "u_spawn_item": "coin_silver", "count": 15 },
+        { "u_add_var": "crimson_blood_supply_done", "value": "yes" },
+        {
+          "u_message": "Lord Cassian hands you 15 silver coins and a bottle of vintage reserve blood-wine.",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Cassian needs blood supplies to keep the sanctuary peaceful.",
+      "offer": "We are running dangerously low on preserved blood for our patrons.  Could you retrieve 4 units of clean blood from a clinic or hospital?",
+      "accepted": "I knew I could rely on your discretion.",
+      "rejected": "Understood.  Let us hope the thirst does not drive anyone mad.",
+      "advice": "Medical clinics, ambulances, and hospital blood banks often have preserved units in cold storage.",
+      "inquire": "Have you managed to secure those blood units yet?",
+      "success": "Superb work.  The sanctuary remains at peace thanks to you.",
+      "success_lie": "You dare bring spoiled blood to the Chalice?!",
+      "failure": "A shame.  We will have to ration what little we have left."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_MISSING_HUNTER",
+    "type": "mission_definition",
+    "name": { "str": "The Fallen Apprentice" },
+    "description": "Gideon Graves' apprentice Cole vanished while investigating feral nests.  Search the area, destroy any unholy threats, and return Cole's silver talisman to Gideon.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "item_crypt_talisman",
+    "count": 1,
+    "difficulty": 3,
+    "value": 40000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "end": {
+      "effect": [
+        { "u_spawn_item": "van_helsing_stake_bolts", "count": 12 },
+        { "u_spawn_item": "drink_hunters_courage", "count": 1 },
+        { "u_add_var": "crimson_missing_hunter_done", "value": "yes" },
+        {
+          "u_message": "Gideon hands you 12 consecrated stake bolts and his reserve hunter's whiskey.",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Gideon Graves' apprentice vanished while scouting a feral vampire crypt.",
+      "offer": "My apprentice Cole vanished near the old crypts.  Will you search for him and bring back his silver talisman?",
+      "accepted": "May the saints watch over your steps, hunter.",
+      "rejected": "I understand.  Not every hunt is ours to take.",
+      "advice": "Search the underground crypts northeast of here.  Watch the shadows.",
+      "inquire": "Any word on young Cole?",
+      "success": "Cole's talisman... he can rest in peace now.  Thank you.",
+      "success_lie": "Do not lie about a fallen brother's talisman!",
+      "failure": "I will never know what became of him..."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_ROGUE_VAMPIRE",
+    "type": "mission_definition",
+    "name": { "str": "Bounty: Malok the Rogue Strigoi" },
+    "description": "A feral strigoi named Malok has breached the Accord by slaughtering refugee travelers on the outer roads.  Track down Malok and execute him.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 3,
+    "value": 50000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "min_distance": 5, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_feral", "name": "Malok the Rogue Strigoi", "x": 12, "y": 12, "target": true } ]
+      }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 20 },
+        { "u_spawn_item": "1st_aid_box", "count": 1 },
+        { "u_add_var": "crimson_rogue_vampire_done", "value": "yes" },
+        { "u_message": "Mira pays you the 20 silver bounty and a first aid kit.", "popup": true }
+      ]
+    },
+    "dialogue": {
+      "describe": "A rogue strigoi named Malok is butchering travelers on the outer roads.",
+      "offer": "A rogue strigoi named Malok has broken the Accord by slaughtering refugee caravans.  Will you put him down?",
+      "accepted": "Hunt well.  Make sure he never rises again.",
+      "rejected": "Very well.  The road remains perilous.",
+      "advice": "Malok strikes from concealment.  Keep your silver close and don't let him surround you.",
+      "inquire": "Has the rogue strigoi been executed?",
+      "success": "Justice has been done.  The outer roads are safe once more.",
+      "success_lie": "You claim he is dead, yet the killings continue!",
+      "failure": "The monster continues to hunt freely..."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_KLAUS_WOLF_DEN",
+    "type": "mission_definition",
+    "name": { "str": "Niklaus's Hunt: The Savage Pack" },
+    "description": "Niklaus Mikaelson has tracked a savage rogue werewolf pack terrorizing the outer woodlands.  Prove your mettle as a legendary monster hunter by slaughtering the rogue werewolf elder.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 50000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_KLAUS_WHITE_OAK_RUMOR",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 2, "random": true, "min_distance": 4, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_werewolf_elder", "name": "Vane the Rogue Werewolf", "x": 12, "y": 12, "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 25 },
+        { "u_spawn_item": "drink_crimson_vintage", "count": 1 },
+        { "u_spawn_item": "item_klaus_hybrid_talisman", "count": 1 },
+        { "u_add_var": "klaus_wolf_den_done", "value": "yes" },
+        {
+          "u_message": "Niklaus grins with fierce amusement.  'A hunter who can kill a wolf with cold iron and bare grit.  Take this talisman and silver, Van Helsing.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Niklaus wants a rogue werewolf elder in the deep woods slaughtered.",
+      "offer": "A rogue werewolf pack has been howling near the outer treeline, preying on refugees.  I can't be bothered to leave my bourbon, but a hunter of your renown should find it trivial sport.  Go to the woods and rip the heart out of their elder.",
+      "accepted": "Don't disappoint me, hunter.  A beast with teeth is nothing before a true predator.",
+      "rejected": "Too frightened of a few fangs?  Pity.  I thought Van Helsing had more spine.",
+      "advice": "Werewolves heal fast and strike like lightning.  Silver or heavy consecrated bolts will put an end to their regeneration.",
+      "inquire": "Have you silenced the howls of that stray pack yet?",
+      "success": "Splendid slaughter.  The woods are quiet once more, and you proved yourself more than talk.",
+      "success_lie": "You dare bring false claims of a kill to Niklaus Mikaelson?!",
+      "failure": "Pathetic.  Perhaps I should have gone myself."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_KLAUS_WHITE_OAK_RUMOR",
+    "type": "mission_definition",
+    "name": { "str": "Niklaus's Bane: The White Oak Splinter" },
+    "description": "Whispers reached Niklaus that fanatical zealots recovered a lead reliquary containing a petrified splinter of the ancient White Oak Tree.  Retrieve the reliquary before mortals attempt to forge a weapon capable of slaying an Original.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "item_white_oak_splinter_relic",
+    "count": 1,
+    "difficulty": 6,
+    "value": 80000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "min_distance": 5, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_moroi_tough", "name": "Zealot Cultist", "x": 12, "y": 12 } ],
+        "place_item": [ { "item": "item_white_oak_splinter_relic", "x": 12, "y": 12, "chance": 100 } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 50 },
+        { "u_spawn_item": "klaus_bourbon", "count": 1 },
+        { "u_spawn_item": "klaus_silver_dagger", "count": 1 },
+        { "u_spawn_item": "item_consecrated_silver_stake", "count": 2 },
+        { "u_add_var": "klaus_white_oak_relic_done", "value": "yes" },
+        {
+          "u_message": "Niklaus grips the lead reliquary with lethal intensity before sealing it in his coat.  'The last ember of our destruction, locked away.  Drink this vintage bourbon, take this ash-dulled dagger, and know that you walk these lands under my personal protection.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Niklaus wants a stolen White Oak reliquary recovered from fanatics.",
+      "offer": "Listen closely, Professor.  Only one wood on this earth can end an Original: White Oak.  I burned the trees to ash centuries ago, but rumor says zealots unearthed a petrified splinter sealed in a lead reliquary.  Retrieve it for me.  No mortal may hold that power.",
+      "accepted": "Bring it straight to me.  Do not open the seal.",
+      "rejected": "Then you leave a dangerous match burning next to a powder keg.",
+      "advice": "The fanatics are desperate and well-armed.  Cleanse their camp and secure the lead box.",
+      "inquire": "Have you retrieved the White Oak reliquary?",
+      "success": "Good.  Another nightmare buried in the dark.  Take this silver and these stakes; you've earned my genuine respect.",
+      "success_lie": "Lie to me about White Oak, and I will tear your heart out through your chest!",
+      "failure": "If that splinter slips into an enemy's hands, blood will drown this continent."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_ELIJAH_HONOR_BOUND",
+    "type": "mission_definition",
+    "name": { "str": "Elijah's Justice: The Broken Truce" },
+    "description": "A renegade strigoi named Varos broke the sacred Accord of Sanctuary by murdering an unarmed human messenger outside the tavern.  Elijah gave his word of honor that the transgressor will pay.  Track Varos to the field and execute him.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 4,
+    "value": 50000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_ELIJAH_RED_DOOR_RELIC",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "min_distance": 5, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_strigoi", "name": "Varos the Oathbreaker", "x": 12, "y": 12, "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 25 },
+        { "u_spawn_item": "item_preserved_plasma_pouch", "count": 2 },
+        { "u_add_var": "elijah_broken_truce_done", "value": "yes" },
+        {
+          "u_message": "Elijah bows with immaculate courtesy.  'Honor and justice have been upheld.  You have my deepest gratitude, Professor Van Helsing.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Elijah needs a rogue vampire who violated the peace treaty executed.",
+      "offer": "A rogue fledgeling named Varos murdered an unarmed mortal messenger on the road outside our doors.  The Accord was signed in good faith, and I gave my personal word to the mortal delegates that murder would be answered with retribution.  Will you assist me in carrying out justice?",
+      "accepted": "May your strike be swift and decisive.  Give him no quarter.",
+      "rejected": "I understand.  I shall see to the matter personally in due time.",
+      "advice": "Varos is erratic and intoxicated on stolen blood.  A clean silver thrust through the sternum will dispatch him.",
+      "inquire": "Has Varos answered for his crimes against the Accord?",
+      "success": "Justice has been delivered.  The sanctity of our word remains unbroken.",
+      "success_lie": "A gentleman never accepts deceit regarding a solemn oath.",
+      "failure": "A tragic outcome.  The stain upon our honor remains."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_ELIJAH_RED_DOOR_RELIC",
+    "type": "mission_definition",
+    "name": { "str": "Elijah's Burden: The Red Door Grimoire" },
+    "description": "An ancient grimoire of Esther Mikaelson's dark witchcraft has resurfaced in the catacombs.  Its psychic resonance threatens to shatter the mental wards Elijah keeps over 'The Red Door' in his mind.  Retrieve the grimoire so he may seal it away.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "item_esther_witchcraft_grimoire",
+    "count": 1,
+    "difficulty": 6,
+    "value": 80000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_ELIJAH_MANOR_EXPEDITION",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "min_distance": 5, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_moroi_fast", "name": "Crypt Stalker", "x": 12, "y": 12 } ],
+        "place_item": [ { "item": "item_esther_witchcraft_grimoire", "x": 12, "y": 12, "chance": 100 } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 40 },
+        { "u_spawn_item": "item_elijah_signet_heirloom", "count": 1 },
+        { "u_add_var": "elijah_red_door_relic_done", "value": "yes" },
+        {
+          "u_message": "Elijah wraps the grimoire in consecrated cloth and exhales a long, relieved breath.  'The shadow has lifted from my mind.  Please accept this signet ring of my noble house as a permanent token of my respect.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Elijah needs Esther Mikaelson's dark grimoire recovered before it shatters his mind.",
+      "offer": "Inside my mind lies a threshold I call the Red Door — behind it, I keep the darkest violence of my past sealed away.  My mother Esther penned a grimoire of unholy witchcraft that has resurfaced nearby.  Its psychic resonance is rattling that door.  If it bursts open, I will lose all restraint.  Please, Professor: retrieve the grimoire so I can bury it.",
+      "accepted": "You may well be saving everyone under this roof from my worst instincts.",
+      "rejected": "Then I must fight the madness alone.",
+      "advice": "The grimoire emits a sickly violet aura.  Do not read the incantations on the vellum.",
+      "inquire": "Have you found my mother's grimoire?",
+      "success": "It is done.  The red door remains shut.  I am forever in your debt, Professor.",
+      "success_lie": "Do not toy with my sanity, hunter.",
+      "failure": "The voices grow louder... God help us all."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_STEFAN_DIET",
+    "type": "mission_definition",
+    "name": { "str": "Stefan's Solace: The Animal Diet" },
+    "description": "Stefan Salvatore refuses to feed on living humans to keep the monstrous Ripper within him chained.  Retrieve 4 pouches of preserved donor plasma so he can sustain his strength without bloodshed.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "item_preserved_plasma_pouch",
+    "count": 4,
+    "difficulty": 2,
+    "value": 40000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 20 },
+        { "u_spawn_item": "stefan_journal_current", "count": 1 },
+        { "u_add_var": "stefan_plasma_diet_done", "value": "yes" },
+        {
+          "u_message": "Stefan takes the cold plasma pouches with genuine relief.  'Thank you, Professor.  You've spared a lot of lives by helping me keep the Ripper caged.  Take my personal journal — there are vampiric mental disciplines recorded within that may aid your studies.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Stefan needs 4 pouches of preserved donor plasma to keep his Ripper impulses chained.",
+      "offer": "Professor, I need a favor.  I'm running dangerously low on preserved donor plasma.  If I go hungry too long, the hunger takes over, and the Ripper inside me won't stop until every human nearby is drained dry.  Could you bring me 4 pouches of preserved plasma?  The Quartermaster or medical clinics sometimes have them.",
+      "accepted": "Thank you, Professor.  I truly appreciate this.",
+      "rejected": "I understand.  I'll just have to lock myself in the back until I can find another way.",
+      "advice": "Check medical centers, ambulances, or ask the Quartermaster at the bar counter.",
+      "inquire": "Were you able to find any preserved plasma pouches?",
+      "success": "This will keep me steady for weeks.  Thank you, Professor.",
+      "success_lie": "Please don't lie about blood to a starving vampire.",
+      "failure": "I don't know how much longer I can hold the hunger back..."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_JESSE_BARN",
+    "type": "mission_definition",
+    "name": { "str": "Family Business: The Hollow Barn" },
+    "description": "Jesse Walker needs help finishing one of his father's contracts.  Clear out the ghoul matriarch nesting in the old Hollow Barn.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 4,
+    "value": 45000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_JESSE_MINE",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "hunter_nest_barn",
+        "om_special": "hunter_nest_barn",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_hunter_barn_matriarch", "x": 12, "y": 11, "target": true },
+          { "monster": "mon_feral_human_pipe", "x": 8, "y": 8 },
+          { "monster": "mon_feral_human_crowbar", "x": 15, "y": 9 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 25 },
+        { "u_spawn_item": "hunter_rocksalt_shell", "count": 12 },
+        { "u_add_var": "jesse_barn_done", "value": "yes" },
+        {
+          "u_message": "Jesse grins and racks his shotgun.  'Good shooting, Professor!  That takes one nasty infestation off Dad's checklist.  Here is your cut of silver and some hand-loaded salt shells.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Jesse needs a monster nest purged in the Hollow Barn from his father's journal.",
+      "offer": "Professor, my dad left behind a journal of unfinished jobs when he vanished.  The first one is an old barn down the county road — some twisted cannibal matriarch set up a nest with her feral pack.  I could use a professional partner to clear them out.",
+      "accepted": "Load up on buckshot and watch your flanks.  Let's get this done.",
+      "rejected": "No sweat.  I'll wait until I have enough shells to sweep it alone.",
+      "advice": "Keep your distance from the matriarch; she hits like a truck.  Salt and buckshot put her down fast.",
+      "inquire": "Did you clear that nest at the Hollow Barn yet?",
+      "success": "Damn good work.  Dad would have approved of your style.",
+      "success_lie": "Don't bluff me, partner; I know when a nest is still breathing.",
+      "failure": "If we let them spread, the whole sector will be overrun."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_JESSE_MINE",
+    "type": "mission_definition",
+    "name": { "str": "Family Business: The Webbed Mine" },
+    "description": "Descend into the abandoned mine adit and eradicate the giant brood mother spinning webs across the shaft.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 55000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_JESSE_PALE_STALKER",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "hunter_nest_mine",
+        "om_special": "hunter_nest_mine",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_hunter_brood_mother", "x": 12, "y": 5, "target": true },
+          { "monster": "mon_spider_widow_giant", "x": 8, "y": 9 },
+          { "monster": "mon_spider_widow_giant", "x": 15, "y": 10 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 35 },
+        { "u_spawn_item": "shot_00", "count": 16 },
+        { "u_add_var": "jesse_mine_done", "value": "yes" },
+        {
+          "u_message": "Jesse gives a tired salute.  'The brood mother is dead and the tunnels went dead quiet.  Take these heavy shells and silver coins — we make a formidable team.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Purge the giant spider brood mother in the old webbed mine.",
+      "offer": "Next contract in Dad's notebook: an old abandoned mine where thick webbing covers the timbers.  Hikers and refugees went in and never came out.  We need to put down the brood mother before her swarm burrows into the roadways.",
+      "accepted": "Bring fire or high-explosive ordnance if you have it.",
+      "rejected": "Fair enough.  Tunnels aren't everyone's cup of tea.",
+      "advice": "Beware of venom and sticky webbing.  Cut your way through and aim for the brood mother's cluster eyes.",
+      "inquire": "Have you burned out the brood mother in the mine?",
+      "success": "Tunnels are clear.  Another job crossed off the ledger.",
+      "success_lie": "You can't fool me; I can still hear the chittering.",
+      "failure": "If those egg sacks hatch, the whole valley is doomed."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_JESSE_PALE_STALKER",
+    "type": "mission_definition",
+    "name": { "str": "Family Business: The Pale Stalker" },
+    "description": "Hunt down the horrific pale stalker lurking at an abandoned campsite — the apex monster John Walker pursued before his disappearance.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 6,
+    "value": 75000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "hunter_nest_woods",
+        "om_special": "hunter_nest_woods",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_hunter_pale_stalker", "x": 12, "y": 11, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 60 },
+        { "u_spawn_item": "hunter_silver_knife", "count": 1 },
+        { "u_spawn_item": "hunter_lore_dad_journal", "count": 1 },
+        { "u_add_var": "jesse_pale_stalker_done", "value": "yes" },
+        {
+          "u_message": "Jesse looks at the blood-stained earth with solemn reverence.  'It's finished.  The beast that took my dad is dead.  I want you to have his silver-inlaid knife and a copy of his hunting notes.  Saving people, hunting things... the family business continues.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Hunt the apex pale stalker that claimed John Walker in the deep woods.",
+      "offer": "This is it, Professor — the final hunt.  Dad was tracking an apex horror he called the Pale Stalker out in the old pine woods.  His trail went cold right at an abandoned campsite.  Whatever is out there, it's fast, silent, and deadly.  Help me kill it once and for all.",
+      "accepted": "Keep your silver ready and watch the tree line.  For Dad.",
+      "rejected": "I understand.  This is a grudge match; I'll settle it myself if I have to.",
+      "advice": "The Pale Stalker attacks from stealth.  Listen for snapping branches and don't let it flank you.",
+      "inquire": "Did you find the Pale Stalker?",
+      "success": "It's over... Dad can finally rest.  Thank you, Professor.",
+      "success_lie": "A true hunter never lies about a kill.",
+      "failure": "It's still out there, watching us from the pines..."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_SLEEPER_TOMB",
+    "type": "mission_definition",
+    "name": { "str": "Whispers of the Sleeper: The Overgrown Mausoleum" },
+    "description": "Investigate the sunken mausoleum of Evander Kael, the first true immortal of antiquity, and retrieve ancient rubbings of the occult runes sealing his tomb.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "sleeper_lore_inscription",
+    "count": 1,
+    "difficulty": 5,
+    "value": 50000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CRIMSON_THE_CURE",
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "sleeper_tomb",
+        "om_special": "sleeper_tomb",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_moroi_fast", "name": "Mausoleum Guardian", "x": 12, "y": 12 } ],
+        "place_item": [ { "item": "sleeper_lore_inscription", "x": 12, "y": 12, "chance": 100 } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 30 },
+        { "u_add_var": "sleeper_tomb_done", "value": "yes" },
+        {
+          "u_message": "Professor Van Helsing examines the ancient linen rubbing with scholarly fascination.  'These runes predate the Mikaelsons by over a millennium!  The Sleeper possessed true immortality, and the witch Maren forged a singular remedy.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Investigate the overgrown mausoleum of the Sleeper and secure tomb inscriptions.",
+      "offer": "Legends speak of an immortal predecessor who walked the earth two millennia ago, sealed in an overgrown stone tomb.  If we can examine the charcoal inscriptions on his sarcophagus, we may locate the mythical cure that strips away immortality itself.  Will you explore the mausoleum?",
+      "accepted": "May divine providence protect your steps amidst the ruins.",
+      "rejected": "Ancient graves are best left undisturbed if courage wavers.",
+      "advice": "Look for charcoal linen rubbings resting upon the granite altar.",
+      "inquire": "Have you retrieved the rubbings from the mausoleum?",
+      "success": "Magnificent.  The markings translate into exact coordinates of the witch's resting place.",
+      "success_lie": "Scholarship brooks no falsification, hunter.",
+      "failure": "The ancient secrets remain buried in moss and time."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_THE_CURE",
+    "type": "mission_definition",
+    "name": { "str": "The Witch's Grave: Recovery of the Cure" },
+    "description": "Travel to the reed-ringed grave in the marshland and excavate the legendary clay phial containing the witch's cure for immortality.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "sleeper_cure",
+    "count": 1,
+    "difficulty": 6,
+    "value": 100000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "sleeper_witch_grave",
+        "om_special": "sleeper_witch_grave",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": { "place_item": [ { "item": "sleeper_cure", "x": 12, "y": 12, "chance": 100 } ] }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 80 },
+        { "u_spawn_item": "sleeper_cure", "count": 1 },
+        { "u_add_var": "the_cure_recovered", "value": "yes" },
+        {
+          "u_message": "You hold the dark clay phial sealed with wax.  The Cure of immortality is in your hands!  You can present it to Stefan Salvatore to free him from the Ripper curse, or use it in alchemical recipes to brew mortality elixirs.",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Excavate Maren's marsh grave and recover the immortal Cure.",
+      "offer": "The rubbings pinpoint the marsh grave of Maren of the Reeds.  She took the sole antidote to immortality to her grave.  Retrieve the clay phial.  With it, we possess the power to sever eternal life itself.",
+      "accepted": "Tread carefully; ancient hallowed grounds often harbor restless spirits.",
+      "rejected": "Perhaps some powers are too profound for mortal hands.",
+      "advice": "Search among the reeds where the standing stone marks her burial mound.",
+      "inquire": "Have you unearthed the witch's cure?",
+      "success": "Unbelievable... You hold the single most coveted substance in existence.",
+      "success_lie": "A lie concerning the Cure is an insult to truth itself.",
+      "failure": "The cure remains buried beneath the stagnant marsh waters."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_ELIJAH_MANOR_EXPEDITION",
+    "type": "mission_definition",
+    "name": { "str": "Elijah's Manor: Reclaiming the Family Vault" },
+    "description": "Travel to Elijah Mikaelson's ancestral manor, purge the feral thralls infesting the grounds, and secure the perimeter around the family vault.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 6,
+    "value": 85000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "elijah_house",
+        "om_special": "elijah_house",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 5,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_vampire_strigoi", "name": "Vault Defiler", "x": 12, "y": 12, "target": true },
+          { "monster": "mon_vampire_moroi_fast", "x": 10, "y": 10 },
+          { "monster": "mon_vampire_moroi_fast", "x": 14, "y": 14 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 60 },
+        { "u_spawn_item": "drink_crimson_vintage", "count": 4 },
+        { "u_add_var": "elijah_manor_secured", "value": "yes" },
+        {
+          "u_message": "Elijah inclines his head with dignified gratitude.  'Our family manor and the vault within are secure.  You have proven yourself a person of consummate honor and loyalty, Professor.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Purge the renegade vampires occupying Elijah's ancestral residence.",
+      "offer": "My private estate down the valley has been occupied by rogue vampires who seek to breach my family vault.  They must not desecrate my home or lay hands upon what lies within.  Will you ride out and reclaim my manor?",
+      "accepted": "Strike without hesitation.  Let them learn that trespass against my house carries a fatal price.",
+      "rejected": "I respect your discretion.  I shall tend to my estate in due time.",
+      "advice": "The estate has multiple entryways.  Clear the courtyard first before breaching the interior salon.",
+      "inquire": "Have you swept the intruders from my manor?",
+      "success": "Superb work.  The sanctuary of my home is restored.",
+      "success_lie": "Never attempt deceit with an Original, Professor.",
+      "failure": "The intruders continue to defile my ancestral estate."
+    }
+  },
+  {
+    "id": "MISSION_LUCIAN_BOUNTY_1",
+    "type": "mission_definition",
+    "name": { "str": "Pack Bounty I: Culling Feral Bloodsuckers" },
+    "description": "Lucian of the Crescent pack demands the culling of feral vampires lurking around the forest perimeter.  Slay 3 feral vampires to secure the woodland boundary.",
+    "goal": "MGOAL_KILL_MONSTER_TYPE",
+    "monster_type": "mon_vampire_feral",
+    "monster_kill_goal": 3,
+    "difficulty": 2,
+    "value": 40000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "MISSION_LUCIAN_BOUNTY_2",
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "min_distance": 4, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_vampire_feral", "x": 10, "y": 10 },
+          { "monster": "mon_vampire_feral", "x": 14, "y": 14 },
+          { "monster": "mon_vampire_feral", "x": 12, "y": 16 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 25 },
+        { "u_spawn_item": "silver_small", "count": 1 },
+        { "u_spawn_item": "token_crimson_chalice", "count": 3 },
+        { "u_add_var": "lucian_bounty_1_done", "value": "yes" },
+        {
+          "u_message": "Lucian grunts with grim satisfaction and slides a pouch of silver coins, silver scrap, and bar tokens across the counter.  'Good hunting, Van Helsing.  The pack recognizes your bite.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Slay 3 feral vampires trespassing near the pack's forest border.",
+      "offer": "Feral leeches with no allegiance to Cassian's Accord are prowling our ridge lines, slaughtering the deer and threatening our young.  Put down three of those beasts so they know the woods still belong to the People.",
+      "accepted": "Track the stench of rotting blood through the tree line.  Show no mercy.",
+      "rejected": "Then stay inside where it's safe, hunter.",
+      "advice": "They come out under cover of night.  Use fire, UV rounds, or blade decapitation to keep them down.",
+      "inquire": "Have you silenced those feral leeches yet, hunter?",
+      "success": "The forest air smells cleaner already.  Here is your bounty.",
+      "success_lie": "You think my nose can't tell whether you've drawn fresh vampire blood?!",
+      "failure": "The leeches are still tearing through our hunting grounds."
+    }
+  },
+  {
+    "id": "MISSION_LUCIAN_BOUNTY_2",
+    "type": "mission_definition",
+    "name": { "str": "Pack Bounty II: The Rogue Elder" },
+    "description": "An elder werewolf has succumbed to frenzy, slaughtering travelers and breaking the pack's sacred laws.  Lucian asks you to track down and execute the rogue elder.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 4,
+    "value": 80000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "MISSION_LUCIAN_BOUNTY_3",
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "min_distance": 5, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_werewolf_frenzied_rogue", "name": "Frenzied Elder Werewolf", "x": 12, "y": 12, "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 50 },
+        { "u_spawn_item": "silver_small", "count": 3 },
+        { "u_spawn_item": "token_crimson_chalice", "count": 5 },
+        { "u_add_var": "lucian_bounty_2_done", "value": "yes" },
+        {
+          "u_message": "Lucian lowers his head in somber reverence.  'An honorable death for a brother who lost his mind to frenzy.  You handled what we could not bear to do alone.  The Crescent pack honors you, Grand Inquisitor.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Put down a frenzied elder werewolf who has lost his mind to madness.",
+      "offer": "One of our oldest brothers has fallen into frenzy and bloodlust.  He no longer answers the howl, tearing through innocents and leaving carnage in his wake.  As Alpha, I cannot allow him to suffer as a rabid monster.  Put him down with dignity... and silver.",
+      "accepted": "Make his end swift.  He was a proud hunter once.",
+      "rejected": "Understood.  The burden falls to my claws alone then.",
+      "advice": "He regenerates rapidly and hits with enough force to shatter brick.  Load your silver rounds and keep your distance.",
+      "inquire": "Has our fallen brother found peace under your silver, hunter?",
+      "success": "He is running in the endless moonlit woods now.  Take this silver scrap and our deepest respect.",
+      "success_lie": "Do not lie to an Alpha about the death of his packmate.",
+      "failure": "His frenzied howls still echo through the night."
+    }
+  },
+  {
+    "id": "MISSION_LUCIAN_BOUNTY_3",
+    "type": "mission_definition",
+    "name": { "str": "Pack Bounty III: The Nether Anathema" },
+    "description": "A corrupted vampire Anathema has emerged from an abyssal tear, twisting reality and hunting both vampires and werewolves alike.  Slay the Anathema to preserve the sanctuary valley.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 150000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "min_distance": 6, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [ { "monster": "mon_vampire_anathema", "name": "Abyssal Anathema", "x": 12, "y": 12, "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 100 },
+        { "u_spawn_item": "silver_small", "count": 5 },
+        { "u_spawn_item": "token_crimson_chalice", "count": 10 },
+        { "u_spawn_item": "item_klaus_hybrid_talisman", "count": 1 },
+        { "u_add_var": "lucian_bounty_3_done", "value": "yes" },
+        {
+          "u_message": "Lucian and Fen stand in unison, raising a toast of strong spirit.  'The eldritch abomination is vanquished!  Van Helsing, while the Crescent pack draws breath under the silver moon, you walk our lands as an honored brother of the Hunt.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Destroy the corrupted vampire Anathema threatening the valley.",
+      "offer": "Something ancient and vile has answered the apocalyptic disturbance in the veil: an Anathema, a blood-drinker gorged on Nether sorcery that warps the very land around it.  Even Cassian's elders fear it.  We need the Grand Inquisitor to purge it from existence.",
+      "accepted": "May the silver moon guide your hand, Van Helsing.  Drive that nightmare back into the void.",
+      "rejected": "If none stand against it, this entire valley will fall into shadow.",
+      "advice": "It shrugs off conventional trauma.  Consecrated stakes, incendiary UV slugs, and unwavering resolve are your only salvation.",
+      "inquire": "Has the Anathema been banished back to the dark?",
+      "success": "By the Mother of Wolves, you did it!  The valley is safe!  Take this talisman and all the silver we can spare!",
+      "success_lie": "The stench of that nether abomination still hangs in the wind.  Do not mock us.",
+      "failure": "The Anathema continues to warp reality."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_BOUNTY_SILVER_HAND",
+    "type": "mission_definition",
+    "name": { "str": "Bounty: Silver Hand Checkpoint" },
+    "description": "An unauthorized splinter sect of extremist hunters has established an armed checkpoint on the highways, shaking down and executing non-feral travelers.  Infiltrate the checkpoint and bring back Commander Vance's medallion.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "item_silver_hand_badge",
+    "count": 1,
+    "difficulty": 5,
+    "value": 60000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "roadblock_hunters", "reveal_radius": 4, "random": true, "min_distance": 2, "z": 0 }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 60 },
+        { "u_spawn_item": "token_crimson_chalice", "count": 5 },
+        { "u_add_var": "mira_silver_hand_done", "value": "yes" },
+        {
+          "u_message": "Mira weighs the silver medallion in her palm with a grin: 'Vance won't be harassing our couriers anymore.  Here is your payment.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Dismantle the Silver Hand checkpoint on the highway and bring back Vance's medallion.",
+      "offer": "Commander Vance and his Silver Hand zealots set up sandbags and searchlights across the northern highway.  They're shooting at couriers and threatening our blood shipments.  Take Vance down and bring me his silver medallion as proof.",
+      "accepted": "Clear the highway.  The Chalice needs those supply lines open.",
+      "rejected": "Watch your tires if you travel that way.",
+      "advice": "They have searchlights, shotguns, and silver bolts.  Strike hard and fast.",
+      "inquire": "Have you neutralized Vance and retrieved his medallion?",
+      "success": "Splendid work!  The couriers are moving freely again.",
+      "success_lie": "That's not Vance's insignia.",
+      "failure": "The checkpoint still strangles the highway."
+    }
+  },
+  {
+    "id": "MISSION_CRIMSON_BOUNTY_ROAD_REAPERS",
+    "type": "mission_definition",
+    "name": { "str": "Bounty: Road Reapers Highway Blockade" },
+    "description": "A vicious crew of highway bandits called the Road Reapers has dropped timber across the rural road and is ambushing passing vehicles.  Scout the blockade and clear the bandits.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "roadblock_highwaymen",
+    "difficulty": 4,
+    "value": 50000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "roadblock_highwaymen", "reveal_radius": 4, "random": true, "min_distance": 2, "z": 0 }
+    },
+    "end": {
+      "effect": [
+        { "u_spawn_item": "coin_silver", "count": 50 },
+        { "u_spawn_item": "gasoline", "container": "jug_plastic", "count": 10 },
+        { "u_add_var": "mira_road_reapers_done", "value": "yes" },
+        {
+          "u_message": "Mira nods approvingly: 'Scouts confirm the timber blockade was broken.  Trade caravans can roll through safely again.'",
+          "popup": true
+        }
+      ]
+    },
+    "dialogue": {
+      "describe": "Eliminate the Road Reapers blockade on the rural highway.",
+      "offer": "A bandit mechanic named Wrench Jackson dropped timber and burned tires across the rural highway.  They're carjacking travelers and murdering drivers.  Travel to the roadblock and clear them out.",
+      "accepted": "Clear the asphalt.  Nobody carjacks Chalice patrons.",
+      "rejected": "Keep your vehicle locked and fueled.",
+      "advice": "They throw Molotovs to disable vehicles.  Step out and engage on foot before they torch your ride.",
+      "inquire": "Did you reach the Road Reapers roadblock and clear them?",
+      "success": "The road is open again!  Here is your bounty and fresh gasoline.",
+      "success_lie": "My scouts say the timber is still smoking.",
+      "failure": "The bandits still rule that road."
+    }
+  }
+]

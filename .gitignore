@@ -1,0 +1,9 @@
+# CDDA Mod Development .gitignore
+*.bak
+*.tmp
+*.log
+cache/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

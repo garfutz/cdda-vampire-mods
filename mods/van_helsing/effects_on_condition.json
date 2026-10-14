@@ -1,0 +1,634 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_READ_VAN_HELSING_JOURNAL",
+    "effect": [
+      {
+        "u_message": "You open your field journal.  Decades of meticulous entries fill the parchment:\n\n'VAMPIRE PHYSIOLOGY: The heart must be pierced by mountain ash or consecrated silver.  Decapitation ensures cessation of tissue regeneration.  Sunlight burns due to dimensional destabilization.\n\nSANCTUARY ACCORD: In 1848, the Council of Elders and the Holy Inquisitors signed the Treaty of the Chalice.  Neutral ground was established where hunters and vampires may drink without violence.\n\nLOCATION: The Crimson Chalice operates quietly in the nearby township under Lord Cassian's watchful eye.  If the Cataclysm has severed contact with our orders, that bar remains our best source of intelligence.'",
+        "popup": true
+      },
+      {
+        "u_add_morale": "morale_feeling_good",
+        "bonus": 20,
+        "max_bonus": 40,
+        "duration": "6 hours",
+        "decay_start": "3 hours"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DRINK_CRIMSON_VINTAGE",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 550" ] },
+          {
+            "u_message": "The rich, velvety blood wine glides down your throat.  Your cold veins flush with warmth, and the terrible gnawing thirst subsides completely.",
+            "type": "good"
+          },
+          {
+            "u_add_morale": "morale_drank_blood",
+            "bonus": 40,
+            "max_bonus": 80,
+            "duration": "4 hours",
+            "decay_start": "2 hours"
+          }
+        ],
+        "else": [
+          {
+            "u_message": "The thick, metallic vintage coats your tongue with copper and bitter tannins.  It turns your stomach, but you keep it down.",
+            "type": "bad"
+          },
+          { "u_add_morale": "morale_feeling_bad", "bonus": -15, "max_bonus": -30, "duration": "1 hour" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DRINK_SANGUINE_TONIC",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 350" ] },
+          {
+            "u_message": "The chilled plasma tonic provides immediate relief from your unholy thirst.",
+            "type": "good"
+          }
+        ],
+        "else": [
+          { "u_message": "The chilled sterile plasma tastes salty and clinical.  Unpleasant, but hydrating.", "type": "mixed" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DRINK_HUNTERS_COURAGE",
+    "effect": [
+      {
+        "u_message": "The fiery rye whiskey and bitter herbal extracts blaze down your gullet.  Your heartbeat slows to a steady, immovable rhythm.",
+        "type": "good"
+      },
+      { "u_add_effect": "effect_hunters_courage", "duration": "3 hours" },
+      { "u_add_morale": "morale_feeling_good", "bonus": 35, "max_bonus": 70, "duration": "4 hours" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DRINK_STRIGOI_CORDIAL",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') += 750" ] },
+          {
+            "u_message": "The velvet-black cordial coats your throat with rich, concentrated vitae.  Your cold flesh tingles with supernatural power and your blood hunger vanishes.",
+            "type": "good",
+            "popup": true
+          },
+          { "u_add_morale": "morale_drank_blood", "bonus": 50, "max_bonus": 100, "duration": "6 hours" }
+        ],
+        "else": [
+          {
+            "u_message": "The syrupy cordial tastes heavily of iron, dark cherries, and bitter nightshade.  It sits like lead in your stomach.",
+            "type": "mixed"
+          },
+          { "u_add_morale": "morale_feeling_bad", "bonus": -10, "max_bonus": -20, "duration": "1 hour" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_USE_GARLIC_BALM",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "The pungent, consecrated garlic paste burns your pale unliving skin like corrosive acid!  You retch in unholy agony!",
+            "type": "bad",
+            "popup": true
+          },
+          { "u_add_morale": "morale_feeling_bad", "bonus": -40, "max_bonus": -80, "duration": "2 hours" }
+        ],
+        "else": [
+          {
+            "u_message": "You rub the pungent garlic and mountain ash paste across your collar, neck, and wrists.  The sharp, astringent odor forms an unholy barrier.",
+            "type": "good"
+          },
+          { "u_add_effect": "effect_garlic_ward", "duration": "2 hours" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_USE_WARDING_CHALK",
+    "effect": [
+      {
+        "u_message": "You kneel and inscribe ancient sacred warding geometry across the threshold in consecrated chalk.  A faint, reassuring hum settles into the ground around you.",
+        "type": "good"
+      },
+      { "u_add_effect": "effect_sanctuary_ward", "duration": "2 hours" },
+      { "u_add_morale": "morale_feeling_good", "bonus": 15, "max_bonus": 30, "duration": "2 hours" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_USE_HOLY_WATER",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "The consecrated holy water sears your throat and vitals like molten silver!  Unholy smoke pours from your lips!",
+            "type": "bad",
+            "popup": true
+          },
+          { "u_add_morale": "morale_feeling_bad", "bonus": -60, "max_bonus": -120, "duration": "3 hours" }
+        ],
+        "else": [
+          {
+            "u_message": "You drink the consecrated holy water.  A pristine, calming clarity washes over your mind, scouring spiritual dread and purifying your resolve.",
+            "type": "good",
+            "popup": true
+          },
+          { "u_add_effect": "effect_sanctuary_ward", "duration": "4 hours" },
+          { "u_add_morale": "morale_feeling_good", "bonus": 25, "max_bonus": 50, "duration": "4 hours" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WOOD_MELEE_HIT_VAMPIRE",
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        { "npc_has_species": "VAMPIRE" },
+        {
+          "or": [
+            { "u_has_wielded_with_flag": "WOODEN_WEAPON" },
+            { "u_has_wielded_with_flag": "WOODEN_POINT" },
+            { "u_has_wielded_with_flag": "FIREWOOD" },
+            { "u_has_item": "stick" },
+            { "u_has_item": "pointy_stick" },
+            { "u_has_item": "pointy_stick_long" },
+            { "u_has_item": "spear_wood" },
+            { "u_has_item": "cudgel" },
+            { "u_has_item": "quarterstaff" },
+            { "u_has_item": "item_wooden_stake" },
+            { "u_has_item": "item_consecrated_silver_stake" }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_vampire_wood_in_flesh", "duration": "45 seconds" },
+      {
+        "u_message": "The wooden weapon splinters deep into the vampire's flesh!  It hisses in agony as unholy regeneration stalls!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WOOD_RANGED_HIT_VAMPIRE",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        { "npc_has_species": "VAMPIRE" },
+        {
+          "or": [
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_9mm_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_45_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_shot_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_simple_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_makeshift" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "arrow_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_stake_bolts" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_explosive_stake_bolts" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_white_oak_bolt" ] }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_vampire_wood_in_flesh", "duration": "45 seconds" },
+      {
+        "u_message": "The wooden projectile embeds into the vampire!  Wood splinters burn into its cold tissue, halting regeneration!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DRINK_VERVAIN_BOURBON",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "DHAMPIR_TRAIT" },
+            { "u_has_effect": "vampire_virus" }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "The vervain-infused bourbon burns your throat and stomach like white-hot embers!  Your unliving veins smoke and convulse in searing agony!",
+            "type": "bad",
+            "popup": true
+          },
+          { "u_add_morale": "morale_feeling_bad", "bonus": -50, "max_bonus": -100, "duration": "3 hours" }
+        ],
+        "else": [
+          {
+            "u_message": "The rich oak bourbon carries a bitter, floral kick of steeped vervain.  Warmth spreads to your chest, clearing your mind of psychic fog and steeling your will.",
+            "type": "good"
+          },
+          { "u_add_effect": "effect_hunters_courage", "duration": "2 hours" },
+          { "u_add_morale": "morale_feeling_good", "bonus": 30, "max_bonus": 60, "duration": "3 hours" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WOOD_MELEE_HIT_VAMPIRE_NPC",
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_character",
+    "condition": {
+      "and": [
+        { "npc_has_trait": "VAMPIRE" },
+        {
+          "or": [
+            { "u_has_wielded_with_flag": "WOODEN_WEAPON" },
+            { "u_has_wielded_with_flag": "WOODEN_POINT" },
+            { "u_has_wielded_with_flag": "FIREWOOD" },
+            { "u_has_item": "stick" },
+            { "u_has_item": "pointy_stick" },
+            { "u_has_item": "pointy_stick_long" },
+            { "u_has_item": "spear_wood" },
+            { "u_has_item": "cudgel" },
+            { "u_has_item": "quarterstaff" },
+            { "u_has_item": "item_wooden_stake" },
+            { "u_has_item": "item_consecrated_silver_stake" }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_vampire_wood_in_flesh", "duration": "45 seconds" },
+      {
+        "u_message": "The wooden weapon splinters deep into the vampire's flesh!  It hisses in agony as unholy regeneration stalls!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_WOOD_RANGED_HIT_VAMPIRE_NPC",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_character",
+    "condition": {
+      "and": [
+        { "npc_has_trait": "VAMPIRE" },
+        {
+          "or": [
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_9mm_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_45_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "ammo_shot_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_simple_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "bolt_makeshift" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "arrow_wood" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_stake_bolts" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_explosive_stake_bolts" ] },
+            { "compare_string": [ { "context_val": "ammo" }, "van_helsing_white_oak_bolt" ] }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_vampire_wood_in_flesh", "duration": "45 seconds" },
+      {
+        "u_message": "The wooden projectile embeds into the vampire!  Wood splinters burn into its cold tissue, halting regeneration!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_SILVER_MELEE_HIT_WEREWOLF_MON",
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        {
+          "or": [
+            { "npc_has_species": "WEREWOLF" },
+            { "compare_string": [ { "context_val": "victim_type" }, "mon_werewolf_elder" ] },
+            { "compare_string": [ { "context_val": "victim_type" }, "mon_werewolf_frenzied_rogue" ] }
+          ]
+        },
+        { "or": [ { "u_has_wielded_with_flag": "SILVER" }, { "u_has_item": "item_consecrated_silver_stake" } ] }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_silver_burns", "duration": "45 seconds" },
+      {
+        "u_message": "The silver burns violently into the werewolf's flesh!  It roars in searing agony as holy silver scorches its beastly blood!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_SILVER_MELEE_HIT_WEREWOLF_NPC",
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_character",
+    "condition": {
+      "and": [
+        {
+          "or": [
+            { "npc_has_trait": "NATIVE_SHAPESHIFTER" },
+            { "npc_has_trait": "WEREWOLF_HYBRID_FORM" },
+            { "npc_has_trait": "WEREWOLF_MANA_TRAIT" }
+          ]
+        },
+        { "or": [ { "u_has_wielded_with_flag": "SILVER" }, { "u_has_item": "item_consecrated_silver_stake" } ] }
+      ]
+    },
+    "effect": [
+      { "npc_add_effect": "effect_silver_burns", "duration": "45 seconds" },
+      {
+        "u_message": "The silver sears into the werewolf!  It snarls in blinding agony as the silver burns through its veins!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CHECK_PROTAGONIST_DUPLICATES",
+    "eoc_type": "EVENT",
+    "required_event": "game_begin",
+    "effect": [
+      {
+        "if": {
+          "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "compare_string": [ { "u_val": "profession" }, "klaus_mikaelson" ] } ]
+        },
+        "then": [
+          {
+            "u_run_npc_eocs": [ { "id": "EOC_DESPAWN_KLAUS_NPC", "effect": [ { "u_die": { "remove_corpse": true, "supress_message": true } } ] } ],
+            "unique_ids": [ "crimson_klaus_npc" ]
+          },
+          {
+            "if": { "not": { "u_has_item": "item_crimson_chalice_invitation" } },
+            "then": [ { "u_spawn_item": "item_crimson_chalice_invitation", "count": 1 } ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+            { "compare_string": [ { "u_val": "profession" }, "elijah_mikaelson" ] }
+          ]
+        },
+        "then": [
+          {
+            "u_run_npc_eocs": [ { "id": "EOC_DESPAWN_ELIJAH_NPC", "effect": [ { "u_die": { "remove_corpse": true, "supress_message": true } } ] } ],
+            "unique_ids": [ "crimson_elijah_npc" ]
+          },
+          {
+            "if": { "not": { "u_has_item": "item_crimson_chalice_invitation" } },
+            "then": [ { "u_spawn_item": "item_crimson_chalice_invitation", "count": 1 } ]
+          }
+        ]
+      },
+      {
+        "if": { "and": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "math": [ "elder_vampire_got_chalice_invite != 1" ] } ] },
+        "then": [
+          { "math": [ "elder_vampire_got_chalice_invite = 1" ] },
+          {
+            "if": { "not": { "u_has_item": "item_crimson_chalice_invitation" } },
+            "then": [ { "u_spawn_item": "item_crimson_chalice_invitation", "count": 1 } ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_RECURRENT_CHECK_PROTAGONIST_DUPLICATES",
+    "recurrence": 60,
+    "effect": [
+      {
+        "if": { "and": [ { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" }, { "math": [ "elder_vampire_got_chalice_invite != 1" ] } ] },
+        "then": [
+          { "math": [ "elder_vampire_got_chalice_invite = 1" ] },
+          {
+            "if": { "not": { "u_has_item": "item_crimson_chalice_invitation" } },
+            "then": [
+              { "u_spawn_item": "item_crimson_chalice_invitation", "count": 1 },
+              {
+                "u_message": "Tucked inside your coat pocket is a heavy vellum parchment sealed with crimson wax—an Invitation to the Crimson Chalice.",
+                "type": "good"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "compare_string": [ { "u_val": "profession" }, "klaus_mikaelson" ] } ]
+        },
+        "then": [
+          {
+            "u_run_npc_eocs": [
+              {
+                "id": "EOC_DESPAWN_KLAUS_NPC_RECURRENT",
+                "effect": [ { "u_die": { "remove_corpse": true, "supress_message": true } } ]
+              }
+            ],
+            "unique_ids": [ "crimson_klaus_npc" ],
+            "local": true
+          }
+        ]
+      },
+      {
+        "if": {
+          "or": [
+            { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+            { "compare_string": [ { "u_val": "profession" }, "elijah_mikaelson" ] }
+          ]
+        },
+        "then": [
+          {
+            "u_run_npc_eocs": [
+              {
+                "id": "EOC_DESPAWN_ELIJAH_NPC_RECURRENT",
+                "effect": [ { "u_die": { "remove_corpse": true, "supress_message": true } } ]
+              }
+            ],
+            "unique_ids": [ "crimson_elijah_npc" ],
+            "local": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_TRENT_EXECUTE",
+    "effect": [
+      "npc_die",
+      {
+        "u_message": "With blinding Original velocity, you seize Trent by the throat and twist.  A sickening CRACK echoes through the tavern as his lifeless body hits the hardwood floor.",
+        "type": "bad"
+      },
+      {
+        "if": { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" },
+        "then": [
+          {
+            "u_message": "Lord Cassian sighs from behind the mahogany bar: 'Arrogance is a swift killer in this town.  Valerius, drag the fool into the alley.  Your Grace, your drink is on the house.'",
+            "type": "mixed"
+          }
+        ],
+        "else": [
+          {
+            "u_message": "Lord Cassian sighs from behind the mahogany bar: 'Arrogance is a swift killer in this town.  Valerius, drag the fool into the alley.  Lord Mikaelson, your drink is on the house.'",
+            "type": "mixed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_JAX_EXECUTE",
+    "effect": [
+      "npc_die",
+      { "u_spawn_item": "item_vampire_heart", "count": 1 },
+      {
+        "u_message": "Before Jax can raise his fists, your hand plunges through his ribs like wet paper, ripping his heart out in a spray of dark wolf blood.",
+        "type": "bad"
+      },
+      {
+        "u_message": "Lucian watches from the Crescent table with a cold nod: 'A rogue wolf who forgot his manners.  Cassian's floor can be mopped.  He brought it on himself.'",
+        "type": "mixed"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_CORVIN_DISARM",
+    "effect": [
+      { "u_spawn_item": "item_rapier_corvin", "count": 1 },
+      {
+        "u_message": "You sidestep Corvin's pompous thrust at impossible speed, shatter his wrist with a sharp twist, and wrench the silver-hilted rapier from his grip.  Corvin drops to his knees clutching his broken wrist in shock.",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_CORVIN_EXECUTE",
+    "effect": [
+      "npc_die",
+      { "u_spawn_item": "item_rapier_corvin", "count": 1 },
+      {
+        "u_message": "You snatch Corvin's blade from mid-air and draw it cleanly across his neck.  The pompous duelist collapses into silence before his blood even touches the rug.",
+        "type": "bad"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_MORRIGAN_SHRUG_HEX",
+    "effect": [
+      { "u_spawn_item": "item_grimoire_morrigan", "count": 1 },
+      {
+        "u_message": "Morrigan's eyes turn pitch black as she whispers a violent aneurysm hex.  You feel a momentary pinch behind your temples, then smile as a single drop of blood vanishes.  A thousand years of immortal physiology cannot be broken by a hedge witch.  Morrigan trembles in horror and surrenders her grimoire.",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CRIMSON_MERC_COMPEL",
+    "effect": [
+      {
+        "u_message": "Your pupils dilate with hypnotic ancient power.  'You will drop your weapons, forget this car, and walk north until your boots rot.'  Scar Malone and his crew stare blankly, drop their guns, and stumble into the wasteland.",
+        "type": "good"
+      },
+      {
+        "u_run_npc_eocs": [ { "id": "EOC_DESPAWN_MERC_CREW", "effect": [ { "u_die": { "remove_corpse": true, "supress_message": true } } ] } ],
+        "unique_ids": [ "crimson_merc_malone", "crimson_merc_gunner", "crimson_merc_brawler" ],
+        "local": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_HUNTER_COMMANDER_VANCE_COMPEL",
+    "effect": [
+      { "u_spawn_item": "item_silver_hand_badge", "count": 1 },
+      { "u_spawn_item": "item_contraband_stash_map", "count": 1 },
+      {
+        "u_message": "Your hypnotic gaze overwhelms Commander Vance's fanaticism.  His eyes turn glassy as he stiffly unpins his silver medallion and hands over his encrypted supply map.",
+        "type": "good"
+      }
+    ]
+  }
+]

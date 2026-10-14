@@ -1,0 +1,90 @@
+[
+  {
+    "type": "effect_type",
+    "id": "effect_garlic_ward",
+    "name": [ "Garlic Barrier" ],
+    "desc": [
+      "A pungent, consecrated paste of wild garlic and mountain ash covers your collar and wrists.  The acrid odor causes undead and night creatures to hesitate and falter when closing in."
+    ],
+    "apply_message": "You rub the pungent garlic balm across your collar and wrists.  An astringent, warding aroma envelops you.",
+    "decay_messages": [ [ "The pungent scent of garlic balm fades from your clothes.", "neutral" ] ],
+    "rating": "good",
+    "max_duration": "2 h",
+    "base_mods": { "dodge_mod": [ 1 ], "stamina_min": [ 2 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_hunters_courage",
+    "name": [ "Hunter's Steadfast Courage" ],
+    "desc": [
+      "Your nerves are steeled by Father Michael's consecrated courage draught.  Supernatural dread and psychic chill cannot shake your focus."
+    ],
+    "apply_message": "A bitter, warming fire courses through your chest.  Your hands steady and supernatural fear vanishes.",
+    "decay_messages": [ [ "The calming heat of the courage draught gradually recedes.", "neutral" ] ],
+    "rating": "good",
+    "max_duration": "3 h",
+    "base_mods": { "speed_mod": [ 5 ], "hit_mod": [ 1 ], "per_mod": [ 1 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_sanctuary_ward",
+    "name": [ "Aura of Sanctuary" ],
+    "desc": [
+      "You stand under the spiritual protection of consecrated geometry and ancient sacraments.  Your mind is guarded against unnatural corruption and psychic dread."
+    ],
+    "apply_message": "A peaceful, protective warmth hums around your spirit.",
+    "decay_messages": [ [ "The spiritual presence of the sanctuary ward fades away.", "neutral" ] ],
+    "rating": "good",
+    "max_duration": "4 h",
+    "base_mods": { "int_mod": [ 1 ], "per_mod": [ 1 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_vampire_wood_in_flesh",
+    "name": [ "Wood in Flesh" ],
+    "desc": [
+      "Splinters and fragments of wooden weapons are embedded deeply in flesh.  The organic wood acts as a cellular poison to unholy biology, severely stalling regeneration, causing intense searing pain, and slowing movement."
+    ],
+    "apply_message": "Jagged wood splinters bite into cold unliving flesh, searing like acid and stalling regeneration!",
+    "decay_messages": [ [ "The burning wooden splinters are finally expelled from the wounds.", "neutral" ] ],
+    "rating": "bad",
+    "max_duration": "120 s",
+    "base_mods": {
+      "speed_mod": [ -20 ],
+      "pain_min": [ 2 ],
+      "pain_chance": [ 3 ],
+      "pain_max_val": [ 40 ],
+      "hurt_amount": [ 2 ],
+      "hurt_min": [ 1 ],
+      "hurt_chance": [ 3 ]
+    },
+    "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": -2.0 } ] } ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_silver_burns",
+    "name": [ "Silver Burns" ],
+    "desc": [
+      "Pure silver has scorched the lupine flesh, searing like holy fire through beastly tissue.  The metal suppresses rapid cellular regeneration, causing agonizing pain and burning."
+    ],
+    "apply_message": "Searing silver burns violently into the werewolf's flesh, scorching unholy blood and halting regeneration!",
+    "decay_messages": [ [ "The silver burns slowly begin to cauterize and cool.", "neutral" ] ],
+    "rating": "bad",
+    "max_duration": "60 s",
+    "base_mods": {
+      "speed_mod": [ -20 ],
+      "pain_min": [ 3 ],
+      "pain_chance": [ 2 ],
+      "pain_max_val": [ 50 ],
+      "hurt_amount": [ 3 ],
+      "hurt_min": [ 2 ],
+      "hurt_chance": [ 2 ]
+    },
+    "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": -2.0 } ] } ],
+    "show_in_info": true
+  }
+]

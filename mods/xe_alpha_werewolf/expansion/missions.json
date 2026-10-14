@@ -1,0 +1,54 @@
+[
+  {
+    "id": "MISSION_XE_ALPHA_KILL_SIRE",
+    "type": "mission_definition",
+    "name": { "str": "The Bone Countess" },
+    "description": "Voss had a maker: Magdalena Szell, the Bone Countess.  She sent him after your pack and drank the blood he bottled from them.  Her letter says she keeps to the old chapel, and it's marked on your map.  End it.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 10,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "xe_alpha_sire_chapel",
+        "om_special": "xe_alpha_sire_chapel",
+        "reveal_radius": 2,
+        "random": false,
+        "min_distance": 8,
+        "z": 0
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_xe_alpha_countess", "x": 11, "y": 6, "target": true },
+          { "monster": "mon_vampire_moroi_fast", "x": 8, "y": 10 },
+          { "monster": "mon_vampire_moroi_fast", "x": 15, "y": 10 },
+          { "monster": "mon_renfield", "x": 9, "y": 16 },
+          { "monster": "mon_renfield", "x": 14, "y": 16 },
+          { "monster": "mon_vampire_bat", "x": 10, "y": 8 },
+          { "monster": "mon_vampire_bat", "x": 13, "y": 8 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "math": [ "u_werewolf_exp += 2000" ] },
+        { "math": [ "xe_alpha_countess_slain = 1" ] },
+        {
+          "u_add_morale": "morale_feeling_good",
+          "bonus": 60,
+          "max_bonus": 80,
+          "duration": "3 days",
+          "decay_start": "1 day"
+        },
+        {
+          "if": { "math": [ "u_werewolf_exp > u_werewolf_xp_threshold" ] },
+          "then": [ { "u_add_effect": "effect_werewolf_gain_more_powers", "duration": "PERMANENT" } ]
+        },
+        {
+          "u_message": "The Bone Countess comes apart like a rotten tapestry, and the bats scatter screaming into the night.  It's over.  Every one of them is dead.  You howl until your throat is raw.  (Werewolf experience +2000.)",
+          "popup": true
+        }
+      ]
+    }
+  }
+]

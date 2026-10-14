@@ -1,0 +1,123 @@
+[
+  {
+    "type": "mutation",
+    "id": "KLAUS_ORIGINAL_HYBRID",
+    "name": { "str": "The Original Hybrid" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "The curse is broken.  Your wolf is free, and you are what no one has ever been: an Original vampire and a werewolf at once.  Your werewolf blood means the sun can't touch you, even without a ring.  You can turn into a wolf at will, your bite is fatal to vampires, and the hybrids you sire answer when you call.",
+    "spells_learned": [ [ "klaus_spell_hybrid_bite", 1 ], [ "klaus_spell_hybrids", 1 ] ],
+    "enchantments": [
+      {
+        "ench_effects": [ { "effect": "vampire_blind_the_sun", "intensity": 1 } ],
+        "values": [
+          { "value": "STRENGTH", "add": 2 },
+          { "value": "SPEED", "add": 10 },
+          { "value": "MAX_HP", "add": 20 },
+          { "value": "MAX_MANA", "add": 300 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.15 }
+        ]
+      },
+      {
+        "condition": { "not": "is_day" },
+        "values": [ { "value": "STRENGTH", "add": 2 }, { "value": "SPEED", "add": 10 } ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_klaus_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 6 }, { "value": "NIGHT_VIS", "add": 15 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 45,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_pink",
+                "text": "You hear the faint, steady pulse of a creature here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "KLAUS_HUNTER_VETERAN",
+    "name": { "str": "Veteran Vampire Hunter" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "Years of hunting things that are faster and stronger than any human have made this hunter tougher, quicker and much harder to kill.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "MAX_HP", "add": 30 },
+          { "value": "SPEED", "add": 15 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.25 },
+          { "value": "ARMOR_ALL", "add": -3 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MIKAELSON_ORIGINAL_NPC",
+    "name": { "str": "Original Vampire" },
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "description": "One of the first vampires: far stronger, faster and tougher than any human.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "SPEED", "add": 30 },
+          { "value": "MAX_HP", "add": 60 },
+          { "value": "REGEN_HP", "multiply": 4.0 },
+          { "value": "MELEE_DAMAGE", "multiply": 0.5 },
+          { "value": "ARMOR_ALL", "add": -8 }
+        ]
+      },
+      {
+        "condition": { "u_has_effect": "effect_klaus_blood_radar" },
+        "values": [ { "value": "PERCEPTION", "add": 6 }, { "value": "NIGHT_VIS", "add": 15 } ],
+        "special_vision": [
+          {
+            "condition": { "not": { "npc_has_species": "ROBOT" } },
+            "distance": 45,
+            "precise": true,
+            "ignores_aiming_cone": true,
+            "descriptions": [
+              {
+                "id": "infrared_creature_medium",
+                "text_condition": "npc_is_character",
+                "symbol": "@",
+                "color": "c_light_red",
+                "text": "You hear a strong, rhythmic human heartbeat and smell warm arterial blood pulsing through veins here."
+              },
+              {
+                "id": "infrared_creature_small",
+                "text_condition": { "not": "npc_is_character" },
+                "symbol": "o",
+                "color": "c_pink",
+                "text": "You hear the faint, steady pulse of a creature here."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

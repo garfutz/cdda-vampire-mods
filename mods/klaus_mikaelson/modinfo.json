@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "klaus_mikaelson",
+    "name": "Klaus Mikaelson (The Original)",
+    "authors": [ "Andu" ],
+    "description": "Play as Niklaus Mikaelson before he broke the curse: the thousand-year-old Original vampire whose werewolf side is still sealed by his mother's curse, with a full curse-breaking questline that ends with the hybrid form.  Built on Xedra Evolved's vampirism.  Adds the old Mikaelson house in New Orleans, the daggered siblings you can wake, a daylight ring, the moonstone, the hidden white oak stake (the only thing that can kill an Original), and a brotherhood of vampire hunters who come for you",
+    "category": "content",
+    "dependencies": [ "dda", "xedra_evolved", "magiclysm" ]
+  }
+]

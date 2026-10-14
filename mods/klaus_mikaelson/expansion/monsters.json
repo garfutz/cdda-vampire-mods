@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mon_klaus_sac_werewolf",
+    "type": "MONSTER",
+    "copy-from": "mon_werewolf_elder",
+    "name": { "str": "chosen werewolf" },
+    "description": "A huge grey werewolf, one of the last of its pack, lured here by your compelled servants on a moonlit night.  The ritual needs a werewolf's heart to stop beating.  This is the one."
+  },
+  {
+    "id": "mon_klaus_sac_vampire",
+    "type": "MONSTER",
+    "copy-from": "mon_vampire_moroi_tough",
+    "name": { "str": "chosen vampire" },
+    "description": "A young vampire from your own bloodline, compelled to wait in this crypt until you came for it.  The ritual needs a vampire's death as well."
+  },
+  {
+    "id": "mon_klaus_sac_witch",
+    "type": "MONSTER",
+    "copy-from": "mon_renfield",
+    "looks_like": "mon_renfield",
+    "name": { "str": "coven witch" },
+    "description": "A witch of one of the old Louisiana covens, crackling with stolen fire.  She knows exactly why you've come for her, and she has no intention of making it easy.  The ritual needs a witch.",
+    "hp": 140,
+    "speed": 105,
+    "color": "light_green",
+    "extend": {
+      "special_attacks": [
+        {
+          "id": "klaus_witch_fire",
+          "type": "spell",
+          "spell_data": { "id": "burning_hands_monster", "min_level": 3 },
+          "cooldown": 8,
+          "monster_message": "%1$s hurls a fan of witchfire!"
+        }
+      ]
+    }
+  }
+]

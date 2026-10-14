@@ -1,0 +1,1654 @@
+[
+  {
+    "id": "TALK_CRIMSON_CASSIAN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "My word... An Elder Progenitor of the Old World crosses my threshold.  I recognize that ancient dynasty signet and the lunar lapis stone upon your hand.  Not since Lord Niklaus and Lord Elijah took their booth have I felt blood of such terrifying antiquity in my hall.  The Crimson Chalice is honored beyond measure, Your Grace.  What vintage may I pour for you?",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_HYBRID",
+        "yes": "Lord Niklaus.  The Original Hybrid himself graces my threshold.  The curse of a millennium is broken, and your power is unmatched.  The Crimson Chalice is honored beyond measure.  What vintage may I offer you, my lord?",
+        "no": {
+          "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+          "yes": "Lord Niklaus.  An Original Vampire graces my threshold.  The Crimson Chalice is honored beyond measure.  Your bloodline is legend across a thousand years, and the peace of this roof is yours to command.  What vintage may I offer you, my lord?",
+          "no": {
+            "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+            "yes": "Lord Elijah.  The Noble Brother.  It is a profound honor to welcome the architect of kindred civilization.  Within these walls, your code of honor is our guiding star.  What may I pour for you?",
+            "no": {
+              "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+              "yes": "Professor Abraham Van Helsing.  The Grand Inquisitor, the nightmare of the Wallachian bloodlines.  It has been nearly twenty years since your heavy boots graced my floorboards.  The world outside has drowned in ruin, yet here you stand — unbowed and armed for judgment.  Keep your silver sheathed, and you remain as honored a patron as any elder who drinks beneath my roof.  What may I pour for you?",
+              "no": "Welcome to The Crimson Chalice, traveler.  Whether your heart beats warm with life or slumbers in the cold quiet of the night, inside these walls you are a guest of the Accord.  No feeding, no stakes, no murder.  What can I get for you?"
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Tell me of the state of this territory, Cassian.",
+        "topic": "TALK_CRIMSON_CASSIAN_TERRITORY",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "How fares the peace between mortals and kindred beneath your roof?",
+        "topic": "TALK_CRIMSON_CASSIAN_PEACE",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "How has the Accord held since the Cataclysm shattered the old world?",
+        "topic": "TALK_CRIMSON_CASSIAN_ACCORD",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      {
+        "text": "Where are you sourcing blood to keep the kindred from slaughtering the living?",
+        "topic": "TALK_CRIMSON_CASSIAN_BLOOD_SUPPLY"
+      },
+      { "text": "Explain the rules of this establishment.", "topic": "TALK_CRIMSON_CASSIAN_RULES" },
+      { "text": "Let me see what you have in stock.", "topic": "TALK_CRIMSON_CASSIAN", "effect": "start_trade" },
+      {
+        "text": "Lord Cassian.  I have followed the Accord to your threshold.",
+        "topic": "TALK_CRIMSON_CASSIAN_ARRIVED",
+        "condition": { "u_has_mission": "MISSION_VAN_HELSING_FIND_BAR" }
+      },
+      {
+        "text": "Do you need any assistance replenishing your cellar?",
+        "topic": "TALK_MISSION_LIST",
+        "condition": {
+          "and": [
+            { "not": { "u_has_mission": "MISSION_CRIMSON_BLOOD_SUPPLY" } },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_blood_supply_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "About that blood supply job…",
+        "topic": "TALK_CRIMSON_CASSIAN_SUPPLY_CHECK",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_CRIMSON_BLOOD_SUPPLY" },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_blood_supply_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "Do you need any more blood supplies?",
+        "topic": "TALK_CRIMSON_CASSIAN_SUPPLY_DONE",
+        "condition": { "compare_string": [ "yes", { "u_val": "crimson_blood_supply_done" } ] }
+      },
+      { "text": "I must take my leave.  Maintain the peace, Cassian.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_ARRIVED",
+    "type": "talk_topic",
+    "dynamic_line": "And honored we are to receive you, Professor Van Helsing.  Here beneath the silver chalice, the war stops at our doors.  Rest your boots, refresh yourself, and know your presence honors our sanctuary.",
+    "responses": [
+      {
+        "text": "Thank you, Cassian.  The peace holds.",
+        "topic": "TALK_CRIMSON_CASSIAN",
+        "effect": [ { "finish_mission": "MISSION_VAN_HELSING_FIND_BAR", "success": true } ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_SUPPLY_CHECK",
+    "type": "talk_topic",
+    "dynamic_line": "Have you secured the 4 units of clean blood from a clinic or hospital for our cold storage?",
+    "responses": [
+      {
+        "text": "Here are 4 units of preserved blood for your stores.",
+        "topic": "TALK_CRIMSON_CASSIAN_SUPPLY_COMPLETE",
+        "condition": { "and": [ "mission_complete", { "u_has_item": "blood" } ] },
+        "effect": [ { "u_consume_item": "blood", "count": 4 }, { "finish_mission": "MISSION_CRIMSON_BLOOD_SUPPLY", "success": true } ]
+      },
+      { "text": "I am still searching medical facilities for clean supplies.", "topic": "TALK_CRIMSON_CASSIAN" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_SUPPLY_COMPLETE",
+    "type": "talk_topic",
+    "dynamic_line": "Remarkable work, Professor.  These clean units will keep the thirst from fraying anyone's temper.  Here is your payment in coin and vintage, as promised.",
+    "responses": [ { "text": "A pleasure doing business, Cassian.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_RULES",
+    "type": "talk_topic",
+    "dynamic_line": "The rules are etched in silver upon the threshold.  First: NO KILLING.  Hunters do not stake vampires inside; vampires do not feed upon mortal necks inside.  Second: ALL BLOOD MUST BE PAIRED FROM BOTTLES.  We serve preserved blood wine, plasma draughts, and medical donor bags from the cellar.  Third: VIOLATIONS ARE ANSWERED BY EXECUTION.  Both Father Michael and Valerius will tear apart anyone who draws steel or bares fangs in anger.  Because of this law, we remain civilized while the world rots.",
+    "responses": [ { "text": "A wise system.  Let us speak of other matters.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "Remarkably well, Professor.  When the bombs fell and the dead rose by the millions, both human hunters and vampire covens found themselves equally endangered.  Feral corpses do not care about bloodline purity or ancient holy orders.  The Chalice has become the only place left in three counties where hunters can rest without watching their backs, and where refined kindred can drink without being hunted down like feral rabble.",
+    "responses": [ { "text": "Even monsters seek refuge when the apocalypse comes.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_TERRITORY",
+    "type": "talk_topic",
+    "dynamic_line": "The surrounding lands are fractured, Lord Niklaus.  Feral strigoi swarm the old cemeteries, and mutant horrors prowl the highways.  Yet here under the Chalice's banner, vampires and werewolves drink in uneasy harmony.  None dare challenge your sovereignty should you choose to stake a claim.",
+    "responses": [ { "text": "Good to know.  Let us speak of other matters.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_PEACE",
+    "type": "talk_topic",
+    "dynamic_line": "It holds, Lord Elijah, largely inspired by your family's ancient codes.  The hunters keep their silver holstered, the vampires drink preserved donor bags, and the Crescent wolves honor our neutral ground.  To see an Original here reinforces our law more than a hundred armed enforcers ever could.",
+    "responses": [ { "text": "Honor is the bedrock of survival.  Let us speak of other matters.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_BLOOD_SUPPLY",
+    "type": "talk_topic",
+    "dynamic_line": "Before the collapse, we held extensive contracts with private clinics and donor networks.  Now, we trade supplies and ammunition to scavengers who recover refrigerated stores from abandoned hospitals and blood banks.  I also blend our vintage with fortified elderberry cordial to stretch the rations.  It keeps the thirst at bay so nobody looks at mortal necks with desperation.",
+    "responses": [ { "text": "An impressive logistical feat.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CASSIAN_SUPPLY_DONE",
+    "type": "talk_topic",
+    "dynamic_line": "Our cold storage is well-stocked for the foreseeable future thanks to you, Professor.  The patrons are sated and the Accord remains peaceful.  You have my deepest gratitude.",
+    "responses": [ { "text": "Glad to hear it, Cassian.", "topic": "TALK_CRIMSON_CASSIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Christ on a cross... Another ancient one.  First the Mikaelson brothers, and now an Elder Progenitor walking through the doors wearing a daylight ring and enough predatory poise to empty a room.  I've hunted nightwalkers for forty years, and I know when silver and stakes won't do a damn thing.  Cassian's Accord holds—just keep your fangs off the living, Elder.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Sweet merciful Christ... Niklaus Mikaelson.  The oldest monster to ever walk this earth.  I've spent forty years hunting bloodsuckers, but against you, silver and stakes are just firewood.  Cassian's Accord is the only reason my heart is still beating right now.  What do you want, Original?",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah Mikaelson.  An Original vampire standing right in front of me.  I've read about you in the Vatican archives.  Cold, formal, and deadlier than an army.  The truce holds, but don't expect an old hunter to turn his back on you.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Abraham!  By the saints and martyrs, you're alive!  When the sky turned black and the dead climbed out of their graves, I thought even you might have fallen.  It does my scarred heart good to see the Grand Inquisitor still breathing.  Pull up a chair, brother.  Even the leeches in the back corner shrink when you look their direction.",
+            "no": "Keep your hand near your holster and your ears open, stranger.  Truce or no truce, sleeping with one eye open is the only reason I've lived this long."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Be at ease, old hunter.  I am not here to turn this tavern into a slaughterhouse.",
+        "topic": "TALK_CRIMSON_GIDEON_KLAUS_EASE",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Restraint is the mark of civilized beings, Gideon.  You have my word no harm will come to you.",
+        "topic": "TALK_CRIMSON_GIDEON_ELIJAH_WORD",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      { "text": "It is good to see you, Gideon.  How go the hunts?", "topic": "TALK_CRIMSON_GIDEON_HUNTS" },
+      { "text": "Have you heard anything about our old comrades?", "topic": "TALK_CRIMSON_GIDEON_COMRADES" },
+      {
+        "text": "You look troubled, old friend.  Do you need any help?",
+        "topic": "TALK_MISSION_LIST",
+        "condition": {
+          "and": [
+            { "not": { "u_has_mission": "MISSION_CRIMSON_MISSING_HUNTER" } },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_missing_hunter_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "About your apprentice Cole…",
+        "topic": "TALK_CRIMSON_GIDEON_COLE_CHECK",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_CRIMSON_MISSING_HUNTER" },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_missing_hunter_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "How are you holding up regarding Cole?",
+        "topic": "TALK_CRIMSON_GIDEON_COLE_DONE",
+        "condition": { "compare_string": [ "yes", { "u_val": "crimson_missing_hunter_done" } ] }
+      },
+      { "text": "Stay sharp, Gideon.  Until next time.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_COLE_CHECK",
+    "type": "talk_topic",
+    "dynamic_line": "Any word on young Cole, Abraham?  Did you find his silver talisman in the ruins?",
+    "responses": [
+      {
+        "text": "I found Cole's talisman in the crypts.  He fought bravely to his final breath.  Here it is.",
+        "topic": "TALK_CRIMSON_GIDEON_COLE_COMPLETE",
+        "condition": { "and": [ "mission_complete", { "u_has_item": "item_crypt_talisman" } ] },
+        "effect": [
+          { "u_consume_item": "item_crypt_talisman", "count": 1 },
+          { "finish_mission": "MISSION_CRIMSON_MISSING_HUNTER", "success": true }
+        ]
+      },
+      { "text": "I am still scouring the ruins and crypts, Gideon.", "topic": "TALK_CRIMSON_GIDEON" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_COLE_COMPLETE",
+    "type": "talk_topic",
+    "dynamic_line": "Cole's talisman... god bless you, Abraham.  Knowing he died fighting and not as some ghoul's thrall gives me peace.  Take these bolts and this whiskey.  You've earned them tenfold.",
+    "responses": [ { "text": "May his soul rest with the saints.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_HUNTS",
+    "type": "talk_topic",
+    "dynamic_line": "The hunts are chaotic, Abraham.  Before the fall, we had rituals, safe routes, and silver supplies.  Now, the streets crawl with mutated corpses, alien bugs, and feral strigoi who have forgotten how to speak.  We kill what we find, but ammunition is scarce and reinforcements don't exist anymore.",
+    "responses": [ { "text": "We adapt or we perish.  We always have.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_COMRADES",
+    "type": "talk_topic",
+    "dynamic_line": "Most fell in the first forty-eight hours.  Father Thomas made his stand at Saint Jude's — died with an empty shotgun in his hands.  Harrow disappeared into the metro tunnels hunting a pack of ghouls.  Aside from you, me, and Michael guarding the door, there aren't many of the Old Guard left breathing.",
+    "responses": [ { "text": "Then their memory falls upon us.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_COLE_DONE",
+    "type": "talk_topic",
+    "dynamic_line": "Better, Abraham.  Knowing Cole's talisman is safe and his soul was commended to the Lord brings closure.  I've poured a dram for him at the table tonight.  Thank you again, old friend.",
+    "responses": [ { "text": "May he find peace.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_KLAUS_EASE",
+    "type": "talk_topic",
+    "dynamic_line": "Easy for you to say.  A creature who can tear through a legion of hunters with bare hands telling me to relax.  I'll respect the Accord, Klaus.  Just keep that feral temper in check.",
+    "responses": [ { "text": "Understood.  Until next time.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_GIDEON_ELIJAH_WORD",
+    "type": "talk_topic",
+    "dynamic_line": "The stories say Elijah Mikaelson never breaks his word.  In a world where everything else has turned to ash and lies, I suppose an immortal's honor is something to hold onto.  Drink in peace, my lord.",
+    "responses": [ { "text": "Thank you, Gideon.", "topic": "TALK_CRIMSON_GIDEON" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Wait... Forgive my posture, Your Grace!  From across the room I mistook you for a wanderer, and then the weight of your blood hit me like winter air.  That dynasty signet... and a lapis daylight ring as ancient as Lord Elijah's.  To stand in the presence of an Elder Progenitor in this ruined century is an overwhelming honor.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_HYBRID",
+        "yes": "Niklaus Mikaelson... the hybrid king.  You broke the ancient curse.  I have heard songs of your wrath in Florence and New Orleans.  To stand in the same room as the Original Hybrid is... intoxicating.  Please, do not mind my trembling.",
+        "no": {
+          "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+          "yes": "Niklaus Mikaelson... the Great Original.  I have heard songs of your wrath in Florence and New Orleans since I was a fledgling.  To stand in the same room as one of the First Vampires is... intoxicating.  Please, do not mind my trembling.",
+          "no": {
+            "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+            "yes": "Lord Elijah... The honorable Original.  Your reputation for elegance, loyalty, and deadly restraint is known across every coven on earth.  It is a profound privilege to share a parlor with you.",
+            "no": {
+              "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+              "yes": "Professor Van Helsing.  The legends painted you as a towering zealot surrounded by consecrated ash.  In person, you look like a tired man carrying too many graves.  Yet the cold discipline in your eyes tells me why three of my elder cousins perished by your hand in Bavaria.  Do not tense your fingers; I am here for wine and conversation, not combat.",
+              "no": "Mortal curiosity is a fragile virtue, stranger.  Be careful what you look at in the dark."
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Flattery suits you, Lady Seraphina.  Tell me of the kindred in these lands.",
+        "topic": "TALK_CRIMSON_SERAPHINA_KLAUS",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Courtesy is always appreciated, Seraphina.  How fares your coven?",
+        "topic": "TALK_CRIMSON_SERAPHINA_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "You speak with remarkable ease for a creature whose cousins I executed.",
+        "topic": "TALK_CRIMSON_SERAPHINA_COUSINS",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      { "text": "What do the elder covens think of this apocalypse?", "topic": "TALK_CRIMSON_SERAPHINA_APOCALYPSE" },
+      { "text": "Enjoy your vintage, my lady.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA_KLAUS",
+    "type": "talk_topic",
+    "dynamic_line": "The local broods are scattered and desperate, Lord Niklaus.  Most have fallen to feral madness without structured guidance.  Yet knowing an Original walks this earth... many would drop to their knees and swear fealty to your banner.",
+    "responses": [ { "text": "Power always attracts ambition.  Enjoy your vintage.", "topic": "TALK_CRIMSON_SERAPHINA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "We endure, Lord Elijah.  Those of us who cling to refined traditions find solace here at the Chalice.  Having an Original who champions honor provides an irreplaceable beacon in this dark age.",
+    "responses": [ { "text": "Maintain your standards, Seraphina.", "topic": "TALK_CRIMSON_SERAPHINA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA_COUSINS",
+    "type": "talk_topic",
+    "dynamic_line": "My cousins were gluttonous, arrogant fools who slaughtered peasants openly and invited retribution.  Vampirism is an art of patience and subtlety, Professor.  Those who behave like wild beasts deserve a hunter's stake.  Here at the Chalice, we appreciate the finer arts of survival.",
+    "responses": [ { "text": "At least we agree on the fate of wild beasts.", "topic": "TALK_CRIMSON_SERAPHINA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_SERAPHINA_APOCALYPSE",
+    "type": "talk_topic",
+    "dynamic_line": "They are terrified, though none would admit it.  A predator cannot thrive when the forest itself turns into toxic ash and rotting zombies.  We need living mortal blood to maintain our minds and vitality; when humanity dies, we starve into feral husks.  The Cataclysm is an existential crisis for us all.",
+    "responses": [ { "text": "Poetic irony.  The hunter and the hunted sharing a dying world.", "topic": "TALK_CRIMSON_SERAPHINA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JULIAN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "O-oh god... Another ancient one?!  First Lord Klaus, then Lord Elijah, and now—I can barely breathe just standing near you!  You're an Elder Progenitor!  Please, Your Grace, I swear on my life I only drink what Lord Cassian sells in plastic pouches!  Please don't snap my neck or tear my arms off!",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Y-you... you're Niklaus!  The Original Vampire!  Please don't tear my heart out, Lord Klaus!  I'm just a fledgling, I swear I follow all the rules!  I only drink what Lord Cassian sells in plastic pouches!  Please don't look at my heart!",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah... thank goodness it's you.  Even fledge-bloods like me know that an Original's word is law, and yours is unbroken.  Thank you for tolerating my presence, sir.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "P-please... don't stake me!  I know who you are!  I've seen the woodcuts in the old treatises!  I swear to God — or whatever is listening — I haven't killed anyone!  I was turned against my will two weeks ago, and I only drink what Lord Cassian sells in plastic pouches!  Please don't look at my heart!",
+            "no": "H-hello.  Please don't stand so close.  The sunlight through the window still makes my skin prickle."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Cower less, fledgling.  I don't waste my time ripping out the hearts of children unless provoked.",
+        "topic": "TALK_CRIMSON_JULIAN_KLAUS_SPARE",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Composure, young man.  Control your thirst, respect the rules, and no harm will come to you.",
+        "topic": "TALK_CRIMSON_JULIAN_ELIJAH_ADVICE",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Calm yourself, fledgling.  The Accord holds inside these walls.  I do not execute those who observe the peace.",
+        "topic": "TALK_CRIMSON_JULIAN_CALM",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      {
+        "text": "Keep your thirst under control, boy, and we won't have cause to meet outside.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_JULIAN_KLAUS_SPARE",
+    "type": "talk_topic",
+    "dynamic_line": "Y-yes, Lord Klaus!  I will stay right here in the corner and never cause any trouble!  Thank you for sparing me!",
+    "responses": [ { "text": "Drink your plasma and be quiet.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JULIAN_ELIJAH_ADVICE",
+    "type": "talk_topic",
+    "dynamic_line": "Thank you, Lord Elijah.  Your counsel means everything.  I will practice restraint every single day, just as you teach.",
+    "responses": [ { "text": "Very good, Julian.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JULIAN_CALM",
+    "type": "talk_topic",
+    "dynamic_line": "T-thank you, sir.  I'm trying... Lord Cassian has been teaching me how to control the hunger.  It's like a furnace burning behind your ribs every second of the night.  I'm staying right here until I learn how to survive.",
+    "responses": [ { "text": "Listen to Cassian, and never touch innocent blood.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Your Grace.  An Elder Progenitor in my office.  I make my living knowing every apex predator in three counties, and that dynasty signet on your finger goes back further than my oldest ledgers.  If you want rogue strigoi, inquisitor checkpoints, or highway gangs marked for slaughter, my intelligence network is yours.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Lord Niklaus.  Word travels fast when an Original steps through the doors.  If you seek bounties tracked or rogue nests pinpointed, my intelligence network is at your disposal.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah.  A distinguished patron indeed.  My intelligence network and bounty boards are at your command, my lord.",
+          "no": "Welcome to my office.  I trade secrets, rumors, and bounties.  If it stalks the night or scavenges the daylight, I know where it nests."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Do you have any bounties or contracts available?",
+        "topic": "TALK_MISSION_LIST",
+        "condition": {
+          "and": [
+            { "not": { "u_has_mission": "MISSION_CRIMSON_ROGUE_VAMPIRE" } },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_rogue_vampire_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "About that rogue strigoi bounty…",
+        "topic": "TALK_CRIMSON_MIRA_BOUNTY_CHECK",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_CRIMSON_ROGUE_VAMPIRE" },
+            { "not": { "compare_string": [ "yes", { "u_val": "crimson_rogue_vampire_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "About the Silver Hand checkpoint bounty…",
+        "topic": "TALK_CRIMSON_MIRA_SILVER_HAND_CHECK",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_CRIMSON_BOUNTY_SILVER_HAND" },
+            { "not": { "compare_string": [ "yes", { "u_val": "mira_silver_hand_done" } ] } }
+          ]
+        }
+      },
+      {
+        "text": "About the Road Reapers highway blockade…",
+        "topic": "TALK_CRIMSON_MIRA_ROAD_REAPERS_CHECK",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_CRIMSON_BOUNTY_ROAD_REAPERS" },
+            { "not": { "compare_string": [ "yes", { "u_val": "mira_road_reapers_done" } ] } }
+          ]
+        }
+      },
+      { "text": "Any new bounties on rogue monsters or highway threats?", "topic": "TALK_CRIMSON_MIRA_BOUNTY_DONE" },
+      { "text": "What is the gossip among the patrons tonight?", "topic": "TALK_CRIMSON_MIRA_GOSSIP" },
+      { "text": "Good hunting, Mira.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_BOUNTY_CHECK",
+    "type": "talk_topic",
+    "dynamic_line": "Has Malok the Rogue Strigoi been executed?",
+    "responses": [
+      {
+        "text": "Malok has been slain.  His head is severed and his corpse burned.",
+        "topic": "TALK_CRIMSON_MIRA_BOUNTY_COMPLETE",
+        "condition": "mission_complete",
+        "effect": [ { "finish_mission": "MISSION_CRIMSON_ROGUE_VAMPIRE", "success": true } ]
+      },
+      { "text": "I am still tracking the creature.", "topic": "TALK_CRIMSON_MIRA" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_SILVER_HAND_CHECK",
+    "type": "talk_topic",
+    "dynamic_line": "Have you neutralized Commander Vance and retrieved his medallion?",
+    "responses": [
+      {
+        "text": "Here is Commander Vance's silver medallion.  The checkpoint is dismantled.",
+        "topic": "TALK_CRIMSON_MIRA",
+        "condition": { "u_has_item": "item_silver_hand_badge" },
+        "effect": [
+          { "u_consume_item": "item_silver_hand_badge", "count": 1 },
+          { "finish_mission": "MISSION_CRIMSON_BOUNTY_SILVER_HAND", "success": true }
+        ]
+      },
+      { "text": "I am still hunting them.", "topic": "TALK_CRIMSON_MIRA" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_ROAD_REAPERS_CHECK",
+    "type": "talk_topic",
+    "dynamic_line": "Did you break through the Road Reapers blockade?",
+    "responses": [
+      {
+        "text": "The highwaymen are dead and their timber barricade is cleared.",
+        "topic": "TALK_CRIMSON_MIRA",
+        "condition": "mission_complete",
+        "effect": [ { "finish_mission": "MISSION_CRIMSON_BOUNTY_ROAD_REAPERS", "success": true } ]
+      },
+      { "text": "I am still dealing with them.", "topic": "TALK_CRIMSON_MIRA" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_BOUNTY_COMPLETE",
+    "type": "talk_topic",
+    "dynamic_line": "Excellent work, hunter.  Word has already spread that Malok was put down.  The trade routes will breathe easier tonight.  Here is your silver bounty.",
+    "responses": [ { "text": "Keep me informed if any other beasts break the Accord.", "topic": "TALK_CRIMSON_MIRA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_GOSSIP",
+    "type": "talk_topic",
+    "dynamic_line": "Word on the stools is that feral vampires have been digging burrows beneath the old cemetery.  Meanwhile, the Lantern Society hunters are fortifying an outpost in the western forest, and the Ashgrove vampires are desperate for fresh blood bags.  Whoever controls the blood supply controls the night.",
+    "responses": [ { "text": "Valuable knowledge.", "topic": "TALK_CRIMSON_MIRA" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MIRA_BOUNTY_DONE",
+    "type": "talk_topic",
+    "dynamic_line": "Trouble has flared up on the highways.  Rogue Silver Hand inquisitors have established unauthorized checkpoints, and Road Reaper bandits are torching vehicles on rural roads.",
+    "responses": [
+      { "text": "Show me the bounty board contracts.", "topic": "TALK_MISSION_LIST" },
+      { "text": "Understood.  Keep your ears open.", "topic": "TALK_CRIMSON_MIRA" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_ENFORCER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Your Grace.  Even Father Michael and Valerius step aside for an Elder Progenitor.  The Accord stands under your gaze.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Lord Niklaus.  Even Father Michael and Valerius step aside for an Original.  The Accord stands, my lord.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah.  An honor to stand guard in the presence of an Original.  Sanctuary is maintained.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "We see you, Grand Inquisitor.  The peace holds under these rafters.  As long as your silver stays sheathed and the kindred keep their fangs tucked, there will be no violence.  Keep walking.",
+            "no": "You are within the walls of The Crimson Chalice.  Keep your weapons holstered, your claws sheathed, and your blood to yourself.  Any violation of sanctuary will be met with immediate and total dismemberment."
+          }
+        }
+      }
+    },
+    "responses": [ { "text": "Understood.  The peace holds.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_VAMP",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "An Elder Progenitor... To share the same roof with an immortal from the first dynasties is a reverent wonder.  Your ancient presence honors our entire lineage.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Lord Niklaus!  The progenitor of kings.  To share the same roof with an Original is a dream I never imagined in the Old World.  Your presence honors our entire lineage.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah Mikaelson.  The epitome of immortal elegance and honor.  Patrons whisper with awe at your presence tonight.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Lord Van Helsing.  The legends tell of your righteous fury across the Old World.  Yet here we sit, sharing cellar vintages beneath the silver crest of the Chalice.  Do not look upon us with contempt; we abide by the Accord with far greater devotion than the mindless vermin infesting the ruins.",
+            "no": "Good evening, traveler.  Mind the laws of Lord Cassian, and neither fang nor claw shall touch you.  We come here to enjoy refined vintage in peace."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "Tell me about your presence here.", "topic": "TALK_CRIMSON_PATRON_VAMP_LINEAGE" },
+      { "text": "How do you survive without hunting living humans?", "topic": "TALK_CRIMSON_PATRON_VAMP_FEEDING" },
+      { "text": "What do you make of the world's ruin?", "topic": "TALK_CRIMSON_PATRON_VAMP_APOCALYPSE" },
+      { "text": "Enjoy your evening.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_VAMP_LINEAGE",
+    "type": "talk_topic",
+    "dynamic_line": "We are kindred of ancient blood.  Before the skies burned, we dwelled quietly among manor houses and private estates, guiding human affairs through whispers.  Now, the streets belong to twitching corpses and eldritch horrors.  The Chalice is the last bastion of civilization where we can converse as rational immortals rather than scavengers.",
+    "responses": [ { "text": "Fascinating.  Let us speak of other things.", "topic": "TALK_CRIMSON_PATRON_VAMP" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_VAMP_FEEDING",
+    "type": "talk_topic",
+    "dynamic_line": "Blood from a willing source or preserved hospital plasma is vastly superior to the panicked, diseased gore of feral corpses.  Lord Cassian's cellar vintage is fortified with herbs and elderberry wine.  It satisfies the ancient thirst completely without the vulgarity of midnight slaughter.",
+    "responses": [ { "text": "A civilized alternative.", "topic": "TALK_CRIMSON_PATRON_VAMP" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_VAMP_APOCALYPSE",
+    "type": "talk_topic",
+    "dynamic_line": "A tragedy of unmatched proportion.  Without living humanity, the world becomes an empty tomb of rot.  Those foolish vampires who celebrated the fall of human cities quickly discovered that feral zombies do not bleed warm red wine.  We need mortal life to endure, which is why the Accord is more precious today than ever.",
+    "responses": [ { "text": "Indeed.  A mutual need for survival.", "topic": "TALK_CRIMSON_PATRON_VAMP" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Sweet mercy... look at that posture.  I don't know which ancient dynasty you crawled out of, but every instinct in my gut is screaming not to make a sound.  I'm keeping my silver put away and minding my own drink.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Holy hell... is that Niklaus Mikaelson?  Don't make eye contact, man.  Just keep drinking and pray he's not in the mood to tear the place apart.  The Accord is the only thing keeping us in one piece.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah... never thought I'd see an Original vampire in the flesh.  As long as he keeps to his code of honor, I'm keeping my silver in my pocket.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Holy Mother of God... Grand Inquisitor Van Helsing!  I've heard stories of your hunts since I was an altar boy!  Seeing you alive in this godforsaken apocalypse is like seeing a saint descend from heaven.  Grab a stool, sir!  First round of whiskey is on me.",
+            "no": "Pull up a stool, stranger.  Keep your blade sheathed and your ears open.  Out there is hell on earth, but in here, we drink in peace."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "How do you manage to drink alongside vampires?", "topic": "TALK_CRIMSON_PATRON_HUNTER_ACCORD" },
+      { "text": "What have you encountered out in the wasteland?", "topic": "TALK_CRIMSON_PATRON_HUNTER_RUINS" },
+      { "text": "Keep your guard up, hunter.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_HUNTER_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "Pragmatism, pure and simple.  Outside, you've got five-ton mutant brutes, acid-spitting horrors, and endless hordes of undead that don't care whether you're human or kindred.  The vampires here aren't feral animals — they drink from bottles and mind their manners.  And between Father Michael's shotgun and Valerius's bare claws, anyone stupid enough to start trouble gets turned into fertilizer in five seconds.",
+    "responses": [ { "text": "Sound judgment.", "topic": "TALK_CRIMSON_PATRON_HUNTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_PATRON_HUNTER_RUINS",
+    "type": "talk_topic",
+    "dynamic_line": "It's ugly out there.  Feral vampires who didn't join the Accord went mad from starving — they hunt in packs near the cemetery like rabid wolves.  Mutated beasts stalk the highways, and the military outposts are all overrun.  If you're heading back into the field, load heavy silver and never travel after sundown without magnesium flares.",
+    "responses": [ { "text": "Good counsel, Silas.", "topic": "TALK_CRIMSON_PATRON_HUNTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Halt... wait, no.  Pass right on through, Your Grace.  Cassian warned us an ancient Elder Progenitor was walking these roads.  Sanctuary is guaranteed.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Good lord... Lord Niklaus.  The Original Vampire himself.  Pass right on through, sir.  No one's looking for a fight with an Original.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Welcome, Lord Elijah.  Cassian told us to expect distinguished guests.  Peace holds on the steps.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Professor Van Helsing!  It's an honor to stand perimeter for you, sir.  We keep the roadway swept out here — anything with rotting flesh or dripping venom gets a 12-gauge slug between the eyes before it reaches the steps.  Welcome to The Crimson Chalice.",
+            "no": "Hold up there, traveler.  This is The Crimson Chalice.  Keep your iron slung and your claws tucked.  The Accord applies to the steps just as much as the counter.  Follow the rules and you'll find shelter and drink inside."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "What have you spotted along the perimeter roads lately?",
+        "topic": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER_ROADS"
+      },
+      {
+        "text": "How do you coordinate defense with the vampire sentinels?",
+        "topic": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER_VAMPS"
+      },
+      { "text": "Carry on, sentry.  Keep a sharp eye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER_ROADS",
+    "type": "talk_topic",
+    "dynamic_line": "Stray zombie wanderers mostly, but feral strigoi try testing our perimeter every few nights.  They smell the blood supplies Lord Cassian keeps in the cellar.  A couple rounds of buckshot usually convinces them to scurry back into the tree line.",
+    "responses": [ { "text": "Good to know.  Stay alert.", "topic": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER_VAMPS",
+    "type": "talk_topic",
+    "dynamic_line": "Surprisingly well.  Lucien over there in the shadows can hear an owl blink a quarter-mile off, and he moves faster than a bullet.  He spots ambushes in the brush, and I lay down fire with the shotgun.  When the world's gone to hell, you don't argue with an ally who watches your blind side.",
+    "responses": [ { "text": "Practical cooperation.  Commendable.", "topic": "TALK_CRIMSON_OUTSIDE_GUARD_HUNTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Elder Progenitor!  We bow our heads to the ancient dynasty.  The perimeter of the Chalice is guarded with our lives.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Lord Niklaus!  Progenitor of our kind.  It is an honor to guard the threshold for an Original.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah Mikaelson.  We honor your presence beneath the crest of the Chalice.  The perimeter is secure.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Lord Van Helsing.  Even standing in the shadows of the eaves, I can feel the righteous aura radiating from your silver.  Fear not; my gaze is fixed upon the ruined tree line, not you.  Under Lord Cassian's Accord, we defend this sanctuary together.",
+            "no": "Step lightly, wanderer.  Behind me lies neutral ground.  Whether mortal or nightwalker, respect the Accord of Sanctuary, or my blade will answer before you cross the threshold."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "How do you manage perimeter watch during the daylight?", "topic": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP_DAY" },
+      {
+        "text": "What manner of creatures try approaching the sanctuary?",
+        "topic": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP_PREY"
+      },
+      { "text": "Stand vigilant, kindred.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP_DAY",
+    "type": "talk_topic",
+    "dynamic_line": "Heavy trenchcoat, tinted glass, and the deep overhang of the tavern roof.  The sun is unpleasant, but our elder bloodlines endure the ambient light when duty calls.  Once dusk settles, the night is entirely ours.",
+    "responses": [ { "text": "Impressive discipline.", "topic": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP_PREY",
+    "type": "talk_topic",
+    "dynamic_line": "Starving feral strigoi who have lost all nobility to madness.  They abandon the covenants and attack blindly.  We grant them no mercy; any beast that breaks the peace is decapitated without hesitation.",
+    "responses": [ { "text": "The proper fate for beasts.", "topic": "TALK_CRIMSON_OUTSIDE_GUARD_VAMP" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_RIDER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Whoa... you move without even making a sound on the gravel.  Welcome to the Chalice, stranger.  Bike's cooling down if you need news from the outer roads.",
+      "no": {
+        "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+        "yes": "Holy smoke... Professor Van Helsing!  The road riders whispered you were roaming these counties!  It's an honor, sir.  If you ever need scouting reports on which interstate bridges are collapsed or where the military roadblocks are, I'm your courier.",
+        "no": "Hey there, stranger.  Just letting the engine cool and checking the drive chain.  Not many running bikes left in this county."
+      }
+    },
+    "responses": [
+      {
+        "text": "Fine machine you've got parked here.  How do you keep it fueled?",
+        "topic": "TALK_CRIMSON_OUTSIDE_RIDER_BIKE"
+      },
+      {
+        "text": "What do the highways look like between here and the outer towns?",
+        "topic": "TALK_CRIMSON_OUTSIDE_RIDER_HIGHWAYS"
+      },
+      { "text": "Ride carefully out there.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_RIDER_BIKE",
+    "type": "talk_topic",
+    "dynamic_line": "Siphon gas from abandoned service stations and trade silver with scavengers.  A motorcycle is the only way to travel now — you can weave right through abandoned car pileups that would trap a truck in seconds.",
+    "responses": [ { "text": "Sound strategy for a ruined world.", "topic": "TALK_CRIMSON_OUTSIDE_RIDER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_RIDER_HIGHWAYS",
+    "type": "talk_topic",
+    "dynamic_line": "Treacherous as hell.  Abandoned convoys, craters, and wandering packs of mutants.  Never stop on an open highway at night — if you hear screeching or wingbeats, you throttle out and don't look back.",
+    "responses": [ { "text": "Good counsel.", "topic": "TALK_CRIMSON_OUTSIDE_RIDER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_SMOKER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Evening, sir.  The air gets quiet and heavy around someone of your caliber.  Take all the time you need under these eaves.",
+      "no": {
+        "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+        "yes": "Professor.  Quite something, isn't it?  A legendary inquisitor sharing pavement with vampires and bikers.  World might be dying, but at least we've got tobacco and good company.  Take care on the road.",
+        "no": "Evening, friend.  Just burning a cigarette and catching some fresh air.  Gets heavy inside when the kindred start philosophizing."
+      }
+    },
+    "responses": [
+      { "text": "How long have you been frequenting the Chalice?", "topic": "TALK_CRIMSON_OUTSIDE_SMOKER_TIME" },
+      { "text": "Enjoy your smoke.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_OUTSIDE_SMOKER_TIME",
+    "type": "talk_topic",
+    "dynamic_line": "Since my squad got scattered three weeks back.  Lord Cassian took us in, let us sleep in the back, and traded us clean bandages.  Best sanctuary in the apocalypse, far as I'm concerned.",
+    "responses": [ { "text": "Glad to hear it.", "topic": "TALK_CRIMSON_OUTSIDE_SMOKER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_QUARTERMASTER",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "An Elder Progenitor walks into my post.  A thousand years of empires and bloodshed, and yet here you stand.  I am Balthazar Thorne.  The finest silver, antiquities, and preserved blood are at your command, Your Grace.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Lord Niklaus!  An Original in my humble trading post.  A thousand years of conquests and you still seek fine steel and antiquities.  Everything I possess is at your disposal, my lord.  What do you require?",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah.  An immortal of unparalleled taste and distinction.  It is a rare privilege to supply an Original of your stature.  How may I serve you today?",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Greetings, Grand Inquisitor.  I am Balthazar Thorne.  For over a century, I have managed the logistics of the Accord of Sanctuary.  I deal neither in zealotry nor in feral bloodlust — I deal in steel, silver, and sustenance.  Whether you seek consecrated crossbow bolts to dispatch rogue beasts, or rare kindred antiquities, my stock is at your service.  What do you require?",
+            "no": "Welcome to my counter, friend.  I am Balthazar Thorne, purveyor of armaments and sustenance under the Accord.  I supply mortal hunters and noble kindred alike.  State your business."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "Show me what you have for trade.", "topic": "TALK_CRIMSON_QUARTERMASTER", "effect": "start_trade" },
+      {
+        "text": "How is it that you trade both hunter weapons and vampire relics?",
+        "topic": "TALK_CRIMSON_QUARTERMASTER_PHILOSOPHY"
+      },
+      {
+        "text": "Tell me about those lapis daylight rings you carry.",
+        "topic": "TALK_CRIMSON_QUARTERMASTER_DAYLIGHT_RINGS"
+      },
+      {
+        "text": "Where do you obtain vacuum-sealed plasma pouches in this ruined world?",
+        "topic": "TALK_CRIMSON_QUARTERMASTER_PLASMA"
+      },
+      { "text": "I have what I need for now, Balthazar.  Farewell.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_QUARTERMASTER_PHILOSOPHY",
+    "type": "talk_topic",
+    "dynamic_line": "The Accord functions only because neither side is driven to desperate madness.  If kindred starve, their reason dissolves and they slaughter the living like rabid beasts.  If hunters lack silver and stakes, they live in paranoid terror and attack without warning.  By ensuring kindred have blood wine and hunters have silver ammunition, I preserve civilization in miniature.  Commerce, Professor, is the true guardian of the peace.",
+    "responses": [ { "text": "A pragmatic view of peace.", "topic": "TALK_CRIMSON_QUARTERMASTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_QUARTERMASTER_DAYLIGHT_RINGS",
+    "type": "talk_topic",
+    "dynamic_line": "Exquisite craft, are they not?  Forged from antique sterling silver and set with lapis lazuli consecrated under lunar eclipses.  The warding runes disperse the dimensional destabilization that causes kindred flesh to combust beneath solar rays.  They are rare, precious, and fiercely guarded by kindred nobility who wish to walk beneath the open sky without turning to ash.",
+    "responses": [ { "text": "Remarkable sorcery.", "topic": "TALK_CRIMSON_QUARTERMASTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_QUARTERMASTER_PLASMA",
+    "type": "talk_topic",
+    "dynamic_line": "Before the cataclysm, we maintained ties with regional blood banks, private clinics, and cold-storage couriers.  Now, our scavengers recover insulated medical vaults from military hospitals and research centers.  Treated with sorcerous stabilization and anti-coagulants, it remains pure and potent indefinitely.",
+    "responses": [ { "text": "Impressive trade logistics.", "topic": "TALK_CRIMSON_QUARTERMASTER" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Well, well.  An Elder Progenitor of the Old World dynasties.  I thought my family and I were the only apex predators left who knew how to appreciate aged bourbon while the world falls to pieces.  Pull up a chair, kindred.  Let us watch the mortal ruins burn together.",
+      "no": {
+        "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+        "yes": "Elijah!  The noble brother arrives right on schedule.  Still adjusting your cuffs and preaching restraint while the world burns to ash around us?  Have a drink, brother.  You look like you're carrying the weight of the entire apocalypse on your shoulders.",
+        "no": {
+          "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+          "yes": "Well, well.  The great monster hunter in the flesh.  I've buried whole dynasties of zealots carrying crossbows and silver stakes like yours across Europe, Professor.  Yet you sit in a vampire bar drinking tea.  Has the apocalypse softened your iron heart, or are you simply being practical?",
+          "no": "Careful where you step, mortal.  I've lived a thousand years, slaughtered kings, and outlived every hunter who ever spoke my name.  Drink your drink and keep your distance."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Niklaus.  I trust you haven't slaughtered anyone under Cassian's roof.",
+        "topic": "TALK_CRIMSON_KLAUS_BROTHER_BEHAVE",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Our vow remains, Niklaus.  'Always and Forever'.  Even in this broken world.",
+        "topic": "TALK_CRIMSON_KLAUS_BROTHER_VOW",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "I see you've made yourself comfortable here.",
+        "topic": "TALK_CRIMSON_KLAUS_BROTHER_COMFORT",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "The Accord holds inside these walls, Niklaus.  I hunt rabid monsters who prey on the helpless, not those who observe the peace.",
+        "topic": "TALK_CRIMSON_KLAUS_ACCORD",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      { "text": "Tell me of your past.  A thousand years is an eternity.", "topic": "TALK_CRIMSON_KLAUS_HISTORY" },
+      { "text": "Why can an Original only die by White Oak?", "topic": "TALK_CRIMSON_KLAUS_WHITE_OAK" },
+      {
+        "text": "Have you ever heard of the Sleeper and the witch's cure for immortality?",
+        "topic": "TALK_CRIMSON_KLAUS_CURE"
+      },
+      {
+        "text": "An Original vampire in a roadside tavern.  What brings you here?",
+        "topic": "TALK_CRIMSON_KLAUS_SANCTUARY"
+      },
+      { "text": "Tell me about your daylight ring.", "topic": "TALK_CRIMSON_KLAUS_RING" },
+      { "text": "Is there anything in these ruins worthy of a hunt?", "topic": "TALK_MISSION_LIST" },
+      { "text": "I'll leave you to your drink.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "Practicality over ideology.  I can appreciate that, Professor.  When the dead rise by the thousands, it pays to keep your weapons aimed at the real threat.  Rest your boots; I have no quarrel with you tonight.",
+    "responses": [ { "text": "A sensible arrangement.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_HISTORY",
+    "type": "talk_topic",
+    "dynamic_line": "A thousand years of war, passion, betrayal, and glory.  My family built empires and watched them turn to dust.  We outlasted Rome, the Dark Ages, and modern humanity.  This cataclysm is merely another chapter in our eternity.",
+    "responses": [ { "text": "An endless saga.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_WHITE_OAK",
+    "type": "talk_topic",
+    "dynamic_line": "The white oak tree from mystic Scandinavia gave us immortality, and so nature decreed it was the only wood capable of taking it away.  I burned the tree a millennium ago.  Any sliver that remains is the rarest relic on earth — and woe to whoever dares wield it against me.",
+    "responses": [ { "text": "A formidable truth.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_SANCTUARY",
+    "type": "talk_topic",
+    "dynamic_line": "A tavern where blood wine flows, wolves keep their claws sheathed, and hunters drink without fear?  It's fascinating.  Even an apex predator enjoys good bourbon and a quiet corner now and then.",
+    "responses": [ { "text": "Enjoy your solitude.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_RING",
+    "type": "talk_topic",
+    "dynamic_line": "Enchanted lapis lazuli, forged by Esther herself.  Without it, the sun would burn an Original down to bone in moments.  It allows us to walk among mortals as gods among men.",
+    "responses": [ { "text": "A priceless heirloom.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_CURE",
+    "type": "talk_topic",
+    "dynamic_line": "The Cure?  A fairy tale whispered by Silas and ancient Roman covens.  A solitary vial capable of stripping away godhood and turning an apex predator into a frail, bleeding mortal.  If anyone ever brought that abomination anywhere near me, I would rip their throat out and pour the vial into the deepest magma fissure on earth.  Never speak of it again.",
+    "responses": [ { "text": "A terrifying prospect for an immortal king.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_BROTHER_BEHAVE",
+    "type": "talk_topic",
+    "dynamic_line": "Not a soul, Elijah!  Cassian keeps the bourbon aged and the company entertaining.  I've been on my best behavior.  Though I must admit, watching the fledgling Julian quiver in his boots whenever I look his way is delightful sport.",
+    "responses": [ { "text": "Do not torment the patrons, Niklaus.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_BROTHER_VOW",
+    "type": "talk_topic",
+    "dynamic_line": "Always and Forever, Elijah.  A thousand years of blood and fury, and yet here we sit.  Nothing in this rotting wasteland — neither mutant beasts nor eldritch gods — can break what we are.",
+    "responses": [ { "text": "Indeed, brother.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_KLAUS_BROTHER_COMFORT",
+    "type": "talk_topic",
+    "dynamic_line": "Why shouldn't I?  The mortal world has collapsed into madness, but here we have fine vintage, a decent hearth, and an appreciative audience.  Take a seat, Elijah.  Let the world burn itself out while we enjoy the fire.",
+    "responses": [ { "text": "Only you would find serenity in the apocalypse.", "topic": "TALK_CRIMSON_KLAUS" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "An Elder Progenitor... It is an extraordinary privilege to meet another creature of antiquity who carries themselves with supreme dignity.  My name is Elijah Mikaelson.  I trust you find Lord Cassian's sanctuary agreeable.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Niklaus.  I see you've found your way to the Chalice.  Still carrying the weight of a thousand years and a thirst for conquest, I presume.  Our family's vow of 'Always and Forever' binds us even through the end of the world.  Pour yourself a bourbon and sit down, brother.",
+        "no": {
+          "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+          "yes": "Professor Van Helsing.  An honor to make your acquaintance.  Your reputation as a defender of humanity precedes you, even into the annals of my family.  I assure you, so long as the sanctuary of this roof remains unbroken, you have nothing to fear from me or my brother.",
+          "no": "Good evening.  A rare place of civility amidst a world of grotesque ruin, wouldn't you agree?"
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Always and Forever, Elijah.  How do you find this quaint little sanctuary?",
+        "topic": "TALK_CRIMSON_ELIJAH_BROTHER_SANCTUARY",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Have you heard any news of our siblings or enemies in this ruined world?",
+        "topic": "TALK_CRIMSON_ELIJAH_BROTHER_SIBLINGS",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Relax, brother.  For once, I am not here to start a war.",
+        "topic": "TALK_CRIMSON_ELIJAH_BROTHER_PEACE",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "You carry yourself with uncommon nobility for a predator of the night.",
+        "topic": "TALK_CRIMSON_ELIJAH_PHILOSOPHY"
+      },
+      { "text": "What lies behind 'The Red Door' in your mind?", "topic": "TALK_CRIMSON_ELIJAH_RED_DOOR" },
+      {
+        "text": "How did the White Oak become your family's only vulnerability?",
+        "topic": "TALK_CRIMSON_ELIJAH_WHITE_OAK"
+      },
+      { "text": "What are your thoughts on the ancient Cure of the Sleeper?", "topic": "TALK_CRIMSON_ELIJAH_CURE" },
+      { "text": "What is your perspective on the Accord of Sanctuary?", "topic": "TALK_CRIMSON_ELIJAH_ACCORD" },
+      { "text": "Do you require the services of a hunter bound by honor?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Good evening, Elijah.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_PHILOSOPHY",
+    "type": "talk_topic",
+    "dynamic_line": "Power without control is mere butchery, Professor.  Over a thousand years, I have seen monarchs, conquerors, and monsters crumble under the weight of their own barbarism.  A creature endowed with eternity must cultivate restraint, etiquette, and unwavering honor; otherwise, we are nothing more than beasts in immaculate tailoring.",
+    "responses": [ { "text": "A rare philosophy among apex predators.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_RED_DOOR",
+    "type": "talk_topic",
+    "dynamic_line": "Behind the Red Door lies the reality of what a thousand years of hunger truly looks like.  Every atrocity, every broken vow, every room filled with blood and the screaming echoes of those I could not spare.  My mother built it into my mind so I could walk among mortals with a pristine collar and polished cufflinks.  Do not ask me to unlock it, Professor.  Even the cataclysm outside is gentle compared to what paces behind that threshold.",
+    "responses": [ { "text": "I understand, Elijah.  Some doors are sealed for good reason.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_WHITE_OAK",
+    "type": "talk_topic",
+    "dynamic_line": "The White Oak was the source of life that our mother Esther drew upon to grant us eternity in mystic Scandinavia.  Nature is an uncompromising ledger: the very tree that gave us immortality was bound by cosmic balance as the solitary substance capable of revoking it.  Niklaus burned the ancient tree to ashes, yet slivers and saplings endure across the centuries — and into this broken new world.",
+    "responses": [ { "text": "Nature always balances the scale.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "The Accord of Sanctuary is the only reason this tavern remains standing.  In this room, ancient predators and mortal hunters break bread under an oath of total truce.  I have pledged my own word of honor to uphold Lord Cassian's neutrality.  Whoever draws steel or fangs in defiance of the Accord answers directly to me.",
+    "responses": [ { "text": "An honorable sanctuary indeed.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_CURE",
+    "type": "talk_topic",
+    "dynamic_line": "The cure forged by Maren for the immortal Sleeper... For centuries, scholars debated whether it was myth or terrifying reality.  To a creature weary of endless centuries and steeped in centuries of remorse, it represents the ultimate peace: a mortal life, an aging body, and a natural death.  Yet in the wrong hands, it is the ultimate weapon against our kind.  Handle such power with profound reverence, Professor.",
+    "responses": [ { "text": "Wisdom as always, Elijah.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_BROTHER_SANCTUARY",
+    "type": "talk_topic",
+    "dynamic_line": "It is surprisingly dignified, Niklaus.  Lord Cassian has managed to forge a truce where even zealots like Van Helsing and lycanthropes break bread without drawing blood.  I find it... refreshing.  A reminder of what civilization can be, even after the fall of man.",
+    "responses": [ { "text": "A fragile illusion, Elijah, but pleasant nonetheless.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_BROTHER_SIBLINGS",
+    "type": "talk_topic",
+    "dynamic_line": "Rebekah remains safe in the European continent, and Kol is doing whatever Kol does when the world ends — likely causing chaos in the south.  We two are the anchor here, Niklaus.  Ensure our family's reputation remains untarnished.",
+    "responses": [ { "text": "Family above all, brother.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_ELIJAH_BROTHER_PEACE",
+    "type": "talk_topic",
+    "dynamic_line": "Forgive me if I remain skeptical, Niklaus.  The last ten times you claimed not to start a war, three cities were razed to the ground.  But if you truly intend to enjoy a peaceful drink with your brother, I shall gladly welcome it.",
+    "responses": [ { "text": "Then let us drink to survival.", "topic": "TALK_CRIMSON_ELIJAH" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "You... you carry an ancient stillness I've only ever felt around Klaus and Elijah.  Yet there is no madness in your eyes—only ancient authority.  I'm Stefan.  I keep to animal blood and donor pouches here.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Klaus... I didn't think I'd see you in this wasteland.  The last time we shared a drink like this, it was 1922 in Chicago, and you had me drowning in human blood.  I've spent a century fighting to keep the Ripper caged.  Please tell me you didn't come here to pull me back into the dark.",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Elijah.  Good to see you.  Out of everyone in your family, you're the one who always kept things sane.  Seeing you here gives me hope that some semblance of order can survive this apocalypse.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Professor.  I know who you are.  And honestly... if I ever lose control of what I am again, I'd rather it be someone like you who ends it.  Until then, I keep the beast locked down.  Donor plasma, animal blood, coffee.  No innocent lives taken.",
+            "no": "Hey.  If you're looking for trouble, look elsewhere.  I'm just trying to keep my head down and stay human."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Relax, Stefan.  Chicago was a long time ago.  Today, I'm simply enjoying the spectacle of this ruined world.",
+        "topic": "TALK_CRIMSON_STEFAN_KLAUS_CHICAGO",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Stefan.  It is good to see you maintaining your dignity and restraint in such trying times.",
+        "topic": "TALK_CRIMSON_STEFAN_ELIJAH_RESTRAINT",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      { "text": "How do you manage the hunger without taking human prey?", "topic": "TALK_CRIMSON_STEFAN_DISCIPLINE" },
+      {
+        "text": "What do you think of Niklaus and Elijah sitting across the parlor?",
+        "topic": "TALK_CRIMSON_STEFAN_ORIGINALS",
+        "condition": {
+          "and": [ { "not": { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" } }, { "not": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" } } ]
+        }
+      },
+      { "text": "Tell me about your journal and the ring on your hand.", "topic": "TALK_CRIMSON_STEFAN_LORE" },
+      {
+        "text": "Stefan, I recovered the ancient Cure of the Sleeper.  It can make you mortal again.",
+        "topic": "TALK_CRIMSON_STEFAN_GIVE_CURE",
+        "condition": { "u_has_item": "sleeper_cure" }
+      },
+      { "text": "Do you need any assistance staying fed and grounded?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Stay true to that discipline, Stefan.  Farewell.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_KLAUS_CHICAGO",
+    "type": "talk_topic",
+    "dynamic_line": "With you, Klaus, nothing is ever just 'a spectacle.'  There's always a scheme, a dagger, or your obsession with breaking your mother's curse.  Just... leave me out of it.  I'm sticking to donor pouches and keeping my humanity intact.",
+    "responses": [ { "text": "Suit yourself, Stefan.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_ELIJAH_RESTRAINT",
+    "type": "talk_topic",
+    "dynamic_line": "Thanks, Elijah.  It's harder now with the world burning down and death everywhere, but your example always reminded me that immortality doesn't have to mean becoming a monster.",
+    "responses": [ { "text": "Never lose that resolve, Stefan.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_DISCIPLINE",
+    "type": "talk_topic",
+    "dynamic_line": "Every single day is a battle of wills.  The hunger never truly goes away; it's a constant rasp in your ears, whispers urging you to tear someone apart.  For over a century I hunted deer and rabbits in the Virginia woods to survive without killing people.  It leaves me weaker than other vampires — I can't jump as high, I hit with half their force — but it leaves my conscience intact.  That's a trade I will make every single night.",
+    "responses": [ { "text": "That restraint takes immense strength.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_ORIGINALS",
+    "type": "talk_topic",
+    "dynamic_line": "Klaus and Elijah... seeing them here makes the hairs on my neck stand straight up.  Back in the twenties, Klaus tore through Chicago with me when my humanity was off.  They're a millennium old; they've survived whole empires burning down.  Klaus is unpredictable, paranoid, and violently brilliant.  Elijah is honorable to a fault, but cross his family and you won't survive thirty seconds.  Best to keep things civil and keep your hands off your holsters.",
+    "responses": [ { "text": "Sound judgment.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_LORE",
+    "type": "talk_topic",
+    "dynamic_line": "The ring is lapis lazuli, enchanted by an ancient Bennett witch in 1864.  Without it, sunlight would incinerate my flesh in seconds.  And the diary... writing keeps me grounded.  When you've lived across centuries, you forget faces, dates, and what it felt like to be a boy in Mystic Falls.  If you ever lose your memories, you lose what's left of your humanity.",
+    "responses": [ { "text": "Never lose that connection to who you were.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_GIVE_CURE",
+    "type": "talk_topic",
+    "dynamic_line": "The Cure... I can feel the warmth emanating from that small clay phial.  A chance to feel the sun with my own bare skin, to grow old, to never fear the Ripper tearing through an innocent throat again... Professor, you are offering me the greatest gift anyone has ever given me.  Are you truly certain you want to part with it?",
+    "responses": [
+      {
+        "text": "Yes, Stefan.  You've fought a hundred and seventy years for your humanity.  Drink it and be free.",
+        "topic": "TALK_CRIMSON_STEFAN_CURE_ACCEPTED",
+        "effect": [
+          { "u_consume_item": "sleeper_cure" },
+          { "u_spawn_item": "coin_silver", "count": 100 },
+          { "u_add_var": "stefan_cured_of_vampirism", "value": "yes" }
+        ]
+      },
+      { "text": "Let me hold onto it for now, Stefan.  There may be other uses.", "topic": "TALK_CRIMSON_STEFAN" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_STEFAN_CURE_ACCEPTED",
+    "type": "talk_topic",
+    "dynamic_line": "Stefan unseals the wax and swallows the elixir without hesitation.  Color instantly rushes to his cheeks, his breathing turns warm, and a slow, genuine smile spreads across his face.  'My heartbeat... I can hear my own heartbeat again.  The hunger... the noise in my head... it's gone.  I'm human again.  Professor, take all the silver I have.  I will never forget this as long as I live.'",
+    "responses": [ { "text": "Live a good mortal life, Stefan.", "topic": "TALK_CRIMSON_STEFAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JESSE",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "Man... the air temperature dropped ten degrees the second you stepped over the threshold.  Dad's notes talked about primordial beings from before recorded history.  I'm not looking for any fight, sir.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+        "yes": "Whoa... hold on.  I've read about you in Dad's journals.  Niklaus Mikaelson.  The Original Vampire.  Dad wrote that you're basically an unkillable force of nature.  Cassian's truce is the only reason I haven't bolted for the exit.  What brings you here?",
+        "no": {
+          "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+          "yes": "Lord Elijah Mikaelson... Dad's notes called you 'the honorable Original.'  Said if anyone in your family could be reasoned with, it was you.  I'll respect the bar's rules, sir.",
+          "no": {
+            "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+            "yes": "Well look who rolled in — Professor Van Helsing himself!  Dad had your journals bookmarked in the glove box of the Impala.  Said you were the real deal when it came to silver, stakes, and monster lore.  Grab a stool; first beer is on me.",
+            "no": "Hey there.  Just catching my breath and checking shotgun shells.  You don't look like the usual tavern regular."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "Who are you, and what brings you to the Crimson Chalice?", "topic": "TALK_CRIMSON_JESSE_WHO" },
+      { "text": "Tell me about your father and his hunting journal.", "topic": "TALK_CRIMSON_JESSE_JOURNAL" },
+      { "text": "What weapons and munitions do you swear by?", "topic": "TALK_CRIMSON_JESSE_GEAR" },
+      { "text": "Do you have any open contracts from your father's journal?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Keep your powder dry, Jesse.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_JESSE_WHO",
+    "type": "talk_topic",
+    "dynamic_line": "Name's Jesse Walker.  Grew up in motels and the backseat of an old black muscle car.  While other kids were learning little league, my dad John was teaching me and my brother how to clean a twelve-gauge, pour salt lines across doorways, and spot a shapeshifter in a diner.  Now the whole world went to hell, Dad disappeared on a hunt, and I'm finishing the jobs he left open.",
+    "responses": [ { "text": "A hunter's life is rarely easy.", "topic": "TALK_CRIMSON_JESSE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JESSE_JOURNAL",
+    "type": "talk_topic",
+    "dynamic_line": "Dad carried a fat leather-bound notebook crammed with thirty years of field notes: sigils, banishment rituals, monster weaknesses, and unresolved incident reports across half the country.  Three jobs in particular were left unfinished right before he vanished: a ghoul nest in a hollow barn, a spider brood in an old mine, and a nightmare he called the Pale Stalker out in the pine woods.",
+    "responses": [ { "text": "We can see those contracts settled together.", "topic": "TALK_CRIMSON_JESSE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JESSE_GEAR",
+    "type": "talk_topic",
+    "dynamic_line": "Twelve-gauge pump shotgun, rock salt hand-loads for spirits and ghouls, heavy double-ought buckshot for flesh and bone, and a fighting knife with genuine silver inlay hammered along the edge.  Simple, rugged, and reliable.  When you're face-to-face with a toothy horror in a pitch-black basement, fancy gadgets jam; rock salt and silver never fail.",
+    "responses": [ { "text": "Practical advice from a seasoned hunter.", "topic": "TALK_CRIMSON_JESSE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "An Elder Progenitor... The Crescent pack can smell the millennium of ancient dominance in your veins.  We respect ancient power, sir.  Under Lord Cassian's Accord, pack and Progenitor drink in peace.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_HYBRID",
+        "yes": "Niklaus Mikaelson.  You broke the curse... the first hybrid.  Half vampire, half wolf.  I respect power, Klaus, and you are power incarnate.  Inside these walls, pack and hybrid drink under the same truce.  Let us keep the peace.",
+        "no": {
+          "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+          "yes": "Niklaus Mikaelson.  The Original.  Born of a werewolf father, yet bound in chains by your mother's curse a thousand years ago.  I know you seek the moonstone to unleash your beast, Klaus, but inside these walls, pack and Original drink under the same truce.  Let us keep the peace.",
+          "no": {
+            "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+            "yes": "Lord Elijah.  A vampire who values honor and diplomacy above bloodshed.  The Crescent pack has clashed with many of your kind across the centuries, but we have always respected a man who keeps his word.",
+            "no": {
+              "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION",
+              "yes": "Van Helsing.  The Grand Inquisitor walks among the wolves.  I can scent the gunpowder, silver shavings, and centuries of dried blood on your coat.  Even here beneath Cassian's Accord, the hair on my neck stands up.  Speak, hunter.",
+              "no": "You smell of cold steel and vigilance, stranger.  State your business before the pack takes interest."
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "You speak well for an Alpha, Lucian.  The Crescent pack has nothing to fear from me so long as you remain loyal to our shared heritage.",
+        "topic": "TALK_CRIMSON_LUCIAN_KLAUS_RESPECT",
+        "condition": { "u_has_trait": "KLAUS_ORIGINAL_HYBRID" }
+      },
+      {
+        "text": "The moonstone will be mine soon enough, Lucian.  Until then, the Crescent pack has nothing to fear from me under this roof.",
+        "topic": "TALK_CRIMSON_LUCIAN_KLAUS_RESPECT",
+        "condition": { "and": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "not": { "u_has_trait": "KLAUS_ORIGINAL_HYBRID" } } ] }
+      },
+      {
+        "text": "Honor is reciprocal, Lucian.  The Crescent wolves have my personal assurance of safe conduct.",
+        "topic": "TALK_CRIMSON_LUCIAN_ELIJAH_ACCORD",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "Who are you, and what is a werewolf pack doing in the Crimson Chalice?",
+        "topic": "TALK_CRIMSON_LUCIAN_WHO"
+      },
+      {
+        "text": "Tell me about the Crescent pack and your relationship with the vampires.",
+        "topic": "TALK_CRIMSON_LUCIAN_ACCORD"
+      },
+      {
+        "text": "I hear werewolves have an agonizing sensitivity to silver.  Is it true?",
+        "topic": "TALK_CRIMSON_LUCIAN_SILVER"
+      },
+      { "text": "Do you have any bounties or hunts available for the pack?", "topic": "TALK_MISSION_LIST" },
+      { "text": "May the silver moon light your hunt, Lucian.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN_KLAUS_RESPECT",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "KLAUS_ORIGINAL_HYBRID",
+      "yes": "The wolf inside me recognizes the apex predator in you, Niklaus.  We have no interest in crossing you or your family.  May the hunt be bountiful for us both.",
+      "no": "We know of your quest, Klaus.  A thousand years of patience... when the ritual comes, the world will shake.  Until then, we drink in peace."
+    },
+    "responses": [ { "text": "Indeed, Lucian.", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN_ELIJAH_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "And you have mine, Lord Elijah.  Cassian's tavern is one of the few places where we don't have to spill each other's blood.  We intend to keep it that way.",
+    "responses": [ { "text": "Wise words.", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN_WHO",
+    "type": "talk_topic",
+    "dynamic_line": "I am Lucian, Alpha of the Crescent pack.  Our blood runs back before the cities crumbled, bound to the ancient moon and the deep forests.  When the cataclysm shattered the veil, feral abominations began roaming our hunting grounds.  We honor Cassian's Accord because a three-way war benefits only the dead.",
+    "responses": [ { "text": "A wise perspective for an Alpha.", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN_ACCORD",
+    "type": "talk_topic",
+    "dynamic_line": "The vampires think themselves sophisticated nobility; we know them as corpses clinging to borrowed blood.  In the old days, our clans clashed across the Old World until the soil ran dark.  Here, Cassian keeps his bloodsuckers fed on synthetic tonic, and we hunt the wild deer.  So long as they stay off pack territory and leave the living in peace, our claws stay sheathed.",
+    "responses": [ { "text": "Tenuous peace is better than slaughter.", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_LUCIAN_SILVER",
+    "type": "talk_topic",
+    "dynamic_line": "Hmph.  A sharp question from a man whose pockets clink with silver rounds.  Yes.  Silver is poison to our flesh.  It burns our blood, halts our natural regeneration, and can kill an elder wolf in heartbeats.  The bloodsuckers across the room don't give a damn about silver — they burn under sunlight and turn to ash from white oak or holy fire.  Keep your silver aimed at rogue beasts who violate the pack's law.",
+    "responses": [ { "text": "Good to know where to aim each caliber.", "topic": "TALK_CRIMSON_LUCIAN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_FEN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "ELDER_VAMPIRE_REGENERATION",
+      "yes": "My senses reel from your presence, Progenitor.  The blood in your veins is older than the oaks in the valley.  Pass in peace.",
+      "no": {
+        "u_has_trait": "KLAUS_ORIGINAL_HYBRID",
+        "yes": "I scent the hybrid in you, Lord Klaus.  Wolf and vampire merged into one.  You command respect from any Crescent wolf.",
+        "no": {
+          "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE",
+          "yes": "I scent ancient vampire blood and dormant wolf in you, Lord Klaus.  Even with your beast bound by a witch's curse, your presence demands respect.",
+          "no": {
+            "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE",
+            "yes": "Keep walking, Lord Elijah.  Lucian speaks for the pack, but we know your word is iron.",
+            "no": "Keep your hands where I can see them, hunter.  My ears hear your heartbeat, and my nose knows where you've been."
+          }
+        }
+      }
+    },
+    "responses": [
+      { "text": "What is your role in the pack, Fen?", "topic": "TALK_CRIMSON_FEN_ROLE" },
+      { "text": "What have you scouted out in the valley lately?", "topic": "TALK_CRIMSON_FEN_SCOUT" },
+      { "text": "Stay alert, scout.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_FEN_ROLE",
+    "type": "talk_topic",
+    "dynamic_line": "I am Lucian's eyes and nose on the ridges.  I track the movements of rogue leeches, feral ghouls, and whatever eldritch filth crawls out of the glowing craters.  I don't need a rifle; in wolf form, I can cross three kilometers before you've finished chambering a round.",
+    "responses": [ { "text": "Remarkable speed.", "topic": "TALK_CRIMSON_FEN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_FEN_SCOUT",
+    "type": "talk_topic",
+    "dynamic_line": "The woods to the north are restless.  Feral vampires are slipping past the old cemetery, and deep in the pines, something massive and twisted has been snapping oak trunks.  Talk to Lucian if you're looking for blood and silver bounties.",
+    "responses": [ { "text": "I'll speak with the Alpha.", "topic": "TALK_CRIMSON_FEN" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_TRENT",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "compare_string": [ "yes", { "u_val": "trent_subdued" } ],
+      "yes": "P-please, my lord... I'm just drinking alone in the corner... please don't look at me.",
+      "no": "Well, well.  Look what wandered into the Chalice.  Nice leather jacket, pretty boy.  You look lost.  Did you stumble in here looking for a cosplay convention?"
+    },
+    "responses": [
+      {
+        "text": "[Original Compulsion] \"Look into my eyes.  You will realize what I am, apologize on your knees, and drink alone in silence.\"",
+        "topic": "TALK_CRIMSON_TRENT_COMPELLED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "u_add_var": "trent_subdued", "value": "yes" }
+      },
+      {
+        "text": "[Original Vampire] \"A thousand years, and neonate insects still buzz in my ears. (Snap his neck)\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "run_eocs": [ "EOC_CRIMSON_TRENT_EXECUTE" ] }
+      },
+      {
+        "text": "[Original Vampire] \"I am Elijah Mikaelson.  Step aside before your ignorance costs you your head.\"",
+        "topic": "TALK_CRIMSON_TRENT_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "[Monster Hunter] \"I've staked whole nests of bloodsuckers tougher than you, leech.  Walk away.\"",
+        "topic": "TALK_CRIMSON_TRENT_HUNTER",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      {
+        "text": "\"If you want to test those borrowed fangs, step outside into the alley.\"",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      },
+      { "text": "\"Back off before you get hurt.\"", "topic": "TALK_DONE", "effect": "hostile" },
+      { "text": "\"I'm just here for a drink.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_TRENT_COMPELLED",
+    "type": "talk_topic",
+    "dynamic_line": "Trent's pupils dilate and glaze over in pure hypnotic dread.  His knees strike the floor with a thud: 'I-I'm sorry... Lord Niklaus... I didn't know... I will drink alone... please don't tear my throat out...'",
+    "responses": [ { "text": "Know your place.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_TRENT_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "Trent's smirking face drains completely pale as he recognizes the immaculate posture and immortal poise: 'E-Elijah Mikaelson?!  Forgive me, Lord Elijah!  I had no idea!  I'll leave right now!'",
+    "responses": [ { "text": "Exercise better manners in the future.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_TRENT_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": "Trent spots the consecrated oak stakes, silver bolts, and cold, calculating gaze in your eyes.  He takes two steps backward, swallowing hard: 'Hey... hey, easy, old man... truce inside the bar, remember?'",
+    "responses": [ { "text": "Remember that truce well.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JAX",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "compare_string": [ "yes", { "u_val": "jax_subdued" } ],
+      "yes": "Hmph.  I know when I'm staring down an apex predator.  Drink your drink, lord.  I'm keeping to my table.",
+      "no": "Smells like embalming fluid and cheap cologne.  What's a prancing leech doing strutting past my table?  Think you're tough because you comb your hair, bloodsucker?"
+    },
+    "responses": [
+      {
+        "text": "[Original Vampire] \"You reek of cheap whiskey and false bravado, dog.  Bow your head before I remind your bloodline of their true master.\"",
+        "topic": "TALK_CRIMSON_JAX_SUBDUED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "u_add_var": "jax_subdued", "value": "yes" }
+      },
+      {
+        "text": "[Original Vampire] \"I have no patience for rabid mongrels. (Rip his heart out)\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "run_eocs": [ "EOC_CRIMSON_JAX_EXECUTE" ] }
+      },
+      {
+        "text": "[Original Vampire] \"Lucian respects our Accord, wolf.  Do not let drunken insolence extinguish your life.\"",
+        "topic": "TALK_CRIMSON_JAX_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "[Monster Hunter] \"I have silver buckshot in this pouch that says you sit down and shut up.\"",
+        "topic": "TALK_CRIMSON_JAX_HUNTER",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      {
+        "text": "\"Let's see how loud you bark in the parking lot.\"",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      },
+      { "text": "\"Keep nursing your bottle, dog.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_JAX_SUBDUED",
+    "type": "talk_topic",
+    "dynamic_line": "The wolf inside Jax senses the ancient werewolf blood and primordial vampire power radiating from you.  His hackles lower, his fists uncurl, and he averts his eyes in humiliating submission: 'Y-yes, Lord Klaus.  My apologies...'",
+    "responses": [ { "text": "A wise dog knows when to heel.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JAX_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "Jax looks at your composed posture and the family crest on your cuff links, grumbling under his breath before slumping back into his booth: 'Lucian's word is law.  Consider yourself lucky, aristocrat.'",
+    "responses": [ { "text": "It is you who are fortunate tonight.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_JAX_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": "Jax sniffs the air, detecting the pungent scent of silver shavings and wolfsbane on your coat.  He growls, gripping his bottle, but keeps his seat: 'Hmph.  Zealot bastard.  Watch your back out on the roads.'",
+    "responses": [ { "text": "I always do.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CORVIN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "compare_string": [ "yes", { "u_val": "corvin_disarmed" } ],
+      "yes": "M-my blade... My wrist... To move with such blinding ferocity... You are no mere vampire...",
+      "no": "Ah, another crude wasteland drifter stumbling into the sanctuary.  You carry yourself like an uncouth bandit.  In Vienna, peasants with your posture were thrown to the hunting hounds.  Have you ever even held a gentleman's blade?"
+    },
+    "responses": [
+      {
+        "text": "[Original Vampire] \"I was slaughtering armies in Europe while your sire was still in swaddling clothes. (Disarm him)\"",
+        "topic": "TALK_CRIMSON_CORVIN_DISARMED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": [ { "run_eocs": [ "EOC_CRIMSON_CORVIN_DISARM" ] }, { "u_add_var": "corvin_disarmed", "value": "yes" } ]
+      },
+      {
+        "text": "[Original Vampire] \"Poise means nothing without a head on your shoulders. (Decapitate him)\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "run_eocs": [ "EOC_CRIMSON_CORVIN_EXECUTE" ] }
+      },
+      {
+        "text": "[Original Vampire] \"Vienna?  I have danced in the Hofburg Palace with empresses, boy.  Mind your tongue.\"",
+        "topic": "TALK_CRIMSON_CORVIN_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "\"If you think you're fast with that toothpick, step outside into the alley.\"",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      },
+      { "text": "\"Keep polishing your antique, peacock.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_CORVIN_DISARMED",
+    "type": "talk_topic",
+    "dynamic_line": "Corvin stares at his empty, throbbing hand in sheer disbelief, his aristocratic pride utterly shattered: 'Impossible... The speed... The leverage... Who... WHAT are you?!'",
+    "responses": [ { "text": "I am Niklaus Mikaelson.  Consider the blade my souvenir.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_CORVIN_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "Corvin's eyes widen as he takes in your tailored suit, immaculate handkerchief, and terrifyingly calm gaze: 'Mikaelson... The noble Original... Forgive my unforgivable boorishness, Lord Elijah.  I meant no offense.'",
+    "responses": [ { "text": "Civility is its own reward, Corvin.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MORRIGAN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "compare_string": [ "yes", { "u_val": "morrigan_subdued" } ],
+      "yes": "Stay away from me, demon... My spells couldn't even scratch your mind... Take what you want and leave me be.",
+      "no": "Keep walking, bloodsucker.  You think that swagger makes you untouchable?  One whisper from my lips, one aneurysm hex, and your brain boils inside your skull."
+    },
+    "responses": [
+      {
+        "text": "[Original Vampire] \"Go ahead, little witch.  Whisper your hex.  Let's see what happens to a child who tests an Original.\"",
+        "topic": "TALK_CRIMSON_MORRIGAN_HEXED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": [ { "run_eocs": [ "EOC_CRIMSON_MORRIGAN_SHRUG_HEX" ] }, { "u_add_var": "morrigan_subdued", "value": "yes" } ]
+      },
+      {
+        "text": "[Original Compulsion] \"Silence your tongue and surrender your grimoire before I tear your hands off.\"",
+        "topic": "TALK_CRIMSON_MORRIGAN_HEXED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": [ { "run_eocs": [ "EOC_CRIMSON_MORRIGAN_SHRUG_HEX" ] }, { "u_add_var": "morrigan_subdued", "value": "yes" } ]
+      },
+      {
+        "text": "[Original Vampire] \"A thousand years ago, witches created my family.  None have succeeded in destroying us since.  Do not attempt folly, Morrigan.\"",
+        "topic": "TALK_CRIMSON_MORRIGAN_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "[Monster Hunter] \"I wear consecrated amulets and carry cold steel, witch.  Hex me and your throat opens.\"",
+        "topic": "TALK_CRIMSON_MORRIGAN_HUNTER",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      { "text": "\"Keep to your potions and herbs.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MORRIGAN_HEXED",
+    "type": "talk_topic",
+    "dynamic_line": "Morrigan clutches her aching temples, weeping tears of pure horror: 'You... you didn't even flinch... You're an Original... Take the grimoire, please, just don't kill me!'",
+    "responses": [ { "text": "Remember this lesson well.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MORRIGAN_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "Morrigan lowers her hands slowly, sensing the immense ancient magic woven into your immortal essence: 'Lord Elijah... Forgive me.  I did not recognize the elder brother.  I shall keep the peace.'",
+    "responses": [ { "text": "A prudent decision.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MORRIGAN_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": "Morrigan glances at your crucifixes and cold iron charms, scoffing softly but tucking her grimoire beneath her coat: 'Hmph.  Inquisitor filth.  Drink your blood wine and leave me alone.'",
+    "responses": [ { "text": "Wisely chosen.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MERC_MALONE",
+    "type": "talk_topic",
+    "dynamic_line": "Well, well, well.  Look what rolled up in the shiny muscle car.  Pretty clothes, clean face... That car and that wallet belong to Malone's crew now, stranger.  Hand 'em over or we leave you leaking in the ditch.",
+    "responses": [
+      {
+        "text": "[Original Compulsion] \"Drop your weapons, forget this car, and walk north until your boots rot.\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "run_eocs": [ "EOC_CRIMSON_MERC_COMPEL" ] }
+      },
+      {
+        "text": "[Original Vampire] \"You want my car?  You have five seconds to reconsider your existence before I rip your spine through your throat.\"",
+        "topic": "TALK_CRIMSON_MERC_THREATEN",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] }
+      },
+      {
+        "text": "[Original Vampire] \"I suggest you step aside, gentlemen.  I have lived a thousand years without suffering insolence from petty brigands.\"",
+        "topic": "TALK_CRIMSON_MERC_ELIJAH",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" }
+      },
+      {
+        "text": "[Monster Hunter] \"I've put down abominations that make you look like choirboys.  Clear the road before I open fire.\"",
+        "topic": "TALK_CRIMSON_MERC_HUNTER",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      {
+        "text": "[Attack] \"Let's see if your lead travels faster than an Original.\"",
+        "topic": "TALK_DONE",
+        "effect": "hostile"
+      },
+      { "text": "\"I'm just walking past.  Don't try anything.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CRIMSON_MERC_THREATEN",
+    "type": "talk_topic",
+    "dynamic_line": "Malone chuckles nervously, but his greed gets the better of him: 'Big words, pretty boy!  Rocco, Brutus, light him up!'",
+    "responses": [ { "text": "Your funeral.", "topic": "TALK_DONE", "effect": "hostile" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MERC_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "Malone eyes your bespoke suit and calm posture, spitting tobacco onto the asphalt: 'A suit in the apocalypse?  You're either crazy or dead.  Get him!'",
+    "responses": [ { "text": "You were warned.", "topic": "TALK_DONE", "effect": "hostile" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MERC_HUNTER",
+    "type": "talk_topic",
+    "dynamic_line": "Malone raises his shotgun: 'We don't care about your bedtime stories, old man!  Take him down!'",
+    "responses": [ { "text": "Come and get it.", "topic": "TALK_DONE", "effect": "hostile" } ]
+  },
+  {
+    "id": "TALK_CRIMSON_MERC_THUG",
+    "type": "talk_topic",
+    "dynamic_line": "Talk to Scar, pal.  Hand over the keys if you want to keep breathing.",
+    "responses": [ { "text": "Back off.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_HUNTER_COMMANDER_VANCE",
+    "type": "talk_topic",
+    "dynamic_line": "Halt right there!  Silver Hand Inquisitor checkpoint!  Step into the UV spotlight and show your hands!  Any sudden moves and we turn you into kindling!",
+    "responses": [
+      {
+        "text": "[Original Compulsion] \"You think UV lights and silver pellets frighten me?  I am an ancient Original.  Surrender your medallion and map.\"",
+        "topic": "TALK_HUNTER_VANCE_COMPELLED",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": { "run_eocs": [ "EOC_HUNTER_COMMANDER_VANCE_COMPEL" ] }
+      },
+      {
+        "text": "[Original Vampire] \"You picked the wrong highway to police, mortal.  I will paint these sandbags with your blood.\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": "hostile"
+      },
+      {
+        "text": "[Original Vampire] \"Stand down, Commander.  Your zealotry blinds you to true power.\"",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+        "effect": "hostile"
+      },
+      {
+        "text": "[Grand Inquisitor] \"Stand down, Commander Vance!  I am Professor Van Helsing.  By what authority do you blockade public highways?\"",
+        "topic": "TALK_HUNTER_VANCE_VAN_HELSING",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" }
+      },
+      { "text": "[Attack] \"I'm not showing you anything.  Draw!\"", "topic": "TALK_DONE", "effect": "hostile" },
+      { "text": "\"Just a traveler trying to pass through.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_HUNTER_VANCE_COMPELLED",
+    "type": "talk_topic",
+    "dynamic_line": "Commander Vance's rigid military posture goes slack.  His eyes glaze over as compulsion rewires his zeal: 'Y-yes, Lord Niklaus... The medallion is yours... The supply cache is marked on the map... We will hold our fire...'",
+    "responses": [ { "text": "At ease, soldier.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_HUNTER_VANCE_VAN_HELSING",
+    "type": "talk_topic",
+    "dynamic_line": "Commander Vance lowers his shotgun in stunned reverence: 'Professor Van Helsing?!  The Grand Inquisitor himself!  Forgive us, sir!  We thought you were an impostor or a leech in disguise.  The road is yours, Professor!'",
+    "responses": [ { "text": "Keep your watch disciplined, Commander.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_HUNTER_INQUISITOR",
+    "type": "talk_topic",
+    "dynamic_line": "Keep your hands visible, stranger.  Silver bolts don't ask questions.",
+    "responses": [ { "text": "Understood.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_REAPER_WRENCH",
+    "type": "talk_topic",
+    "dynamic_line": "End of the line, roadkill!  Road Reapers own this asphalt!  Engine off, keys on the hood, and hands on your head, or we torch the whole vehicle with Molotovs!",
+    "responses": [
+      {
+        "text": "[Original Vampire] \"Touch this car and I will pull you apart piece by piece, starting with your fingers.\"",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" }, { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" } ] },
+        "effect": "hostile"
+      },
+      {
+        "text": "[Original Vampire] \"You have five seconds to clear this road, or become carrion for the crows.\"",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+        "effect": "hostile"
+      },
+      {
+        "text": "[Monster Hunter] \"You made a fatal mistake targeting me, bandit.\"",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_trait": "TRAIT_VAN_HELSING_REPUTATION" },
+        "effect": "hostile"
+      },
+      { "text": "[Attack] \"I'll clear this road with your corpses.\"", "topic": "TALK_DONE", "effect": "hostile" },
+      { "text": "\"Let me turn around peacefully.\"", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_REAPER_BANDIT",
+    "type": "talk_topic",
+    "dynamic_line": "You heard Wrench!  Keys on the hood or we light you up!",
+    "responses": [ { "text": "Back off.", "topic": "TALK_DONE" } ]
+  }
+]

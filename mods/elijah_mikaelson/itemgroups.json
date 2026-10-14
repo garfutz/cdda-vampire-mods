@@ -1,0 +1,177 @@
+[
+  {
+    "type": "item_group",
+    "id": "elijah_study",
+    "subtype": "collection",
+    "entries": [
+      { "item": "elijah_lore_journal_1002" },
+      { "item": "elijah_lore_journal_1919" },
+      { "item": "elijah_lore_katerina_letter" },
+      { "item": "elijah_lore_red_door_note" },
+      { "item": "wine_cabernet" },
+      { "item": "wine_glass" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_hunter_wield",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "hunter_vervain_crossbow",
+        "ammo-item": "hunter_wooden_stake",
+        "charges": 1,
+        "contents-item": "shoulder_strap"
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_hunter_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "trenchcoat_leather" },
+      { "item": "pants_cargo" },
+      { "item": "boots_combat" },
+      { "item": "gloves_leather" },
+      { "item": "quiver" },
+      { "item": "backpack" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_hunter_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "hunter_wooden_stake", "count": [ 6, 12 ] },
+      { "item": "vervain_tea", "count": 2 },
+      { "item": "bandages", "count": 4 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_hidden_safe",
+    "subtype": "collection",
+    "entries": [
+      { "item": "elijah_white_oak_stake" },
+      { "item": "gold_small", "count": 15 },
+      { "item": "cash_card", "charges": 500000 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_library",
+    "subtype": "collection",
+    "entries": [
+      { "item": "book_nonf_hard_phil_aesth" },
+      { "item": "book_nonf_hard_phil_mdlogic" },
+      { "item": "book_nonf_hard_history_ancient" },
+      { "item": "book_nonf_hard_biography_dead" },
+      { "group": "novels", "prob": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_wine_cabinet",
+    "subtype": "collection",
+    "entries": [
+      { "item": "wine_cabernet", "count": [ 3, 5 ] },
+      { "item": "wine_glass", "count": 4 },
+      { "item": "whiskey", "count": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_blood_fridge",
+    "subtype": "collection",
+    "entries": [ { "item": "blood", "charges": 2, "count": [ 6, 9 ], "container-item": "bag_iv" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_wardrobe",
+    "subtype": "collection",
+    "entries": [
+      { "item": "elijah_suit", "count": 2 },
+      { "item": "dress_shirt", "count": 3 },
+      { "item": "tie_necktie", "count": 2 },
+      { "item": "elijah_pocket_square", "count": 6 },
+      { "item": "socks", "count": 3 },
+      { "item": "dress_shoes" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_parlor",
+    "subtype": "collection",
+    "entries": [ { "item": "chess" }, { "item": "candle", "count": 3 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_crypt",
+    "subtype": "collection",
+    "entries": [ { "item": "candle", "count": [ 3, 5 ] }, { "item": "candlestick", "count": 2 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_petrova_desk",
+    "subtype": "collection",
+    "entries": [ { "item": "elijah_doppelganger_blood" }, { "item": "leather_journal" }, { "item": "wallet_photo" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_rebekah_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "dress" },
+      { "item": "jacket_leather" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "bra" },
+      { "item": "panties" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_rebekah_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "knife_combat" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_kol_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "tshirt" },
+      { "item": "jacket_leather" },
+      { "item": "jeans" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "boxer_shorts" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_kol_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "elijah_silver_dagger" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_finn_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "longshirt" },
+      { "item": "pants" },
+      { "item": "boots" },
+      { "item": "socks" },
+      { "item": "coat_winter" },
+      { "item": "boxer_shorts" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "elijah_finn_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "elijah_silver_dagger" } ]
+  }
+]

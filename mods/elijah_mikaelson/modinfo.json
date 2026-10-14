@@ -1,0 +1,13 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "elijah_mikaelson",
+    "name": "Elijah Mikaelson (The Noble Original)",
+    "authors": [ "Andu" ],
+    "maintainers": [ "Andu" ],
+    "description": "Play as Elijah Mikaelson, the noble Original: a thousand-year-old vampire who needs no food or water, only blood, and can drink from humans, animals and other vampires.  Tear out hearts, take heads, compel humans and vampires alike, and try to keep the red door in your mind shut.  Starts in Elijah's own house in New Orleans with his daggered siblings in the crypt below, a white oak stake hidden where no one will find it, and a brotherhood of vampire hunters who want him dead.  Separate from the Klaus mod; both can be used together.",
+    "category": "content",
+    "dependencies": [ "dda", "xedra_evolved" ],
+    "version": "1.0"
+  }
+]
