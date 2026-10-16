@@ -18,5 +18,70 @@
         ]
       }
     ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_silver_burn",
+    "name": [ "Silver Burn" ],
+    "desc": [
+      "Contact with silver burns your lupine flesh like caustic acid, agonizing your nerves, stalling health regeneration, and completely preventing your wounds from clotting."
+    ],
+    "apply_message": "The touch of silver sears into your flesh with blinding agony!",
+    "remove_message": "The searing silver burn finally cools and ceases weeping.",
+    "rating": "bad",
+    "enchantments": [
+      {
+        "values": [ { "value": "SPEED", "multiply": -0.15 }, { "value": "REGEN_HP", "multiply": -0.5 }, { "value": "PAIN", "add": 5 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_xe_alpha_scent_radar",
+    "name": [ "Apex Scent Sense" ],
+    "desc": [
+      "Your lupine olfactory senses are razor sharp.  You can scent the warm pulse, sweat, and open wounds of creatures through terrain and dense foliage."
+    ],
+    "apply_message": "You flare your nostrils and inhale deeply.  The scent of blood, fur, and fear paints the landscape in your mind.",
+    "remove_message": "The sharp sensory scent trails fade from your nostrils.",
+    "rating": "good",
+    "enchantments": [
+      {
+        "special_vision": [
+          {
+            "distance": 45,
+            "condition": { "or": [ { "npc_has_effect": "bleed" }, { "math": [ "n_hp('torso') < n_hp_max('torso')" ] } ] },
+            "descriptions": [ { "id": "bleeding_prey", "symbol": "!", "color": "c_red", "text": "You scent bleeding prey nearby." } ]
+          },
+          {
+            "distance": 35,
+            "descriptions": [ { "id": "moving_creature", "symbol": "?", "color": "c_yellow", "text": "You scent a creature moving on the wind." } ]
+          }
+        ],
+        "values": [ { "value": "PERCEPTION", "add": 4 }, { "value": "NIGHT_VIS", "add": 5 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_xe_alpha_iron_hide",
+    "name": [ "Iron Hide" ],
+    "desc": [
+      "Your dense pelt and striated lupine muscles are tightened into an impenetrable shield.  Protection against bash, cut, stab, and ballistic impacts is heavily increased, and you are immune to knockdown, at the cost of a slight speed penalty."
+    ],
+    "apply_message": "Your pelt hardens like cured boiled leather and your muscles lock into iron cords!",
+    "remove_message": "You relax your tensed tendons and ironbound pelt, resuming your natural agile stance.",
+    "rating": "good",
+    "enchantments": [
+      {
+        "incoming_damage_mod": [
+          { "type": "bash", "add": -8 },
+          { "type": "cut", "add": -12 },
+          { "type": "stab", "add": -8 },
+          { "type": "bullet", "add": -10 }
+        ],
+        "values": [ { "value": "KNOCKDOWN_RESIST", "add": 100 }, { "value": "SPEED", "add": -5 } ]
+      }
+    ]
   }
 ]

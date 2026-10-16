@@ -5,7 +5,7 @@
     "name": "Alpha Werewolf",
     "description": "You were born one of the People of the Moon, and for eleven years you led your pack through the pines: seven werewolves who ran the hills under the full moon and kept the things from Outside out of your woods.  Three nights ago you ran ahead on the hunt, like you always did.  When you came back the camp was a slaughterhouse and your pack was bled white.  The bloodsucker who did it left you a letter.  You're the strongest wolf in these hills, and you've never been more alone.  You live off the grid in a log cabin you built yourself: wood stove, cord wood, a diesel generator, a well and a garden.  Your beat-up pickup still runs.  That's enough to get you where you need to go.",
     "points": 8,
-    "effect_on_conditions": [ "EOC_XE_ALPHA_PROFESSION_SETUP" ],
+    "effect_on_conditions": [ "EOC_XE_ALPHA_PROFESSION_SETUP", "EOC_XE_ALPHA_HEMOSTATIC_MAINTENANCE" ],
     "skills": [
       { "level": 7, "name": "unarmed" },
       { "level": 6, "name": "dodge" },
@@ -20,7 +20,9 @@
       { "level": 3, "name": "driving" },
       { "level": 3, "name": "mechanics" },
       { "level": 4, "name": "speech" },
-      { "level": 3, "name": "throw" }
+      { "level": 3, "name": "throw" },
+      { "level": 3, "name": "gun" },
+      { "level": 4, "name": "shotgun" }
     ],
     "proficiencies": [
       "prof_unarmed_familiar",
@@ -30,7 +32,9 @@
       "prof_skinning_basic",
       "prof_traps",
       "prof_driver",
-      "prof_knives_familiar"
+      "prof_knives_familiar",
+      "prof_gun_cleaning",
+      "prof_auto_rifles_familiar"
     ],
     "traits": [
       "NATIVE_SHAPESHIFTER",
@@ -77,21 +81,37 @@
           "binoculars"
         ],
         "entries": [
-          { "item": "sheath", "contents-item": [ "knife_hunting" ] },
+          { "item": "sheath", "contents-item": [ "knife_rm42" ] },
           {
-            "item": "backpack",
+            "item": "molle_large_rucksack",
             "contents-item": [
               "xe_alpha_ash_stake",
               "xe_alpha_ash_stake",
               "xe_alpha_ash_stake",
               "hatchet",
+              "knife_hunting",
               "molotov",
               "molotov",
               "jerky",
               "jerky",
               "jerky",
-              "jerky"
+              "jerky",
+              "multitool",
+              "pliers",
+              "sleeping_bag",
+              "tarp",
+              "pot",
+              "tent_kit"
             ]
+          },
+          { "group": "mre_full_pack", "count": 4 },
+          { "group": "full_ifak" },
+          { "item": "pur_tablets", "count": 20, "container-item": "null", "entry-wrapper": "bottle_plastic_small" },
+          {
+            "item": "medium_battery_cell",
+            "ammo-item": "battery",
+            "charges": 100,
+            "container-item": "wearable_light"
           },
           { "item": "water_clean", "container-item": "canteen", "charges": 6 },
           { "item": "lighter", "charges": 100 }

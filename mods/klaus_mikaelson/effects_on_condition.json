@@ -4,7 +4,8 @@
     "id": "EOC_KLAUS_PROFESSION_START",
     "effect": [
       { "u_add_effect": "vampire_virus", "intensity": 3, "duration": "PERMANENT" },
-      { "math": [ "u_vitamin('human_blood_vitamin') = 3000" ] },
+      { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+      { "math": [ "u_vitamin('human_blood_vitamin') = 15000" ] },
       {
         "u_message": "A thousand years, and the world finally ended before your curse did.  How dull.  Still: a world with no rules is a world that needs a king, and a king who can become a wolf.",
         "type": "info"
@@ -308,6 +309,50 @@
           { "math": [ "u_hp('foot_r') = max(u_hp('foot_r'), u_hp_max('foot_r') / 2)" ] },
           { "u_message": "Your eyes clear and your hands and feet knit back together.", "type": "good" }
         ]
+      },
+      {
+        "if": {
+          "or": [
+            { "u_has_effect": "effect_wood_splinters" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "head" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" },
+            { "math": [ "u_klaus_white_oak_heart == 1" ] }
+          ]
+        },
+        "then": [
+          {
+            "if": { "u_has_effect": "effect_klaus_pain_relief" },
+            "then": [
+              { "u_lose_effect": "effect_klaus_pain_relief" },
+              {
+                "u_message": "The toxic wood lodged in your flesh disrupts your ancient nervous system! Agonizing pain surges through your body, breaking your supernatural pain immunity!",
+                "type": "bad"
+              }
+            ]
+          }
+        ],
+        "else": [
+          {
+            "if": { "not": { "u_has_effect": "effect_klaus_pain_relief" } },
+            "then": [
+              { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+              {
+                "u_message": "With the toxic wood absent from your flesh, your immortal nervous system deadens all physical agony once more.",
+                "type": "good"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -487,7 +532,7 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_KLAUS_BREACH_KICK_CREATURE",
-    "condition": { "or": [ "u_is_character", "u_is_monster" ] },
+    "condition": { "and": [ "has_alpha", { "or": [ "u_is_character", "u_is_monster" ] } ] },
     "effect": [
       { "npc_location_variable": { "context_val": "kick_caster_pos" } },
       { "sound_effect": "big_bash", "id": "melee_hit_flesh", "volume": 100 },
@@ -2051,5 +2096,1213 @@
         "type": "good"
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_PASSIVE_REGEN_LOOP",
+    "recurrence": "1 seconds",
+    "condition": {
+      "and": [
+        { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+        { "math": [ "u_vitamin('human_blood_vitamin') > 0" ] },
+        { "math": [ "u_klaus_white_oak_heart != 1" ] },
+        {
+          "not": {
+            "and": [ "is_day", "u_is_outside", { "not": { "u_has_effect": "vampire_blind_the_sun" } }, { "not": "u_is_underwater" } ]
+          }
+        },
+        {
+          "or": [
+            { "u_has_effect": "bleed" },
+            { "math": [ "u_pain() > 0" ] },
+            { "math": [ "u_hp('torso') < u_hp_max('torso')" ] },
+            { "math": [ "u_hp('head') < u_hp_max('head')" ] },
+            { "math": [ "u_hp('arm_l') < u_hp_max('arm_l')" ] },
+            { "math": [ "u_hp('arm_r') < u_hp_max('arm_r')" ] },
+            { "math": [ "u_hp('leg_l') < u_hp_max('leg_l')" ] },
+            { "math": [ "u_hp('leg_r') < u_hp_max('leg_r')" ] },
+            { "math": [ "u_hp('eyes') < u_hp_max('eyes')" ] },
+            { "math": [ "u_hp('mouth') < u_hp_max('mouth')" ] },
+            { "math": [ "u_hp('hand_l') < u_hp_max('hand_l')" ] },
+            { "math": [ "u_hp('hand_r') < u_hp_max('hand_r')" ] },
+            { "math": [ "u_hp('foot_l') < u_hp_max('foot_l')" ] },
+            { "math": [ "u_hp('foot_r') < u_hp_max('foot_r')" ] },
+            { "u_has_effect": "effect_ev_missing_arm_r" },
+            { "u_has_effect": "effect_ev_missing_arm_l" },
+            { "u_has_effect": "effect_ev_missing_leg_r" },
+            { "u_has_effect": "effect_ev_missing_leg_l" },
+            { "u_has_effect": "effect_ev_missing_both_arms" },
+            { "u_has_effect": "effect_ev_missing_both_legs" },
+            { "u_has_effect": "effect_ev_shattered_spine" }
+          ]
+        }
+      ]
+    },
+    "deactivate_condition": { "not": { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" } },
+    "effect": [
+      { "math": [ "u_original_regen_tick = (u_original_regen_tick + 1) % 60" ] },
+      {
+        "if": {
+          "or": [
+            { "u_has_effect": "effect_wood_splinters" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "head" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" },
+            { "math": [ "u_klaus_white_oak_heart == 1" ] }
+          ]
+        },
+        "then": [
+          {
+            "if": { "u_has_effect": "effect_klaus_pain_relief" },
+            "then": [
+              { "u_lose_effect": "effect_klaus_pain_relief" },
+              {
+                "u_message": "The toxic wood lodged in your flesh disrupts your ancient nervous system! Agonizing pain surges through your body, breaking your supernatural pain immunity!",
+                "type": "bad"
+              }
+            ]
+          }
+        ],
+        "else": [
+          {
+            "if": { "not": { "u_has_effect": "effect_klaus_pain_relief" } },
+            "then": [
+              { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+              {
+                "u_message": "With the toxic wood absent from your flesh, your immortal nervous system deadens all physical agony once more.",
+                "type": "good"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "if": { "math": [ "u_klaus_white_oak_heart != 1" ] },
+        "then": [
+          {
+            "if": { "math": [ "u_vitamin('human_blood_vitamin') > 8000" ] },
+            "then": [
+              {
+                "if": { "math": [ "u_original_regen_tick % 3 == 0" ] },
+                "then": [ { "run_eocs": "EOC_KLAUS_ORIGINAL_REGEN_TIER_1" } ]
+              }
+            ],
+            "else": [
+              {
+                "if": {
+                  "and": [
+                    { "math": [ "u_vitamin('human_blood_vitamin') >= 3000" ] },
+                    { "math": [ "u_vitamin('human_blood_vitamin') <= 8000" ] }
+                  ]
+                },
+                "then": [
+                  {
+                    "if": { "math": [ "u_original_regen_tick % 3 == 0" ] },
+                    "then": [ { "run_eocs": "EOC_KLAUS_ORIGINAL_REGEN_TIER_2" } ]
+                  }
+                ],
+                "else": [
+                  {
+                    "if": {
+                      "and": [
+                        { "math": [ "u_vitamin('human_blood_vitamin') >= 1000" ] },
+                        { "math": [ "u_vitamin('human_blood_vitamin') < 3000" ] }
+                      ]
+                    },
+                    "then": [
+                      {
+                        "if": { "math": [ "u_original_regen_tick % 4 == 0" ] },
+                        "then": [ { "run_eocs": "EOC_KLAUS_ORIGINAL_REGEN_TIER_3" } ]
+                      }
+                    ],
+                    "else": [
+                      {
+                        "if": {
+                          "and": [ { "math": [ "u_vitamin('human_blood_vitamin') > 0" ] }, { "math": [ "u_vitamin('human_blood_vitamin') < 1000" ] } ]
+                        },
+                        "then": [
+                          {
+                            "if": { "math": [ "u_original_regen_tick % 5 == 0" ] },
+                            "then": [ { "run_eocs": "EOC_KLAUS_ORIGINAL_REGEN_TIER_4" } ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_REGEN_TIER_1",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') = max(0, u_vitamin('human_blood_vitamin') - 5)" ] },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "head" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('eyes') = min(u_hp_max('eyes'), u_hp('eyes') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('mouth') = min(u_hp_max('mouth'), u_hp('mouth') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_l') = min(u_hp_max('hand_l'), u_hp('hand_l') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_r') = min(u_hp_max('hand_r'), u_hp('hand_r') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_l') = min(u_hp_max('foot_l'), u_hp('foot_l') + 10)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_r') = min(u_hp_max('foot_r'), u_hp('foot_r') + 10)" ] } ]
+      },
+      {
+        "if": { "u_has_effect": "effect_klaus_pain_relief" },
+        "then": [ { "math": [ "u_pain() = max(0, u_pain() - 15)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_has_effect": "effect_wood_splinters" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" }
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_lose_effect": [
+              "effect_ev_missing_arm_r",
+              "effect_ev_missing_arm_l",
+              "effect_ev_missing_leg_r",
+              "effect_ev_missing_leg_l",
+              "effect_ev_missing_both_arms",
+              "effect_ev_missing_both_legs",
+              "effect_ev_shattered_spine"
+            ]
+          }
+        ]
+      },
+      { "u_lose_effect": [ "bleed", "bite", "infected" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_REGEN_TIER_2",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') = max(0, u_vitamin('human_blood_vitamin') - 4)" ] },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "head" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('eyes') = min(u_hp_max('eyes'), u_hp('eyes') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('mouth') = min(u_hp_max('mouth'), u_hp('mouth') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_l') = min(u_hp_max('hand_l'), u_hp('hand_l') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_r') = min(u_hp_max('hand_r'), u_hp('hand_r') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_l') = min(u_hp_max('foot_l'), u_hp('foot_l') + 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_r') = min(u_hp_max('foot_r'), u_hp('foot_r') + 8)" ] } ]
+      },
+      {
+        "if": { "u_has_effect": "effect_klaus_pain_relief" },
+        "then": [ { "math": [ "u_pain() = max(0, u_pain() - 12)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_has_effect": "effect_wood_splinters" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" }
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_lose_effect": [
+              "effect_ev_missing_arm_r",
+              "effect_ev_missing_arm_l",
+              "effect_ev_missing_leg_r",
+              "effect_ev_missing_leg_l",
+              "effect_ev_missing_both_arms",
+              "effect_ev_missing_both_legs",
+              "effect_ev_shattered_spine"
+            ]
+          }
+        ]
+      },
+      { "u_lose_effect": [ "bleed", "bite", "infected" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_REGEN_TIER_3",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') = max(0, u_vitamin('human_blood_vitamin') - 3)" ] },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "head" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('eyes') = min(u_hp_max('eyes'), u_hp('eyes') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('mouth') = min(u_hp_max('mouth'), u_hp('mouth') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_l') = min(u_hp_max('hand_l'), u_hp('hand_l') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_r') = min(u_hp_max('hand_r'), u_hp('hand_r') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_l') = min(u_hp_max('foot_l'), u_hp('foot_l') + 6)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_r') = min(u_hp_max('foot_r'), u_hp('foot_r') + 6)" ] } ]
+      },
+      {
+        "if": { "u_has_effect": "effect_klaus_pain_relief" },
+        "then": [ { "math": [ "u_pain() = max(0, u_pain() - 8)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_has_effect": "effect_wood_splinters" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" }
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_lose_effect": [
+              "effect_ev_missing_arm_r",
+              "effect_ev_missing_arm_l",
+              "effect_ev_missing_leg_r",
+              "effect_ev_missing_leg_l",
+              "effect_ev_missing_both_arms",
+              "effect_ev_missing_both_legs",
+              "effect_ev_shattered_spine"
+            ]
+          }
+        ]
+      },
+      { "u_lose_effect": [ "bleed", "bite", "infected" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_ORIGINAL_REGEN_TIER_4",
+    "effect": [
+      { "math": [ "u_vitamin('human_blood_vitamin') = max(0, u_vitamin('human_blood_vitamin') - 2)" ] },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "head" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('eyes') = min(u_hp_max('eyes'), u_hp('eyes') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('mouth') = min(u_hp_max('mouth'), u_hp('mouth') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_l') = min(u_hp_max('hand_l'), u_hp('hand_l') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('hand_r') = min(u_hp_max('hand_r'), u_hp('hand_r') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_l') = min(u_hp_max('foot_l'), u_hp('foot_l') + 4)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [ { "u_has_effect": "effect_wood_splinters" }, { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" } ]
+          }
+        },
+        "then": [ { "math": [ "u_hp('foot_r') = min(u_hp_max('foot_r'), u_hp('foot_r') + 4)" ] } ]
+      },
+      {
+        "if": { "u_has_effect": "effect_klaus_pain_relief" },
+        "then": [ { "math": [ "u_pain() = max(0, u_pain() - 5)" ] } ]
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_has_effect": "effect_wood_splinters" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+              { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" }
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_lose_effect": [
+              "effect_ev_missing_arm_r",
+              "effect_ev_missing_arm_l",
+              "effect_ev_missing_leg_r",
+              "effect_ev_missing_leg_l",
+              "effect_ev_missing_both_arms",
+              "effect_ev_missing_both_legs",
+              "effect_ev_shattered_spine"
+            ]
+          }
+        ]
+      },
+      { "u_lose_effect": [ "bleed", "bite", "infected" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_APEX_LEAP_IMPACT",
+    "effect": [
+      { "u_make_sound": "BOOM! (Apex Leap)", "volume": 35 },
+      {
+        "u_message": "You launch into the air with monstrous kinetic force and land with a deafening concussive thud, completely unharmed!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SURGE",
+    "effect": [
+      {
+        "if": { "u_has_effect": "effect_original_surge_cd" },
+        "then": [
+          { "u_message": "Your blood is still churning from the last surge! (Cooldown active)", "type": "bad" },
+          { "math": [ "u_vitamin('human_blood_vitamin') += 250" ] }
+        ],
+        "else": [
+          { "u_add_effect": "effect_original_surge_cd", "duration": "20 seconds" },
+          { "u_lose_effect": "bleed", "target_part": "ALL" },
+          { "math": [ "u_pain() = max(0, u_pain() - 30)" ] },
+          { "math": [ "u_hp('torso') = min(u_hp_max('torso'), max(u_hp('torso'), 50) + 20)" ] },
+          { "math": [ "u_hp('head') = min(u_hp_max('head'), max(u_hp('head'), 50) + 20)" ] },
+          { "math": [ "u_hp('arm_l') = min(u_hp_max('arm_l'), max(u_hp('arm_l'), 50) + 20)" ] },
+          { "math": [ "u_hp('arm_r') = min(u_hp_max('arm_r'), max(u_hp('arm_r'), 50) + 20)" ] },
+          { "math": [ "u_hp('leg_l') = min(u_hp_max('leg_l'), max(u_hp('leg_l'), 50) + 20)" ] },
+          { "math": [ "u_hp('leg_r') = min(u_hp_max('leg_r'), max(u_hp('leg_r'), 50) + 20)" ] },
+          { "math": [ "u_hp('eyes') = min(u_hp_max('eyes'), max(u_hp('eyes'), 50) + 20)" ] },
+          { "math": [ "u_hp('mouth') = min(u_hp_max('mouth'), max(u_hp('mouth'), 50) + 20)" ] },
+          { "math": [ "u_hp('hand_l') = min(u_hp_max('hand_l'), max(u_hp('hand_l'), 50) + 20)" ] },
+          { "math": [ "u_hp('hand_r') = min(u_hp_max('hand_r'), max(u_hp('hand_r'), 50) + 20)" ] },
+          { "math": [ "u_hp('foot_l') = min(u_hp_max('foot_l'), max(u_hp('foot_l'), 50) + 20)" ] },
+          { "math": [ "u_hp('foot_r') = min(u_hp_max('foot_r'), max(u_hp('foot_r'), 50) + 20)" ] },
+          {
+            "u_message": "A wave of molten Original vitae detonates through your circulatory system! Shattered bones fuse and severed flesh snaps back together instantly!",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_MENU_EXPEL_SPLINTERS",
+    "effect": [
+      {
+        "run_eoc_selector": [
+          "EOC_ORIGINAL_SPLINTER_MANUAL",
+          "EOC_ORIGINAL_SPLINTER_SURGE",
+          "EOC_ORIGINAL_SPLINTER_CAUTERIZE",
+          "EOC_ORIGINAL_SPLINTER_CHECK",
+          "EOC_ORIGINAL_SPLINTER_CANCEL"
+        ],
+        "names": [
+          "Carefully Pluck Splinters (Painful, 0 Blood)",
+          "Pressurize Vitae (Violent Expulsion - 50 mL Blood)",
+          "Occult Cauterization (Willpower Burn - 5 Pain, 20 mL Blood)",
+          "Examine Wounds (Inspect Wood Status)",
+          "Cancel"
+        ],
+        "keys": [ "p", "s", "c", "e", "q" ],
+        "descriptions": [
+          "Pluck the wooden fragments out one by one. Causes minor pain (+2 pain) but uses no blood.",
+          "Pressurize thousand-year-old progenitor vitae into your wound channels, blowing all wooden fragments out in a crimson mist. Clears splinters instantly, costs 50 mL blood.",
+          "Superheat your vampiric willpower to instantly incinerate wooden splinters within your flesh, sealing the wound. Costs 5 pain, 20 mL blood.",
+          "Inspect your body for any wooden splinters lodged in your flesh.",
+          "Close this menu."
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SPLINTER_CANCEL",
+    "effect": [ { "u_message": "You cease examining your wounds.", "type": "neutral" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SPLINTER_MANUAL",
+    "effect": [
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "ALL" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "torso" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "head" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_l" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_r" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_l" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_r" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_l" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_r" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_l" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_r" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "eyes" },
+      { "u_lose_effect": "effect_wood_splinters", "target_part": "mouth" },
+      { "u_lose_effect": "effect_wood_splinters" },
+      { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+      { "math": [ "u_pain() += 2" ] },
+      {
+        "u_message": "With steady hands, you pluck every remaining wooden splinter from your flesh. Your wounds immediately begin knitting closed and your hybrid pain insensitivity returns.",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SPLINTER_SURGE",
+    "effect": [
+      {
+        "if": { "math": [ "u_vitamin('human_blood_vitamin') >= 50" ] },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 50" ] },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "ALL" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "torso" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "head" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "eyes" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "mouth" },
+          { "u_lose_effect": "effect_wood_splinters" },
+          { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+          { "u_heal_all": 10 },
+          {
+            "u_message": "You flex your muscles and surge pressurized Original vitae through your tissues! Wooden splinters are violently blown out in a mist of red, instantly restoring your supernatural pain immunity!",
+            "type": "good"
+          },
+          { "u_make_sound": "POP-CRACK! (Splinters Expelled)", "volume": 20 }
+        ],
+        "else": [ { "u_message": "You do not have enough stored blood (50 mL required) to blow the splinters out.", "type": "bad" } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SPLINTER_CAUTERIZE",
+    "effect": [
+      {
+        "if": { "math": [ "u_vitamin('human_blood_vitamin') >= 20" ] },
+        "then": [
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 20" ] },
+          { "math": [ "u_pain() += 5" ] },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "ALL" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "torso" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "head" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "arm_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "leg_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "hand_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_l" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "foot_r" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "eyes" },
+          { "u_lose_effect": "effect_wood_splinters", "target_part": "mouth" },
+          { "u_lose_effect": "effect_wood_splinters" },
+          { "u_add_effect": "effect_klaus_pain_relief", "duration": "PERMANENT" },
+          { "u_heal_all": 5 },
+          {
+            "u_message": "A surge of occult heat burns through your flesh, reducing foreign wooden splinters to ash. Your tissues seal instantly and your hybrid pain immunity returns.",
+            "type": "good"
+          }
+        ],
+        "else": [ { "u_message": "You need at least 20 mL of blood to cauterize the wounds.", "type": "bad" } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_SPLINTER_CHECK",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            { "u_has_effect": "effect_wood_splinters" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "head" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "eyes" },
+            { "u_has_effect": "effect_wood_splinters", "bodypart": "mouth" }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Toxic wooden splinters are lodged deep within your wounded flesh! Affected limbs are prevented from regenerating until the fragments are expelled.",
+            "type": "bad"
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "torso" },
+            "then": [ { "u_message": "- Torso: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "head" },
+            "then": [ { "u_message": "- Head: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_l" },
+            "then": [ { "u_message": "- Left Arm: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "arm_r" },
+            "then": [ { "u_message": "- Right Arm: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_l" },
+            "then": [ { "u_message": "- Left Leg: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "leg_r" },
+            "then": [ { "u_message": "- Right Leg: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_l" },
+            "then": [ { "u_message": "- Left Hand: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "hand_r" },
+            "then": [ { "u_message": "- Right Hand: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_l" },
+            "then": [ { "u_message": "- Left Foot: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          },
+          {
+            "if": { "u_has_effect": "effect_wood_splinters", "bodypart": "foot_r" },
+            "then": [ { "u_message": "- Right Foot: embedded wooden splinters suppressing healing.", "type": "warning" } ]
+          }
+        ],
+        "else": [
+          {
+            "u_message": "Your immortal flesh is completely free of wooden splinters. Preternatural healing is operating at peak efficiency across all limbs.",
+            "type": "good"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_TERROR_TARGET",
+    "effect": [
+      {
+        "if": "u_is_character",
+        "then": [
+          {
+            "if": {
+              "or": [
+                { "u_has_trait": "ELIJAH_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "ELIJAH_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "KLAUS_ORIGINAL_IMMORTALITY" },
+                { "u_has_trait": "KLAUS_ORIGINAL_VAMPIRE" },
+                { "u_has_trait": "ELIJAH_SIBLING_ORIGINAL" },
+                { "u_has_trait": "MIKAELSON_ORIGINAL_NPC" }
+              ]
+            },
+            "then": [ { "math": [ "u_npc_fear() = 0" ] }, { "u_lose_effect": "eff_original_terror" } ],
+            "else": [
+              { "u_add_effect": "eff_original_terror", "duration": "8 seconds" },
+              { "math": [ "u_npc_fear() = 100" ] },
+              {
+                "u_message": "The thousand-year predator's presence paralyzes you with suffocating, primal terror!",
+                "type": "bad"
+              }
+            ]
+          }
+        ],
+        "else": [
+          {
+            "if": { "not": { "u_has_species": "ROBOT" } },
+            "then": [
+              { "u_add_effect": "eff_original_terror", "duration": "8 seconds" },
+              { "u_add_effect": "stunned", "duration": "2 seconds" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_BLOOD_SHARE",
+    "effect": [
+      {
+        "if": { "or": [ { "npc_has_species": "HUMAN" }, { "npc_has_flag": "HUMAN" }, { "npc_has_trait": "HUMAN" } ] },
+        "then": [
+          { "npc_heal_all": 60 },
+          { "npc_lose_effect": "bleed" },
+          { "npc_add_effect": "effect_vampire_blood_in_system", "duration": "24 hours" },
+          {
+            "u_message": "You bite open your wrist and feed your ancient Original blood to them.  Molten vitae floods their veins, knitting their broken bones and ensuring their immortal resurrection if killed.",
+            "type": "good"
+          }
+        ],
+        "else": [
+          {
+            "if": { "or": [ { "npc_has_species": "VAMPIRE" }, { "npc_has_trait": "VAMPIRE" }, { "npc_has_flag": "VAMPIRE" } ] },
+            "then": [
+              { "npc_heal_all": 100 },
+              { "npc_lose_effect": "bleed" },
+              {
+                "u_message": "Your ancient Original vitae invigorates the vampire, surging through their dead veins with terrifying restorative power.",
+                "type": "good"
+              }
+            ],
+            "else": [
+              {
+                "if": { "or": [ { "u_has_species": "HUMAN" }, { "u_has_flag": "HUMAN" } ] },
+                "then": [
+                  { "u_heal_all": 60 },
+                  { "u_lose_effect": "bleed" },
+                  { "u_add_effect": "effect_vampire_blood_in_system", "duration": "24 hours" },
+                  {
+                    "u_message": "Warm, potent Original blood surges through your veins, knitting bone and flesh together.",
+                    "type": "good"
+                  }
+                ],
+                "else": [
+                  { "u_message": "Only humans and vampires can receive the gift of Original vitae.", "type": "bad" },
+                  { "math": [ "u_vitamin('human_blood_vitamin') += 200" ] }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_ORIGINAL_FORGE_DAYLIGHT_RING",
+    "effect": [
+      { "math": [ "u_ring_forged = 0" ] },
+      {
+        "if": {
+          "and": [
+            { "math": [ "u_ring_forged == 0" ] },
+            { "math": [ "u_vitamin('human_blood_vitamin') >= 300" ] },
+            { "u_has_item": "ring_signet" }
+          ]
+        },
+        "then": [
+          { "u_consume_item": "ring_signet" },
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 300" ] },
+          { "u_spawn_item": "klaus_daylight_ring" },
+          { "math": [ "u_ring_forged = 1" ] }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            { "math": [ "u_ring_forged == 0" ] },
+            { "math": [ "u_vitamin('human_blood_vitamin') >= 300" ] },
+            { "u_has_item": "ring_silver" }
+          ]
+        },
+        "then": [
+          { "u_consume_item": "ring_silver" },
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 300" ] },
+          { "u_spawn_item": "klaus_daylight_ring" },
+          { "math": [ "u_ring_forged = 1" ] }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            { "math": [ "u_ring_forged == 0" ] },
+            { "math": [ "u_vitamin('human_blood_vitamin') >= 300" ] },
+            { "u_has_item": "ring_gold" }
+          ]
+        },
+        "then": [
+          { "u_consume_item": "ring_gold" },
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 300" ] },
+          { "u_spawn_item": "klaus_daylight_ring" },
+          { "math": [ "u_ring_forged = 1" ] }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            { "math": [ "u_ring_forged == 0" ] },
+            { "math": [ "u_vitamin('human_blood_vitamin') >= 300" ] },
+            { "u_has_item": "ring_platinum" }
+          ]
+        },
+        "then": [
+          { "u_consume_item": "ring_platinum" },
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 300" ] },
+          { "u_spawn_item": "klaus_daylight_ring" },
+          { "math": [ "u_ring_forged = 1" ] }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            { "math": [ "u_ring_forged == 0" ] },
+            { "math": [ "u_vitamin('human_blood_vitamin') >= 300" ] },
+            { "u_has_item": "ring_diamond" }
+          ]
+        },
+        "then": [
+          { "u_consume_item": "ring_diamond" },
+          { "math": [ "u_vitamin('human_blood_vitamin') -= 300" ] },
+          { "u_spawn_item": "klaus_daylight_ring" },
+          { "math": [ "u_ring_forged = 1" ] }
+        ]
+      },
+      {
+        "if": { "math": [ "u_ring_forged == 1" ] },
+        "then": [
+          {
+            "u_message": "You channel 1,200 Mana and 300 mL of dark Original blood into the ring. A brilliant sapphire solar ward crystallizes upon the band, forging a permanent Lapis Daylight Ring!",
+            "type": "good"
+          }
+        ],
+        "else": [
+          {
+            "u_message": "The ritual fails! You require a metal ring (signet, silver, gold, platinum, or diamond) and at least 300 mL of blood.",
+            "type": "bad"
+          },
+          { "math": [ "u_val('mana') += 1200" ] }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_DECAPITATE",
+    "effect": [
+      {
+        "u_deal_damage": "cut",
+        "amount": { "math": [ "rng(350, 480)" ] },
+        "bodypart": "head",
+        "arpen": 50,
+        "hit_roll": 10000
+      },
+      { "sound_effect": "melee_cut", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_make_sound": "CRACK-RIP! (Head Severed)", "volume": 35 },
+      { "u_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      {
+        "u_message": "With a savage roar and terrifying hybrid violence, you wrench their head clean off their shoulders! A fountain of blood erupts as the decapitated carcass collapses!",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_HEART",
+    "effect": [
+      {
+        "u_deal_damage": "stab",
+        "amount": { "math": [ "rng(240, 360)" ] },
+        "bodypart": "torso",
+        "arpen": 50,
+        "hit_roll": 10000
+      },
+      { "sound_effect": "melee_cut", "id": "melee_hit_flesh", "volume": 100 },
+      { "u_make_sound": "CRACK-PUNCH! (Chest Pierced)", "volume": 35 },
+      { "u_set_field": "fd_blood", "radius": 1, "intensity": 3 },
+      {
+        "if": {
+          "and": [
+            {
+              "and": [
+                {
+                  "or": [
+                    { "u_has_species": "HUMAN" },
+                    { "u_has_species": "MAMMAL" },
+                    { "u_has_species": "VAMPIRE" },
+                    { "u_has_species": "VAMPIRE_ANATHEMA" },
+                    { "u_has_species": "ZOMBIE" },
+                    { "u_has_species": "FERAL" },
+                    { "u_has_species": "RENFIELD" },
+                    { "u_has_species": "BIRD" },
+                    { "u_has_species": "REPTILE" }
+                  ]
+                },
+                { "not": { "u_has_species": "ROBOT" } }
+              ]
+            },
+            { "math": [ "u_hp('torso') <= 300" ] }
+          ]
+        },
+        "then": [
+          {
+            "npc_message": "Your hand plunges savagely through their ribcage and closes tight around their beating heart! With a monstrous hybrid roar, you rip the organ free and crush it to pulp as their lifeless body collapses!",
+            "type": "good"
+          },
+          { "run_eocs": "EOC_KLAUS_HEART_TAKEN", "alpha_talker": "npc" },
+          "u_die"
+        ],
+        "else": [
+          {
+            "npc_message": "Your claws tear deep into their chest, but whatever this monstrosity is, it remains standing!",
+            "type": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_KLAUS_HEART_TAKEN",
+    "effect": [ { "u_heal_all": 50 }, { "math": [ "u_vitamin('human_blood_vitamin') += 100" ] } ]
   }
 ]

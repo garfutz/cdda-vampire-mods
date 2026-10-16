@@ -6,8 +6,8 @@
     "teachable": false,
     "id": "klaus_spell_hybrid_bite",
     "type": "SPELL",
-    "name": "Hybrid Bite",
-    "description": "To a human it's a vampire's bite.  To a vampire it's a death sentence: the werewolf venom in a hybrid's bite is fatal to them, and only your blood can cure it.\n\n<color_light_red>Blood Cost:</color> 20 ml",
+    "name": "Lethal Werewolf Bite",
+    "description": "Sink your hybrid werewolf fangs savagely into an adjacent enemy, delivering lethal werewolf venom into their bloodstream. Against mortals and monsters, the venom rots flesh and causes excruciating agony. Against vampires, the venom is an absolute, incurable death sentence!\n\n<color_light_red>Blood Cost:</color> 40 ml",
     "valid_targets": [ "hostile" ],
     "effect": "effect_on_condition",
     "effect_str": "EOC_KLAUS_HYBRID_BITE",
@@ -15,8 +15,8 @@
     "flags": [ "SILENT", "NO_HANDS", "NO_FAIL", "NO_PROJECTILE" ],
     "min_range": 1,
     "max_range": 1,
-    "base_energy_cost": 20,
-    "base_casting_time": 100,
+    "base_energy_cost": 40,
+    "base_casting_time": 40,
     "difficulty": 1
   },
   {

@@ -79,7 +79,16 @@
     "points": 0,
     "valid": false,
     "purifiable": false,
-    "description": "Fire, stakes, decapitation: none of it keeps an Original down for long.  When a wound should have killed you, your body simply stops, knits itself back together, and gets up again a little later.  Only a stake of the white oak tree can end an Original for good, which is why you've spent centuries burning every one you could find.\n\n<color_light_red>Whenever any part of your body drops below a third of its health, it heals completely within seconds (once a minute).  If any part of you is destroyed, even your head or your heart, you die, and rise again a moment later completely restored and furious.  Ordinary wooden stakes, bullets, fire and blades can never kill you.  Only the white oak stake can, and it is locked away where no hunter will ever find it.</color>"
+    "description": "Fire, stakes, decapitation: none of it keeps an Original down for long.  Your thousand-year-old indestructible nervous system and hybrid constitution grant virtually complete pain insensitivity (-85% pain, -95% pain penalties), though toxic wood embedded in your flesh disrupts this immunity until removed.  No matter how battered or pierced your flesh is, your absolute mental concentration remains unbroken, ensuring you can always focus to unleash your ancient hybrid powers.\n\nYour god-tier immortal physiology continuously mends broken bones, knits shattered flesh, and seals hemorrhaging wounds scaled directly by the volume of stolen blood stored in your veins (up to +10 HP every 3s).  Only a stake carved from the white oak tree driven through your heart can end an Original for good.",
+    "enchantments": [
+      {
+        "values": [
+          { "value": "MAX_MANA", "add": 2000 },
+          { "value": "REGEN_MANA", "multiply": 2.0 },
+          { "value": "LEARNING_FOCUS", "add": 50 }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",

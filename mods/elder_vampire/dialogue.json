@@ -417,28 +417,12 @@
       {
         "text": "\"Give me a demonstration of your hunter arsenal (Take weapons and vervain).\"",
         "topic": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
-        "effect": [
-          { "u_spawn_item": "hunter_combat_stake" },
-          { "u_spawn_item": "hunter_wooden_stake", "count": 2 },
-          { "u_spawn_item": "hunter_vervain_crossbow" },
-          { "u_spawn_item": "vervain_tea" },
-          { "u_spawn_item": "vervain_extract_flask" },
-          {
-            "u_message": "The hunter hands you a fire-hardened combat stake, a stake crossbow, vervain tea, and vervain extract for testing.",
-            "type": "good"
-          }
-        ]
+        "effect": [ { "run_eocs": "EOC_TEST_HUNTER_GIVE_ARSENAL" } ]
       },
       {
         "text": "\"Drink your steeped vervain tea now (Infuse your bloodstream with vervain).\"",
         "topic": "TALK_ELDER_VAMPIRE_HUNTER_TESTER",
-        "effect": [
-          { "npc_add_effect": "effect_vervain_blood", "duration": "24 hours" },
-          {
-            "u_message": "The hunter downs a flask of steeped vervain tea. His bloodstream is now saturated with vervain for 24 hours!",
-            "type": "good"
-          }
-        ]
+        "effect": [ { "run_eocs": "EOC_TEST_HUNTER_DRINK_VERVAIN" } ]
       },
       {
         "text": "\"[Test Bite Reaction] Let me sink my fangs into your neck.\"",
@@ -446,9 +430,19 @@
         "effect": [ { "run_eocs": "EOC_TEST_BITE_HUNTER" } ]
       },
       {
+        "text": "\"[Combat Test: Close Quarters] Draw your fire-hardened combat stake and duel me!\"",
+        "topic": "TALK_DONE",
+        "effect": [ { "run_eocs": "EOC_TEST_DUEL_HUNTER_MELEE" }, "insult_combat" ]
+      },
+      {
+        "text": "\"[Combat Test: Stake Crossbow] Ready your heavy stake crossbow and fire!\"",
+        "topic": "TALK_DONE",
+        "effect": [ { "run_eocs": "EOC_TEST_DUEL_HUNTER_RANGED" }, "insult_combat" ]
+      },
+      {
         "text": "\"En garde! Defend yourself! (Turn Hostile - Combat Test)\"",
         "topic": "TALK_DONE",
-        "effect": [ "insult_combat", { "math": [ "n_npc_fear() = 0" ] }, { "math": [ "n_npc_anger() = 100" ] } ]
+        "effect": "insult_combat"
       },
       { "text": "\"I will be on my way.\"", "topic": "TALK_DONE" }
     ]

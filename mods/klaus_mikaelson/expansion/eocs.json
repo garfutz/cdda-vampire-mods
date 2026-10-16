@@ -95,15 +95,28 @@
     "type": "effect_on_condition",
     "id": "EOC_KLAUS_HYBRID_BITE",
     "effect": [
-      { "u_deal_damage": "stab", "amount": { "math": [ "rng(18, 30)" ] } },
+      { "u_deal_damage": "stab", "amount": { "math": [ "rng(60, 85)" ] }, "arpen": 30 },
+      { "u_set_field": "fd_blood", "radius": 1, "intensity": 2 },
+      { "sound_effect": "hit_flesh", "id": "bullet_hit", "volume": 80 },
       {
-        "if": { "or": [ { "u_has_species": "VAMPIRE" }, { "u_has_species": "VAMPIRE_ANATHEMA" } ] },
+        "if": {
+          "or": [
+            { "u_has_species": "VAMPIRE" },
+            { "u_has_species": "VAMPIRE_ANATHEMA" },
+            { "u_has_trait": "VAMPIRE" },
+            { "u_has_trait": "VAMPIRE2" },
+            { "u_has_trait": "VAMPIRE3" },
+            { "u_has_trait": "VAMPIRE4" },
+            { "u_has_trait": "ELDER_VAMPIRE_REGENERATION" },
+            { "u_has_flag": "VAMPIRE" }
+          ]
+        },
         "then": [
-          { "u_deal_damage": "biological", "amount": { "math": [ "rng(60, 90)" ] } },
+          { "u_deal_damage": "pure", "amount": 400, "bodypart": "torso" },
           { "u_add_effect": "effect_klaus_hybrid_venom", "duration": "30 minutes" },
           {
-            "npc_message": "Werewolf venom floods the vampire's veins.  Without your blood, it's already dead.",
-            "type": "good"
+            "npc_message": "The werewolf venom of the Original Hybrid is lethal to vampires! Black veins spiderweb across their skin as they collapse into excruciating convulsions!",
+            "type": "bad"
           }
         ],
         "else": [
@@ -111,7 +124,14 @@
             "if": {
               "and": [ { "or": [ { "u_has_species": "MAMMAL" }, { "u_has_species": "HUMAN" } ] }, { "not": { "u_has_species": "ZOMBIE" } } ]
             },
-            "then": [ { "run_eocs": "EOC_KLAUS_FEED", "alpha_talker": "npc" } ]
+            "then": [ { "run_eocs": "EOC_KLAUS_FEED", "alpha_talker": "npc" } ],
+            "else": [
+              { "u_add_effect": "effect_klaus_hybrid_venom", "duration": "30 minutes" },
+              {
+                "npc_message": "You tear into their flesh with hybrid fangs, injecting lethal necrotic werewolf venom directly into their circulatory system!",
+                "type": "good"
+              }
+            ]
           }
         ]
       }

@@ -4,11 +4,11 @@
     "id": "XE_ALPHA_OF_THE_PEOPLE",
     "name": { "str": "Alpha of the People" },
     "points": 0,
-    "description": "You are the strongest wolf in these hills, and the Moon knows it.  Your body is harder, faster and hungrier than any of the People you led, you heal like a wolf half your age, and your gifts run deeper.  Under the night sky it only gets worse for whatever you're hunting.\n\nActivate to <color_light_red>howl</color>: a roar that stuns and terrifies everything nearby and drives you into a hunting fury (costs werewolf mana).  Under a full moon at night you're stronger still.",
+    "description": "You are the strongest wolf in these hills, and the Moon knows it.  Your body is harder, faster and hungrier than any of the People you led, you heal like a wolf half your age, and your gifts run deeper.  Under the night sky it only gets worse for whatever you're hunting.\n\nActivate to <color_light_red>howl</color>: a roar that stuns and terrifies everything nearby and drives you into a hunting fury (costs werewolf mana).  Under a full moon at night you're stronger still.\n\nYour predatory blood possesses rapid hemostatic clotting, staunching heavy arterial bleeds within two minutes (faster under the night sky, though suppressed by silver).  Your pack gifts also grant <color_yellow>Apex Scent Radar</color>, <color_light_red>Savage Throat Tear</color>, and <color_cyan>Iron Hide</color>.\n\nYour beastly lupine frame grants <color_light_green>+75% carry weight capacity</color> (+100% under the night sky) and reduces all worn gear encumbrance by <color_light_green>25%</color>.",
     "starting_trait": false,
     "purifiable": false,
     "valid": false,
-    "spells_learned": [ [ "xe_alpha_howl", 5 ] ],
+    "spells_learned": [ [ "xe_alpha_howl", 5 ], [ "xe_alpha_scent_radar", 1 ], [ "xe_alpha_throat_tear", 1 ], [ "xe_alpha_iron_hide", 1 ] ],
     "enchantments": [
       {
         "values": [
@@ -24,8 +24,10 @@
           { "value": "REGEN_MANA", "multiply": 0.5 },
           { "value": "MAX_STAMINA", "add": 2500 },
           { "value": "SOCIAL_INTIMIDATE", "add": 15 },
-          { "value": "KNOCKDOWN_RESIST", "add": 1 }
-        ]
+          { "value": "KNOCKDOWN_RESIST", "add": 1 },
+          { "value": "CARRY_WEIGHT", "multiply": 0.75 }
+        ],
+        "encumbrance_modifier": [ { "part": "all", "multiply": -0.25 } ]
       },
       {
         "condition": { "not": "is_day" },
@@ -33,7 +35,8 @@
           { "value": "STRENGTH", "add": 2 },
           { "value": "SPEED", "add": 10 },
           { "value": "REGEN_HP", "multiply": 1.0 },
-          { "value": "MELEE_DAMAGE", "multiply": 0.15 }
+          { "value": "MELEE_DAMAGE", "multiply": 0.15 },
+          { "value": "CARRY_WEIGHT", "multiply": 0.25 }
         ]
       },
       {

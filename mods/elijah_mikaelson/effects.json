@@ -243,5 +243,79 @@
       { "limb_score": "lift", "modifier": 0.1 }
     ],
     "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_original_surge_cd",
+    "name": [ "Sanguine Surge Cooldown" ],
+    "desc": [ "Your blood is re-stabilizing after an intense burst of restorative vitae." ],
+    "rating": "neutral",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_original_terror",
+    "name": [ "Paralyzed with Original Dread" ],
+    "desc": [
+      "You are paralyzed before a thousand-year-old Original progenitor. The instinctual panic of prey facing the apex predator freezes you to your core."
+    ],
+    "apply_message": "An aura of ancient, crushing dread washes over you! You are paralyzed with terror!",
+    "remove_message": "The paralyzing dread begins to fade, though your hands still shake.",
+    "rating": "bad",
+    "max_duration": "10 seconds",
+    "base_mods": { "speed_mod": [ -60 ], "dex_mod": [ -6 ], "str_mod": [ -4 ], "per_mod": [ -4 ] },
+    "miss_messages": [ [ "Trembling before an ancient progenitor, you fumble your strike!", 1 ] ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_aristocratic_parry",
+    "name": [ "Aristocratic Impunity" ],
+    "desc": [
+      "For 30 seconds, you casually parry incoming blows barehanded with thousand-year-old nonchalance (+100% block/parry, +40 dodge), ready to disarm anyone bold enough to attack."
+    ],
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "dodge_mod": [ 40 ] },
+    "enchantments": [
+      {
+        "skills": [ { "value": "dodge", "add": 20 } ],
+        "values": [ { "value": "DODGE_CHANCE", "add": 20 }, { "value": "KNOCKBACK_RESIST", "add": 5 } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elijah_pain_relief",
+    "name": [ "Original Pain Insensitivity" ],
+    "desc": [
+      "Your thousand-year-old indestructible nervous system deadens physical agony, mitigating 85% of incoming pain and 95% of wound penalties.  However, foreign wood lodged in your flesh will disrupt this immunity."
+    ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN", "multiply": -0.85 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.95 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.95 },
+          { "value": "PAIN_PENALTY_MOD_INT", "multiply": -0.95 },
+          { "value": "PAIN_PENALTY_MOD_PER", "multiply": -0.95 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.95 }
+        ]
+      }
+    ],
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_vampire_blood_in_system",
+    "name": [ "Vampire Blood in System" ],
+    "desc": [
+      "Concentrated vampire blood courses through your veins.  Wounds mend rapidly, and if you die within the next 24 hours, you will awaken in transition as an immortal vampire."
+    ],
+    "apply_message": "Warm, potent vampire blood surges through your veins, knitting bone and flesh together.",
+    "remove_message": "The vampire blood in your system is metabolized and fades away.",
+    "rating": "good",
+    "max_duration": "24 hours",
+    "show_in_info": true
   }
 ]

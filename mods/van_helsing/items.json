@@ -265,12 +265,7 @@
     "volume": "750 ml",
     "price_postapoc": "30 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink vintage",
-      "description": "Drink the preserved blood wine.",
-      "effect_on_conditions": [ "EOC_DRINK_CRIMSON_VINTAGE" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_CRIMSON_VINTAGE" ]
   },
   {
     "id": "drink_sanguine_tonic",
@@ -286,12 +281,7 @@
     "volume": "300 ml",
     "price_postapoc": "15 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink tonic",
-      "description": "Drink the fortified plasma tonic.",
-      "effect_on_conditions": [ "EOC_DRINK_SANGUINE_TONIC" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_SANGUINE_TONIC" ]
   },
   {
     "id": "drink_hunters_courage",
@@ -307,12 +297,7 @@
     "volume": "500 ml",
     "price_postapoc": "25 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink steadfast draught",
-      "description": "Drink the fortified spirit.",
-      "effect_on_conditions": [ "EOC_DRINK_HUNTERS_COURAGE" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_HUNTERS_COURAGE" ]
   },
   {
     "id": "drink_strigoi_cordial",
@@ -328,12 +313,7 @@
     "volume": "750 ml",
     "price_postapoc": "45 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink strigoi cordial",
-      "description": "Drink the dark cordial.",
-      "effect_on_conditions": [ "EOC_DRINK_STRIGOI_CORDIAL" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_STRIGOI_CORDIAL" ]
   },
   {
     "id": "item_crypt_talisman",
@@ -678,12 +658,7 @@
     "volume": "750 ml",
     "price_postapoc": "40 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink vervain bourbon",
-      "description": "Drink the vervain-steeped bourbon.",
-      "effect_on_conditions": [ "EOC_DRINK_VERVAIN_BOURBON" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_VERVAIN_BOURBON" ]
   },
   {
     "id": "drink_ripper_absinthe",
@@ -729,12 +704,7 @@
     "volume": "750 ml",
     "price_postapoc": "80 USD",
     "category": "food",
-    "use_action": {
-      "type": "effect_on_conditions",
-      "menu_text": "Drink vintage",
-      "description": "Drink the elder vintage.",
-      "effect_on_conditions": [ "EOC_DRINK_CRIMSON_VINTAGE" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_CRIMSON_VINTAGE" ]
   },
   {
     "id": "item_vampire_heart",

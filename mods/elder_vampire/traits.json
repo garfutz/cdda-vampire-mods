@@ -6,22 +6,11 @@
     "points": 0,
     "valid": false,
     "purifiable": false,
-    "description": "Centuries of existence have refined your physiology into an engine of supernatural restoration.  Stored blood directly mends your tissue and bones:\n• <color_light_green>High Blood (over 1800 mL):</color> Broken bones mend in ~1 min (+5 HP / 5s); lacerations seal in ~30s (-1 bleed / 5s). Burns 4 mL blood/tick.\n• <color_yellow>Moderate Blood (850 to 1800 mL):</color> Steady restoration every 15s (+3 HP, -1 bleed). Burns 3 mL blood/tick.\n• <color_light_red>Low Blood (under 850 mL):</color> Slow mending every 45s (+1 HP, -1 bleed). Burns 1 mL blood/tick.\n• <color_red>Starving (0 mL or less):</color> Regeneration ceases completely until blood is drunk.  As an immortal Elder Progenitor, you are completely immune to dying from blood starvation or withering; your body only grows weak until you feed.\n• <color_red>Sunlight Vulnerability:</color> Standing outdoors in daylight without a daylight ring scorches your flesh with agonizing heat and completely negates all regeneration.\n\n• <color_cyan>Sanguine Surge:</color> Consuming blood from any source diminishes active bleeding wounds (-15 bleed burst) and grants a single 10s healing surge (+1 HP/s, 10s strict cooldown).\n\nYour deadened nerves and ancient vampiric constitution suppress incoming pain by 75%, almost eliminate physical stat penalties from wounds, and prevent falls from any height from killing you (though the impact still damages and fractures your limbs as normal).",
+    "description": "Centuries of existence have refined your physiology into an engine of supernatural restoration.  Stored blood directly mends your tissue and bones:\n• <color_light_green>Tier 1 - High Blood (over 1800 mL):</color> Rapid mending (+6 HP / 5s); lacerations seal in ~30s (-1 bleed / 5s). Burns 4 mL blood/tick.\n• <color_yellow>Tier 2 - Moderate Blood (850 to 1800 mL):</color> Steady restoration every 15s (+4 HP, -1 bleed). Burns 3 mL blood/tick.\n• <color_light_red>Tier 3 - Low Blood (300 to 850 mL):</color> Slow mending every 30s (+3 HP, -1 bleed). Burns 2 mL blood/tick.\n• <color_red>Tier 4 - Starving Blood (under 300 mL):</color> Minimal restoration every 60s (+1 HP). Burns 1 mL blood/tick.\n• <color_red>Empty (0 mL or less):</color> Regeneration ceases completely until blood is drunk.  As an immortal Elder Progenitor, you are completely immune to dying from blood starvation or withering; your body only grows weak until you feed.\n• <color_red>Sunlight Vulnerability:</color> Standing outdoors in daylight without a daylight ring scorches your flesh with agonizing heat and completely negates all regeneration.\n\n• <color_cyan>Sanguine Surge:</color> Consuming blood from any source diminishes active bleeding wounds (-15 bleed burst) and grants a single 10s healing surge (+1 HP/s, 10s strict cooldown).\n\nYour deadened nerves and ancient vampiric constitution suppress incoming pain by 75% and almost eliminate physical stat penalties from wounds (suppressed if wood is lodged in your flesh), and prevent falls from any height from killing you (though the impact still damages and fractures your limbs as normal).",
     "flags": [ "NO_THIRST" ],
     "armor": [ { "parts": [ "torso" ], "stab": 12, "bash": 10, "cut": 8 } ],
     "enchantments": [
-      {
-        "values": [
-          { "value": "PAIN", "multiply": -0.75 },
-          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_INT", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_PER", "multiply": -0.8 },
-          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.8 },
-          { "value": "MAX_MANA", "add": 1000 },
-          { "value": "REGEN_MANA", "multiply": 1.0 }
-        ]
-      },
+      { "values": [ { "value": "MAX_MANA", "add": 1000 }, { "value": "REGEN_MANA", "multiply": 1.0 } ] },
       {
         "condition": { "u_has_effect": "effect_elder_vampire_blood_radar" },
         "values": [ { "value": "PERCEPTION", "add": 4 }, { "value": "NIGHT_VIS", "add": 10 } ],

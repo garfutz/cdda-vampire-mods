@@ -62,7 +62,7 @@
     "subtypes": [ "COMESTIBLE" ],
     "copy-from": "human_heart",
     "name": { "str": "still-beating heart", "str_pl": "still-beating hearts" },
-    "description": "A warm, still-quivering heart violently ripped from the chest cavity of a living victim.  Dark supernatural vitae steadily drips from its torn ventricles.  Consuming it feeds an ancient vampire with pure, concentrated lifeforce (+400 mL blood).",
+    "description": "A warm, still-quivering heart violently ripped from the chest cavity of a living victim.  Dark supernatural vitae steadily drips from its torn ventricles.  Eat ('E') to consume it and gorge an ancient vampire with pure, concentrated lifeforce (+400 mL blood).",
     "weight": "320 g",
     "volume": "250 ml",
     "category": "food",
@@ -70,11 +70,7 @@
     "parasites": 0,
     "spoils_in": "2 days",
     "flags": [ "NUTRIENT_OVERRIDE", "EATEN_COLD", "HEMOVORE_FUN" ],
-    "use_action": {
-      "type": "effect_on_conditions",
-      "description": "Drain and consume the still-beating heart",
-      "effect_on_conditions": [ "EOC_ELDER_VAMPIRE_CONSUME_HEART_MANUAL" ]
-    }
+    "consumption_effect_on_conditions": [ "EOC_ELDER_VAMPIRE_CONSUME_HEART_MANUAL" ]
   },
   {
     "id": "elder_vampire_severed_head",
@@ -430,7 +426,7 @@
     "quench": 25,
     "healthy": 1,
     "material": [ "water" ],
-    "use_action": { "type": "cast_spell", "spell_id": "spell_drink_vervain_tea", "no_fail": true, "level": 1 }
+    "consumption_effect_on_conditions": [ "EOC_DRINK_VERVAIN_TEA" ]
   },
   {
     "id": "vervain_extract_flask",
@@ -463,11 +459,15 @@
     "subtypes": [ "GUN" ],
     "copy-from": "crossbow",
     "name": { "str": "vampire hunter's stake crossbow", "str_pl": "vampire hunter's stake crossbows" },
-    "description": "A reinforced composite crossbow fitted with an enlarged guide rail, protective silver runes, and heavy-tension limbs specifically tuned to drive pointed wooden stakes and heavy bolts straight through supernatural flesh.  Reinforced with a heavy steel stirrup and fitted with a leather shoulder strap, allowing it to double as a crushing close-combat blunt weapon.",
+    "description": "A reinforced composite crossbow fitted with an enlarged guide rail, protective silver runes, and heavy-tension limbs specifically tuned to drive pointed wooden stakes and heavy bolts straight through supernatural flesh.  Reinforced with a heavy steel stirrup and fitted with a leather shoulder strap.",
     "color": "dark_gray",
-    "melee_damage": { "bash": 32, "stab": 16 },
+    "range": 18,
+    "reload": 250,
+    "dispersion": 120,
+    "sight_dispersion": 60,
+    "melee_damage": { "bash": 10, "stab": 4 },
     "built_in_mods": [ "shoulder_strap" ],
-    "relative": { "ranged_damage": { "damage_type": "stab", "amount": 10, "armor_penetration": 10 }, "durability": 3 },
+    "ranged_damage": { "damage_type": "stab", "amount": 30, "armor_penetration": 16 },
     "extend": { "flags": [ "WOODEN_STAKE_LAUNCHER" ] }
   }
 ]

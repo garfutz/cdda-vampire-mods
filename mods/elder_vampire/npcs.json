@@ -32,7 +32,7 @@
       { "item": "boots" },
       { "item": "gloves_tactical" },
       { "item": "sheath", "contents-item": "hunter_combat_stake" },
-      { "item": "quiver_large" },
+      { "item": "quiver_large", "ammo-item": "hunter_wooden_stake", "charges": 20 },
       { "item": "backpack_leather" }
     ]
   },
@@ -83,13 +83,14 @@
     "weapon_override": "elder_vampire_hunter_wield",
     "carry_override": "elder_vampire_hunter_carry",
     "skills": [
-      { "skill": "archery", "bonus": 6 },
-      { "skill": "stabbing", "bonus": 6 },
-      { "skill": "melee", "bonus": 5 },
-      { "skill": "dodge", "bonus": 5 },
+      { "skill": "rifle", "bonus": 8 },
+      { "skill": "gun", "bonus": 8 },
+      { "skill": "archery", "bonus": 8 },
+      { "skill": "stabbing", "bonus": 7 },
+      { "skill": "melee", "bonus": 6 },
+      { "skill": "dodge", "bonus": 6 },
       { "skill": "bashing", "bonus": 4 },
       { "skill": "cutting", "bonus": 4 },
-      { "skill": "gun", "bonus": 5 },
       { "skill": "unarmed", "bonus": 5 },
       { "skill": "survival", "bonus": 6 },
       { "skill": "firstaid", "bonus": 5 }

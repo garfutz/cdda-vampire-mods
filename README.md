@@ -54,7 +54,18 @@ Step into the trench coat of the legendary monster hunter Abraham Van Helsing.
 
 ### 5. Alpha Werewolf (`xe_alpha_werewolf`)
 Embrace primal lycanthropy with the Alpha Werewolf mod.
-- **Alpha Werewolf Profession & Traits**: Enhanced regeneration, heightened predatory senses, devastating claw damage, and lunar fury.
+- **Alpha Werewolf Profession & Traits**: Enhanced cellular regeneration, heightened predatory senses, devastating claw damage, and lunar fury.
+- **Lupine Hemostatic Clotting & Active Regeneration**:
+  - High-speed 3-second heartbeat maintenance loop.
+  - Active healing: +4 HP/tick (Day), +6 HP/tick (Night), and +8 HP/tick (Full Moon) across all limbs with -1 pain reduction.
+  - Rapid arterial bleed and deep wound suppression.
+  - Balanced blood volume recovery (+5 mL/tick).
+  - Werewolf Constitution: +75% carry capacity (+100% at night) and -25% global gear encumbrance.
+- **Tactical Survival Kit & Shelter**:
+  - MOLLE large rucksack with integrated tent kit, combat fighting knife, trail rations, and consolidated 20-tablet water purification bottle.
+- **Truck Stashes & Winter Gear**:
+  - Full military winter survival gear in the cab (winter jacket, winter pants, thermal layers, boots, gloves, balaclava, wool socks), entrenching tool, 8x chemical heatpacks, and road flares.
+  - 20L diesel heavy steel jerrycan, heavy digging shovel, heavy-duty tow cables, jumper cables, and warm fur blanket in the truck bed.
 - **'Last of the Pack' Scenario**: Start stranded with a battered pickup truck and an ancestral vendetta.
 - **Vampire Lord Hunt**: Track down and slaughter the vampire lord who wiped out your pack.
 

@@ -128,6 +128,19 @@
   },
   {
     "type": "effect_type",
+    "id": "effect_vampire_blood_in_system",
+    "name": [ "Vampire Blood in System" ],
+    "desc": [
+      "Potent vampire blood courses through your veins.  All broken bones and wounds have mended rapidly—and if you die within the next 24 hours, you will awaken in transition as a vampire."
+    ],
+    "apply_message": "Warm, potent vampire blood surges through your veins, knitting bone and flesh together.",
+    "remove_message": "The vampire blood in your system is metabolized and fades away.",
+    "rating": "good",
+    "max_duration": "24 hours",
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
     "id": "effect_elder_vampire_in_transition",
     "name": [ "In Transition (Needs Human Blood)" ],
     "desc": [
@@ -378,6 +391,27 @@
     "rating": "good",
     "max_duration": "30 seconds",
     "base_mods": { "str_mod": [ 2 ], "dex_mod": [ 2 ], "speed_mod": [ 10 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_elder_vampire_pain_relief",
+    "name": [ "Elder Deadened Nerves" ],
+    "desc": [
+      "Centuries of undeath have deadened your nervous system, suppressing incoming pain by 75% and reducing physical wound penalties by 80%.  However, organic wood lodged in your unholy flesh disrupts this insensitivity."
+    ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "PAIN", "multiply": -0.75 },
+          { "value": "PAIN_PENALTY_MOD_STR", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_DEX", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_INT", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_PER", "multiply": -0.8 },
+          { "value": "PAIN_PENALTY_MOD_SPEED", "multiply": -0.8 }
+        ]
+      }
+    ],
     "show_in_info": true
   }
 ]

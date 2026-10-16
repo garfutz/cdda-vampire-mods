@@ -304,7 +304,7 @@
     "type": "SPELL",
     "name": "Supernatural Breach Kick Creature Knockback",
     "description": "Knockback and shockwave for creatures struck by Supernatural Breach Kick.",
-    "valid_targets": [ "hostile", "ally", "ground" ],
+    "valid_targets": [ "hostile", "ally" ],
     "effect": "effect_on_condition",
     "effect_str": "EOC_ELDER_VAMPIRE_BREACH_KICK_CREATURE",
     "shape": "blast",

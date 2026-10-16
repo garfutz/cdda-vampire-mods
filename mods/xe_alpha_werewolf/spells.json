@@ -30,6 +30,7 @@
     "base_casting_time": 100,
     "max_level": 10,
     "difficulty": 1,
+    "learn_spells": { "xe_alpha_scent_radar": 1, "xe_alpha_throat_tear": 1, "xe_alpha_iron_hide": 1 },
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ]
   },
   {
@@ -48,5 +49,58 @@
     "min_duration": 300,
     "max_duration": 300,
     "flags": [ "SILENT", "NO_PROJECTILE", "IGNORE_WALLS" ]
+  },
+  {
+    "id": "xe_alpha_scent_radar",
+    "type": "SPELL",
+    "name": { "str": "Apex Scent Radar" },
+    "description": "Draw a deep breath through your flared nostrils, analyzing every scent particle on the wind within forty-five paces.  You detect nearby predators, the coppery stench of bleeding prey through walls and darkness, and sharpen your perception.",
+    "valid_targets": [ "self" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_XE_ALPHA_SCENT_RADAR",
+    "shape": "blast",
+    "magic_type": "xe_werewolf_powers",
+    "spell_class": "WEREWOLF_SPELLS",
+    "base_energy_cost": 40,
+    "base_casting_time": 25,
+    "max_level": 5,
+    "difficulty": 1,
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ]
+  },
+  {
+    "id": "xe_alpha_throat_tear",
+    "type": "SPELL",
+    "name": { "str": "Savage Throat Tear" },
+    "description": "Lunge forward with feral savagery and sink your heavy jaws directly into the target's throat and jugular vein.  Deals devastating armor-piercing cut and stab trauma, inflicts catastrophic arterial bleeding, knocks the victim down, and executes weakened prey outright.",
+    "valid_targets": [ "hostile" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_XE_ALPHA_THROAT_TEAR",
+    "shape": "blast",
+    "min_range": 1,
+    "max_range": 1,
+    "magic_type": "xe_werewolf_powers",
+    "spell_class": "WEREWOLF_SPELLS",
+    "base_energy_cost": 60,
+    "base_casting_time": 30,
+    "max_level": 5,
+    "difficulty": 2,
+    "flags": [ "SILENT", "NO_FAIL", "NO_PROJECTILE", "NO_LEGS" ]
+  },
+  {
+    "id": "xe_alpha_iron_hide",
+    "type": "SPELL",
+    "name": { "str": "Iron Hide Stance" },
+    "description": "Harden your muscle fibers, dense pelt, and bone structure into an ironclad defensive stance.  Drastically absorbs bash (-8), cut (-12), stab (-8), and ballistic (-10) damage and grants total knockdown immunity at the cost of a slight movement speed penalty.  Toggleable.",
+    "valid_targets": [ "self" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_XE_ALPHA_TOGGLE_IRON_HIDE",
+    "shape": "blast",
+    "magic_type": "xe_werewolf_powers",
+    "spell_class": "WEREWOLF_SPELLS",
+    "base_energy_cost": 30,
+    "base_casting_time": 10,
+    "max_level": 5,
+    "difficulty": 1,
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ]
   }
 ]
